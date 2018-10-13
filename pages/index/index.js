@@ -69,17 +69,17 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.fillInfo()
+    var that = this;
+    if (!wx.getStorageSync('openId')) {
+      that.setData({
+        needAuth: true
+      })
+    } else {
+      this.fillInfo()
+    }
   },
   /**
    * 填充信息
@@ -131,7 +131,6 @@ Page({
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null
           var btnMsg = util.changeMsg(boxStatus, 'btn')
-
           var message = util.changeMsg(boxStatus, 'msg')
           that.setData({
             user: user,

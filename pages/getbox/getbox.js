@@ -58,6 +58,7 @@ Page({
       this.updatePayAmount()
     }
     this.findBalance()
+    this.findExpCoupon()
   },
   updatePayAmount: function(){
     var that = this

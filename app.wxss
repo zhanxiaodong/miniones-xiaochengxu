@@ -1,4 +1,8 @@
 /**app.wxss**/
+@import "./style/layout.wxss";
+@import "./style/iconfont.wxss";
+@import 'components/wux.wxss';
+@import 'components/picker_datetime/picker_datetime.wxss';
 .container {
   height: 100%;
   display: flex;
