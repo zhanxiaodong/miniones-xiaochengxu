@@ -20,7 +20,7 @@
 }
 
   .content {
-    padding: 200rpx 80rpx;
+    padding: 200rpx 100rpx;
     text-align: center;
   }
   

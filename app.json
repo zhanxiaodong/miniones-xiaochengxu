@@ -2,15 +2,14 @@
   "pages": [
     "pages/log/log",
     "pages/plan/plan",
+    "pages/attitude/attitude",
+    "pages/photo/photo",
+    "pages/detail/detail",
     "pages/style/style",
     "pages/index/index",
-    
-    "pages/detail/detail",
     "pages/prefer/prefer",
     "pages/paste/paste",
-    "pages/attitude/attitude",
     "pages/color/color",
-    "pages/photo/photo",
     "pages/password/password",
     "pages/check/check",
     "pages/wallet/wallet",

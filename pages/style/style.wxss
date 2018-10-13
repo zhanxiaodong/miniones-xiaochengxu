@@ -1,5 +1,5 @@
 .title {
-    padding: 80rpx 56rpx;
+    padding: 60rpx 56rpx;
 }
 
 .title-first {
@@ -22,7 +22,7 @@
 }
 
 .content {
-  padding: 80rpx;
+  padding: 70rpx 105rpx;
   text-align: center;
 }
 
@@ -31,7 +31,7 @@
     width:50%;
     box-sizing:border-box;
     color:#999;
-    margin-bottom:60rpx;
+    margin-bottom:50rpx;
 
 }
 
