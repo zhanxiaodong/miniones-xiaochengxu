@@ -103,9 +103,9 @@ Page({
   },
   edit: function (event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)
-    var babyId = event.currentTarget.dataset.id
+    var id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: "/pages/getbox/getbox?babyId=" + babyId,
+      url: "/pages/affirm/affirm?id=" + id,
     })
   },
   add: function (e) {

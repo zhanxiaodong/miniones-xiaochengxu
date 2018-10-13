@@ -1,4 +1,3 @@
-/*全局*/
 .all {
   background-color: #008472;
   height: 100%;
@@ -41,11 +40,16 @@
 
 /*下半部分*/
 .bottom-button {
-  padding: 110rpx 50rpx;
+ display: flex;
+ flex-direction: column;
 }
 
 .repair-one {
-  padding-bottom: 35rpx;
+  padding-top: 110rpx;
+}
+
+.repair-two {
+   padding-top: 26rpx;
 }
 
 .button-one {
@@ -64,4 +68,5 @@
   letter-spacing: 10rpx;
   font-size: 36rpx;
   border-radius: 20rpx;
+  width: 86%;
 }

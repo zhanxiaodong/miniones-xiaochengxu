@@ -6,10 +6,15 @@
  </view>
 
  <view class="content">
-   <view class="color">需要完善</view>
-   <view class="color">偏需要完善</view>
-   <view class="color">穿衣态度</view>
- </view>
+        <checkbox-group class="check-first" bindchange="checkboxChange" >
+          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
+            <view class="{{item.checked?'active':'unactive'}}">
+             <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
+             <view class="name">{{item.value}}</view>
+            </view> 
+          </label>   
+        </checkbox-group>
+    </view>   
  
 </view>
 <view class="bottom">

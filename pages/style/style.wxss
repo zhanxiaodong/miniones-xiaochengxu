@@ -12,7 +12,7 @@
     height:76rpx;
     background-color:#F2F2F2;
     border-radius:40rpx;
-    margin-top:40rpx;
+    margin-top:70rpx;
     display: flex;
     align-items: center;
 }
@@ -22,12 +22,22 @@
 }
 
 .content {
-  padding: 0 80rpx;
+  padding: 80rpx;
+  text-align: center;
 }
 
-.name {
+.every {
+    float:left;
+    width:50%;
+    box-sizing:border-box;
+    color:#999;
+    margin-bottom:60rpx;
+
+}
+
+.check-first view.active {
     width:240rpx;
-    height:80rpx;
+    height:82rpx;
     background-color:#04B8A0;
     border-radius:40rpx;
     color:#FFFFFF;
@@ -35,10 +45,35 @@
     line-height:80rpx;
 }
 
+view.active view {
+    background-color:#04B8A0;
+    color:#FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.check-first view.unactive {
+    width:240rpx;
+    height:82rpx;
+    background-color:#04B8A0;
+    border-radius:40rpx;
+    color:#FFFFFF;
+    text-align:center;
+    line-height:80rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  color:#666666;
+  background-color:#ffffff;
+  border-radius:40rpx;
+  border:1px solid #666666;
+}
+
 .bottom {
     position:fixed;
     bottom:50rpx;
     left:80rpx;
+    z-index: -222;
 }
 
 .fixed-button {

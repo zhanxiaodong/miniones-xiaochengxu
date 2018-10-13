@@ -11,7 +11,7 @@
       <div class="repair-one">
         <button class="button-one" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">开启档案</button>
       </div>
-       <div class="repair-one">
+       <div class="repair-two">
          <button class="button-two" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" lang="zh_CN">登录档案</button>
       </div>
     </div>

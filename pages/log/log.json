@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "查看启动日志"
+  "navigationBarTitleText": "迷你王国",
+  "navigationBarBackgroundColor": "#008472",
+  "navigationBarTextStyle": "white"
 }

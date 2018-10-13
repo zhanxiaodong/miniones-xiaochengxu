@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/style/style",
-    "pages/detail/detail",
     "pages/log/log",
-    "pages/prefer/prefer",
     "pages/plan/plan",
+    "pages/style/style",
+    "pages/index/index",
+    
+    "pages/detail/detail",
+    "pages/prefer/prefer",
     "pages/paste/paste",
     "pages/attitude/attitude",
     "pages/color/color",
@@ -17,21 +18,19 @@
     "pages/free/free",
     "pages/buy/buy",
     "pages/assess/assess",
+    "pages/affirm/affirm",
     "pages/body/body",
     "pages/gift/gift",
     "pages/list/list",
     "pages/club/club",
     "pages/babyInfo/babyInfo",
-    "pages/my/my",
-    "pages/editaddr/editaddr",
-    "pages/readdr/readdr",
-    "pages/getbox/getbox"
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
-    "navigationBarBackgroundColor": "#04b8a0"
+    "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {
     "color": "#7A7E83",

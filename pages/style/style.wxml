@@ -3,12 +3,12 @@
     <view class="title">
         <text class="title-first">你喜欢孩子穿着哪种风格？</text>
         <view class="title-last">
-            <input class="text" placeholder="添加自定义搭配风格"  placeholder-style="font-size: 32rpx; color: #666666; font-weight:regular; padding-left: 40rpx;"  bindblur='addStyle' value='{{tempvalue}}'></input>
+            <input class="text" placeholder="添加自定义搭配风格"  placeholder-style="font-size: 32rpx; color: #666666; font-weight:regular; padding-left: 60rpx;"  bindblur='addStyle' value='{{tempvalue}}'></input>
         </view>
     </view>
     <view class="content">
         <checkbox-group class="check-first" bindchange="checkboxChange" >
-          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" wx:if="{{item.show}}" class="every">
+          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
             <view class="{{item.checked?'active':'unactive'}}">
              <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
              <view class="name">{{item.value}}</view>
@@ -19,5 +19,5 @@
   </view>
 </view>
 <view class="bottom">
-    <button class="fixed-button" bindtap='next'>下一步</button>
+    <button class="fixed-button" bindtap="next">下一步</button>
 </view>

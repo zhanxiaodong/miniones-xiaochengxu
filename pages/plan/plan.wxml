@@ -1,4 +1,23 @@
-<view>
-<view>plan 需要看1.0的样式</view>
+<view class="page">
+<view class="header">
+    <view class="header-title">您希望如何设置订阅计划</view>
+    <view class="header-content">您可以随时在个人中心-偏好设置更换计划</view>
+</view>
+<view class="content">
+      <radio-group bindchange="radioChange">
+        <label class="content-list" wx:for="{{radioItems}}" wx:key="value">
+          <radio class="content-check" value="{{item.value}}" checked="{{item.checked}}" />
+          <view style="padding: 60rpx; text-align: center;" class="{{item.checked? 'active':'unactive'}}">
+            <view class="content-title">{{item.title}}</view>
+            <view class="content-explain">{{item.name}}
+              <view wx:if="{{item.checked}}" style="position: relative;margin-top: 10px;float: right;">
+                <icon type="success" color="red" size="26"></icon>
+              </view>
+            </view>
+
+          </view>
+        </label>
+      </radio-group>
+</view>
 <button  bindtap='next'  class='repair-button' >下一步</button>
 </view>
