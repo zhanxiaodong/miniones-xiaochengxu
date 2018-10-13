@@ -7,11 +7,6 @@
     "pages/photo/photo",
     "pages/detail/detail",
     "pages/style/style",
-<<<<<<< HEAD
-    "pages/detail/detail",
-=======
-    "pages/index/index",
->>>>>>> 64b0b232a4739beb467eb66075899ec4978d9c4a
     "pages/prefer/prefer",
     "pages/paste/paste",
     "pages/color/color",

@@ -44,7 +44,7 @@ Page({
     var baby = this.data.baby
     if (!level || level == viplev.LOOK) {
       wx.navigateTo({
-        url: '../selfm/selfm'
+        url: '../log/log'
       })
     } else if (level < viplev.EXP) {
       var plan = this.data.user.plan
@@ -58,7 +58,7 @@ Page({
           })
         } else {
           wx.navigateTo({
-            url: '../selfm/selfm'
+            url: '../log/log'
           })
         }
       }
