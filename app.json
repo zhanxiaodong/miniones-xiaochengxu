@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/log/log",
     "pages/plan/plan",
     "pages/style/style",
-    "pages/index/index",
-    
     "pages/detail/detail",
     "pages/prefer/prefer",
     "pages/paste/paste",
@@ -24,7 +23,11 @@
     "pages/list/list",
     "pages/club/club",
     "pages/babyInfo/babyInfo",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/getbox/getbox",
+    "pages/readdr/readdr",
+    "pages/editaddr/editaddr",
+    "pages/designinfo/designinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

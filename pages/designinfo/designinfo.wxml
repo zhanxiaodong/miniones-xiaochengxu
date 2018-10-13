@@ -1,0 +1,120 @@
+<import src="../../components/dialog/dialog.wxml" />
+<view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 100001;'>
+  <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
+</view>
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view class="page">
+  <view class="page__bd">
+
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content contentcs" hidden="{{activeIndex != 0}}">
+          <view class='nopos' wx:if="{{!stylist}}">
+            <view class='imgv'>
+              <image src='/images/us1.png' style='width:80px;height:80px;padding-top:25px;'></image>
+            </view>
+            <view class='gray2-color p50 font14'>您成为体验或者会员用户后将自动为您匹配专属搭配师</view>
+            <view style='padding: 30px;'>
+              <form bindsubmit='go' report-submit='true'>
+                <button class='btngreenradius' form-type='submit'>立即前往</button>
+              </form>
+            </view>
+          </view>
+          <view wx:if="{{stylist}}" class='contentcs'>
+            <view class="cardcs">
+              <view style="text-align: right;padding-right: 30px;">
+                <picker bindchange="bindPickerChange" value="{{item}}" range="{{array}}">
+                  <button size='mini' class='btnedit' style="font-size: 10px;">变更搭配师</button>
+                </picker>
+              </view>
+              <view class="flexcs">
+                <view class="card-left">
+                  <view style='text-align:center;'>
+                    <image src="{{stylist.avatar? stylist.avatar:defaultImg }}" style="width: 80px;height: 80px;border-radius: 40px;"></image>
+                  </view>
+                  <view style="font-size: 25px;text-align: center;font-weight: bold;">
+                    <text>{{stylist.name}}</text>
+                  </view>
+                  <view style="text-align: center;font-size: 10px;color: gray;">
+                    <text>{{stylist.special}}</text>
+                  </view>
+                  <view style="text-align: center;font-size: 12px;padding-top: 10px;">
+                    <text>{{stylist.desc}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="card-edit">
+                <view>
+                  <image src="{{codeImg}}" bindtap='previewImage' style="width: 80px;height: 80px;"></image>
+                </view>
+                <view>长按以上二维码添加搭配师工作微信</view>
+                <view>也可以添加微信号{{stylist.wechat}}</view>
+                <view style='padding-top:10px;'>
+                  <button class='btn_con' open-type='contact'>联系客服</button>
+                </view>
+              </view>
+            </view>
+            <view class='infocs'>
+              <view>工作时间:周一至周日9:30-19:00</view>
+              您也可以通过公众号进行服务咨询,我们会在第一时间回复哦~</view>
+          </view>
+        </view>
+
+
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <view class='nopos' wx:if="{{!hasbox}}">
+            <view class='imgv'>
+              <image src='/images/us3.png' style='width:80px;height:80px;padding-top:25px;'></image>
+            </view>
+            <view class='gray2-color p50 font14'>您还未发起一次迷你盒子的搭配需求 暂时没有搭配任务
+            </view>
+            <view style='padding: 30px;'>
+              <form bindsubmit='go' report-submit='true'>
+                <button class='btngreenradius' form-type='submit'>要个盒子</button>
+              </form>
+            </view>
+          </view>
+          <view class="detail-view" wx:if="{{hasbox}}">
+            <view class="order-progress">
+              <view style='padding-left:10px;padding-top: 20px;padding-bottom: 20px;display: flex;align-items: center;'>
+                <image src='/images/box1.png' class='img30' style='padding-right:20px;'></image>
+                <view class='flex_auto' style='display: flex;align-items: center;'>
+                  <view style='width: 100px;'>
+                    <label class='font20 fontWeight'>盒子状态</label>
+                  </view>
+                  <view style='text-align:left;padding-left:10%;'>
+                    <view class='font12 gray4-color'>订单编号:</view>
+                    <view class='font12 gray4-color'>{{box.orderNo}}</view>
+                  </view>
+
+                </view>
+
+              </view>
+              <view class="progress-item {{idx <= boxstep ? 'active' : ''}} {{idx == progressData.length - 1 ? 'progress-last-item' : ''}}" wx:for="{{progressData}}" wx:for-item="progress" wx:for-index="idx" wx:key="idx">
+                <view class="point">
+                  <label class='labelcs'>{{idx + 1}}</label>
+                </view>
+                <view class="info">
+                  <view class="title">{{progress.desc}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bottom-box" wx:if="{{activeIndex == 1 && boxstep >= 3}}">
+  <view class="bottom-box-left">
+  </view>
+  <view class="bottom-box-btn active" bindtap='addorder'>追加订单</view>
+</view>

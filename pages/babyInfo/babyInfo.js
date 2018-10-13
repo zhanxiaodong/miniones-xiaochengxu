@@ -76,9 +76,11 @@ Page({
       }
     })
     var edit = options.edit
+    var stylistId = options.stylistId
     if (edit) {
       that.setData({
-        edit: true
+        edit: true,
+        stylistId: stylistId
       })
     }
   },
@@ -103,9 +105,9 @@ Page({
   },
   edit: function (event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)
-    var id = event.currentTarget.dataset.id
+    var babyId = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: "/pages/affirm/affirm?id=" + id,
+      url: "/pages/getbox/getbox?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
     })
   },
   add: function (e) {

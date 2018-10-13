@@ -385,19 +385,19 @@ Page({
       })
     } else {
       var level = wx.getStorageSync('level')
-      if (level < viplev.EXP) {
-        $wuxDialog.confirm({
-          content: '要盒子必须是迷礼会员或体验会员',
-          cancelText: '取消',
-          confirmText: '去完善',
-          onConfirm(e) {
-            wx.navigateTo({
-              url: '../viptype/viptype',
-            })
-          },
-          onCancel(e) {},
-        })
-      } else {
+      // if (level < viplev.EXP) {
+      //   $wuxDialog.confirm({
+      //     content: '要盒子必须是迷礼会员或体验会员',
+      //     cancelText: '取消',
+      //     confirmText: '去完善',
+      //     onConfirm(e) {
+      //       wx.navigateTo({
+      //         url: '../viptype/viptype',
+      //       })
+      //     },
+      //     onCancel(e) {},
+      //   })
+      // } else {
         if(that.data.payAmount > 0){
           that.setData({
             payStatus: true
@@ -405,7 +405,7 @@ Page({
         } else {
           that.saveBox(e)
         }
-      }
+      // }
     }
   },
   changeRe: function () {

@@ -1,0 +1,267 @@
+page {
+  background-color: #f2f2f2;
+  height: 100%;
+}
+
+.weui-navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  width: 100%;
+}
+
+.weui-navbar__item {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 13px 0;
+  text-align: center;
+  font-size: 0;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #1aad19;
+}
+
+.weui-navbar__slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  width: 6em;
+  height: 3px;
+  background-color: #1aad19;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+}
+
+.weui-navbar__title {
+  display: inline-block;
+  font-size: 15px;
+  max-width: 8em;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.weui-tab__content {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.cardcs {
+  margin: 0 40rpx 0 40rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding-top: 40rpx;
+}
+
+.flexcs {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.avatarcs {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.card-left {
+  flex: 1;
+  padding-left: 30px;
+  text-align: left;
+  padding-right: 30px;
+}
+
+.card-right {
+  flex: 1;
+}
+
+.card-edit {
+  text-align: center;
+  padding-right: 40rpx;
+  font-size: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #c6c6c6;
+  padding-top: 20rpx;
+  padding-left: 40rpx;
+}
+
+button {
+  font-size: 10px;
+}
+
+.btnadd {
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.btn_con {
+  color: #fff;
+  background-color: #26aea8;
+  border-radius: 30px;
+  width: 100px;
+}
+
+.desccs {
+  font-size: 12px;
+}
+
+.infopg {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10px;
+}
+
+.addb {
+  margin: 40rpx 40rpx 0 40rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+}
+
+.btnedit {
+  font-size: 10px;
+  background-color: #ffdf5e;
+  border-radius: 16px;
+}
+
+.contentcs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infocs {
+  margin: 0 40rpx 0 40rpx;
+  padding-top: 40rpx;
+  font-size: 12px;
+  width: 60%;
+}
+
+.detail-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
+}
+
+.order-progress {
+  background: #fff;
+  padding: 0 20rpx;
+  border-radius: 8px;
+}
+
+.order-progress .progress-item {
+  position: relative;
+  padding: 20rpx 0 0 40rpx;
+  display: flex;
+  align-items: flex-start;
+}
+
+.order-progress .progress-item::after {
+  content: "";
+  position: absolute;
+  top: 60rpx;
+  left: 70rpx;
+  height: 100%;
+  border-right: 1px dashed #c9c9c9;
+}
+
+.order-progress .progress-item.progress-last-item::after {
+  border-right: none;
+}
+
+.order-progress .progress-item .point {
+  width: 60rpx;
+  position: relative;
+  text-align: center;
+}
+
+.order-progress .progress-item .point::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  width: 60rpx;
+  height: 60rpx;
+  background: #c9c9c9;
+  border-radius: 50%;
+}
+
+.order-progress .progress-item .point .labelcs {
+  position: absolute;
+  margin-left: -42rpx;
+  z-index: 4;
+  color: #fff;
+  margin-top: 4rpx;
+}
+
+.order-progress .progress-item.active .point .labelcs{
+  margin-left: -38rpx;
+}
+
+.order-progress .progress-item .info {
+  flex: 1;
+  padding-bottom: 20rpx;
+  margin-left: 40rpx;
+  text-align: left;
+}
+
+.order-progress .progress-item .title {
+  margin-bottom: 20rpx;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666666;
+}
+
+.order-progress .progress-item.active .title {
+  color: #26aea8;
+}
+
+.order-progress .progress-item.active .point::before {
+  content: "";
+  position: relative;
+  z-index: 2;
+  width: 60rpx;
+  height: 60rpx;
+  background: #26aea8;
+}
+
+.order-progress .progress-item.active .point::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.nopos {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  padding: 20px 30px;
+}
+
+.imgv {
+  height: 130px;
+  width: 130px;
+  border: 1px solid #ccc;
+  border-radius: 65px;
+  text-align: center;
+}

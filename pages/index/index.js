@@ -14,6 +14,7 @@ Page({
     tabs: ["首页", "穿搭", "营养", "心智", "亲子"],
     message: '欢迎体验迷你王国',
     btnMsg: '预约衣盒',
+    userLev: '访客用户',
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
@@ -37,20 +38,121 @@ Page({
       })
     }
   },
-  getBoxBefore:function(){
+  getBoxBefore:function(e){
+    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    var level = wx.getStorageSync('level')
+    var baby = this.data.baby
+    if (!level || level == viplev.LOOK) {
+      wx.navigateTo({
+        url: '../selfm/selfm'
+      })
+    } else if (level < viplev.EXP) {
+      var plan = this.data.user.plan
+      var pagen = wx.getStorageSync('pagen')
+      if (baby && plan) {
+        this.getBox()
+      } else {
+        if (pagen) {
+          wx.navigateTo({
+            url: '../editdata/editdata'
+          })
+        } else {
+          wx.navigateTo({
+            url: '../selfm/selfm'
+          })
+        }
+      }
+    } else {
+      this.getBox()
+    }
+  },
+  /**
+   * 没有流程中的
+   */
+  boxNone: function () {
     wx.navigateTo({
-      url: '/pages/babyInfo/babyInfo',
+      url: '/pages/babyInfo/babyInfo?stylistId=' + this.data.stylist.id
     })
-   },
+  },
+  /**
+   * 查看盒子
+   */
+  seeBox: function () {
+    wx.navigateTo({
+      url: '../designinfo/designinfo?boxId=' + this.data.boxId
+    })
+  },
+  evaBox: function () {
+    wx.navigateTo({
+      url: '../evaluate/evaluate?boxId=' + this.data.boxId
+    })
+  },
+  payBox: function () {
+    wx.navigateTo({
+      url: '../pay/pay?boxId=' + this.data.boxId
+    })
+  },
+  backBox: function () {
+    wx.navigateTo({
+      url: '../back/back?boxId=' + this.data.boxId
+    })
+  },
+  /**
+  * 要一个盒子操作按钮
+  */
+  getBox: function (e) {
+    var level = wx.getStorageSync('level')
+    if (level == viplev.LOOK) {
+      this.goConfirm()
+    } else {
+      var boxStatus = this.data.boxStatus
+      switch (boxStatus) {
+        case 'NONE':
+          this.boxNone()
+          break;
+        case 'PAY_COMPLETE':
+          this.boxNone()
+          break;
+        case 'END':
+          this.boxNone()
+          break;
+        case 'CLOSE':
+          this.boxNone()
+          break;
+        case 'CREATE':
+          this.seeBox()
+          break;
+        case 'LINK_UP':
+          this.seeBox()
+          break;
+        case 'NOTIFY_EXPRESS':
+          this.seeBox()
+          break;
+        case 'RETURN_EXPRESS':
+          this.seeBox()
+          break;
+        case 'DISPATCHING':
+          this.seeBox()
+          break;
+        case 'DELIVERY_COMPLETE':
+          this.evaBox()
+          break;
+        case 'EVALUATED':
+          this.payBox()
+          break;
+        case 'PAY_PART':
+          this.backBox()
+          break;
+      }
+
+    }
+  },
 
    goBuy:function(){
      wx.navigateTo({
        url: '/pages/buy/buy',
      })
    },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var that = this;
     if (!wx.getStorageSync('openId')) {
@@ -67,10 +169,6 @@ Page({
       }
     });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     var that = this;
     if (!wx.getStorageSync('openId')) {
@@ -155,38 +253,4 @@ Page({
     }
     return message
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
