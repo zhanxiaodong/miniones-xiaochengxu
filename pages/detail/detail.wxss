@@ -147,7 +147,10 @@ page {
   .bottom-box-next {
     width:85%;
     position:fixed;
-    bottom:40rpx;
+    bottom:0rpx;
+    background-color: #ffffff;
+    z-index: 23;
+
   }
   
   #bottom-up {
@@ -162,4 +165,5 @@ page {
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+    margin: 40rpx;
   }

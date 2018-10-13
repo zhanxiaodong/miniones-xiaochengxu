@@ -12,6 +12,8 @@ Page({
           { value: '运动', show: true},
           { value: '民族', show: true},
           { value: '优雅', show: true},
+          { value: '其它', show: true},
+          { value: '暂无', show: true},
         ]
     },
     checkboxChange: function (e) {

@@ -20,7 +20,7 @@
         </view>
     </view>
 
-<view class="bottom-next-box" id="bottom-up">
+<view class="bottom-next-button" >
     <button class='repair-button' bindtap='next'>下一步</button>
 </view>
 </view>

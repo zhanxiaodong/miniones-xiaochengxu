@@ -3,13 +3,18 @@
     "pages/index/index",
     "pages/log/log",
     "pages/plan/plan",
-    "pages/style/style",
+    "pages/attitude/attitude",
+    "pages/photo/photo",
     "pages/detail/detail",
+    "pages/style/style",
+<<<<<<< HEAD
+    "pages/detail/detail",
+=======
+    "pages/index/index",
+>>>>>>> 64b0b232a4739beb467eb66075899ec4978d9c4a
     "pages/prefer/prefer",
     "pages/paste/paste",
-    "pages/attitude/attitude",
     "pages/color/color",
-    "pages/photo/photo",
     "pages/password/password",
     "pages/check/check",
     "pages/wallet/wallet",
