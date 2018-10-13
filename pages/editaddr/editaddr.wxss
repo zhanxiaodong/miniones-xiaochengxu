@@ -1,0 +1,69 @@
+page {
+  background-color: #F2F2F2;
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.formlabel {
+  width:80px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.formcon {
+  flex: 2;
+}
+
+.formrow {
+  display: flex;
+  padding: 10px 0;
+}
+
+.formrow-b {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.flexcs {
+  display: flex;
+}
+
+image {
+  width: 20px;
+  height: 20px;
+}
+
+.btncs {
+  background-color: rgb(38, 174, 168);
+  color: #fff;
+  border-radius: 32px;
+  font-size: 14px;
+}
+
+.btndelcs {
+  background-color: rgb(201, 201, 201);
+  color: #fff;
+  border-radius: 32px;
+  font-size: 14px;
+}
+
+button::after {
+  border: none;
+}
+
+.radiocs label{
+  border: 1px solid #999999;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  margin-right: 10px;
+  color: #999999;
+}
+.radiocs label.active{
+  color: #008C8C;
+  border: 1px solid #008C8C;
+}

@@ -1,0 +1,16 @@
+<template name="evaGoods">
+  <view>
+    <view>
+      <view>尺码</view>
+      <view>
+        <radio-group bindchange="sizeChange" style="display: flex">
+          <view class="radiocs">
+            <label wx:for="{{sizeItems}}" wx:key="value" class="{{item.checked?'active':''}}">
+              <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />{{item.value}}
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+</template>

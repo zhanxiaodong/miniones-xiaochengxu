@@ -1,0 +1,16 @@
+<view class="page">
+ <view class="title">
+   <text class="title-first">您和孩子喜欢什么颜色？</text>
+   
+   <view class="title-intro">我们将根据您和孩子的颜色偏好进行搭配</view>
+ </view>
+
+ <view class="content">
+   <view class="color">接受全色系</view>
+   <view class="color">偏好低饱和度/灰调</view>
+   <view class="color">偏好高饱和度/明亮</view>
+ </view>
+ <view class="bottom">
+    <button class="fixed-button" bindtap="next">下一步</button>
+</view>
+</view>

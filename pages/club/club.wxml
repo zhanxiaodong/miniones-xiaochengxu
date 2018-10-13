@@ -1,0 +1,83 @@
+<!--pages/club/club.wxml-->
+<view class="wrap">
+   <view class="header">
+      <view class="vip">
+         <text>会员等级</text>
+         <text class="action">我的幸运徽章</text>
+      </view>
+      <view class="explainBox">
+         <view class="expla">快来加入迷你俱乐部</view>
+         <view class="expla">我们为您准备了特权礼包</view>
+         <view class="explain expla">
+            每季度送199无门槛立减券
+         </view>
+         <view class="explainBut">
+            <button class="butOne">开启惊喜之旅</button>
+         </view>
+      </view>
+   </view>
+   <view class="content">
+      <view class="title">
+        <view class="titleLeft">送礼会员5大特权
+        
+        </view>
+            <view class="titleRight">特权详情
+            <text class="iconfont icon-arrow-right-copy"></text>
+            </view>
+        </view>
+      <view class="listBox clearfix">
+         <view class="list" wx:for="{{conList}}">
+            <view class="imgBox">
+               <image src="{{item.img}}"/>
+            </view>
+            <view class="listText">{{item.text}}</view>
+         </view>
+      </view>
+   </view>
+   <view class="cardBox">
+      <view class="cardTitle">开通服务</view>
+      <view class="card">
+         <view class="cardLeft">
+            <view class="leftTitle">
+              <view>终生会员（无限）</view>
+              <view class="leftBot">INFINITY</view>
+            </view>
+            <view class="cardBot">
+               <view>.终生无限制免费配送</view>
+               <view>每年至少六次服务，预计可省￥1968</view>
+            </view>
+         </view>
+         <view class="cardRight">
+            <view class="money">￥199.00</view>
+            <view class="radioBox">
+               <radio bindtap="inCheck" checked = "{{checkOne}}"></radio>
+            </view>
+         </view>
+      </view>
+      <view class="card cardTwo">
+         <view class="cardLeft">
+            <view class="leftTitle">
+              <view>年卡会员（一年）</view>
+              <view class="leftBot">YEAR</view>
+            </view>
+            <view class="cardBot">
+               <view>.年度免费配送</view>
+               <view>一年至少4次服务，预计可省￥1312</view>
+            </view>
+         </view>
+         <view class="cardRight">
+            <view class="money">￥99.00</view>
+            <view class="radioBox">
+               <radio bindtap="inCheckTwo" checked = "{{checkTwo}}"></radio>
+            </view>
+         </view>
+      </view>
+   </view>
+   <view class="footer">
+      <text>使用兑换码兑换会员</text>
+      <text class="iconfont icon-arrow-right-copy"></text>
+   </view>
+   <view class="butBox">
+      立即支付￥{{moneyIndex}}
+   </view>
+</view>

@@ -1,0 +1,111 @@
+<!--pages/babyInfo/babyInfo.wxml-->
+<view class="page">
+  <view>
+    <view class="weui-tab">
+     <!-- <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+
+          </view>
+        </block>
+      </view> -->
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <view class="cardcsl" wx:if='{{!edit}}' wx:for='{{babyList}}' wx:key="id">
+            <view class="flexcs">
+              <view class="card-left">
+                <view>
+                  <text style="font-size: 25px;font-weight: bold;color: #666666;">{{item.call}}</text>
+                </view>
+                <view>
+                  <text class='desccs'>{{item.birth}}</text>
+                </view>
+                <view>
+                  <image src="/images/icons/height-green.png" class="infopg"></image>
+                  <text class='desccs'>身高 {{item.height}} cm</text>
+                </view>
+                <view>
+                  <image src="/images/icons/weight-green.png" class="infopg"></image>
+                  <text class='desccs'>体重 {{item.weight}} kg</text>
+                </view>
+                <view>
+                  <image src="/images/icons/shoes-green.png" class="infopg"></image>
+                  <text class='desccs'>鞋码 {{item.size}} size</text>
+                </view>
+
+                <view>
+                  <image src="/images/icons/pre-green1.png" class="infopg"></image>
+                  <text class='desccs'>已收礼物</text>
+                </view>
+              </view>
+              <view class="card-right">
+                <image src="{{item.avatar ? item.avatar : defaultAva }}" class="avatarcs"></image>
+              </view>
+            </view>
+            <view class="card-edit">
+            <form bindsubmit='edit' data-id="{{item.id}}" report-submit='true'>
+              <button size='mini' class='btnedit' form-type='submit'>选择</button>
+            </form>
+              
+            </view>
+          </view>
+
+          <!-- <radio-group bindchange="babyChange" wx:if='{{edit}}'>
+            <label class="cardcs" wx:for="{{babyList}}" wx:key="id">
+              <view class="cardcs">
+                <radio class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+                <view class="weui-cell__hd weui-check__hd_in-checkbox" style='position: absolute;right: 20px;margin-top: -18rpx;'>
+                  <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                  <icon class="weui-icon-checkbox_success" id="repair-one"  type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+                <view class="flexcs">
+                  <view class="card-left">
+                    <view>
+                      <text style="font-size: 25px;font-weight: bold;">{{item.call}}</text>
+                    </view>
+                    <view>
+                      <text class='desccs'>{{item.birth}}</text>
+                    </view>
+                    <view>
+                      <image src="/images/icons/height-green.png" class="infopg"></image>
+                      <text class='desccs'>身高 {{item.height}} cm</text>
+                    </view>
+                    <view>
+                      <image src="/images/icons/weight-green.png" class="infopg"></image>
+                      <text class='desccs'>体重 {{item.weight}} kg</text>
+                    </view>
+                    <view>
+                      <image src="/images/icons/shoes-green.png" class="infopg"></image>
+                      <text class='desccs'>鞋码 {{item.size}} size</text>
+                    </view>
+                    <view>
+                      <image src="/images/xie.png" class="infopg"></image>
+                      <text class='desccs'>记录{{item.num}}个瞬间</text>
+                    </view>
+                  </view>
+                  <view class="card-right">
+                    <image src="{{item.avatar}}" class="avatarcs"></image>
+                  </view>
+                </view>
+                <view class="card-edit">
+                  <form bindsubmit='edit' data-id="{{item.id}}" report-submit='true'>
+              <button size='mini' class='btnedit' form-type='submit'>编辑资料</button>
+            </form>
+                </view>
+              </view>
+            </label>
+          </radio-group> -->
+
+          <view class="addb">
+            <form bindsubmit='add' report-submit='true'>
+              <button class='btnadd' form-type='submit'>添加宝贝</button>
+            </form>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">暂无公益</view>
+      </view>
+    </view>
+  </view>
+</view>

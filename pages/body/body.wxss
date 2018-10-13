@@ -1,0 +1,57 @@
+/* pages/body/body.wxss */
+
+.wrap{
+  padding:58rpx 50rpx;
+  border-top:solid 1px #f3f3f3;
+}
+.top{
+  border-bottom:solid 1rpx #f3f3f3;
+  width:100%;
+  height:20vh;
+  font-weight: 500;
+  
+}
+.topText{
+  color:#c3c3c3;
+  margin-top:20rpx;
+  font-size:26rpx;
+}
+.choiceBox{
+  width:100%;
+  padding:30rpx 0;
+  border-bottom: solid 1rpx #f3f3f3;
+
+}
+.choiceSon{
+  width:50%;
+  float:left;
+  height:80rpx;
+  line-height: 80rpx;
+}
+.choiceText{
+  width:50%
+}
+.choiceRadio{
+  text-align: right;
+}
+
+.footer{
+  padding-top:100rpx;
+}
+.accept{
+  height:120rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.but{
+  height:90rpx;
+  line-height: 90rpx;
+  border-radius: 40rpx;
+  color:#fff;
+  background:#04b8a0;
+  font-size: 40rpx;
+}
+

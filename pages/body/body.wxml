@@ -1,0 +1,67 @@
+<!--pages/body/body.wxml-->
+<view class="wrap">
+  <view class="top">
+    <view class="topTitle">
+      <text>请补充本次需求的场合与品类需求</text>
+    </view>
+    <view class="topText">
+      <view>补充您的需求,可以让搭配师精准度提升25%</view>
+      <view>如果没有特别需求,搭配是将根据您的默认风格进行搭配</view>
+    </view>
+  </view>
+  <view class="choiceBox clearfix">
+    <view class="choiceTitle">
+       <view class="choiceText choiceSon">选择本次服饰季节</view>
+       <view class="choiceRadio choiceSon">多选</view>
+    </view>
+
+      <view class="choice" wx:for="{{choiceList}}">
+        <view class="choiceText choiceSon">
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+          <radio ></radio>
+        </view>
+      </view>
+  </view>
+   <view class="choiceBox clearfix">
+    <view class="choiceTitle">
+       <view class="choiceText choiceSon">请选择本次服装场景</view>
+       <view class="choiceRadio choiceSon">多选</view>
+    </view>
+
+      <view class="choice" wx:for="{{sceneList}}">
+        <view class="choiceText choiceSon">
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+            <radio bindtap="choice{{item.lick}}" checked="{{item.check}}"></radio>
+        </view>
+      </view>
+  </view>
+  <view class="choiceBox clearfix">
+    <view class="choiceTitle">
+       <view class="choiceText choiceSon">选择本次风格偏好</view>
+       <view class="choiceRadio choiceSon"></view> 
+    </view>
+
+      <view class="choice" wx:for="{{goodList}}">
+        <view class="choiceText choiceSon">
+          <radio checked></radio>
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+          <radio></radio>
+        </view>
+      </view>
+  </view>
+  <view class="footer">
+     <view class="accept">
+       <radio></radio>
+       <text>接受搭配师进一步与我沟通</text>
+     </view>
+     <view class="butBox">
+      <button class="but" bindtap="goAffirm">确认啦</button>
+     </view>
+  </view>
+</view>

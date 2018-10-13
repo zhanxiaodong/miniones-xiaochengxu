@@ -1,0 +1,99 @@
+page {
+  background-color: #fff;
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+}
+
+.prefertitle {
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20rpx;
+  border-top: 1px solid #f2f2f2;
+}
+
+.titlefont {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.plcs {
+  font-size: 14px;
+  border-radius: 20px;
+  background-color: #c6c6c6;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+
+.checkbox-group label {
+  padding: 0 20rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+
+.checkbox-group view.unactive {
+  border: 1px solid #999;
+  border-radius: 40rpx;
+  padding: 5px 0px;
+}
+
+.checkbox-group view.active {
+  border-radius: 40rpx;
+  padding: 5px 0px;
+  color: #fff;
+  border: 1px solid #008c8c;
+  background-color: #008c8c;
+}
+
+.weui-grids {
+  position: relative;
+  overflow: hidden;
+}
+
+.weui-grid {
+  position: relative;
+  float: left;
+  padding: 20rpx 10rpx;
+  width: 33.33333333%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.textV {
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 8px;
+}
+
+.borderw {
+  border: 1rpx solid #e4e4e4;
+}
+
+.textA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  width: 70px;
+  height: 32px;
+  border-radius: 30px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 8px;
+}
+
+.weui-grid text {
+  color: #fff;
+}

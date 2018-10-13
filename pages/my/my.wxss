@@ -1,0 +1,167 @@
+/* pages/my/my.wxss */
+.xz-component {
+    height: 100%;
+    background-color: #eee;
+    display: flex;
+    flex-flow: column;
+  }
+  .xz-top {
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background-color: #fff;
+    display: flex;
+    flex-flow: column;
+  }
+  .xz-my-info {
+    background-color: #FFF;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .my-info-left {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .info-img {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    background-color: #999;
+    position: relative;
+  }
+  .info-sign {
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #D6BC8A;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .info-text {
+    margin: 30rpx 0 0 30rpx;
+  }
+  .info-name {
+    font-size: 32rpx;
+    color: #333;
+  }
+  .info-time {
+    font-size: 24rpx;
+    color: #999;
+  }
+  .xz-my-more {
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 55rpx;
+  }
+  .xz-button-bar {
+    padding: 40rpx 30rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .button-group {
+    width: 80rpx;
+  }
+  .button-icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 15rpx;
+  }
+  .button-txt {
+    font-size: 24rpx;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+  
+  .xz-share {
+    background-color: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx 0;
+  }
+  .share-txt {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .share-title {
+    font-size: 32rpx;
+    color: #000;
+    font-weight: bold;
+  }
+  .share-btn {
+    width: 128rpx;
+    height: 50rpx;
+    border-radius: 20rpx;
+    background-color: #ECF9F6;
+    font-size: 22rpx;
+    line-height: 50rpx;
+    text-align: center;
+    color: #26AEA8;
+    margin-left: 30rpx;
+  }
+  .share-desc {
+    font-size: 20rpx;
+    text-align: center;
+    color: #999;
+  }
+  .xz-list {
+    margin-top: 20rpx;
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    display: flex;
+    flex-flow: column;
+    background-color: #fff;
+  }
+  .xz-member {
+    height: 100rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .member-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 30rpx 0;
+  }
+  .member-info {
+    width: 660rpx;
+    height: 100rpx;
+    margin-left: 30rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+  }
+  .member-info.last-child {
+    border-bottom: none;
+  }
+  .member-title {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 100rpx;
+  }
+  .member-more {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 280rpx;
+    line-height: 100rpx;
+  }
+  .member-desc {
+    width: 260rpx;
+    font-size: 28rpx;
+    color: #999;
+  }
+  .member-more-icon {
+    width: 20rpx;
+    height: 20rpx;
+    margin: 40rpx 0;
+  }
+  
+  

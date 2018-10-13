@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/style/style",
+    "pages/detail/detail",
+    "pages/log/log",
+    "pages/prefer/prefer",
+    "pages/plan/plan",
+    "pages/paste/paste",
+    "pages/attitude/attitude",
+    "pages/color/color",
+    "pages/photo/photo",
+    "pages/password/password",
+    "pages/check/check",
+    "pages/wallet/wallet",
+    "pages/join/join",
+    "pages/free/free",
+    "pages/buy/buy",
+    "pages/assess/assess",
+    "pages/body/body",
+    "pages/gift/gift",
+    "pages/list/list",
+    "pages/club/club",
+    "pages/babyInfo/babyInfo",
+    "pages/my/my",
+    "pages/editaddr/editaddr",
+    "pages/readdr/readdr",
+    "pages/getbox/getbox"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#04b8a0"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/img1.jpg",
+        "selectedIconPath": "images/img1.jpg",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/img1.jpg",
+        "selectedIconPath": "images/img1.jpg",
+        "text": "我的"
+      }
+    ]
+  }
+}

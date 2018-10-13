@@ -1,0 +1,77 @@
+<import src="../../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view class="page">
+  <form bindsubmit='submitForm' report-submit='true'>
+    <view style="padding:10px 20px 20px 20px;background-color: #ffffff;">
+      <view class="formrow formrow-b">
+        <view class='formlabel'>联系人</view>
+        <view class='formcon'>
+          <view style="padding-bottom: 10px;" class='formrow-b'>
+            <input placeholder='姓名' value='{{form.name}}' name='name' type='name' bindblur='inputChange' data-filed='name'></input>
+          </view>
+          <view style="padding-top: 10px;">
+            <radio-group bindchange="roleChange" style="display: flex" type='type' name='type' value='{{form.type}}'>
+              <view class="radiocs">
+                <label wx:for="{{roleItems}}" wx:key="value" class="{{item.checked?'active':''}}">
+                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />{{item.name}}
+                </label>
+              </view>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+      <view class="formrow formrow-b">
+        <view class='formlabel'>电话</view>
+        <view class='formcon flexcs'>
+          <view>
+            <input placeholder='手机号码' value='{{form.tel}}' name='tel' type='number' bindblur='inputChange' data-filed='tel'></input>
+          </view>
+        </view>
+
+      </view>
+      <view class="formrow formrow-b">
+        <view class='formlabel'>地址</view>
+        <view class='formcon flexcs'>
+          <view class='flex_auto'>
+            <input placeholder='添加收货地址' value='{{form.address}}' name='address' type='address' bindblur='inputChange' data-filed='address' disabled='true' bindtap='choose'></input>
+          </view>
+          <view>
+            <image src='/images/icons/position.png' bindtap='choose'></image>
+          </view>
+        </view>
+
+      </view>
+      <view class="formrow formrow-b">
+        <view class='formlabel'>详细地址</view>
+        <view class='formcon'>
+          <input placeholder='例:5幢3单元302' value='{{form.addressDetail}}' name='addressDetail' type='addressDetail' bindblur='inputChange' data-filed='addressDetail'></input>
+        </view>
+      </view>
+      <view class="formrow ">
+        <view class='formlabel'>标签</view>
+        <view class='formcon'>
+          <radio-group bindchange="labelChange" style="display: flex" type='label' name='label' value='{{form.label}}'>
+            <view class="radiocs">
+              <label wx:for="{{labelItems}}" wx:key="value" class="{{item.checked?'active':''}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />{{item.name}}
+              </label>
+            </view>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <view style='padding: 5px 20px;margin-top:20%;'>
+      <button class="btncs" formType="submit">保存</button>
+    </view>
+    <view style='padding: 5px 20px;'>
+      <form bindsubmit='chooseAddr' wx:if="{{!form.id}}" report-submit='true'>
+        <button class='btncs' form-type='submit'>使用微信地址</button>
+      </form>
+    </view>
+    <view style='padding: 5px 20px;'>
+      <form bindsubmit='del' wx:if="{{form.id}}" data-id="{{form.id}}" report-submit='true'>
+        <button class='btndelcs' form-type='submit'>删除该收件地址</button>
+      </form>
+    </view>
+  </form>
+</view>

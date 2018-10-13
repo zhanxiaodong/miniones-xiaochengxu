@@ -1,0 +1,143 @@
+/* pages/babyInfo/babyInfo.wxss */
+page {
+  height: 100%;
+}
+
+.weui-navbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  width: 100%;
+}
+
+.weui-navbar__item {
+  position: relative;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 13px 0;
+  text-align: center;
+  font-size: 0;
+  color:#999999;
+}
+.weui-navbar__item:first-child{
+  text-align: right;
+  padding-right: 5px;
+}
+.weui-navbar__item:first-child:after{
+  border: 2px sold #999999;
+}
+.weui-navbar__item:last-child{
+  text-align: left;
+  padding-left: 5px;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #333333;
+  font-weight: 800;
+}
+
+.weui-navbar__slider {
+  position: absolute;
+  content: " ";
+  left: 0;
+  bottom: 0;
+  width: 6em;
+  height: 3px;
+  background-color: #04B8A0;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+}
+
+.weui-navbar__title {
+  display: inline-block;
+  font-size: 16px;
+  max-width: 8em;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.weui-tab__content {
+  text-align: center;
+}
+
+.cardcs {
+  margin: 0 40rpx 0 40rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding-top: 40rpx;
+}
+
+.cardcsl {
+  margin: 15px 40rpx 0 40rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding-top: 40rpx;
+}
+
+.flexcs {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.avatarcs {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.card-left {
+  flex: 1;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.card-right {
+  flex: 1;
+}
+
+.card-edit {
+  text-align: right;
+  padding-right: 40rpx;
+  font-size: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+  font-size: 10px;
+}
+
+
+.btnadd {
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.desccs {
+  font-size: 12px;
+}
+
+.infopg {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10px;
+}
+
+.addb {
+  margin: 40rpx 40rpx 0 40rpx;
+  border-radius: 16rpx;
+  background-color: #fff;
+}
+
+.btnedit {
+  font-size: 10px;
+  background-color: #ffdf5e;
+  border-radius: 16px;
+}

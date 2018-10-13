@@ -1,0 +1,110 @@
+<!--pages/my/my.wxml-->
+<view class='xz-component'>
+  <view class='xz-top'>
+    <view class='xz-my-info'>
+      <view class='my-info-left'>
+        <view class='info-img'>
+          <view class='info-sign'></view>
+        </view>
+        
+        <view class='info-text'>
+          <view class='info-name'>阿狸妈妈</view>
+          <view class='info-time'>伴随236天</view>
+        </view>
+      </view>
+      <image  class='xz-my-more' src='/images/more.png'></image>
+    </view>
+    <view class='xz-button-bar'>
+      <view class='button-group'>
+        <image class='button-icon' src='/images/afterSale.png'></image>
+        <view class='button-txt'>宝贝</view>
+      </view>
+      <view class='button-group'>
+        <image class='button-icon' src='/images/afterSale.png'></image>
+        <view class='button-txt'>搭配师</view>
+      </view>
+      <view class='button-group'>
+        <image class='button-icon' src='/images/afterSale.png'></image>
+        <view class='button-txt'>订单</view>
+      </view>
+      <view class='button-group'>
+        <image class='button-icon' src='/images/afterSale.png'></image>
+        <view class='button-txt'>优惠券</view>
+      </view>
+    </view>
+  </view>
+  <view class='xz-share'>
+    <view class='share-txt'>
+      <view class='share-title'>邀请好友得现金</view>  
+      <view class='share-btn'>多邀多得</view>
+    </view>
+    <view class='share-desc'>每邀请一位好友成为会员可立即提现50元现金</view>
+  </view>
+  <view class='xz-list'>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>亲礼会员</view>
+        <view class='member-more'>
+          <view class='member-desc'>终身会员限量开放</view>
+          <image class='member-more-icon' src='/images/more.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>我的宝贝</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>搭配小姑</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>所有订单</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info last-child'>
+        <view class='member-title'>我的钱包</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='xz-list'>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>订阅计划</view>
+        <view class='member-more'>
+          <view class='member-desc'>终身会员限量开放</view>
+          <image class='member-more-icon' src='/images/more.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>偏好设置</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/home.png'></image>
+      <view class='member-info last-child'>
+        <view class='member-title'>在线客服</view>
+        <image class='member-more-icon' src='/images/more.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+

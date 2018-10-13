@@ -1,0 +1,26 @@
+<view class="all">
+<view class='top'>
+    <view>
+        <view>
+            <text style="font-size: 25px;font-weight: bold;">上传孩子的资料图片</text>
+        </view>
+        <view style="margin-top: 16rpx;">
+            <text class="font12" id="repair-five">上传孩子的全身照有助于理型师更精准的搭配。</text>
+        </view>
+    </view>
+</view>
+
+    <view class='photo-wrap'>
+        <view class='photo-image-wrap' style="border: 1px dashed #04B8A0;border-radius: 8px;display: flex;flex-direction: column;justify-content: center;align-items: center;">
+            <image src='{{uploadImgTemp}}' bindtap='getImage' mode="scaleToFill" wx:if="{{!uploadImg}}"></image>
+            <image src='{{uploadImgTemp}}' bindtap='getImage' bindload="imageLoad" wx:if="{{uploadImg}}" style="width: {{imagewidth}}px; height: {{imageheight}}px;"></image>
+            <text wx:if='{{!uploadImg}}' style='font-size: 14px;color: #04B8A0;font-weight: 700;'>
+                上传或拍摄
+            </text>
+        </view>
+    </view>
+
+<view class="bottom-next-box" id="bottom-up">
+    <button class='repair-button' bindtap='next'>下一步</button>
+</view>
+</view>

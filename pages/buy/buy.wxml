@@ -1,0 +1,107 @@
+<!--pages/affirm/affirm.wxml-->
+<view class="wrap">
+   <view class="header">
+      <view>
+         <text class="title">购买支付</text>
+         <text class="iconfont icon-wenhao"></text>
+      </view>
+      <view class="headText">关爱孩子，从一件衣服开始</view>
+   </view>
+   <view class="content">
+      <view class="con clearfix">
+          <!-- <view class="conLeft">
+              <text class="iconfont icon-dingwei"></text>
+          </view> -->
+          <view class="conRight rightTop upper">
+             <view class="explain">
+                <view class="conText">全选（整盒留下6折叠加折扣）</view>
+                <view class="info">优惠支付限额额：</view>
+              </view>
+              <view class="moneyBox clearfix">
+                <!-- <view class="money">
+                   <view>￥130.00</view>
+                   <view style="text-decoration:line-through;color:#c3c3c3">￥240.00</view>
+                </view> -->
+                <view class="radioBox upperRadio">
+                   <radio></radio>
+                </view>
+              </view>
+          </view>
+      </view>
+
+      <view class="con clearfix" wx:for="{{conList}}">
+          <view class="conLeft">
+              <view class="lish">
+                  <text>{{item.icon}}</text>
+              </view>
+          </view>
+          <view class="conRight rightTop">
+             <view class="explain">
+                <view class="conText">{{item.text1}}</view>
+                <view class="info">{{item.text2}}</view>
+              </view>
+              <view class="moneyBox clearfix">
+                <view class="money">
+                   <view>{{item.money1}}</view>
+                   <view style="text-decoration:line-through;color:#c3c3c3">{{item.money2}}</view>
+                </view>
+                <view class="radioBox">
+                   <radio></radio>
+                </view>
+              </view>
+          </view>
+      </view>
+   </view>
+   <view class="conPro">
+       <view class="vip vipPro">
+           <view class="twoPro">抵扣<text>（会员立减券）</text></view>
+           <view class="proActive">-￥99
+           <text class='icon-arrow-right-copy iconfont'></text>
+           </view>
+       </view>
+       <view class="vipTwo clearfix">
+          <view class="vipPro ">
+             <view class="twoPro">预约支付折扣</view>
+             <view  class="proActive">-￥39.00</view>
+          </view>
+          <view class="vipPro ">
+             <view class="twoPro">递增优惠（3件八折，整盒六折）</view>
+             <view  class="proActive">-￥59.00</view>
+          </view>
+       </view>
+       <view class="vipBot">
+           <view class="botTop"><text class="botActive">￥</text>467.00</view>
+           <view class="botFoot"><text class="botActive">（平均66元一件）</text>为您节省￥670.00</view>
+       </view>
+   </view>
+   <view class="footer" bindtap="goCulb">
+            <view class="textBox clearfix">
+                <view class="textLeft">
+                    <view class="textActive">成为迷礼会员，本单再减99元起</view>
+                    <view>无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度199元无门槛立减券</view>
+                </view>
+                <view class="textRight">
+                    <text>-￥135.00</text>
+                    <radio></radio>
+                </view>
+              </view>
+   </view>
+    <view class="butBox">
+        <button bindtap="inPayBox" class="but">确认订单（0）</button>
+    </view>
+
+
+    <view class="mark" bindtap="inMark"  hidden="{{!markIndex}}"></view>
+   <view class="payBox" hidden="{{!payBoxIndex}}">
+       <view class="payTop">
+          <view>给小朋友一份礼物仅需</view>
+          <view class="payMoney">支付{{money}}元</view>
+          <view>账户余额:<text>{{moneyTwo}}</text></view>
+       </view>
+       <view class="butBoxs">
+          <button  class="buts" bindtap="goAssess">充值</button>
+           <button >余额支付</button>
+            <button >微信支付</button>
+       </view>
+   </view>  
+</view>

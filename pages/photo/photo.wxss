@@ -1,0 +1,147 @@
+.page {
+    height: 100%;
+    border-top: 1px solid  #04B8A0;
+  }
+  
+  .rowui {
+    display: flex;
+    margin-top: 30rpx;
+  }
+  
+  .rowlabelcs {
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .rowcontentcs {
+    flex: 1;
+  }
+  
+  .radiocs label {
+    border: 1px solid #cccccc;
+    padding: 0 20rpx;
+    border-radius: 40rpx;
+    margin-right: 10px;
+    color: #c9c9c9;
+  }
+  
+  .radiocs label.active {
+    color: #666666;
+    border: 1px solid #666666;
+  }
+  
+  .btncon {
+    background-color: #04B8A0;
+    border-radius: 32px;
+    border: 1px solid #04B8A0;
+    color: #fff;
+  }
+  
+  .rowcs {
+    padding-top: 40rpx;
+    padding-bottom: 40rpx;
+    border-bottom: 0.5px solid #cccccc;
+  }
+  
+  .rowcs.hover {
+    border-bottom: 0.5px solid;
+  }
+  
+  .weui-cell {
+    border-bottom: 1rpx solid #c6c6c6;
+    padding: 10px 0;
+  }
+  
+  .weui-cell__bd {
+    font-size: 20px;
+    color: #666;
+  }
+  
+  .photo-wrap {
+    width: 750rpx;
+    height: 420rpx;
+    text-align: center;
+    padding: 20rpx 0  0 56rpx;
+  }
+  
+  .photo-image-wrap {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .photo-image-wrap image {
+    width: 120rpx;
+    height: 120rpx;
+  }
+  
+  .photo-image-wrap text {
+    font-size: 14px;
+    color: #04B8A0;
+    font-weight: 700;
+    letter-spacing: -0.41px;
+  }
+  
+  .rowf {
+    flex: 1;
+    padding: 0 15%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .rowf button.rcs {
+    background-color: #04B8A0;
+    color: #fff;
+    width: 100px;
+    right: 0;
+    position: fixed;
+    margin-right: 15%;
+  }
+  
+  .rowf button.lcs {
+    background-color: #fff;
+    color: #04B8A0;
+    width: 100px;
+    left: 0;
+    position: fixed;
+    margin-left: 15%;
+  }
+  
+  
+  
+  /*修改*/
+  #repair-one {
+    padding: 40rpx 60rpx;
+  }
+  #repair-two {
+    padding-bottom: 100rpx;
+  }
+  #child-call {
+    font-size:14px;
+    color:#999999;
+    float: left;
+    margin-top: 10rpx;
+    font-weight: lighter;
+  }
+  #name-repair {
+    font-size: 18px;
+    color: #333333;
+  }
+  .pt10 {
+    padding-top: 30rpx!important;
+  }
+  
+  #repair-five {
+    color: #999999;
+    font-size: 28rpx;
+  }
+  
+  #repair-six {
+     padding: 70rpx;
+  }
+  
+  .bottom-box-next {
+    width:85%;
+    position:fixed;
+    bottom:40rpx;
+  }

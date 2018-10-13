@@ -1,0 +1,61 @@
+/* pages/free/free.wxss */
+.wrap{
+  padding:0 30rpx;
+}
+.header{
+  width:100%;
+  border-bottom:solid 1px #f3f3f3;
+  padding:20rpx 0;
+}
+.title{
+  font-size:50rpx;
+  font-weight: 600;
+}
+.headInfo{
+  font-size:28rpx;
+  color:#c3c3c3;
+  line-height:80rpx;
+}
+.content{
+  padding:20rpx 0;
+}
+.conTitle{
+  font-size:34rpx;
+}
+.conTitle,.con{
+
+  height:120rpx;
+  line-height:120rpx;
+  border-bottom:solid 1px #f3f3f3;
+}
+.con{
+  font-size:30rpx;
+}
+.con text{
+  margin:0 20rpx;
+  color:#26aea8;
+}
+.con radio{
+  display: block;
+  float:right;
+}
+.footer{
+  position:fixed;bottom:0;
+  width:100%;
+  padding:40rpx;
+  height:300rpx;
+}
+.footer button{
+  width:100%;
+  height:100rpx;
+  border-radius: 50rpx;
+  border:solid 1px #26aea8;
+  background: #26aea8;
+  color:#fff;
+  line-height: 100rpx;
+}
+.footer .but{
+  margin-top:20rpx;
+  background: #fff;
+  color:#26aea8;
+}

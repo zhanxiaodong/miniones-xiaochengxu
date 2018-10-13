@@ -1,0 +1,104 @@
+ <view class='common-pad' id="repair-one" wx:if="{{!second && !imgshow}}">
+    <view class='pb20 font30 fontWeight' id='repair-two'>
+      <text style='font-size:25px;color:#323232;'>填写孩子的基本信息</text>
+      <text id='child-call'>孩子的基本信息，请按实际填写。</text>
+    </view>
+    <form bindsubmit='submitForm'>
+      <view class='rowcs'>
+        <view class="font20 gray1-color" id='name-repair'>姓名</view>
+        <view class="rowui">
+          <view>
+            <input class="w150" id="name-repair" placeholder="name" name="call" value="{{form.call}}" type="call"></input>
+          </view>
+          <view class="rowcontentcs" style='justify-content:center;'>
+            <radio-group bindchange="radioChange" style="display: flex" name="gender" value="{{form.gender}}">
+              <view class="radiocs">
+                <label wx:for="{{sexItems}}" wx:key="value" class="{{item.checked?'active':''}}">
+                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />{{item.value}}
+                </label>
+              </view>
+            </radio-group>
+          </view>
+        </view>
+        
+      </view>
+      <view class='rowcs'>
+        <view class="font20 gray1-color">
+          <view id='name-repair'>生日</view>
+        </view>
+
+        <view class="rowcontentcs pt10">
+          <picker mode="date" start="1890-01-01" end="2033-09-01" bindchange="bindDateChange" name="date" value="{{ date }}" data-filed="birth">
+            <!--<text> {{date}}</text>-->
+            <input id='name-repair' placeholder="dd-mm-yyyy" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
+          </picker>
+        </view>
+      </view>
+      <view class='rowcs'>
+        <view class="font20 gray1-color">
+          <view id='name-repair'>身高</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{heights}}' value="{{ heightNum }}" data-filed="height">
+            <input  id='name-repair' placeholder="cm" name="height" value="{{ form.height }}" type="text" disabled='true' />
+          </picker>
+
+        </view>
+      </view>
+      <view class='rowcs'>
+        <view class="font20 gray1-color">
+          <view id='name-repair'>体重</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{weights}}' value="{{ form.weight }}" data-filed="weight">
+            <input id='name-repair' placeholder="kg" name="weight" value="{{ form.weight }}" type="text" disabled='true' />
+          </picker>
+
+        </view>
+      </view>
+      <view class='rowcs'>
+        <view class='font20 gray1-color'>
+          <view id='name-repair'>鞋码</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{sizes}}' value="{{ form.size }}" data-filed="size">
+            <input id='name-repair' placeholder="size" name="size" value="{{ form.size }}" type="text" disabled='true' />
+          </picker>
+        </view>
+      </view>
+      <view class='rowcs'>
+        <view class='font20 gray1-color'>
+          <view id='name-repair'>肤色</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{skinColors}}' value="{{ form.skinColor }}" data-filed="skinColor">
+            <input id='name-repair' placeholder="color" name="skinColor" value="{{ form.skinColor }}" type="text" disabled='true' />
+          </picker>
+        </view>
+      </view>
+     <view class='rowcs'>
+        <view class='font20 gray1-color'>
+          <view id='name-repair'>小朋友的体型</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{shapes}}' value="{{ form.shape }}" data-filed="shape">
+            <input  id='name-repair' placeholder="size" name="shape" value="{{ form.shape }}" type="text" disabled='true' />
+          </picker>
+        </view>
+      </view>
+      <view class='rowcs'>
+        <view class='font20 gray1-color'>
+          <view id='name-repair'>个人特征</view>
+        </view>
+        <view class='pt10'>
+          <picker bindchange="bindDateChange" range='{{features}}' value="{{ form.feature }}" data-filed="feature">
+            <input id='name-repair' placeholder="size" name="feature" value="{{ form.feature }}" type="text" disabled='true' />
+          </picker>
+        </view>
+      </view>
+      <view style="height: 140rpx;"></view>
+       <view class="bottom-box-next">
+          <button class='repair-button' formType="submit" >下一步</button>
+    </view>
+    </form>
+</view>

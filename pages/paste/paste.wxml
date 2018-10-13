@@ -1,0 +1,18 @@
+<view class="page">
+ <view class="title">
+   <text class="title-first">您的消费意愿</text>
+   
+   <view class="title-intro">您的选择可能会影响衣盒的商品价值</view>
+ </view>
+
+ <view class="content">
+   <view class="color">节制<text class="style">￥50-100/套</text></view>
+   <view class="color">正常<text class="style">￥100-300/套</text></view>
+   <view class="color">小资<text class="style">￥300-500/套</text></view>
+   <view class="color">轻奢<text class="style">￥500+/套</text></view>
+ </view>
+ 
+</view>
+<view class="bottom">
+    <button class="fixed-button" bindtap="next">下一步</button>
+</view>

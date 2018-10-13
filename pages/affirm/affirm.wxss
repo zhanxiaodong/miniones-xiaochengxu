@@ -1,0 +1,154 @@
+/* pages/affirm/affirm.wxss */
+.wrap{
+  background: #f3f3f3;
+}
+.header{
+  width:100%;
+  padding:40rpx;
+  background: #fff;
+}
+.header .title{
+  margin-right:20rpx;
+  font-weight: 600;
+  font-size:46rpx;
+}
+.header .iconfont{
+  color:#c3c3c3;
+}
+.headText{
+  font-size:28rpx;
+  color:#c3c3c3;
+  line-height: 60rpx;
+}
+.con{
+  width:100%;
+  background: #fff;
+  height:180rpx;
+}
+.conLeft{
+  width:10%;
+  float:left;
+  height:100%;
+  text-align: center; 
+  line-height: 180rpx;
+  color:#c3c3c3;
+}
+.conRight{
+  position:relative;
+  width:90%;
+  padding-left:15rpx;
+  height:180rpx;
+  border-top:solid 1px #f3f3f3;
+  float:left;
+}
+.rightTop{
+  padding:40rpx 0;
+}
+.conText{
+  font-size:32rpx;
+  font-weight: 600;
+}
+.conText text{
+  font-size:28rpx;
+  font-weight: 500;
+  color:#c3c3c3;
+}
+.info{
+  font-size: 30rpx;
+  color:#c3c3c3;
+}
+.conRight .action{
+}
+.conRight .iconfont{
+position:absolute;top:75rpx;right:20rpx;
+}
+.footer{
+  margin-top:20rpx;
+  padding:30rpx;
+  font-size:28rpx;
+  background: #fff;
+}
+.butBox{
+  width:100%;
+  height:100rpx;
+}
+.but{
+  width:100%;
+  height:100rpx;
+  background:#04b8a0!important;
+  border-radius: 50rpx;
+  line-height: 100rpx;
+  color:#fff;
+}
+/* 选择寄件地址上拉页面 */
+/* .updatePanel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  overflow: hidden;
+} */
+
+
+/*  确认支付订单弹窗 */
+/* 遮罩层 */
+.mark{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(30, 30, 30, 0.3);
+}
+.payBox{
+  width:100%;
+  height:600rpx;
+  border-top:solid 1px #f3f3f3;
+  position: fixed;bottom:0;
+  background: #fff;
+  padding:0 30rpx;
+  font-size:34rpx;
+  color:#c3c3c3;
+}
+.payTop{
+  width:100%;
+  height:120rpx;
+  line-height: 120rpx;
+  border-bottom:solid 1px #f3f3f3;
+}
+.payTop .left text{
+    font-size:44rpx;
+    color:#000;
+    font-weight: 600;
+}
+.payTop .right{
+  color:red;
+}
+.payBox .left{
+  width:60%;
+  float:left;
+}
+.payBox .right{
+  text-align: right;
+  width:40%;
+  float:left;
+}
+.pay{
+  padding:30rpx 0;
+}
+.pay .paySon{
+  line-height:80rpx;
+}
+.payBot text{
+  font-size:50rpx;
+  font-weight: 600;
+  color:#000;
+}
+.butBoxPro{
+  margin-top:60rpx;
+}
+.butBoxPro .butPro{
+  height:100rpx;
+  line-height:100rpx;
+  color:#fff;
+  border-radius: 50rpx;
+  background: #04b8a0;
+}

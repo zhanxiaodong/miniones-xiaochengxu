@@ -1,0 +1,79 @@
+<import src="../../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view class='page'>
+  <view>
+    <view class='flex pt20 pb20' style="width: 100%;">
+      <text class='w100 pt5'>配送时间</text>
+      <picker mode="date" start="{{ date }}" end="2050-09-01" bindchange="bindDateChange" name="date" value="{{ date }}" class='flex_auto'>
+        <input placeholder='当天' class='inputcs' value='{{date}}' disabled='true'></input>
+      </picker>
+    </view>
+    <view class='flex pb20'>
+      <text class='w100'>收件信息</text>
+      <input placeholder='选择地址' placeholder-class='inputhcs' class='inputcs flex_auto' bindtap='getAddr' value='{{address.address}}'></input>
+    </view>
+    <!--<view class='flex pb20'>
+      <text class='w100'>风格变化</text>
+      <input placeholder='朴素' class='inputcs flex_auto' value='{{style}}' placeholder-class='inputhcs' bindblur='bindInput'></input>
+    </view>-->
+    <view class='flex pb20'>
+      <text class='w100' bindtap='more'>更多设置</text>
+      <view class="weui-cell__ft weui-cell__ft_in-access" bindtap='more'></view>
+    </view>
+  </view>
+  <view style='padding-top:40px;'>
+    <view style='font-size: 12px;text-align: center;padding-bottom: 15px;color: #333333;'>确认以上信息,搭配师为小朋友准备并发出盒子</view>
+    <form bindsubmit='needBox' report-submit='true'>
+      <button class='btncs green1-back font16' form-type='submit'>衣盒预约</button>
+    </form>
+  </view>
+</view>
+<!--屏幕背景变暗的背景  -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{payStatus}}"></view>
+<!--弹出框  -->
+<view class="commodity_attr_box" wx:if="{{payStatus}}">
+  <view class='common-pad textcenter font14' wx:if='{{!recharge}}'>
+    <view class='font15'>给小朋友一份礼物仅需</view>
+    <view class='font30 fontweight pt10'>支付{{payAmount}}元</view>
+    <view style='padding-bottom:30rpx;' class='gray1-color'>账户余额: {{balance}} 元</view>
+    <view style='padding:10rpx 20rpx;'>
+      <button class='btngreen' bindtap='changeRe'>充值</button>
+    </view>
+    <view wx:if='{{balance >= payAmount }}' style='padding:10rpx 20rpx;'>
+      <form bindsubmit='balancePay' report-submit='true'>
+        <button class='btngreen' form-type='submit'>余额支付</button>
+      </form>
+    </view>
+    <view style='padding:10rpx 20rpx;'>
+      <form bindsubmit='wepay' report-submit='true'>
+        <button class='btngreen' form-type='submit'>微信支付</button>
+      </form>
+    </view>
+  </view>
+
+  <view class='textcenter font14' style='padding:30rpx 0;' wx:if='{{recharge}}'>
+    <view class='font15 fontweight textcenter pb20'>账户余额充值</view>
+    <view class='rechargeGroup'>
+      <radio-group class="weui-grids" bindchange="radioChange" value='{{plan}}'>
+        <label wx:for="{{moneyList}}" wx:key="value" class="weui-grid {{item.checked?'active':''}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />
+          <view class="flex font18 {{item.checked?'font-white1':'green1-color'}}" style='justify-content: center;align-items:center;'>
+            <image style='width:20px;height:20px;' src='{{mgic}}'></image>
+            <view>{{item.value}}</view>
+          </view>
+          <view class="{{item.checked?'font-white1':'gray2-color'}} font12">充{{item.value}}返{{item.revalue}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class='flex common-pad' style='align-items: center;'>
+      <text>输入金额</text>
+      <view class="inputView" style='height:40px;align-items: center;display: flex;'>
+        <input class="input" type="number" bindfocus='clearRadio' bindinput='changeAmount' value='{{reAmount}}' style='flex:1;'></input>
+        <text style='flex:1;font-size:10px;color:#999999;'>(实际到账{{realAmount}})</text>
+      </view>
+    </view>
+    <view class='common-pad'>
+      <button class='btngreen' bindtap='rechargeO'>微信支付</button>
+    </view>
+  </view>
+</view>

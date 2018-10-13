@@ -1,0 +1,142 @@
+page {
+    background: #f3f3f3;
+  }
+  .xz-top-title {
+    background-color: #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 0 20rpx;
+    width: 750rpx;
+    height: 80rpx;
+  }
+  .top-order {
+    font-size: 32rpx;
+    color: #333;
+    font-weight: bold;
+    line-height: 80rpx;
+  }
+  .top-sever {
+    font-size: 20rpx;
+    color: #ccc;
+    font-weight: 100;
+    line-height: 80rpx;
+    margin-left: 30rpx;
+  }
+  .xz-order-card {
+    width: 580rpx;
+    height: 330rpx;
+    background-color: #fff;
+    margin: 30rpx auto;
+    border: 3px solid #eee;
+    box-shadow: #eee 0 0 10px 5px ;
+    border-radius: 18rpx;
+    padding: 40rpx;
+  }
+  .card-section-one {
+    height: 60rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .section-left {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .status-icon {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background-color: #04B8A0;
+    margin-top: 15rpx;
+  }
+  .status-txt {
+    font-size: 32rpx;
+    color: #04B8A0;
+    margin-left: 30rpx;
+    line-height: 60rpx;
+  }
+  .status-time {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 60rpx;
+  }
+  .card-section-two {
+    display: flex;
+    flex-flow: column;
+    justify-content:space-between;
+    height: 150rpx;
+    margin: 20rpx 0;
+  }
+  .done-time {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .time-label {
+    font-size: 24rpx;
+    color: #999;
+  }
+  .done-content {
+    font-size: 24rpx;
+    color: #999; 
+  }
+  .card-section-three {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin: 40rpx 0;
+  }
+  .button-group {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .comment-btn {
+    width: 164rpx;
+    height: 60rpx;
+    background-color: #04B8A0;
+    border-radius: 30rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 60rpx;
+  }
+  .commented-btn {
+    width: 164rpx;
+    height: 60rpx;
+    background-color: #999;
+    border-radius: 30rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 60rpx;
+  }
+  .pay-btn {
+    width: 164rpx;
+    height: 60rpx;
+    background-color: #fff;
+    border-radius: 30rpx;
+    text-align: center;
+    color: #999999;
+    font-size: 24rpx;
+    line-height: 60rpx;
+    border: 1px solid #04B8A0;
+    margin-left: 20rpx;
+  }
+  .price-group {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  .price-sign {
+    font-size: 20rpx;
+    color: #999;
+    line-height: 60rpx;
+  }
+  .price-num {
+    font-size: 36rpx;
+    color: #000;
+    font-weight: bold;
+    margin-left: 5rpx;
+    line-height: 60rpx;
+  }
+  
+  

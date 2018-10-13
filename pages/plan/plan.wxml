@@ -1,0 +1,4 @@
+<view>
+<view>plan 需要看1.0的样式</view>
+<button  bindtap='next'  class='repair-button' >下一步</button>
+</view>

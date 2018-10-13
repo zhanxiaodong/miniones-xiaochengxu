@@ -1,0 +1,18 @@
+<!--logs.wxml-->
+<div class="all">
+    <div class="content">
+        <div class="image">
+            <image src='/images/p-green-a.png' class='img-diy'> </image>
+        </div>
+        <div class="title">欢迎开启孩童成长迷你王国！</div>
+        <div class="intro">从第一次到每一次，迷你王国将为您挚爱的孩子建立成长档案，从衣食教娱健康全方位提供专业服务，妈妈省心，孩子开心。</div>
+    </div>
+    <div class="bottom-button">
+      <div class="repair-one">
+        <button class="button-one" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">开启档案</button>
+      </div>
+       <div class="repair-one">
+         <button class="button-two" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" lang="zh_CN">登录档案</button>
+      </div>
+    </div>
+</div>

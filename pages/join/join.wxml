@@ -1,0 +1,68 @@
+<view class='xz-top-title'>
+  <view class='top-order'>完成订单</view>
+  <view class='top-sever'>正在服务</view>
+</view>
+<view class='xz-order-card'>
+  <view class='card-section-one'>
+    <view class='section-left'>
+      <view class='status-icon'></view>
+      <view class='status-txt'>服务已完成</view>
+    </view>
+    <view class='status-time'>2018/8/25</view>
+  </view>
+  <view class='card-section-two'>
+    <view class='done-time'>
+      <view class='time-label'>完成时间:</view>
+      <view class='done-content'>2018-07-08 11:39:29</view>
+    </view>
+    <view class='done-time'>
+      <view class='time-label'>搭配小姑:</view>
+      <view class='done-content'>C.C</view>
+    </view>
+    <view class='done-time'>
+      <view class='time-label'>订单详情</view>
+    </view>
+  </view>
+  <view class='card-section-three'>
+    <view class='button-group'>
+      <view class='comment-btn'>未评价</view>
+      <view class='pay-btn'>已支付</view>
+    </view>
+    <view class='price-group'>
+      <view class='price-sign'>¥</view>
+      <view class='price-num'>467.00</view>
+    </view>
+  </view>
+</view>
+<view class='xz-order-card'>
+  <view class='card-section-one'>
+    <view class='section-left'>
+      <view class='status-icon'></view>
+      <view class='status-txt'>服务已完成</view>
+    </view>
+    <view class='status-time'>2018/8/25</view>
+  </view>
+  <view class='card-section-two'>
+    <view class='done-time'>
+      <view class='time-label'>完成时间:</view>
+      <view class='done-content'>2018-07-08 11:39:29</view>
+    </view>
+    <view class='done-time'>
+      <view class='time-label'>搭配小姑:</view>
+      <view class='done-content'>C.C</view>
+    </view>
+    <view class='done-time'>
+      <view class='time-label'>订单详情</view>
+    </view>
+  </view>
+  <view class='card-section-three'>
+    <view class='button-group'>
+      <view class='commented-btn'>已评价</view>
+      <view class='pay-btn'>已支付</view>
+    </view>
+    <view class='price-group'>
+      <view class='price-sign'>¥</view>
+      <view class='price-num'>467.00</view>
+    </view>
+  </view>
+</view>

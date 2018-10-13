@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 100001;'>
+  <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
+</view>
+<view class="page" id="repair-page">
+  <view class="page__bd" id="repair_bd">
+   <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title" wx:if="{{item}}">{{item}}1</view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__panel" id="repair-two">
+       <view class='infoView'>
+            <view style='width:100%;height:120px'>
+              <view style='position: relative;width: 100%;height: 100px;opacity: 0.9;z-index: 100;display: flex;flex-direction: column;justify-content: center;color: #333333;'>
+                <view style="margin-top: -20px;color: #333333;font-weight: bold; font-size: 32rpx;"> 迷你亲盒 </view>
+                <view style="margin-top:20rpx; color: #cccccc;font-size: 24rpx; font-weight:bold;">孩童时尚，轻松定制</view>
+              </view>
+            </view>
+       </view>
+       <view class="picture">
+                  <image src='{{gift}}' class='allow'></image>
+       </view>  
+        <view class="button-bottom">
+          <view class='message'>{{message}}</view>
+          <view style='width:400rpx;'>
+            <form report-submit='true' bindsubmit='getBoxBefore'>
+              <button class="repair-one" form-type='submit'   >{{btnMsg}}</button>
+              <!-- <button class="repair-one" form-type='submit' bindtap="goBuy" hidden="{{!hidIndexs}}">{{btnMsgs}}</button> -->
+            </form>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+

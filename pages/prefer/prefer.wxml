@@ -1,0 +1,114 @@
+<view class="page">
+
+  <view class="height100" wx:if="{{frontType == 'style'}}">
+    <view class='prefertitle'>
+      <view class='common-pad'>
+        <view>
+          <text class='titlefont'>您喜欢孩子怎么穿?</text>
+        </view>
+        <view class='mt10'>
+          <view class='plcs'>
+            <input placeholder='添加自定义搭配风格' bindblur='addStyle' style='padding-left:20px;' value='{{tempvalue}}'></input>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="textcenter common-pad">
+      <checkbox-group bindchange="checkboxChange" class="checkbox-group">
+        <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" wx:if="{{item.show}}" class="wa-grid-33 pt20">
+          <view class="{{item.checked?'active':'unactive'}}">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true' />
+            <view class='font14'>{{item.value}}</view>
+          </view>
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view class="height100" wx:if="{{frontType == 'color'}}">
+    <view class='prefertitle'>
+      <view class='common-pad'>
+        <view>
+          <text class='titlefont'>您和孩子喜欢什么颜色?</text>
+        </view>
+        <view class='gray1-color font14'>
+          <text>点击选择您偏爱的颜色(多选)</text>
+        </view>
+      </view>
+    </view>
+    <view class='colorcs'>
+      <checkbox-group class="weui-grids" bindchange="colorChange">
+        <label wx:for="{{colorItems}}" wx:key="value" class="wa-grid-33 pt20">
+
+          <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true' />
+
+          <view wx:if="{{!item.checked}}" class="textV" style='background-color:{{item.color}}'>
+          </view>
+          <view wx:if="{{item.checked}}" class="textA  {{index == 0?'gray7-color':'font-white1'}}" style='background-color:{{item.color}}'>{{item.value}} like</view>
+        </label>
+      </checkbox-group>
+    </view>
+
+    <view class='checkcs ' style='padding-bottom: 40px;'>
+      <view class="weui-cells weui-cells_after-title common-pad">
+        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+          <label class="weui-cell weui-check__label" style="border-bottom:1px solid #e4e4e4;" wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
+            <view class="weui-cell__bd">
+              <view style="color:#000000;">{{item.value}}</view>
+            </view>
+            <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+            <view class="weui-cell__hd weui-check__hd_in-checkbox">
+              <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+              <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="height100" wx:if="{{frontType == 'detail'}}">
+    <view class='prefertitle'>
+      <view class='common-pad'>
+        <view>
+          <text class='titlefont'>您希望避免的款式细节?</text>
+        </view>
+        <view class='mt10'>
+          <view class='plcs'>
+            <input placeholder='添加自定义个人避免' bindblur='adddetail' style='padding-left:20px;' value='{{tempdetail}}'></input>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    <view class="textcenter common-pad">
+      <checkbox-group bindchange="boyChange" class="checkbox-group" wx:if="{{gender}}">
+        <label wx:for="{{boyDetail}}" wx:key="value" wx:for-item="item" class="wa-grid-33 pt20">
+          <view class="{{item.checked?'active':'unactive'}}">
+            <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true' />
+            <view class='font14'>{{item.value}}</view>
+          </view>
+        </label>
+      </checkbox-group>
+      <checkbox-group bindchange="girlChange" class="checkbox-group" wx:if="{{!gender}}">
+        <label wx:for="{{girlDetail}}" wx:key="value" wx:for-item="item" class="wa-grid-33 pt20 {{item.checked?'active':''}}">
+          <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true' />
+          <view class='font14'>{{item.value}}</view>
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-next-box">
+  <view class="bottom-box-jump">
+    <!--<button bindtap='next' wx:if="{{frontType != 'style' }}" class='btnnext' data-frontType='{{frontType}}' data-method='jump'>上一步</button>-->
+    <button bindtap='next' class='btnnext' data-frontType='{{frontType}}' data-method='next'>跳过</button>
+  </view>
+  <view class="bottom-box-next">
+    <button bindtap='next' class='btnnext' wx:if="{{frontType == 'detail' && inter }}" data-frontType='{{frontType}}' data-method='save'>保存</button>
+    <button bindtap='next' wx:else class='btnnext' data-frontType='{{frontType}}' data-method='next'>下一步</button>
+  </view>
+</view>

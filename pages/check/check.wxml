@@ -1,0 +1,23 @@
+  <view class="page">
+    <view style='font-size:25px;font-weight:bold;padding-bottom:15px;'>您的电话号码是什么？</view>
+    <view style='color:#666666;font-size:16px;font-weight:regular;'>我们不会将手机号码公开显示。</view>
+    <view style='padding-top:25px;padding-bottom:35px;'>
+      <input type='number' name="mobile" value='{{mobile}}' bindinput='mobileInput'  placeholder='手机号码' placeholder-style='font-size:14px; color:#CCCCCC;' class='inputcs'></input>
+    </view>
+    <view style='padding-bottom:25px;text-align:left;'>
+      <view class='w100'>
+        <form bindsubmit='next' wx:if="{{!smsCodeDisabled}}" report-submit='true'>
+          <button class='btnn active' style="width:200rpx; margin-left: 6rpx;" form-type='submit'>下一步</button>
+        </form>
+        <button class='btnn unactive' style="width: 200rpx; margin-left: 6rpx;" wx:if="{{smsCodeDisabled}}">下一步</button>
+      </view>
+    </view>
+    <view style='width:180px;'>
+      <view>
+        <button class='btnn active' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <image src='/images/wechat.png' style='margin-bottom: -5px;padding-right: 5px;height:40rpx;width:40rpx;' ></image>
+          微信快捷登录
+        </button>
+      </view>
+    </view>
+  </view>

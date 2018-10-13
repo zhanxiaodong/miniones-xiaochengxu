@@ -1,0 +1,17 @@
+<!--pages/free/free.wxml-->
+<view class="wrap">
+   <view class="header">
+       <view class="title">免费召回</view>
+       <view class="headInfo">为保障用户信誉评级,请在7日内完成退件操作哦</view>
+   </view>
+   <view class="content">
+       <view class='conTitle'>召回商品清单</view>
+       <view class="con" wx:for="{{conList}}">
+           {{item.name}}<text>{{item.text}}</text>{{item.money}}<radio></radio>
+       </view>
+   </view>
+</view>
+ <view class="footer">
+       <button>确认退回</button>
+       <button class="but" bindtap="goBuy">追加购买</button>
+   </view>

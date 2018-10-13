@@ -1,0 +1,187 @@
+/* pages/club/club.wxss */
+.wrap{
+  background: #f3f3f3;
+  padding-bottom:100rpx;
+}
+.vip{
+  background: #fff;
+padding:0 40rpx;
+font-weight: 500;
+height:80rpx;
+line-height: 80rpx;
+}
+.vip .action{
+  font-size:25rpx;
+  color:#c3c3c3;
+  margin-left:40rpx;
+}
+.explainBox{
+  color:#fff;
+  width:100%;
+  padding:40rpx;
+  height:458rpx;
+  background: #04b8a0;
+}
+.expla{
+  height:70rpx;
+  line-height:70rpx;
+}
+.explain{
+  font-size:28rpx;
+}
+.explainBut{
+   margin:45rpx 0;
+}
+.butOne{
+  width:274rpx;
+  height:80rpx;
+ background: #04b8a0!important;
+ color:#fff!important;
+ font-size:26rpx;
+ line-height: 80rpx;
+ border-radius: 40rpx;
+ border:solid 1px #fff;
+ float:left;
+}
+.content{
+  padding:15rpx;
+   background: #fff;
+   height:260rpx;
+}
+.title{
+  width:100%;
+  height:60rpx;
+  font-size:34rpx;
+}
+.titleRight{
+  text-align: right;
+  color:#c3c3c3;
+  font-size:28rpx;
+}
+
+.title view{
+  width:50%;
+  float:left;
+}
+.listBox{
+  height:100rpx;
+ background: #fff;
+}
+.listBox .list{
+  width:20%;
+  float:left;
+  height:200rpx;
+  text-align: center;
+  padding:30rpx 0;
+}
+.list .imgBox{
+  width:76rpx;
+  height:76rpx;
+  border-radius: 25rpx;
+  margin:0 auto;
+ 
+}
+.imgBox image{
+  width:100%;
+  height:100%;
+  border-radius:38rpx;
+}
+.listText{
+  font-size:26rpx;
+  height:60rpx;
+  line-height: 60rpx;
+   background: #fff;
+}
+.cardTitle{
+  width:100%;
+  height:60rpx;
+  line-height: 60rpx;
+
+}
+.cardBox{
+  width:100%;
+  margin-top:20rpx;
+  padding:32rpx;
+   background: #fff;
+}
+
+.card{
+  width:100%;
+  height:332rpx;
+  border-radius: 15rpx;
+  background: hsl(39, 48%, 69%);
+  padding:32rpx;
+  margin-top:20rpx;
+  color:#fff;
+}
+.cardBot,.leftTitle{
+  height:50%;
+  margin-top:15rpx;
+}
+.cardBot{
+  padding:15rpx 0;
+  font-size:26rpx;
+}
+.cardBot view{
+  height:50%;
+  line-height: 100%;
+}
+.cardLeft{
+  width:75%;
+  height:100%;
+  float:left;
+}
+.leftTitle view{
+  font-size:38rpx;
+line-height: 50rpx;
+}
+.leftBot{
+  font-size:32rpx!important;
+}
+.cardRight{
+  width:25%;
+  height:100%;
+  float:left;
+}
+.money,.radioBox{
+  height:50%;
+}
+.money{
+  height:134rpx;
+  vertical-align: bottom;
+  display:table-cell;
+}
+.radioBox{
+  position: relative;
+}
+.radioBox radio{
+  position:absolute;bottom:0;right:0;
+}
+/* 第二张卡片 */
+.cardTwo{
+  background: #cccccc;
+}
+.footer{
+  width:100%;
+  margin-top:20rpx;
+  height:80rpx;
+  padding:0 30rpx;
+  line-height: 80rpx;
+  font-size:34rpx;
+  color:#c3c3c3;
+  background: #fff;
+}
+.icon-arrow-right-copy{
+  display: block;
+  float:right;
+}
+.butBox{
+  width:100%;
+  height:100rpx;
+  line-height: 100rpx;
+  color:#fff;
+  background:#7dd8cb;
+  text-align: center;
+  position:fixed;bottom:0;
+
+}

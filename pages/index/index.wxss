@@ -1,0 +1,109 @@
+/* *index.wxss*
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+} */
+page, .page, .page__bd {
+    height: 100%;
+  }
+  
+  .page {
+    background: #fff;
+  }
+
+.page__bd {
+    padding-bottom: 0;
+  }
+  
+  .weui-navbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+  }
+  .weui-cell{
+    padding: 8px 15px;
+  }
+  
+  .weui-navbar__item {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center;
+    font-size: 0;
+    color:#999999;
+  }
+  
+ .weui-bar__item_on {
+    color: #333333;
+    font-weight: 800;
+  }
+/*修改*/
+ .repair-one {
+    background-color: #04B8A0;
+    color: #FFFFFF;
+    height: 80rpx;
+    width: 400rpx;
+    font-size: 28rpx;
+    font-weight: Regular;
+    border-radius: 60rpx;
+  }
+  
+  #repair_bd {
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  #repair-two {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+    width: 90%;
+    height: 85%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 14px 5px rgba(204,204,204,0.59);
+    margin-top: 50rpx;
+  }
+  
+  .button-bottom {
+    padding-bottom: 60rpx;
+    text-align: center;
+  }
+  
+  .allow {
+    height: 300rpx;
+    width: 300rpx;
+  }
+
+  .infoView {
+      text-align: center;
+  }
+
+  .message {
+    padding-top: 70rpx;
+    padding-bottom: 40rpx;
+    color: #cccccc; 
+    font-weight:Regular;
+    font-size: 24rpx;
+  }

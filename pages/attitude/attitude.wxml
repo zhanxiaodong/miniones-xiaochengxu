@@ -1,0 +1,17 @@
+<view class="page">
+ <view class="title">
+   <text class="title-first">您为孩子穿搭时更注重什么</text>
+   
+   <view class="title-intro">点击您认为最关注的的选项(最多选择2项)</view>
+ </view>
+
+ <view class="content">
+   <view class="color">需要完善</view>
+   <view class="color">偏需要完善</view>
+   <view class="color">穿衣态度</view>
+ </view>
+ 
+</view>
+<view class="bottom">
+    <button class="fixed-button" bindtap="next">下一步</button>
+</view>

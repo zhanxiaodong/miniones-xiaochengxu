@@ -1,0 +1,48 @@
+<!--pages/assess/assess.wxml-->
+<view class="wrap">
+   <view class="header">
+     <view class="title">体验评价</view>
+     <view class="explain">我们非常在意您的感受，感谢您认真评价。</view>
+   </view>
+   <view class="content">
+      <view class="con">
+         <view>请选择您的评分</view>
+         <view class="action">对于本次体验，您的直接感受如何</view>
+      </view>
+      <view class="iconBox">
+         <text wx:for="{{iconfontList}}" class="iconfont {{item.icon}}"></text>
+      </view>
+   </view>
+   <view class="footer">
+       <view class="choice" >
+           <view class="choiceLeft">
+              <view>我非常乐意继续体验衣盒服务</view>
+              <view class="leftBot">我们将为您提供更佳服务</view>
+           </view>
+           <view class="choiceRight">
+              <radio></radio>
+           </view>
+       </view>
+       <view class="choice" >
+           <view class="choiceLeft">
+              <view>我非常乐意继续体验衣盒服务</view>
+              <view class="leftBot">我们将为您提供更佳服务</view>
+           </view>
+           <view class="choiceRight">
+              <radio></radio>
+           </view>
+       </view>
+       <view class="choice" >
+           <view class="choiceLeft">
+              <view>我非常乐意继续体验衣盒服务</view>
+              <view class="leftBot">我们将为您提供更佳服务</view>
+           </view>
+           <view class="choiceRight">
+              <radio checkbox = ture></radio>
+           </view>
+       </view>
+   </view>
+    <view class="butBox">
+          <button class="but">订单完成</button>
+       </view>
+</view>

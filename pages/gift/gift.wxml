@@ -1,0 +1,9 @@
+<!--pages/gift/gift.wxml-->
+<view class="wrap">
+    <view class="content">
+        <view class="imgBox">
+             <image src="../../images/showa.png"/>
+           </view>
+        <view class="imgText" bindtap='timegoList'>打开赠品</view>
+    </view>
+</view>

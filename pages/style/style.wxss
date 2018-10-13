@@ -1,0 +1,52 @@
+.title {
+    padding: 80rpx 56rpx;
+}
+
+.title-first {
+    font-size:50rpx;
+    color:#323232;
+    font-size:50rpx;
+}
+
+.title-last {
+    height:76rpx;
+    background-color:#F2F2F2;
+    border-radius:40rpx;
+    margin-top:40rpx;
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    padding-left: 40rpx;
+}
+
+.content {
+  padding: 0 80rpx;
+}
+
+.name {
+    width:240rpx;
+    height:80rpx;
+    background-color:#04B8A0;
+    border-radius:40rpx;
+    color:#FFFFFF;
+    text-align:center;
+    line-height:80rpx;
+}
+
+.bottom {
+    position:fixed;
+    bottom:50rpx;
+    left:80rpx;
+}
+
+.fixed-button {
+    border-radius: 60rpx;
+    background-color: #04B8A0;
+    width: 590rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #FFFFFF;
+    letter-spacing: 6rpx;
+}

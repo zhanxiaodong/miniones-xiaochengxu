@@ -1,0 +1,16 @@
+/* pages/gift/gift.wxss */
+.content{
+  width:600rpx;
+  height:800rpx;
+  margin:0 auto;
+  padding:150rpx;
+}
+.imgBox image{
+  width:300rpx;
+  height:300rpx;
+}
+.imgText{
+  text-align: center;
+  margin-top:100rpx;
+  color:#c3c3c3;
+}

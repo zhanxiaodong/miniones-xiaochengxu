@@ -1,0 +1,26 @@
+<!--pages/list/list.wxml<-->
+   <view class="wrap">
+      <view class="listBox">
+         <view class="header">
+            <view class="imgBox">
+                <image src="../../images/img1.jpg"/>
+            </view>
+            <view class="explain">恭喜您获得</view>
+         </view>
+         <view class="content">
+             <view class="box"></view>
+             <view class="boxText">学院风秋院小短裙</view>
+         </view>
+         <view class="footer">
+            <view class="share">分享三位好友即可获得该赠品</view>
+            <view class="radioBox">
+                <radio></radio>
+                <radio></radio>
+                <radio></radio>
+            </view>
+            <view class="butBox">
+               <button class="but" type="primary" open-type="share">分享好友解锁</button>
+            </view>
+         </view>
+      </view>
+   </view>
