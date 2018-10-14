@@ -26,9 +26,8 @@
 .color {
     font-size:36rpx;
     color:#333333;
-    line-height: 140rpx;
+    line-height: 100rpx;
     padding-left:28px;
-    border-bottom:1px ridge #F2F2F2;
 }
 
 .style {
@@ -36,10 +35,6 @@
     font-size:24rpx;
     color:#999999;
 
-}
-
-.color:hover {
-    background-color: #EEFAF7;
 }
 
 .bottom {
@@ -54,4 +49,8 @@
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+}
+
+.weui-check__label:active {
+    background-color:#EEFAF7;
 }

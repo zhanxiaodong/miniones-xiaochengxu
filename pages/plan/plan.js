@@ -1,3 +1,4 @@
+var util = require("../../utils/util.js")
 Page({
   data: {
     radioItems: [
@@ -17,10 +18,79 @@ Page({
         value: '2'
       }]
   },
-
-  next: function () {
-    wx.navigateTo({
-      url: '/pages/index/index'
+  onLoad: function (options) {
+    var param = options.inter
+    if (param) {
+      this.setData({
+        isEdit: true
+      })
+    }
+    this.updateInfo()
+  },
+  radioChange: function (e) {
+    var value = e.detail.value
+    var radioItems = util.radioGroupChange(this.data.radioItems, value)
+    this.setData({
+      radioItems: radioItems,
+      planAuto: value
+    });
+  },
+  updateInfo: function () {
+    var openId = wx.getStorageSync('openId')
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var planAuto = result.planAuto
+        var intel = that.data.intel
+        if (planAuto) {
+          intel = true
+          var radioItems = util.radioGroupChange(that.data.radioItems, planAuto)
+          that.setData({
+            intel: intel,
+            radioItems: radioItems
+          })
+        } 
+      }
     })
   },
+  next: function () {
+    var intel = this.data.intel
+    var item = new Object()
+    item.wechatOpenId = wx.getStorageSync('openId')
+    item.planAuto = this.data.planAuto
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/updateUser',
+      method: 'POST',
+      data: item,
+      success: function () {
+        that.updateStep()
+        /**wx.redirectTo({
+          url: '../viptype/viptype?inter=init',
+        })
+        wx.redirectTo({
+          url: '../editcom/editcom',
+        })*/
+        wx.reLaunch({
+          url: '/pages/index/index'
+        })
+      }
+    })
+  },
+  updateStep: function () {
+    var item = new Object()
+    item.wechatOpenId = wx.getStorageSync('openId')
+    item.step = 10
+    var lev = wx.getStorageSync('level')
+    if (lev < 20) {
+      wx.setStorageSync('level', '20')
+    }
+    wx.request({
+      url: util.requestUrl + 'user/updateStep',
+      method: 'POST',
+      data: item
+    })
+  }
 })

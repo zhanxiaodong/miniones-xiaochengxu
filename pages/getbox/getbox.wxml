@@ -2,16 +2,17 @@
 <template is="dialog" data="{{ ...$wux.dialog }}" />
 <view class='page'>
   <view>
+    <view class='flex pb20'>
+      <text class='w100'>收件地址</text>
+      <input placeholder='选择地址' placeholder-class='inputhcs' class='inputcs flex_auto' bindtap='getAddr' value='{{address.address}}'></input>
+    </view>
     <view class='flex pt20 pb20' style="width: 100%;">
       <text class='w100 pt5'>配送时间</text>
       <picker mode="date" start="{{ date }}" end="2050-09-01" bindchange="bindDateChange" name="date" value="{{ date }}" class='flex_auto'>
         <input placeholder='当天' class='inputcs' value='{{date}}' disabled='true'></input>
       </picker>
     </view>
-    <view class='flex pb20'>
-      <text class='w100'>收件信息</text>
-      <input placeholder='选择地址' placeholder-class='inputhcs' class='inputcs flex_auto' bindtap='getAddr' value='{{address.address}}'></input>
-    </view>
+    
     <!--<view class='flex pb20'>
       <text class='w100'>风格变化</text>
       <input placeholder='朴素' class='inputcs flex_auto' value='{{style}}' placeholder-class='inputhcs' bindblur='bindInput'></input>
