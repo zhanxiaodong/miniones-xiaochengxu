@@ -13,5 +13,5 @@ Page({
         wx.navigateTo({
             url: '/pages/paste/paste'
         })
-    }
+    },
 })

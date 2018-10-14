@@ -2,8 +2,8 @@ Page({
     data: {
       colorAllItems: [
         { value: '接受全色系' },
-        { value: '偏好高饱和度/高亮' },
-        { value: '偏好饱和度/灰调' }
+        { value: '不喜欢冷淡的灰色调' },
+        { value: '不喜欢鲜艳的亮色调' }
       ],
     },
     colorAllChange: function (e) {

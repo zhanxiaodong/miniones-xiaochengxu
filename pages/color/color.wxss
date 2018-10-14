@@ -20,17 +20,12 @@
 }
 
 .content {
-  padding: 70rpx 0;
+  padding: 66rpx 0;
 }
 
 .color {
-    line-height: 140rpx;
+    line-height: 100rpx;
     padding-left:28px;
-    border-bottom:1px ridge #F2F2F2;
-}
-
-.color:hover {
-    background-color: #EEFAF7;
 }
 
 .bottom {
@@ -45,4 +40,8 @@
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+}
+
+.weui-check__label:active {
+    background-color:#EEFAF7;
 }

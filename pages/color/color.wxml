@@ -6,9 +6,14 @@
  </view>
 
  <view class="content">
-   <view class="color">接受全色系</view>
-   <view class="color">偏好低饱和度/灰调</view>
-   <view class="color">偏好高饱和度/明亮</view>
+        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+          <label class="weui-cell weui-check__label" style="border-bottom:1px solid #e4e4e4;" wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
+            <view >
+              <view class="color">{{item.value}}</view>
+            </view>
+            <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+          </label>
+        </radio-group>
  </view>
  <view class="bottom">
     <button class="fixed-button" bindtap="next">下一步</button>
