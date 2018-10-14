@@ -36,6 +36,7 @@ Page({
       this.setData({
         needAuth: false
       })
+      this.fillInfo()
     }
   },
   getBoxBefore:function(e){
