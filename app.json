@@ -1,16 +1,15 @@
 {
   "pages": [
-    "pages/paste/paste",
     "pages/style/style",
     "pages/index/index",
+    "pages/paste/paste",
+    
     "pages/log/log",
     "pages/plan/plan",
     "pages/attitude/attitude",
     "pages/photo/photo",
     "pages/detail/detail",
-    
     "pages/prefer/prefer",
-    
     "pages/color/color",
     "pages/password/password",
     "pages/check/check",

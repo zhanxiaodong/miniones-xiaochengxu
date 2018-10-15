@@ -36,6 +36,7 @@ Page({
       this.setData({
         needAuth: false
       })
+      this.fillInfo()
     }
   },
   getBoxBefore:function(e){
@@ -102,10 +103,12 @@ Page({
   */
   getBox: function (e) {
     var level = wx.getStorageSync('level')
+    console.log(level)
     if (level == viplev.LOOK) {
       this.goConfirm()
     } else {
       var boxStatus = this.data.boxStatus
+      console.log(boxStatus)
       switch (boxStatus) {
         case 'NONE':
           this.boxNone()
@@ -144,7 +147,6 @@ Page({
           this.backBox()
           break;
       }
-
     }
   },
 
