@@ -176,7 +176,7 @@ Page({
           })
         }
         wx.navigateTo({
-          url: '/pages/photo/photo?uploadImgTemp=' + that.uploadImgTemp + '&id=' + that.data.form.id
+          url: '/pages/photo/photo?uploadImgTemp=' + that.uploadImgTemp + '&id=' + that.data.form.id + '&inter=' + that.data.inter
         })
       }
     })

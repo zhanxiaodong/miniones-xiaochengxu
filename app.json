@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/style/style",
     "pages/index/index",
-    "pages/paste/paste",
-    
+    "pages/body/body",
+    "pages/affirm/affirm",
     "pages/log/log",
-    "pages/plan/plan",
-    "pages/attitude/attitude",
     "pages/photo/photo",
+    "pages/attitude/attitude",
+    "pages/style/style",
+    "pages/paste/paste",
+    "pages/plan/plan",
     "pages/detail/detail",
     "pages/prefer/prefer",
     "pages/color/color",
@@ -18,8 +19,7 @@
     "pages/free/free",
     "pages/buy/buy",
     "pages/assess/assess",
-    "pages/affirm/affirm",
-    "pages/body/body",
+    
     "pages/gift/gift",
     "pages/list/list",
     "pages/club/club",
@@ -28,7 +28,8 @@
     "pages/getbox/getbox",
     "pages/readdr/readdr",
     "pages/editaddr/editaddr",
-    "pages/designinfo/designinfo"
+    "pages/designinfo/designinfo",
+    "pages/pay/pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

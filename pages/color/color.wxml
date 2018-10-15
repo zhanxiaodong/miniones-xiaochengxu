@@ -8,7 +8,7 @@
  <view class="content">
         <radio-group bindchange="colorAllChange" data-index="{{index}}">
           <label class="weui-cell weui-check__label" style="border-bottom:1px solid #e4e4e4;" wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
-            <view class="{{item.checked?'active':'unactive'}}">
+            <view >
               <view class="color">{{item.value}}</view>
             </view>
             <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />

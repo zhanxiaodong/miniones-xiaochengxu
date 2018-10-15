@@ -47,22 +47,22 @@ Page({
       wx.navigateTo({
         url: '../log/log'
       })
-    } else if (level < viplev.EXP) {
-      var plan = this.data.user.plan
-      var pagen = wx.getStorageSync('pagen')
-      if (baby && plan) {
-        this.getBox()
-      } else {
-        if (pagen) {
-          wx.navigateTo({
-            url: '../editdata/editdata'
-          })
-        } else {
-          wx.navigateTo({
-            url: '../log/log'
-          })
-        }
-      }
+    // } else if (level < viplev.EXP) {
+    //   var plan = this.data.user.plan
+    //   var pagen = wx.getStorageSync('pagen')
+    //   if (baby && plan) {
+    //     this.getBox()
+    //   } else {
+    //     if (pagen) {
+    //       wx.navigateTo({
+    //         url: '../editdata/editdata'
+    //       })
+    //     } else {
+    //       wx.navigateTo({
+    //         url: '../log/log'
+    //       })
+    //     }
+    //   }
     } else {
       this.getBox()
     }
@@ -103,7 +103,6 @@ Page({
   */
   getBox: function (e) {
     var level = wx.getStorageSync('level')
-    console.log(level)
     if (level == viplev.LOOK) {
       this.goConfirm()
     } else {
