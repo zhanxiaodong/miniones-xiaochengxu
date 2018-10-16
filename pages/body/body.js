@@ -1,113 +1,101 @@
-// pages/body/body.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    choiceList:[
-      { text: "春季",},
-      { text: "夏季" },
-      { text: "秋季" },
-      { text: "冬季" },
-
+    season:[
+      { id: 1, value: "春季" },
+      { id: 2, value: "夏季" },
+      { id: 3, value: "秋季" },
+      { id: 4, value: "冬季" }
     ],
-    sceneList:[
-      { lick:"mus1", text: "日常（默认）", check: false},
-      { lick: "mus2", text: "校园", check: false},
-      { lick: "mus3", text: "节日", check: false },
-      { lick: "mus4", text: "度假", check: false },
+    occasions:[
+      { id: 1, value: "日常（默认）", checked: false },
+      { id: 2, value: "校园", check: false },
+      { id: 3, value: "节日", check: false },
+      { id: 4, value: "度假", check: false }
+    ], 
+    consumList: [
+      { id: 1, value: "不变（默认）", checked: false},
+      { id: 2, value: "接受更多尝试" }
     ],
-    goodList: [
-      { text: "不变（默认）" },
-      { text: "接受更多尝试" },
+    accepts: [
+      { id: 1, value: "accept", checked: false},
     ]
-  
-  },
-  goAffirm:function(){
-    wx.navigateTo({
-      url: '/pages/affirm/affirm',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-  },
-  choicemus1:function(){
-    wx.navigateTo({
-      url: '',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-    var items = this.data.sceneList;
-        for (var j = 0; j < items.length; j++) {
-          console.log(j,11)
-          if (items[j].check) {
-            items[j].check = false;
-        }else if(items[j].check == false){
-          items[j].check = true
-        }
-      
-    }
-    this.setData({
-      sceneList: items
-    });
-    
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    var that = this
+    var more
+    if (options.more) {
+      more = JSON.parse(options.more)
+    }
+    var season = that.data.season
+    var occasions = that.data.occasions
+    var consumList = that.data.consumList
+    var accepts = that.data.accepts
+    if (more) {
+      season = util.checkboxGroupChange(season, more.season)
+      occasions = util.checkboxGroupChange(occasions, more.occasions)
+      consumList = util.radioGroupChange(consumList, more.consum)
+      accepts = util.radioGroupChange(accepts, more.accepts)
+    } else {
+      more = new Object()
+    }
+    that.setData({
+      season: season,
+      occasions: occasions,
+      more: more,
+      consumList: consumList,
+      accepts: accepts
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  seasonChange: function (e) {
+    var values = e.detail.value
+    var season = util.checkboxGroupChange(this.data.season, values)
+    var more = this.data.more
+    more.season = values
+    this.setData({
+      season: season,
+      more: more
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  occasionsChange: function (e) {
+    var values = e.detail.value
+    var occasions = util.checkboxGroupChange(this.data.occasions, values)
+    var more = this.data.more
+    more.occasions = values
+    this.setData({
+      occasions: occasions,
+      more: more
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  radioChange: function (e) {
+    var consumList = this.data.consumList;
+    consumList = util.radioGroupChange(consumList, e.detail.value)
+    var more = this.data.more
+    more.consum = e.detail.value
+    this.setData({
+      consumList: consumList,
+      more: more
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  acceptChange: function (e) {
+    var values = e.detail.value
+    var accepts = util.checkboxGroupChange(this.data.accepts, values)
+    var more = this.data.more
+    more.accepts = values
+    this.setData({
+      accepts: accepts,
+      more: more
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  confirm: function () {
+    var more = this.data.more
+    let pages = getCurrentPages();//当前页面
+    let prevPage = pages[pages.length - 2];//上一页面
+    prevPage.setData({//直接给上移页面赋值
+      more: more
+    });
+    console.log(more)
+    wx.navigateBack()
   }
 })
