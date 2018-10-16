@@ -1,17 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/body/body",
-    "pages/affirm/affirm",
     "pages/log/log",
+    "pages/style/style",
+    "pages/detail/detail",
+    "pages/paste/paste",
+    "pages/color/color",
     "pages/photo/photo",
     "pages/attitude/attitude",
-    "pages/style/style",
-    "pages/paste/paste",
     "pages/plan/plan",
-    "pages/detail/detail",
     "pages/prefer/prefer",
-    "pages/color/color",
     "pages/password/password",
     "pages/check/check",
     "pages/wallet/wallet",
@@ -19,7 +17,8 @@
     "pages/free/free",
     "pages/buy/buy",
     "pages/assess/assess",
-    
+    "pages/affirm/affirm",
+    "pages/body/body",
     "pages/gift/gift",
     "pages/list/list",
     "pages/club/club",
@@ -28,31 +27,29 @@
     "pages/getbox/getbox",
     "pages/readdr/readdr",
     "pages/editaddr/editaddr",
-    "pages/designinfo/designinfo",
-    "pages/pay/pay"
+    "pages/designinfo/designinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {  
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "black",
     "backgroundColor": "#ffffff",
+    "selectedColor": "#04B8A0",
+    "color": "#cccccc",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/img1.jpg",
-        "selectedIconPath": "images/img1.jpg",
+        "iconPath": "images/icon6.png",
+      "selectedIconPath":"images/icon5.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/my/my",
-        "iconPath": "images/img1.jpg",
-        "selectedIconPath": "images/img1.jpg",
+        "iconPath": "images/icon2.png",
+        "selectedIconPath": "images/icon4.png",
         "text": "我的"
       }
     ]
