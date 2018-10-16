@@ -1,12 +1,17 @@
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
+import {
+  $wuxDialog
+} from '../../components/wux'
 Page({
   data: {
     payAmount: 0,
     realPayAmount: 0,
     expCouponAmount: 0,
+    expCoupon: null,
     payStatus: false,
     recharge: false,
+    useExpCoupon: false,
     weights: [
       '不确定', '10', '12', '14', '16', '18', '20', '22', '24', '26'
     ],
@@ -48,22 +53,26 @@ Page({
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
     item.amount = this.data.realPayAmount
+    if (this.data.useExpCoupon) {
+      item.expCoupon = this.data.expCoupon
+    }
     item.formId = e.detail.formId
     var that = this
-    wx.request({
-      url: util.requestUrl + 'wechat/wxPay',
-      method: 'POST',
-      data: item,
-      success: function (res) {
-        var param = res.data;
-        item.otherNo = param.data.orderNo
-        wx.requestPayment({
-          timeStamp: param.data.timeStamp,
-          nonceStr: param.data.nonceStr,
-          package: param.data.package,
-          signType: 'MD5',
-          paySign: param.data.paySign,
-          success: function (event) {
+    // wx.request({
+    //   url: util.requestUrl + 'wechat/wxPay',
+    //   method: 'POST',
+    //   data: item,
+    //   success: function (res) {
+    //     var param = res.data;
+    //     item.otherNo = param.data.orderNo
+    //     wx.requestPayment({
+    //       timeStamp: param.data.timeStamp,
+    //       nonceStr: param.data.nonceStr,
+    //       package: param.data.package,
+    //       signType: 'MD5',
+    //       paySign: param.data.paySign,
+    //       success: function (event) {
+
             that.setData({
               recharge: false,
               payStatus: false
@@ -83,15 +92,18 @@ Page({
                       boxStatus: status,
                       boxId: res.data.data.id
                     });
-                    wx.navigateBack()
+                    wx.navigateBack({
+                      delta: 2
+                    })
                   },
                 })
               }
             })
-          }
-        });
-      }
-    });
+         
+    //       }
+    //     });
+    //   }
+    // });
   },
   showMsg: function (msg) {
     wx.showToast({
@@ -204,8 +216,10 @@ Page({
           var payAmount = that.data.payAmount
           var expCouponAmount = that.data.expCouponAmount
           var realPayAmount = that.data.realPayAmount
+          var useExpCoupon = that.data.useExpCoupon
           if (expCouponAmount && !that.data.payStatus) {
             realPayAmount = payAmount - expCouponAmount
+            useExpCoupon = true
           }
           if (realPayAmount < 0) {
             realPayAmount = 0
@@ -214,7 +228,8 @@ Page({
             payStatus: true,
             realPayAmount: realPayAmount,
             markIndex: true,
-            hidIndex: true
+            hidIndex: true,
+            useExpCoupon: useExpCoupon
           })
         } else {
           that.saveBox(e)
