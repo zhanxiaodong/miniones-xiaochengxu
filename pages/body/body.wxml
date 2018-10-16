@@ -14,59 +14,54 @@
        <view class="choiceText choiceSon">选择本次服饰季节</view>
        <view class="choiceRadio choiceSon">多选</view>
     </view>
-    <view class="choice">
-      <checkbox-group bindchange="seasonChange">
-        <label class="checkbox" wx:for="{{season}}" wx:key="id">
-          <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
-        </label>
-      </checkbox-group>
-    </view>
+
+      <view class="choice" wx:for="{{choiceList}}">
+        <view class="choiceText choiceSon">
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+          <radio ></radio>
+        </view>
+      </view>
   </view>
    <view class="choiceBox clearfix">
     <view class="choiceTitle">
        <view class="choiceText choiceSon">请选择本次服装场景</view>
        <view class="choiceRadio choiceSon">多选</view>
     </view>
-    <view class="choice">
-      <checkbox-group bindchange="occasionsChange">
-      <label class="checkbox" wx:for="{{occasions}}"  wx:key="id">
-        <checkbox value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
-      </label>
-      </checkbox-group>
-    </view>
+
+      <view class="choice" wx:for="{{sceneList}}">
+        <view class="choiceText choiceSon">
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+            <radio bindtap="choice{{item.lick}}" checked="{{item.check}}"></radio>
+        </view>
+      </view>
   </view>
   <view class="choiceBox clearfix">
     <view class="choiceTitle">
        <view class="choiceText choiceSon">选择本次风格偏好</view>
        <view class="choiceRadio choiceSon"></view> 
     </view>
-    <view class="weui-cells weui-cells_after-title">
-      <radio-group bindchange="radioChange" style="width:100%;">
-        <label class="weui-cell weui-check__label" wx:for="{{consumList}}" wx:key="id">
-          <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
-          <view class="weui-cell__hd weui-check__hd_in-checkbox">
-            <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-            <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
-          </view>
-          <view class="weui-cell__bd">
-            <view class="font15">
-              <text>{{item.value}}</text>
-            </view>
-          </view>
-        </label>
-      </radio-group>
-    </view>
+
+      <view class="choice" wx:for="{{goodList}}">
+        <view class="choiceText choiceSon">
+          <radio checked></radio>
+           <text>{{item.text}}</text>
+        </view>
+        <view class='choiceRadio choiceSon'>
+          <radio></radio>
+        </view>
+      </view>
   </view>
   <view class="footer">
      <view class="accept">
-     <checkbox-group bindchange="acceptChange">
-      <label class="checkbox" wx:for="{{accepts}}"  wx:key="id">
-        <checkbox value="{{item.value}}" checked="{{item.checked}}"/>接受搭配师进一步与我沟通
-      </label>
-      </checkbox-group>
+       <radio></radio>
+       <text>接受搭配师进一步与我沟通</text>
      </view>
      <view class="butBox">
-      <button class="but" bindtap="confirm">确认啦</button>
+      <button class="but" bindtap="goAffirm">确认啦</button>
      </view>
   </view>
 </view>

@@ -28,20 +28,27 @@
     padding-left:28px;
 }
 
-.bottom {
-  margin-top:270rpx;
+
+
+.weui-cell {
+  padding: 20rpx 0!important;
 }
 
 .fixed-button {
     border-radius: 60rpx;
     background-color: #04B8A0;
     width: 590rpx;
-    height: 100rpx;
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+    position:fixed;
+    bottom:60rpx;
+    margin-left:80rpx;
 }
 
 .weui-check__label:active {
+    background-color:#EEFAF7;
+}
+.weui-check__label:hover {
     background-color:#EEFAF7;
 }

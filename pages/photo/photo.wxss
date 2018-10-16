@@ -148,9 +148,7 @@
    padding: 70rpx;
 }
 
-.bottom-next-button {
-  margin-top:350rpx;
-}
+
 
 .repair-button {
   border-radius: 60rpx;
@@ -160,5 +158,7 @@
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
-    bottom: -40rpx;
+    position:fixed;
+    bottom:60rpx;
+    margin-left:80rpx;
 }

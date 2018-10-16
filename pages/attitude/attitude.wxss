@@ -28,17 +28,28 @@
       float:left;
       width:50%;
       box-sizing:border-box;
-      color:#999;
+      color:#666666;
       margin-bottom:60rpx;
   
   }
   
-  .check-first view.unactive {
+  view.active .name {
       width:240rpx;
       height:80rpx;
       background-color:#04B8A0;
       border-radius:40rpx;
       color:#FFFFFF;
+      text-align:center;
+      line-height:80rpx;
+      border: none;
+  }
+
+  view.unactive view{
+      width:240rpx;
+      height:80rpx;
+      background-color:#ffffff;
+      border-radius:40rpx;
+      color: #666666;
       text-align:center;
       line-height:80rpx;
   }

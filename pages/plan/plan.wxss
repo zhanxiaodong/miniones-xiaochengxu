@@ -1,6 +1,6 @@
 .page {
     background-color: #fff;
-    border-top: 1px solid #666666;
+    /*border-top: 1px solid #666666;*/
   }
   
 .header {
@@ -37,6 +37,7 @@
 
 .content-list:hover {
  background-color: #D6BC8A;
+ border: none;
 }
 
 .content-list:hover view {

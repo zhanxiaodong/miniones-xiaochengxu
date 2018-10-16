@@ -36,6 +36,7 @@ page, .page, .page__bd {
     position: absolute;
     z-index: 500;
     top: 0;
+    line-height: 70rpx;
     width: 100%;
   }
   .weui-cell{
@@ -49,19 +50,20 @@ page, .page, .page__bd {
     -webkit-flex: 1;
     flex: 1;
     text-align: center;
-    font-size: 0;
+    font-size: 28rpx;
     color:#999999;
+    font-weight: regular;
   }
   
  .weui-bar__item_on {
     color: #333333;
-    font-weight: 800;
+    font-weight: bold;
   }
 /*修改*/
  .repair-one {
     background-color: #04B8A0;
     color: #FFFFFF;
-    height: 80rpx;
+    line-height: 80rpx;
     width: 400rpx;
     font-size: 28rpx;
     font-weight: Regular;

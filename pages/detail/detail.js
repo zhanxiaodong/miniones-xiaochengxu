@@ -18,10 +18,7 @@ Page({
       height: '',
       weight: '',
       size: '',
-      skinColor: '',
-      shape: '',
-      feature: '',
-      gender: ''
+      skinColor: ''
     },
     heights: [
       '不确定', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140'
@@ -33,8 +30,6 @@ Page({
       '不确定', '16', '18', '20', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '35+'
     ],
     skinColors: ['不确定', '白皙', '正常', '偏黑'],
-    shapes: ['不确定', '纤瘦', '均衡', '婴儿肥', '圆胖'],
-    features: ['不确定', '头大', '脖子长', '长腿']
   },
   onLoad: function (options) {
     this.initValidate()
@@ -130,12 +125,6 @@ Page({
         case 'skinColor':
           value = this.data.skinColors[value]
           break;
-        case 'shape':
-          value = this.data.shapes[value]
-          break;
-        case 'feature':
-          value = this.data.features[value]
-          break;
       }
     }
     this.setData({
@@ -176,7 +165,7 @@ Page({
           })
         }
         wx.navigateTo({
-          url: '/pages/photo/photo?uploadImgTemp=' + that.uploadImgTemp + '&id=' + that.data.form.id + '&inter=' + that.data.inter
+          url: '/pages/photo/photo?uploadImgTemp=' + that.uploadImgTemp + '&id=' + that.data.form.id
         })
       }
     })
@@ -199,9 +188,6 @@ Page({
         required: true
       },
       skinColor: {
-        required: true
-      },
-      shape: {
         required: true
       }
       /**,
@@ -231,12 +217,6 @@ Page({
       },
       skinColor: {
         required: '肤色不能为空'
-      },
-      shape: {
-        required: '体型不能为空'
-      },
-      feature: {
-        required: '个人特征不能为空'
       }
     }
 

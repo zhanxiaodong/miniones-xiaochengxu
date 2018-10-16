@@ -148,7 +148,6 @@ page {
     width:85%;
     position:fixed;
     bottom:0rpx;
-    background-color: #ffffff;
     z-index: 23;
 
   }
@@ -160,10 +159,10 @@ page {
   .repair-button {
     border-radius: 60rpx;
     background-color: #04B8A0;
-    width: 90%;
+    width: 92%;
     height: 100rpx;
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
-    margin: 40rpx;
+    margin-bottom: 50rpx;
   }

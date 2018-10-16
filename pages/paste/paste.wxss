@@ -6,9 +6,9 @@
 }
 
 .title-first {
-    font-size:50rpx;
+    font-size: 50rpx;
     color:#323232;
-    font-size:50rpx;
+    font-size: 50rpx;
     font-weight: bold;
 }
 
@@ -37,9 +37,7 @@
 
 }
 
-.bottom {
-  margin-top: 130rpx;
-}
+
 
 .fixed-button {
     border-radius: 60rpx;
@@ -49,8 +47,19 @@
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+     position:fixed;
+    bottom:60rpx;
+    margin-left:80rpx;
 }
 
 .weui-check__label:active {
     background-color:#EEFAF7;
+}
+
+.weui-check__label:hover {
+    background-color:#EEFAF7;
+}
+
+.weui-cell {
+  padding: 20rpx 0!important;
 }

@@ -62,6 +62,8 @@ view.active view {
 }
 
 .name {
+  width:240rpx;
+  height:82rpx;
   font-size: 28rpx;
   color:#666666;
   background-color:#ffffff;
@@ -69,19 +71,15 @@ view.active view {
   border:1px solid #666666;
 }
 
-.bottom {
-    position:fixed;
-    bottom:50rpx;
-    left:80rpx;
-    z-index: -222;
-}
-
 .fixed-button {
     border-radius: 60rpx;
     background-color: #04B8A0;
     width: 590rpx;
-    height: 100rpx;
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
+    position:fixed;
+    bottom:60rpx;
+    margin-left:80rpx;
+    z-index: 222;
 }

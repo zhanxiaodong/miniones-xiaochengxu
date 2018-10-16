@@ -2,9 +2,9 @@ var util = require("../../utils/util.js")
 Page({
     data: {
       colorAllItems: [
-        { value: '接受全色系' },
-        { value: '不喜欢冷淡的灰色调' },
-        { value: '不喜欢鲜艳的亮色调' }
+        { value: '接受合理搭配的所有颜色' },
+        { value: '不喜欢灰暗色系' },
+        { value: '不喜欢鲜艳色系' }
       ],
     },
     onLoad: function (options) {

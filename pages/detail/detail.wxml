@@ -76,26 +76,6 @@
           </picker>
         </view>
       </view>
-     <view class='rowcs'>
-        <view class='font20 gray1-color'>
-          <view id='name-repair'>小朋友的体型</view>
-        </view>
-        <view class='pt10'>
-          <picker bindchange="bindDateChange" range='{{shapes}}' value="{{ form.shape }}" data-filed="shape">
-            <input  id='name-repair' placeholder="size" name="shape" value="{{ form.shape }}" type="text" disabled='true' />
-          </picker>
-        </view>
-      </view>
-      <view class='rowcs'>
-        <view class='font20 gray1-color'>
-          <view id='name-repair'>个人特征</view>
-        </view>
-        <view class='pt10'>
-          <picker bindchange="bindDateChange" range='{{features}}' value="{{ form.feature }}" data-filed="feature">
-            <input id='name-repair' placeholder="size" name="feature" value="{{ form.feature }}" type="text" disabled='true' />
-          </picker>
-        </view>
-      </view>
       <view style="height: 140rpx;"></view>
        <view class="bottom-box-next">
           <button class='repair-button' formType="submit" >下一步</button>

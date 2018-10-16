@@ -1,309 +1,28 @@
-var util = require("../../utils/util.js")
-var viplev = require('../../utils/viplev.js')
-import {
-  $wuxDialog
-} from '../../components/wux'
+// pages/affirm/affirm.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    payAmount: 0,
-    realPayAmount: 0,
-    expCouponAmount: 0,
-    expCoupon: null,
-    payStatus: false,
-    recharge: false,
-    useExpCoupon: false,
-    weights: [
-      '不确定', '10', '12', '14', '16', '18', '20', '22', '24', '26'
+    conList:[
+      { icon: "icon-dingwei", text1: "您的寄件地址", text2: "收件地址", text3:"选择地址便于顺丰人员上门取件",font: "icon-arrow-right-copy" },
+      { icon: "icon-solid-time", text1: "配送时间", text2: "（预计8月9号）", font: "icon-arrow-right-copy" },
+      { icon: "icon-lingdang", text1: "明确需求", text2: "选填...", font: "icon-arrow-right-copy" },
     ],
+    updatePanelAnimationData:{},
+    updatePanelTop:2000,
     markIndex:0,
     hidIndex:false,
     addressInfo:null,
     date: "",
-    remarks:null
   },
-  onLoad: function (options) {
-    var babyId = options.babyId
-    var stylistId = options.stylistId
-    var today = util.getToday(new Date())
-    this.setData({
-      date: today,
-      babyId: babyId,
-      stylistId: stylistId
-    })
-    var level = wx.getStorageSync('level')
-    if (level < 40) {
-      this.updatePayAmount()
-    }
-    this.findExpCoupon()
-  },
-  updatePayAmount: function () {
-    var that = this
-    wx.request({
-      url: util.requestUrl + 'box/updatePayAmount?openId=' + wx.getStorageSync('openId'),
-      success: function (res) {
-        that.setData({
-          payAmount: res.data.data,
-          realPayAmount: res.data.data
-        })
-      }
-    })
-  },
-  wepay: function (e) {
-    var item = this.updateItem()
-    item.payChannel = 'WECHAT'
-    item.type = 'SERVICE'
-    item.amount = this.data.realPayAmount
-    if (this.data.useExpCoupon) {
-      item.expCoupon = this.data.expCoupon
-    }
-    item.formId = e.detail.formId
-    var that = this
-    // wx.request({
-    //   url: util.requestUrl + 'wechat/wxPay',
-    //   method: 'POST',
-    //   data: item,
-    //   success: function (res) {
-    //     var param = res.data;
-    //     item.otherNo = param.data.orderNo
-    //     wx.requestPayment({
-    //       timeStamp: param.data.timeStamp,
-    //       nonceStr: param.data.nonceStr,
-    //       package: param.data.package,
-    //       signType: 'MD5',
-    //       paySign: param.data.paySign,
-    //       success: function (event) {
-
-            that.setData({
-              recharge: false,
-              payStatus: false
-            })
-            wx.request({
-              url: util.requestUrl + 'user/balanceGetBox',
-              method: 'POST',
-              data: item,
-              success: function (res) {
-                $wuxDialog.alert({
-                  content: '支付成功,我们将为您精心准备盒子,敬请期待！',
-                  onConfirm(e) {
-                    var status = item.status
-                    let pages = getCurrentPages(); //当前页面
-                    let prevPage = pages[pages.length - 2]; //上一页面
-                    prevPage.setData({ //直接给上移页面赋值
-                      boxStatus: status,
-                      boxId: res.data.data.id
-                    });
-                    wx.navigateBack({
-                      delta: 2
-                    })
-                  },
-                })
-              }
-            })
-         
-    //       }
-    //     });
-    //   }
-    // });
-  },
-  showMsg: function (msg) {
-    wx.showToast({
-      title: msg,
-      icon: 'success',
-      duration: 2000
-    })
-  },
-  /**
-   * 查看是否存在体验券
-   */
-  findExpCoupon: function () {
-    var that = this
-    wx.request({
-      url: util.requestUrl + 'user/findCoupon?openId=' + wx.getStorageSync('openId') + '&type=EXPVOUCHER&status=CREATE',
-      success: function (res) {
-        if (res.data.data) {
-          that.setData({
-            expCoupon: res.data.data[0],
-            expCouponAmount: res.data.data[0].amount
-          })
-        }
-      }
-    })
-  },
-  hideModal: function (e) {
-    if (this.data.recharge) {
-      this.setData({
-        recharge: false
-      })
-    } else {
-      this.setData({
-        payStatus: false
-      })
-    }
-  },
-  bindRemarks: function (e) {
-    var remarks = e.detail.value
-    this.setData({
-      remarks: remarks
-    })
-  },
-  more: function (e) {
-    var more = this.data.more
-    if (more) {
-      wx.navigateTo({
-        url: '/pages/body/body?more=' + JSON.stringify(more),
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/body/body'
-      })
-    }
-  },
-  bindChange: function (e) {
-    var filed = e.currentTarget.dataset.filed
-    var up = filed
-    var value = e.detail.value
-    if (filed != 'birth') {
-      switch (filed) {
-        case 'height':
-          value = this.data.heights[value]
-          break;
-        case 'weight':
-          value = this.data.weights[value]
-          break;
-        case 'size':
-          value = this.data.sizes[value]
-          break;
-      }
-    }
-    this.setData({
-      [up]: value
-    })
-  },
-  /**
-   * 选择地址
-   */
-  getAddr: function () {
+  goBody:function(){
     wx.navigateTo({
-      url: '../readdr/readdr?check=' + true
-    })
-  },
-  bindInput: function (e) {
-    this.setData({
-      style: e.detail.value
-    })
-  },
-  bindDateChange: function (e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  /**
-   * 要一个盒子
-   */
-  needBox: function (e) {
-    var that = this
-    var address = that.data.address
-    if (!address) {
-      wx.showToast({
-        title: '请选择地址',
-        image: '/images/icons/warn.png',
-        duration: 1000
-      })
-    } else {
-      var level = wx.getStorageSync('level')
-      if (level < viplev.YEAR) {
-        if (that.data.payAmount > 0) {
-          var payAmount = that.data.payAmount
-          var expCouponAmount = that.data.expCouponAmount
-          var realPayAmount = that.data.realPayAmount
-          var useExpCoupon = that.data.useExpCoupon
-          if (expCouponAmount && !that.data.payStatus) {
-            realPayAmount = payAmount - expCouponAmount
-            useExpCoupon = true
-          }
-          if (realPayAmount < 0) {
-            realPayAmount = 0
-          }
-          that.setData({
-            payStatus: true,
-            realPayAmount: realPayAmount,
-            markIndex: true,
-            hidIndex: true,
-            useExpCoupon: useExpCoupon
-          })
-        } else {
-          that.saveBox(e)
-        }
-      } else {
-        that.saveBox(e)
-      }
-    }
-  },
-  changeRe: function () {
-    this.setData({
-      recharge: true
-    })
-  },
-  updateItem: function () {
-    var that = this
-    var box = that.data.more
-    if (!box) {
-      box = new Object()
-    }
-    box.serviceAmount = this.data.payAmount
-    box.payType = 'SERVICE'
-    box.type = 'GEN'
-    box.status = 'CREATE'
-    box.orderTime = that.data.date
-    box.openId = wx.getStorageSync('openId')
-    box.stylistId = that.data.stylistId
-    box.babyId = that.data.babyId
-    box.style = that.data.style
-    box.address = that.data.address
-    box.remarks = that.data.remarks
-    return box
-  },
-  saveBox: function (e) {
-    var that = this
-    var box = that.data.more
-    console.log(box)
-    if (!box) {
-      box = new Object()
-    }
-    box.type = 'GEN'
-    box.status = 'CREATE'
-    box.orderTime = that.data.date
-    box.openId = wx.getStorageSync('openId')
-    box.stylistId = that.data.stylistId
-    box.babyId = that.data.babyId
-    box.style = that.data.style
-    box.address = this.data.address
-    box.remarks = that.data.remarks
-    box.formId = e.detail.formId
-    wx.request({
-      url: util.requestUrl + 'box/saveBox',
-      method: 'POST',
-      data: box,
-      success: function (res) {
-        var code = res.data.code
-        if (code == "0") {
-          $wuxDialog.alert({
-            content: res.data.message
-          })
-        } else {
-          var status = box.status
-          var boxId = res.data.data.id
-          let pages = getCurrentPages(); //当前页面
-          let prevPage = pages[pages.length - 2]; //上一页面
-          prevPage.setData({ //直接给上移页面赋值
-            boxStatus: status,
-            boxId: boxId
-          });
-          wx.redirectTo({
-            url: '../designinfo/designinfo?boxId=' + boxId
-          })
-        }
-      }
+      url: '/pages/body/body',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
   goGift:function(){
@@ -311,10 +30,108 @@ Page({
       url: '/pages/gift/gift',
     })
   },
+  //选择寄件地址上拉页面
+  showUpdatePanelEvent() {
+    showUpdatePanel.call(this);
+  },
+  inTrue:function(){
+    console.log(3)
+    this.setData({
+      markIndex: true,
+      hidIndex: true
+    })
+  },
   inMark:function(){
     this.setData({
       markIndex: false,
       hidIndex: false
     })
+  },
+  chooseAddress(){
+    console.log(343)
+    wx.chooseAddress({
+      success: (res) => {
+        this.setData({
+          addressInfo: res
+        })
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
+  //选择日期的方法
+  bindDateChange: function (e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
   }
 })
+function showUpdatePanel() {
+ 
+  let animation = wx.createAnimation({
+    duration: 1000
+  });
+  
+  animation.translateY('-100%').step();
+
+  this.setData({
+    updatePanelAnimationData: animation.export()
+  });
+}

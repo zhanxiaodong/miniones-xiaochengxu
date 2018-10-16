@@ -1,7 +1,7 @@
 <view class="page">
   <view class="height">
     <view class="title">
-        <text class="title-first">你喜欢孩子穿着哪种风格？</text>
+        <text class="title-first">你喜欢孩子穿着哪种感觉？</text>
         <view class="title-last">
             <input class="text" placeholder="添加自定义搭配风格"  placeholder-style="font-size: 32rpx; color: #666666; font-weight:regular; padding-left: 60rpx;"  bindblur='addStyle' value='{{tempvalue}}'></input>
         </view>

@@ -6,6 +6,7 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
+    edit: false,
     defaultAva: '../../images/ava.png',
     babyList: [
       {
@@ -28,6 +29,42 @@ Page({
       }
     ]
   },
+  /**
+   * 选择小朋友
+   */
+  choiceBaby:function(){
+    wx.navigateTo({
+      url: "/pages/affirm/affirm",
+    })
+  },
+  babyChange: function (e) {
+
+    var babyList = this.data.babyList
+    var baby
+    for (var i = 0, len = babyList.length; i < len; ++i) {
+      var result = babyList[i].id == e.detail.value
+      babyList[i].checked = result
+      if (result) {
+        baby = babyList[i]
+      }
+    }
+
+    this.setData({
+      babyList: babyList,
+    })
+
+    //更新baby的信息为default
+    baby.babyDefault = true
+    wx.request({
+      url: util.requestUrl + 'baby/updateBaby',
+      method: 'POST',
+      data: baby,
+      success: function (res) {
+        wx.navigateBack()
+      }
+    })
+
+  },
   onLoad: function (options) {
     var that = this;
     wx.getSystemInfo({
@@ -38,13 +75,16 @@ Page({
         });
       }
     })
+    var edit = options.edit
     var stylistId = options.stylistId
-    if (stylistId) {
+    if (edit) {
       that.setData({
+        edit: true,
         stylistId: stylistId
       })
     }
   },
+
   onShow: function () {
     var that = this
     wx.request({
@@ -56,11 +96,18 @@ Page({
       }
     })
   },
-  choose: function (event) {
+
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
+  edit: function (event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)
     var babyId = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: "/pages/affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
+      url: "/pages/getbox/getbox?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
     })
   },
   add: function (e) {

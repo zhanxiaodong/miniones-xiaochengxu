@@ -10,13 +10,11 @@ Page({
       console.log(options.uploadImgTemp)
       var uploadImgTemp = options.uploadImgTemp
       var id = options.id
-      var inter = options.inter
       if (options.uploadImgTemp&&id) {
         that.setData({
           uploadImgTemp: uploadImgTemp,
           uploadImg: uploadImgTemp,
-          id: id,
-          inter: inter
+          id: id
         })
         // that.imageLoad(result.bodyPic,120,120)
       }
@@ -40,8 +38,6 @@ Page({
     },
     next: function () {
       var bodyPic = this.data.uploadImg
-      var inter = this.data.inter
-      var url = '/pages/style/style'
       if (bodyPic) {
         var item = new Object()
         item.id = this.data.id
@@ -52,13 +48,10 @@ Page({
           data: item
         })
       }
-      console.log(inter)
-      if (inter=='add') {
-        url = '/pages/babyInfo/babyInfo'
-      } 
       wx.redirectTo({
-        url: url
+        url: '/pages/style/style'
       })
+
     },
     getImage: function () {
       var that = this

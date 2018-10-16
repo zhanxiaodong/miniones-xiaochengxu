@@ -16,10 +16,10 @@
 </view>
 <view class="page" id="repair-page">
   <view class="page__bd" id="repair_bd">
-   <view class="weui-navbar">
+     <view class="weui-navbar">
         <block wx:for="{{tabs}}" wx:key="*this">
           <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title" wx:if="{{item}}">{{item}}1</view>
+            <view class="weui-navbar__title" wx:if="{{item}}">{{item}}</view>
           </view>
         </block>
       </view>
