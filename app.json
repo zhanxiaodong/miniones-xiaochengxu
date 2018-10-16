@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/babyInfo/babyInfo",
     "pages/index/index",
     "pages/log/log",
     "pages/style/style",
@@ -22,7 +23,7 @@
     "pages/gift/gift",
     "pages/list/list",
     "pages/club/club",
-    "pages/babyInfo/babyInfo",
+    
     "pages/my/my",
     "pages/getbox/getbox",
     "pages/readdr/readdr",
