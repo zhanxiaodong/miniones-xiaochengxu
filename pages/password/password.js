@@ -23,6 +23,8 @@ Page({
     codeCheck: function () {
       var codeIn = this.data.codeIn
       var code = this.data.code
+      var tel = this.data.mobile
+      var openId = wx.getStorageSync('openId')
       if (code == codeIn) {
         var that = this
         wx.request({
@@ -35,8 +37,25 @@ Page({
           },
           success: function (res) {
             wx.setStorageSync('level', res.data.data.level)
-            wx.redirectTo({
-              url: '/pages/detail/detail'
+            var item = new Object()
+            item.tel = tel
+            item.openId = openId
+            wx.request({
+              url: util.requestUrl + 'user/checkOldUser',
+              method: 'POST',
+              data: item,
+              success: function (res) {
+                var isOldUser = res.data.data
+                if (isOldUser) {
+                  wx.switchTab({
+                    url: '../index/index'
+                  })
+                } else {
+                  wx.redirectTo({
+                    url: '../detail/detail',
+                  })
+                }
+              }
             })
           }
         })

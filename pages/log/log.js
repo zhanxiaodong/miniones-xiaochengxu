@@ -55,6 +55,13 @@ Page({
   },
   onLoad: function (options) {
     var that = this;
+    var level = wx.getStorageSync('level')
+    var baby = this.data.baby
+    if (level > viplev.LOOK) {
+      wx.navigateTo({
+        url: '../detail/detail'
+      })
+    }
     if (options.back) {
       wx.navigateTo({
         url: '../back/back?boxId=' + options.boxId

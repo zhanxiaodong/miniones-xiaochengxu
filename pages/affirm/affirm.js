@@ -15,7 +15,7 @@ Page({
     weights: [
       '不确定', '10', '12', '14', '16', '18', '20', '22', '24', '26'
     ],
-    markIndex:0,
+    markIndex:false,
     hidIndex:false,
     addressInfo:null,
     date: "",
@@ -49,6 +49,7 @@ Page({
     })
   },
   wepay: function (e) {
+    console.log(222)
     var item = this.updateItem()
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
@@ -72,7 +73,6 @@ Page({
     //       signType: 'MD5',
     //       paySign: param.data.paySign,
     //       success: function (event) {
-
             that.setData({
               recharge: false,
               payStatus: false
@@ -104,13 +104,6 @@ Page({
     //     });
     //   }
     // });
-  },
-  showMsg: function (msg) {
-    wx.showToast({
-      title: msg,
-      icon: 'success',
-      duration: 2000
-    })
   },
   /**
    * 查看是否存在体验券
@@ -158,27 +151,6 @@ Page({
       })
     }
   },
-  bindChange: function (e) {
-    var filed = e.currentTarget.dataset.filed
-    var up = filed
-    var value = e.detail.value
-    if (filed != 'birth') {
-      switch (filed) {
-        case 'height':
-          value = this.data.heights[value]
-          break;
-        case 'weight':
-          value = this.data.weights[value]
-          break;
-        case 'size':
-          value = this.data.sizes[value]
-          break;
-      }
-    }
-    this.setData({
-      [up]: value
-    })
-  },
   /**
    * 选择地址
    */
@@ -211,9 +183,6 @@ Page({
       })
     } else {
       var level = wx.getStorageSync('level')
-      console.log(level < viplev.YEAR)
-      console.log(that.data.payAmount > 0)
-      console.log(that.data.payAmount)
       if (level < viplev.YEAR) {
         if (that.data.payAmount > 0) {
           var payAmount = that.data.payAmount

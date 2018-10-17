@@ -1,9 +1,11 @@
 {
   "pages": [
+    
     "pages/index/index",
+    "pages/style/style",
     "pages/babyInfo/babyInfo",
     "pages/log/log",
-    "pages/style/style",
+    
     "pages/detail/detail",
     "pages/paste/paste",
     "pages/color/color",
