@@ -85,12 +85,12 @@ Page({
   },
   evaBox: function () {
     wx.navigateTo({
-      url: '../evaluate/evaluate?boxId=' + this.data.boxId
+      url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
   payBox: function () {
     wx.navigateTo({
-      url: '../pay/pay?boxId=' + this.data.boxId
+      url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
   backBox: function () {
@@ -103,7 +103,6 @@ Page({
   */
   getBox: function (e) {
     var level = wx.getStorageSync('level')
-    console.log(level)
     if (level == viplev.LOOK) {
       this.goConfirm()
     } else {

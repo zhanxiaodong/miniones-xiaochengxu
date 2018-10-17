@@ -295,22 +295,22 @@ function changeMsg(status, type) {
 
     switch (status) {
       case 'CREATE':
-        result = '查看本次盒子'
+        result = '搭配准备'
         break;
       case 'LINK_UP':
-        result = '查看本次盒子'
+        result = '搭配准备'
         break;
       case 'NOTIFY_EXPRESS':
-        result = '查看本次盒子'
+        result = '正在配送'
         break;
       case 'DISPATCHING':
-        result = '查看本次盒子'
+        result = '正在配送'
         break;
       case 'DELIVERY_COMPLETE':
         result = '评价与付款'
         break;
       case 'EVALUATED':
-        result = '支付订单'
+        result = '购买与退件'
         break;
       case 'PAY_COMPLETE':
         result = '预约衣盒'
@@ -536,6 +536,22 @@ function getUserInfo(openId) {
 
 }
 
+/**
+ * 是否老用户
+ */
+function checkOldUser(item) {
+  var result = false
+  wx.request({
+    url: requestUrl + 'user/checkOldUser',
+    method: 'POST',
+    data: item,
+    success: function (res) {
+      result = res.data.data
+    }
+  })
+  return result
+}
+
 function getPhoneNum(e) {
   var mobile = ''
   wx.login({
@@ -557,10 +573,32 @@ function getPhoneNum(e) {
           success: function (resD) {
             var result = resD.data.data
             if (result) {
-              wx.setStorageSync('level', '10')
-              wx.redirectTo({
-                url: '../detail/detail'
-              })
+              var tel = result.userInfo.phoneNumber
+              var openId = result.openid
+              if (tel) {
+                var item = new Object()
+                item.tel = tel
+                item.openId = openId
+                wx.request({
+                  url: requestUrl + 'user/checkOldUser',
+                  method: 'POST',
+                  data: item,
+                  success: function (res) {
+                    var isOldUser = res.data.data
+                    wx.setStorageSync('level', '10')
+                    if (isOldUser) {
+                      getUserInfo(openId)
+                      wx.switchTab({
+                        url: '../index/index'
+                      })
+                    } else {
+                      wx.redirectTo({
+                        url: '../detail/detail',
+                      })
+                    }
+                  }
+                })
+              }
             }
           }
         })
@@ -590,5 +628,6 @@ module.exports = {
   getOpenId: getOpenId,
   getPhoneNum: getPhoneNum,
   getUserInfo: getUserInfo,
-  saveFormId: saveFormId
+  saveFormId: saveFormId,
+  checkOldUser: checkOldUser
 }
