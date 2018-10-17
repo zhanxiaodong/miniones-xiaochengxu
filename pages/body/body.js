@@ -2,23 +2,24 @@ var util = require("../../utils/util.js")
 Page({
   data: {
     season:[
-      { id: 1, value: "春季" },
-      { id: 2, value: "夏季" },
-      { id: 3, value: "秋季" },
-      { id: 4, value: "冬季" }
+      { id: 1, value: "给孩子一个礼物" },
+      { id: 2, value: "该添换洗衣服了" },
+      { id: 3, value: "尝试新风格" },
+      { id: 4, value: "省时间，不想购物" },
+      { id: 5, value: "特殊场合/活动" }
     ],
     occasions:[
-      { id: 1, value: "日常（默认）", checked: false },
-      { id: 2, value: "校园", check: false },
-      { id: 3, value: "节日", check: false },
-      { id: 4, value: "度假", check: false }
+      { id: 1, value: "日常（默认）", checked: true },
+      { id: 2, value: "校园" },
+      { id: 3, value: "节日" },
+      { id: 4, value: "度假" }
     ], 
     consumList: [
-      { id: 1, value: "不变（默认）", checked: false},
+      { id: 1, value: "不变（默认）", checked: true},
       { id: 2, value: "接受更多尝试" }
     ],
     accepts: [
-      { id: 1, value: "accept", checked: false},
+      { id: 1, value: "接受搭配师进一步与我沟通", checked: false},
     ]
   },
 
@@ -60,7 +61,7 @@ Page({
   },
   occasionsChange: function (e) {
     var values = e.detail.value
-    var occasions = util.checkboxGroupChange(this.data.occasions, values)
+    var occasions = util.radioGroupChange(this.data.occasions, values)
     var more = this.data.more
     more.occasions = values
     this.setData({

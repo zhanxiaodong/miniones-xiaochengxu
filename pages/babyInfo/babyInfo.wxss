@@ -1,6 +1,7 @@
 /* pages/babyInfo/babyInfo.wxss */
 page {
   height: 100%;
+  background-color: #F6F8F7;
 }
 
 .weui-navbar {
@@ -75,22 +76,28 @@ page {
   padding-top: 40rpx;
 }
 
+.style {
+  margin-bottom: -8rpx; 
+}
+
 .cardcsl {
-  margin: 15px 40rpx 0 40rpx;
+  margin: 15px 25rpx 0 25rpx;
   background-color: #fff;
   border-radius: 16rpx;
-  padding-top: 40rpx;
+  padding-top: 25rpx;
+
 }
 
 .flexcs {
   display: flex;
-  margin-bottom: 20rpx;
+  padding-bottom: 25rpx;
 }
 
 .avatarcs {
-  width: 100px;
-  height: 100px;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 50px;
+  margin: 15rpx 40rpx 40rpx;
 }
 
 .card-left {
@@ -103,12 +110,11 @@ page {
   flex: 1;
 }
 
-.card-edit {
+/*.card-edit {
   text-align: right;
   padding-right: 40rpx;
   font-size: 10px;
-  padding-bottom: 10px;
-}
+}*/
 
 button {
   font-size: 10px;
@@ -116,12 +122,16 @@ button {
 
 
 .btnadd {
-  background-color: #fff;
-  font-size: 14px;
+  background-color: #ffffff;
+  font-size: 32rpx;
+  color: #666666;
+  line-height: 140rpx;
+  font-weight: bold;
 }
 
 .desccs {
-  font-size: 12px;
+  font-size: 24rpx;
+  color: #cccccc;
 }
 
 .infopg {
@@ -131,13 +141,14 @@ button {
 }
 
 .addb {
-  margin: 40rpx 40rpx 0 40rpx;
+  margin: 30rpx;
   border-radius: 16rpx;
   background-color: #fff;
 }
 
 .btnedit {
   font-size: 10px;
-  background-color: #ffdf5e;
+  background-color: #04B8A0;
   border-radius: 16px;
+  color: #ffffff;
 }
