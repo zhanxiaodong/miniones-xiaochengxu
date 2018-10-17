@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/buy/buy",
     "pages/giftBox/giftBox",
     "pages/editaddr/editaddr",
     "pages/readdr/readdr",
+  
     "pages/password/password",
     "pages/club/club",
-    "pages/buy/buy",
+    
     "pages/gift/gift",
     "pages/affirm/affirm",
     "pages/body/body",
