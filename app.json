@@ -1,11 +1,12 @@
 {
   "pages": [
-    
     "pages/index/index",
+    "pages/buy/buy",
+    
     "pages/style/style",
     "pages/babyInfo/babyInfo",
     "pages/log/log",
-    
+    "pages/coupon/coupon",
     "pages/detail/detail",
     "pages/paste/paste",
     "pages/color/color",
@@ -18,7 +19,7 @@
     "pages/wallet/wallet",
     "pages/join/join",
     "pages/free/free",
-    "pages/buy/buy",
+    
     "pages/assess/assess",
     "pages/affirm/affirm",
     "pages/body/body",
