@@ -9,6 +9,7 @@
       </view>
       <view class="headText">为确保您的衣盒体验，请确认您的信息</view>
    </view>
+   <view class="border"></view>
    <view class="content">
       <view class="con clearfix">
           <view class="conLeft">
@@ -47,14 +48,16 @@
           <view class="conRight">
              <view class="conText action">明确需求
                  <text>选填...</text>
+                 <text class='iconfont icon-arrow-right-copy'></text>
              </view>
-             <text class='iconfont icon-arrow-right-copy'></text>
+             
           </view>
       </view>
    </view>
+   <view class="qzone"></view>
    <view class="footer">
        <view class="textBox">
-          <textarea rows="5" bindinput='bindRemarks' placeholder='添加备注（限40字之内）'></textarea>
+          <textarea class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
         </view>
         <view class="butBox">
            <button class="but" bindtap="needBox">确认预约</button>
@@ -65,7 +68,7 @@
    <view class="payBox" hidden="{{!hidIndex}}">
        <view class="payTop">
            <view class="left"><text>体验券</text>（邀请体验）</view>
-           <view class="right">-￥{{expCouponAmount}}<text class="iconfont icon-arrow-right-copy"></text></view>
+           <view class="right">-￥{{expCouponAmount}}<text class="iconfont icon-arrow-right-copy" style="color: #666666;"></text></view>
        </view>
        <view class="pay">
           <view class="paySon clearfix">

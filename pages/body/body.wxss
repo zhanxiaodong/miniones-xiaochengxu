@@ -2,7 +2,7 @@
 
 .wrap{
   padding:58rpx 50rpx;
-  border-top:solid 1px #f3f3f3;
+ /* border-top:solid 1px #f3f3f3;*/
 }
 .top{
   border-bottom:solid 1rpx #f3f3f3;
@@ -11,10 +11,16 @@
   font-weight: 500;
   
 }
+
+.titlestyle {
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: bold;
+}
 .topText{
-  color:#c3c3c3;
+  color:#999999;
   margin-top:20rpx;
-  font-size:26rpx;
+  font-size:24rpx;
 }
 .choiceBox{
   width:100%;
@@ -27,6 +33,9 @@
   float:left;
   height:80rpx;
   line-height: 80rpx;
+  font-size:36rpx;
+  font-weight: bold;
+  color: #666666;
 }
 .choiceText{
   width:50%
@@ -47,11 +56,42 @@
 }
 
 .but{
-  height:90rpx;
-  line-height: 90rpx;
-  border-radius: 40rpx;
+  width:670rpx;
+  background:#04b8a0!important;
+  border-radius: 50rpx;
+  line-height: 100rpx;
   color:#fff;
-  background:#04b8a0;
-  font-size: 40rpx;
+  font-weight: bold;
+  font-size: 36rpx;
 }
 
+.choiceTitle {
+  height: 120rpx;
+}
+
+.checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+
+.choice-call {
+  font-size: 32rpx;
+  color: #666666;
+}
+
+.choice-box {
+  position: absolute;
+  left: -1991.1004px;
+}
+
+#accept-icon {
+  padding-left: 100rpx;
+}
+
+#accept-chat {
+  padding-right: 120rpx;
+  color: #333333;
+  font-weight: bold;
+}
