@@ -1,10 +1,12 @@
 {
-  "pages": [ 
+  "pages": [
+
     "pages/index/index",
     "pages/attitude/attitude",
     "pages/style/style",
     "pages/color/color",
-    "pages/photo/photo", 
+    "pages/photo/photo",
+    "pages/demo/demo",
     "pages/log/log",
     "pages/detail/detail",
     "pages/check/check",
@@ -20,9 +22,7 @@
     "pages/gift/gift",
     "pages/affirm/affirm",
     "pages/body/body",
-    "pages/babyInfo/babyInfo", 
-    
- 
+    "pages/babyInfo/babyInfo",
     "pages/assess/assess",
     "pages/list/list",
     "pages/my/my",

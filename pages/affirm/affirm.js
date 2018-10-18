@@ -49,30 +49,31 @@ Page({
     })
   },
   wepay: function (e) {
-    console.log(222)
     var item = this.updateItem()
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
-    item.amount = this.data.realPayAmount
+    // item.amount = this.data.realPayAmount
+    item.amount = 1.01
     if (this.data.useExpCoupon) {
       item.expCoupon = this.data.expCoupon
     }
     item.formId = e.detail.formId
     var that = this
-    // wx.request({
-    //   url: util.requestUrl + 'wechat/wxPay',
-    //   method: 'POST',
-    //   data: item,
-    //   success: function (res) {
-    //     var param = res.data;
-    //     item.otherNo = param.data.orderNo
-    //     wx.requestPayment({
-    //       timeStamp: param.data.timeStamp,
-    //       nonceStr: param.data.nonceStr,
-    //       package: param.data.package,
-    //       signType: 'MD5',
-    //       paySign: param.data.paySign,
-    //       success: function (event) {
+    wx.request({
+      url: util.requestUrl + 'wechat/wxPay',
+      method: 'POST',
+      data: item,
+      success: function (res) {
+        var param = res.data;
+        item.otherNo = param.data.orderNo
+        wx.requestPayment({
+          timeStamp: param.data.timeStamp,
+          nonceStr: param.data.nonceStr,
+          package: param.data.package,
+          signType: 'MD5',
+          paySign: param.data.paySign,
+          success: function (event) {
+            console.log(111111)
             that.setData({
               recharge: false,
               payStatus: false
@@ -88,10 +89,10 @@ Page({
               }
             })
          
-    //       }
-    //     });
-    //   }
-    // });
+          }
+        });
+      }
+    });
   },
   /**
    * 查看是否存在体验券
