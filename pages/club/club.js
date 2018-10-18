@@ -1,4 +1,6 @@
-// pages/club/club.js
+var util = require("../../utils/util.js")
+var viplev = require("../../utils/viplev.js")
+import { $wuxDialog } from '../../components/wux'
 Page({
 
   /**
@@ -12,87 +14,224 @@ Page({
       { img: "../../images/img1.jpg", text: "199免/季" },
       { img: "../../images/img1.jpg", text: "全账号通行" },
     ],
-    checkOne:true,
-    checkTwo: false,
-    moneyIndex:"199.00"
+    hiddenYEAR: false,
+    choose:'FIRST',
+    vipprice:"199.00"
   },
-  inCheckTwo:function(){
-    if (this.data.checkOne = true) {
-      this.setData({
-        checkOne: false
-      })
-    }
+  chooseFirst:function(){
     this.setData({
-      checkTwo: true,
-      moneyIndex:"99.00"
-    })
-
-  },
-  inCheck:function(){
-    if(this.data.checkTwo =true){
-      this.setData({
-        checkTwo:false
-      })
-    }
-    this.setData({
-      checkOne:true,
-      moneyIndex: "199.00"
+      choose: 'FIRST',
+      vipprice:"199.00"
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  chooseYear:function(){
+    this.setData({
+      choose: 'YEAR',
+      vipprice: "99.00"
+    })
+  },
   onLoad: function (options) {
-  
+    this.findUser()
+    this.findBalance()
+    if (options.inter) {
+      this.setData({
+        inter: options.inter
+      })
+    }
+    var level = wx.getStorageSync('level')
+    if (level == '40') {
+      this.setData({
+        hiddenYEAR: true
+      })
+    }
+    if (options.up) {
+      this.setData({
+        up: true
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  findUser: function () {
+    var openId = wx.getStorageSync('openId')
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = result.level
+        var levelTime = result.levelTime ? result.levelTime : ''
+        var btnedit = true
+        if (level >= viplev.FIRST) {
+          btnedit = false
+        }
+        that.setData({
+          level: level,
+          btnedit: btnedit,
+          levelTime: levelTime
+        })
+        that.updateTitle(level, levelTime, '')
+        if (result.vipNum) {
+          var numstr = result.vipNum + '/1000'
+          that.setData({
+            'viptypelist[0].num': numstr
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  findBalance: function () {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findBalance?openId=' + wx.getStorageSync('openId'),
+      success: function (res) {
+        var result = res.data.data
+        if (result) {
+          var balance = result.balanceAmount + result.backMoney
+          that.setData({
+            balance: balance
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  updateTitle: function (lev, levTime, choose) {
+   
+    this.setData({
+      level: lev,
+    })
+    if (choose) {
+      this.btnUpdate(choose)
+    }
+    wx.setStorageSync('level', lev)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  btnUpdate: function (choose) {
+    var btnedit = this.data.btnedit
+    var level = this.data.level
+    if (choose == 'FIRST') {
+      btnedit = false
+    } else if (choose == 'YEAR') {
+      btnedit = false
+    }  else {
+      btnedit = true
+    }
+    this.setData({
+      btnedit: btnedit
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  goLast: function (level) {
+    if (this.data.inter && this.data.inter != 'setting') {
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '../editcom/editcom',
+        })
+      }.bind(this), 2000)
+    }
+    if (this.data.up) {
+      let pages = getCurrentPages(); //当前页面
+      let prevPage = pages[pages.length - 2]; //上一页面
+      prevPage.setData({ //直接给上移页面赋值
+        update: true
+      });
+      wx.navigateBack({})
+    }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+  balancePay: function (e) {
+    var that = this
+    var vipprice = that.data.vipprice
+    var balance = that.data.balance
+    if (balance < vipprice) {
+      wx.showToast({
+        title: '余额不足',
+      })
+    } else {
+      var choose = that.data.choose
+      var item = new Object()
+      item.openId = wx.getStorageSync('openId')
+      item.amount = that.data.vipprice
+      item.type = 'VIP'
+      item.formId = e.detail.formId
+      var vipOrder = new Object()
+      var levTime
+      if (choose == 'FIRST') {
+        vipOrder.level = viplev.FIRST
+        levTime = '12'
+      } else if (choose == 'YEAR') {
+        vipOrder.level = viplev.YEAR
+        vipOrder.brand = that.data.brandType
+      } else {
+        vipOrder.level = viplev.EXP
+      }
+      item.vipOrder = vipOrder
+      wx.request({
+        url: util.requestUrl + 'user/balancePay',
+        method: 'POST',
+        data: item,
+        success: function (res) {
+          that.updateTitle(vipOrder.level, levTime, choose)
+          that.hideModal('pay')
+          that.goLast(vipOrder.level)
+          that.setData({
+            btnedit: false
+          })
+        }
+      })
+    }
   },
+  hideModal: function () {
+    var that = this
+    that.setData({
+      payStatus: false
+    })
+  },
+  wepay: function (e) {
+    var that = this
+    var choose = that.data.choose
+    var item = new Object()
+    item.openId = wx.getStorageSync('openId')
+    item.amount = that.data.vipprice
+    item.type = 'VIP'
+    item.formId = e.detail.formId
+    var vipOrder = new Object()
+    var levTime
+    if (choose == 'FIRST') {
+      vipOrder.level = viplev.FIRST
+    } else if (choose == 'YEAR') {
+      vipOrder.level = viplev.YEAR
+      levTime = '12'
+    } else {
+      vipOrder.level = viplev.EXP
+    }
+    item.vipOrder = vipOrder
+    wx.request({
+      url: util.requestUrl + 'wechat/wxPay',
+      data: item,
+      method: 'POST',
+      success: function (res) {
+        var param = res.data;
+        wx.requestPayment({
+          timeStamp: param.data.timeStamp,
+          nonceStr: param.data.nonceStr,
+          package: param.data.package,
+          signType: 'MD5',
+          paySign: param.data.paySign,
+          success: function (event) {
+            that.updateTitle(vipOrder.level, levTime, choose)
+            that.hideModal('pay')
+            that.goLast(vipOrder.level)
+          },
+          fail: function (error) {
+          },
+          complete: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+          }
+        });
+      }
+    });
+  },
+  confirmInfo: function () {
+    var that = this
+    that.setData({
+      payStatus: true
+    })
+  },
   
-  }
 })

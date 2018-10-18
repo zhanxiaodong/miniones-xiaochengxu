@@ -58,6 +58,10 @@
              <view  class="proActive">-￥{{orderPay}}</view>
           </view>
           <view class="vipPro ">
+             <view class="twoPro">会员折扣</view>
+             <view  class="proActive">-￥{{discountPrice}}</view>
+          </view>
+          <view class="vipPro ">
              <view class="twoPro">递增优惠（{{otherdesc}}）</view>
              <view  class="proActive">-￥{{otheramount}}</view>
           </view>
@@ -90,11 +94,6 @@
     <view class='font15'>给小朋友一份礼物仅需</view>
     <view class='font30 fontweight pt10'>支付{{totalPrice}}元</view>
     <view style='padding-bottom:30rpx;' class='gray1-color'>账户余额: {{balance}} 元</view>
-    <view style='padding:10rpx 20rpx;'>
-      <form bindsubmit='changeRe' report-submit='true'>
-        <button class='btngreen' form-type='submit'>充值</button>
-      </form>
-    </view>
     <view wx:if='{{balance >= totalPrice }}' style='padding:10rpx 20rpx;'>
       <form bindsubmit='balancePay' report-submit='true'>
         <button class='btngreen' form-type='submit'>余额支付</button>
@@ -106,19 +105,26 @@
       </form>
     </view>
   </view>
+</view> 
+
+<view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
+<!--弹出框  -->
+<view class="commodity_attr_box" wx:if="{{confirmNo}}">
+  <view class='common-pad textcenter font14'>
+    <view class='fontweight' style='font-size: 20px;text-align: left;padding: 0 20px;'>您未选择任何商品,提交订单将跳转退件流程</view>
+    <view style='padding: 20px 10px 5px;display: flex;'>
+      <view style='flex: 1;padding-right: 10px;'>
+        <form bindsubmit='confirmNoPay' report-submit='true'>
+          <button class='btngreen' form-type='submit'>确定</button>
+        </form>
+      </view>
+      <view style='flex: 1;padding-left: 10px;'>
+        <form bindsubmit='hideComfirm' report-submit='true'>
+          <button class='btngreen' form-type='submit'>再看看</button>
+        </form>
+      </view>
+    </view>
+  </view>
 </view>
 
-    <view class="mark" bindtap="inMark"  hidden="{{!markIndex}}"></view>
-   <view class="payBox" hidden="{{!payBoxIndex}}">
-       <view class="payTop">
-          <view>给小朋友一份礼物仅需</view>
-          <view class="payMoney">支付{{money}}元</view>
-          <view>账户余额:<text>{{moneyTwo}}</text></view>
-       </view>
-       <view class="butBoxs">
-          <button  class="buts" bindtap=" ">充值</button>
-           <button >余额支付</button>
-            <button >微信支付</button>
-       </view>
-   </view>  
 </view>

@@ -10,7 +10,6 @@ Page({
     showModalStatus: false,
     confirmNo: false,
     resultAmount: 0.00,
-    recharge: false,
     saveHidden: true,
     goodsTotal: 0.00,
     totalPrice: 0.00,
@@ -25,8 +24,8 @@ Page({
     orderPay:0.0,
     cashuse: true,
     discountPrice: 0.00,
-    payBoxIndex:false,
-    markIndex:false
+    chooseCount:0,
+    avgPrice:0.00
   },
   onLoad: function (options) {
     var that = this
@@ -89,7 +88,7 @@ Page({
         var boxNo = result.boxNo
         var couponsNum = result.couponsNum ? result.couponsNum : null
         var vipo
-        if (level == viplev.FIRST) {
+        if (level == viplev.FIRST || level == viplev.YEAR) {
           vipo = new Object()
           vipo.desc = '会员专享9折'
           vipo.discount = 0.1
@@ -328,7 +327,6 @@ Page({
         avgPrice = (totalPrice / chooseCount).toFixed(2)
       }
     }
-    
     this.setData({
       vipoprice: vipoprice.toFixed(2),
       otheramount: otheramount.toFixed(2),
@@ -396,92 +394,15 @@ Page({
     })
   },
   hideModal: function (e) {
-    if (this.data.recharge) {
-      this.setData({
-        recharge: false
-      })
-    } else {
-      this.setData({
-        showModalStatus: false
-      })
-    }
-
-  },
-  updateRealAmount: function (reAmount) {
-    var realAmount = reAmount
-    if (reAmount >= 10000) {
-      realAmount = Number(reAmount) + 1000
-    } else if (reAmount >= 5000) {
-      realAmount = Number(reAmount) + 400
-    } else if (reAmount >= 2000) {
-      realAmount = Number(reAmount) + 120
-    } else if (reAmount >= 1000) {
-      realAmount = Number(reAmount) + 50
-    } else if (reAmount >= 500) {
-      realAmount = Number(reAmount) + 20
-    } else if (reAmount >= 100) {
-      realAmount = Number(reAmount) + 5
-    }
     this.setData({
-      realAmount: realAmount
+      showModalStatus: false
     })
-  },
-  changeAmount: function (e) {
-    var reAmount = e.detail.value
-    this.updateRealAmount(reAmount)
-    this.setData({
-      reAmount: reAmount,
-      resultAmount: reAmount
-    })
-  },
-  /**
-   * 充值支付
-   */
-  rechargeO: function () {
-    var resultAmount = this.data.resultAmount
-    var that = this
-    if (resultAmount < 0) {
-      that.showMsg('金额不能小于1元')
-    } else {
-      var item = new Object()
-      item.openId = wx.getStorageSync('openId')
-      item.amount = resultAmount
-      item.type = 'RECHARGE'
-      wx.request({
-        url: util.requestUrl + 'wechat/wxPay',
-        method: 'POST',
-        data: item,
-        success: function (res) {
-          var param = res.data;
-          wx.requestPayment({
-            timeStamp: param.data.timeStamp,
-            nonceStr: param.data.nonceStr,
-            package: param.data.package,
-            signType: 'MD5',
-            paySign: param.data.paySign,
-            success: function (event) {
-              that.showMsg('充值成功')
-              that.findBalance()
-              that.setData({
-                recharge: false
-              })
-            }
-          });
-        }
-      });
-    }
   },
   showMsg: function (msg) {
     wx.showToast({
       title: msg,
       icon: 'success',
       duration: 2000
-    })
-  },
-  changeRe: function (e) {
-    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
-    this.setData({
-      recharge: true
     })
   },
   /**
@@ -502,7 +423,6 @@ Page({
         data: item,
         success: function (res) {
           that.setData({
-            recharge: false,
             showModalStatus: false
           })
           that.confirm()
@@ -532,7 +452,6 @@ Page({
           success: function (event) {
             that.updateBox()
             that.setData({
-              recharge: false,
               showModalStatus: false
             })
             that.confirm()
@@ -542,19 +461,15 @@ Page({
     });
   },
   confirm: function () {
+    console.log(11111)
     var that = this
     $wuxDialog.alert({
       content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
       onConfirm(e) {
-        if (that.data.allSelect) {
-          wx.reLaunch({
-            url: '../clothes/clothes?share=true',
-          })
-        } else {
-          wx.reLaunch({
-            url: '../clothes/clothes?back=true&boxId=' + that.data.boxId,
-          })
-        }
+        var allSelect = that.data.allSelect
+        wx.reLaunch({
+          url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
+        })
       }
     })
   },
@@ -619,31 +534,9 @@ Page({
       }
     })
   },
-  goUp: function () {
-    wx.navigateTo({
-      url: '../viptype/viptype?up=true',
-    })
-  },
-  checkcou: function () {
-    wx.navigateTo({
-      url: '../coupon/coupon?pick=true',
-    })
-  },
   goCulb:function(){
     wx.navigateTo({
-      url:"/pages/club/club"
-    })
-  },
-  inPayBox: function () {
-    this.setData({
-      markIndex: true,
-      payBoxIndex: true
-    })
-  },
-  inMark: function () {
-    this.setData({
-      markIndex: false,
-      payBoxIndex: false
+      url:"/pages/club/club?up=true"
     })
   },
   goAssess:function(){
