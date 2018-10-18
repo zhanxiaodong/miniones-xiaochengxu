@@ -46,6 +46,7 @@ Page({
     })
   },
   initStyle: function (oldStyle) {
+    console.log(oldStyle)
     var checkboxItems = this.data.checkboxItems
     var cusArr = new Array()
     for (var i = 0; i < oldStyle.length; ++i) {

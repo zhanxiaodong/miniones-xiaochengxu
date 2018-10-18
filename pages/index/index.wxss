@@ -109,3 +109,8 @@ page, .page, .page__bd {
     font-weight:Regular;
     font-size: 24rpx;
   }
+
+  .day {
+    font-size: 24rpx;
+    color: #D6BC8A;
+  }

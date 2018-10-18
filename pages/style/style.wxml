@@ -18,6 +18,5 @@
     </view>   
   </view>
 </view>
-<view class="bottom">
+
     <button class="fixed-button" bindtap="next">下一步</button>
-</view>

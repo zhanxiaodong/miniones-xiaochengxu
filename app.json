@@ -1,35 +1,28 @@
 {
-  "pages": [
-    "pages/buy/buy",
-    "pages/giftBox/giftBox",
-    "pages/editaddr/editaddr",
+  "pages": [ 
+    "pages/index/index",
+    "pages/attitude/attitude",
+    "pages/style/style",
+    "pages/color/color",
+    "pages/photo/photo", 
+    "pages/log/log",
+    "pages/detail/detail",
+    "pages/check/check",
+    "pages/paste/paste",
+    "pages/plan/plan",
+    "pages/giftBox/giftBox", 
     "pages/readdr/readdr",
-  
+    "pages/buy/buy",
+    "pages/coupon/coupon",
+    "pages/editaddr/editaddr",
     "pages/password/password",
     "pages/club/club",
-    
     "pages/gift/gift",
     "pages/affirm/affirm",
     "pages/body/body",
-    
     "pages/babyInfo/babyInfo", 
-    "pages/index/index",
-    "pages/log/log",
-    "pages/attitude/attitude",
-    "pages/style/style",
     
-   
-    "pages/detail/detail",
-    "pages/paste/paste",
-    "pages/color/color",
-    "pages/photo/photo",
-    "pages/plan/plan",
-    "pages/prefer/prefer",
-    
-    "pages/check/check",
-    "pages/wallet/wallet",
-    "pages/join/join",
-    "pages/free/free",
+ 
     "pages/assess/assess",
     "pages/list/list",
     "pages/my/my",

@@ -1,3 +1,9 @@
 <!--pages/giftBox/giftBox.wxml-->
 <view class="all">
+ <view class="gift-img">
+  <image src="{{giftImage}}" class="img" />
+ </view>
+ <view class="gift-text">
+  <text>正在准备</text>
+ </view>
 </view>

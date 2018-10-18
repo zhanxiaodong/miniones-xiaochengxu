@@ -28,10 +28,17 @@
     padding-left:28px;
 }
 
+#height {
+  padding: 20rpx 0;
+  width: 750rpx;
+}
 
+.active {
+  background-color: #EEFAF7; 
+}
 
 .weui-cell {
-  padding: 20rpx 0!important;
+  padding: 0!important;
 }
 
 .fixed-button {
@@ -44,11 +51,4 @@
     position:fixed;
     bottom:60rpx;
     margin-left:80rpx;
-}
-
-.weui-check__label:active {
-    background-color:#EEFAF7;
-}
-.weui-check__label:hover {
-    background-color:#EEFAF7;
 }

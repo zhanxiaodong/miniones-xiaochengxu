@@ -82,20 +82,8 @@ Page({
               method: 'POST',
               data: item,
               success: function (res) {
-                $wuxDialog.alert({
-                  content: '支付成功,我们将为您精心准备盒子,敬请期待！',
-                  onConfirm(e) {
-                    var status = item.status
-                    let pages = getCurrentPages(); //当前页面
-                    let prevPage = pages[pages.length - 2]; //上一页面
-                    prevPage.setData({ //直接给上移页面赋值
-                      boxStatus: status,
-                      boxId: res.data.data.id
-                    });
-                    wx.navigateBack({
-                      delta: 2
-                    })
-                  },
+                wx.navigateTo({
+                  url: '../giftBox/giftBox',
                 })
               }
             })

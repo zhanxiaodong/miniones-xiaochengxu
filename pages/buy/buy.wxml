@@ -9,72 +9,65 @@
    </view>
    <view class="content">
       <view class="con clearfix">
-          <!-- <view class="conLeft">
-              <text class="iconfont icon-dingwei"></text>
-          </view> -->
           <view class="conRight rightTop upper">
              <view class="explain">
                 <view class="conText">全选（整盒留下6折叠加折扣）</view>
-                <view class="info">优惠支付限额额：</view>
+                <view class="info">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
               </view>
-              <view class="moneyBox clearfix">
-                <!-- <view class="money">
-                   <view>￥130.00</view>
-                   <view style="text-decoration:line-through;color:#c3c3c3">￥240.00</view>
-                </view> -->
-                <view class="radioBox upperRadio">
-                   <radio></radio>
-                </view>
-              </view>
+              <view class="weui-cell__hd weui-check__hd_in-checkbox flex" bindtap="bindAllSelect">
+                <icon type="circle" size="23" wx:if="{{!allSelect}}"></icon>
+                <icon type="success" size="23" wx:if="{{allSelect}}"></icon>
+            </view>
           </view>
       </view>
 
-      <view class="con clearfix" wx:for="{{conList}}">
-          <view class="conLeft">
-              <view class="lish">
-                  <text>{{item.icon}}</text>
+      <view class='goods-list-info'>
+      <checkbox-group bindchange="goodsChange">
+        <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
+          <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+          <view class='checklabel'>
+            <view>#{{index + 1}}</view>
+            <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+              <view class='flex_auto green1-color'>
+                <view>{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
+                <view>{{item.code}}</view>
               </view>
+              <view style='padding-right:20rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
+            </view>
+
+            <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
+              <icon type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="23" wx:if="{{item.checked}}"></icon>
+            </view>
           </view>
-          <view class="conRight rightTop">
-             <view class="explain">
-                <view class="conText">{{item.text1}}</view>
-                <view class="info">{{item.text2}}</view>
-              </view>
-              <view class="moneyBox clearfix">
-                <view class="money">
-                   <view>{{item.money1}}</view>
-                   <view style="text-decoration:line-through;color:#c3c3c3">{{item.money2}}</view>
-                </view>
-                <view class="radioBox">
-                   <radio></radio>
-                </view>
-              </view>
-          </view>
-      </view>
+        </label>
+      </checkbox-group>
+    </view>
+
    </view>
    <view class="conPro">
-       <view class="vip vipPro">
+       <view class="vip vipPro" bindtap='choseCoupo'>
            <view class="twoPro">抵扣<text>（会员立减券）</text></view>
-           <view class="proActive">-￥99
+           <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
            <text class='icon-arrow-right-copy iconfont'></text>
            </view>
        </view>
        <view class="vipTwo clearfix">
           <view class="vipPro ">
-             <view class="twoPro">预约支付折扣</view>
-             <view  class="proActive">-￥39.00</view>
+             <view class="twoPro">预约支付抵扣</view>
+             <view  class="proActive">-￥{{orderPay}}</view>
           </view>
           <view class="vipPro ">
-             <view class="twoPro">递增优惠（3件八折，整盒六折）</view>
-             <view  class="proActive">-￥59.00</view>
+             <view class="twoPro">递增优惠（{{otherdesc}}）</view>
+             <view  class="proActive">-￥{{otheramount}}</view>
           </view>
        </view>
        <view class="vipBot">
-           <view class="botTop"><text class="botActive">￥</text>467.00</view>
-           <view class="botFoot"><text class="botActive">（平均66元一件）</text>为您节省￥670.00</view>
+           <view class="botTop"><text class="botActive">￥</text>{{totalPrice}}</view>
+           <view class="botFoot"><text class="botActive">（平均{{avgPrice}}元一件）</text>为您节省￥{{subPrice}}</view>
        </view>
    </view>
-   <view class="footer" bindtap="goCulb">
+   <view class="footer" wx:if="{{level < 40 }}" bindtap="goCulb">
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">成为迷礼会员，本单再减99元起</view>
@@ -87,9 +80,33 @@
               </view>
    </view>
     <view class="butBox">
-        <button bindtap="inPayBox" class="but">确认订单（0）</button>
+        <button bindtap="toPayOrder" class="but">确认订单（{{chooseCount}}）</button>
     </view>
-
+    <!--屏幕背景变暗的背景  -->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<!--弹出框  -->
+<view class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view class='common-pad textcenter font14' wx:if='{{!recharge}}'>
+    <view class='font15'>给小朋友一份礼物仅需</view>
+    <view class='font30 fontweight pt10'>支付{{totalPrice}}元</view>
+    <view style='padding-bottom:30rpx;' class='gray1-color'>账户余额: {{balance}} 元</view>
+    <view style='padding:10rpx 20rpx;'>
+      <form bindsubmit='changeRe' report-submit='true'>
+        <button class='btngreen' form-type='submit'>充值</button>
+      </form>
+    </view>
+    <view wx:if='{{balance >= totalPrice }}' style='padding:10rpx 20rpx;'>
+      <form bindsubmit='balancePay' report-submit='true'>
+        <button class='btngreen' form-type='submit'>余额支付</button>
+      </form>
+    </view>
+    <view wx:if='{{totalPrice != 0}}' style='padding:10rpx 20rpx;'>
+      <form bindsubmit='wepay' report-submit='true'>
+        <button class='btngreen' form-type='submit'>微信支付</button>
+      </form>
+    </view>
+  </view>
+</view>
 
     <view class="mark" bindtap="inMark"  hidden="{{!markIndex}}"></view>
    <view class="payBox" hidden="{{!payBoxIndex}}">
@@ -99,7 +116,7 @@
           <view>账户余额:<text>{{moneyTwo}}</text></view>
        </view>
        <view class="butBoxs">
-          <button  class="buts" bindtap="goAssess">充值</button>
+          <button  class="buts" bindtap=" ">充值</button>
            <button >余额支付</button>
             <button >微信支付</button>
        </view>

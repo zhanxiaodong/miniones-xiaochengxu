@@ -9,7 +9,7 @@
         <checkbox-group class="check-first" bindchange="checkboxChange" >
           <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
             <view class="{{item.checked?'active':'unactive'}}">
-             <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
+             <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="true"/>
              <view class="name">{{item.value}}</view>
             </view> 
           </label>   

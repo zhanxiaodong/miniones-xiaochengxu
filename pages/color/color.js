@@ -29,7 +29,7 @@ Page({
         })
       }
     },
-    updateInfo: function () {
+   updateInfo: function () {
       var openId = wx.getStorageSync('openId')
       var that = this
       wx.request({
@@ -57,6 +57,9 @@ Page({
           break;
         }
       }
+      this.setData({
+        colorAllItems: colorAllItems
+      })
     },
     updateColorAll: function (value) {
       var colorAllItems = util.radioGroupChange(this.data.colorAllItems, value)

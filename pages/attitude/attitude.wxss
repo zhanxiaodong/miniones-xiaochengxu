@@ -37,29 +37,25 @@
       width:240rpx;
       height:80rpx;
       background-color:#04B8A0;
-      border-radius:40rpx;
       color:#FFFFFF;
       text-align:center;
       line-height:80rpx;
       border: none;
   }
 
-  view.unactive view{
+  view.unactive .name{
       width:240rpx;
       height:80rpx;
       background-color:#ffffff;
-      border-radius:40rpx;
       color: #666666;
       text-align:center;
+      border:1px solid #666666;
       line-height:80rpx;
   }
   
   .name {
     font-size: 28rpx;
-    color:#666666;
-    background-color:#ffffff;
     border-radius:40rpx;
-    border:1px solid #666666;
   }
 
   .name:hover {
