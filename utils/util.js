@@ -292,7 +292,6 @@ function getMonths() {
 function changeMsg(status, type) {
   var result
   if (type == 'btn') {
-
     switch (status) {
       case 'CREATE':
         result = '搭配准备'
@@ -326,6 +325,42 @@ function changeMsg(status, type) {
         break;
       default:
         result = '预约衣盒'
+        break;
+    }
+  } else if (type == 'img') {
+    switch (status) {
+      case 'CREATE':
+        result = '/images/showa.png'
+        break;
+      case 'LINK_UP':
+        result = '/images/boxs/ready.png'
+        break;
+      case 'NOTIFY_EXPRESS':
+        result = '/images/boxs/Transport.png'
+        break;
+      case 'DISPATCHING':
+        result = '/images/boxs/Transport.png'
+        break;
+      case 'DELIVERY_COMPLETE':
+        result = '/images/boxs/open.png'
+        break;
+      case 'EVALUATED':
+        result = '/images/boxs/open.png'
+        break;
+      case 'PAY_COMPLETE':
+        result = '/images/showa.png'
+        break;
+      case 'PAY_PART':
+        result = '/images/boxs/open.png'
+        break;
+      case 'RETURN_EXPRESS':
+        result = '/images/showa.png'
+        break;
+      case 'END':
+        result = '/images/showa.png'
+        break;
+      default:
+        result = '/images/showa.png'
         break;
     }
   } else {
@@ -403,9 +438,9 @@ function radioGroupChange(group, value) {
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
-const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+// const requestUrl = 'https://interface.miniones.cn/merchant_new/'
 // const requestUrl = 'http://192.168.0.2:8080/merchant/'
-// const requestUrl = 'http://localhost:8080/merchant/'
+const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
   var originalWidth = e.detail.width;//图片原始宽  

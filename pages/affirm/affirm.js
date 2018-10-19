@@ -52,8 +52,8 @@ Page({
     var item = this.updateItem()
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
-    // item.amount = this.data.realPayAmount
-    item.amount = 1.01
+    item.amount = this.data.realPayAmount
+    // item.amount = 1.01
     if (this.data.useExpCoupon) {
       item.expCoupon = this.data.expCoupon
     }

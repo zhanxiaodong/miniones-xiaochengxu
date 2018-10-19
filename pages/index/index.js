@@ -1,34 +1,25 @@
-// pages/first/fisrt.js
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     needAuth: false,
-    vipurl: '/images/icons/h-gray.png',
     gift: '/images/showa.png',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],
     message: '欢迎体验迷你王国',
     btnMsg: '预约衣盒',
-    day: "剩余试穿天数:3",
-    userLev: '访客用户',
+    tryOnDays: 0,
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0,
-    hidIndex:false,
-    hidIndexs:true
+    sliderLeft: 0
   },
-  onGotUserInfo: function (e) {
+  onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
       util.getOpenId()
       this.checkAuth()
     }
   },
-  checkAuth: function () {
+  checkAuth: function() {
     if (!wx.getStorageSync('openId')) {
       this.setData({
         needAuth: true
@@ -40,7 +31,7 @@ Page({
       this.fillInfo()
     }
   },
-  getBoxBefore:function(e){
+  getBoxBefore: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var level = wx.getStorageSync('level')
     var baby = this.data.baby
@@ -49,20 +40,24 @@ Page({
         url: '../log/log'
       })
     } else if (level < viplev.EXP) {
-      var plan = this.data.user.plan
+      var planAuto = this.data.user.planAuto
       var pagen = wx.getStorageSync('pagen')
-      if (baby && plan) {
+      if (planAuto) {
         this.getBox()
       } else {
+        var url = '../style/style'
         if (pagen) {
-          wx.navigateTo({
-            url: '../editdata/editdata'
-          })
-        } else {
-          wx.navigateTo({
-            url: '../log/log'
-          })
+          if (pagen == 'color') {
+            url = '../color/color'
+          } else if (pagen == 'attitude') {
+            url = '../attitude/attitude'
+          } else if (pagen == 'paste') {
+            url = '../paste/paste'
+          }
         }
+        wx.navigateTo({
+          url: url
+        })
       }
     } else {
       this.getBox()
@@ -71,7 +66,7 @@ Page({
   /**
    * 没有流程中的
    */
-  boxNone: function () {
+  boxNone: function() {
     wx.navigateTo({
       url: '/pages/babyInfo/babyInfo?stylistId=' + this.data.stylist.id
     })
@@ -79,30 +74,30 @@ Page({
   /**
    * 查看盒子
    */
-  seeBox: function () {
+  seeBox: function() {
     wx.navigateTo({
       url: '../designinfo/designinfo?boxId=' + this.data.boxId
     })
   },
-  evaBox: function () {
+  evaBox: function() {
     wx.navigateTo({
       url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
-  payBox: function () {
+  payBox: function() {
     wx.navigateTo({
       url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
-  backBox: function () {
+  backBox: function() {
     wx.navigateTo({
       url: '../back/back?boxId=' + this.data.boxId
     })
   },
   /**
-  * 要一个盒子操作按钮
-  */
-  getBox: function (e) {
+   * 要一个盒子操作按钮
+   */
+  getBox: function(e) {
     var level = wx.getStorageSync('level')
     if (level == viplev.LOOK) {
       this.goConfirm()
@@ -149,13 +144,12 @@ Page({
       }
     }
   },
-
-   goBuy:function(){
-     wx.navigateTo({
-       url: '/pages/buy/buy',
-     })
-   },
-  onLoad: function (options) {
+  goBuy: function() {
+    wx.navigateTo({
+      url: '/pages/buy/buy',
+    })
+  },
+  onLoad: function(options) {
     var that = this;
     if (!wx.getStorageSync('openId')) {
       that.setData({
@@ -163,7 +157,7 @@ Page({
       })
     }
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
@@ -171,7 +165,7 @@ Page({
       }
     });
   },
-  onShow: function () {
+  onShow: function() {
     var that = this;
     if (!wx.getStorageSync('openId')) {
       that.setData({
@@ -187,72 +181,42 @@ Page({
    * 未登录未注册 -》check
    * 已登录 -》显示界面
    */
-  fillInfo: function () {
+  fillInfo: function() {
     var that = this
     var babyEdit = that.data.babyEdit
     var level = wx.getStorageSync('level')
     var openId = wx.getStorageSync('openId')
-    if (level == viplev.LOOK) {//未输入手机号
+    if (level == viplev.LOOK) { //未输入手机号
       wx.navigateTo({
         url: '/pages/log/log',
       })
     } else {
       wx.request({
         url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
-        success: function (res) {
+        success: function(res) {
           var result = res.data.data
           var stylist = result.stylist
           var baby = result.baby
-
-          if (!stylist) {
-            stylist = new Object()
-            stylist.name = '待分配'
-          }
-          stylist.url = '../designinfo/designinfo'
-
-          if (!baby) {
-            baby = new Object()
-            baby.call = '待完善'
-          }
-          baby.url = '../babyinfo/babyinfo?edit=true'
+          var tryOnDays = result.tryOnDays
           var user = res.data.data.user
-          var vipurl = that.data.vipurl
-          if (user.level >= viplev.YEAR) {
-            vipurl = '/images/icons/h-yellow.png'
-          }
-          var userLev = that.data.userLev
-          if (user.level == viplev.EXP) {
-            userLev = '体验用户'
-          } else if (user.level == viplev.YEAR) {
-            userLev = '年度会员用户'
-          } else if (user.level > viplev.YEAR) {
-            userLev = '终身会员用户'
-          }
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null
           var btnMsg = util.changeMsg(boxStatus, 'btn')
           var message = util.changeMsg(boxStatus, 'msg')
+          var gift = util.changeMsg(boxStatus, 'img')
           that.setData({
             user: user,
-            vipurl: vipurl,
             stylist: stylist,
             baby: baby,
             boxId: boxId,
             boxStatus: boxStatus,
             btnMsg: btnMsg,
             message: message,
-            userLev: userLev
+            gift: gift,
+            tryOnDays: tryOnDays
           })
         }
       })
     }
-  },
-  updateNext: function (boxStatus, plan, message) {
-    if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
-      message = this.updateMonth(plan, message)
-    } else {
-      this.updateMonth(plan, '')
-    }
-    return message
-  },
+  }
 })

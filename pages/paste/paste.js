@@ -25,12 +25,13 @@ Page({
         success: function (res) {
           var result = res.data.data
           var consumDescTem = result.consumDesc
+          var consumDesc = new Object()
           if (consumDescTem) {
             var consumDesc = JSON.parse(consumDescTem)
-            that.setData({
-              consumDesc: consumDesc
-            })
           }
+          that.setData({
+            consumDesc: consumDesc
+          })
         }
       })
     },
