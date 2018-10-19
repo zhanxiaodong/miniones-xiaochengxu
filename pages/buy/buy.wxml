@@ -3,7 +3,7 @@
    <view class="header">
       <view>
          <text class="title">购买支付</text>
-         <text class="iconfont icon-wenhao"></text>
+         <!--<text class="iconfont icon-wenhao"></text>-->
       </view>
       <view class="headText">关爱孩子，从一件衣服开始</view>
    </view>
@@ -12,32 +12,36 @@
           <view class="conRight rightTop upper">
              <view class="explain">
                 <view class="conText">全选（整盒留下6折叠加折扣）</view>
-                <view class="info">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
+    <view style="color: #999999; font-size: 24rpx; padding-top: 8rpx;">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
               </view>
-              <view class="weui-cell__hd weui-check__hd_in-checkbox flex" bindtap="bindAllSelect">
-                <icon type="circle" size="23" wx:if="{{!allSelect}}"></icon>
-                <icon type="success" size="23" wx:if="{{allSelect}}"></icon>
+              <view class="weui-cell__hd weui-check__hd_in-checkbox flex" style="float: right; padding-right: 40rpx;" bindtap="bindAllSelect">
+                <icon type="circle" size="25" wx:if="{{!allSelect}}"></icon>
+                <icon type="success" size="25" color="#04B8A0"  wx:if="{{allSelect}}"></icon>
             </view>
           </view>
       </view>
 
-      <view class='goods-list-info'>
+      <view class='goods-list-info' style="background-color: #ffffff;">
       <checkbox-group bindchange="goodsChange">
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
-          <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+         
           <view class='checklabel'>
-            <view>#{{index + 1}}</view>
+            <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
             <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
               <view class='flex_auto green1-color'>
-                <view>{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
-                <view>{{item.code}}</view>
+                <view style="font-size: 28rpx;color: #000000;">{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
+                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}</view>
               </view>
-              <view style='padding-right:20rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
+              <view style="display: flex; flex-direction: column;padding-right:40rpx;">
+              <view class='fontWeight'>￥ {{item.realAmount}}</view>
+              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;">￥ {{item.oldAmount}}</view>
+              </view>
             </view>
 
             <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
-              <icon type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-              <icon type="success" size="23" wx:if="{{item.checked}}"></icon>
+             <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+              <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
             </view>
           </view>
         </label>
@@ -47,7 +51,7 @@
    </view>
    <view class="conPro">
        <view class="vip vipPro" bindtap='choseCoupo'>
-           <view class="twoPro">抵扣<text>（会员立减券）</text></view>
+           <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员立减券）</text></view>
            <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
            <text class='icon-arrow-right-copy iconfont'></text>
            </view>
@@ -84,7 +88,7 @@
               </view>
    </view>
     <view class="butBox">
-        <button bindtap="toPayOrder" class="but">确认订单（{{chooseCount}}）</button>
+        <button bindtap="toPayOrder" class="but"><text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text><text style="font-size: 28rpx; font-weight: bold; color: #ffffff; padding-left:40px; ">{{totalPrice}}</text> </button>
     </view>
     <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
@@ -110,21 +114,23 @@
 <view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
 <!--弹出框  -->
 <view class="commodity_attr_box" wx:if="{{confirmNo}}">
-  <view class='common-pad textcenter font14'>
-    <view class='fontweight' style='font-size: 20px;text-align: left;padding: 0 20px;'>您未选择任何商品,提交订单将跳转退件流程</view>
-    <view style='padding: 20px 10px 5px;display: flex;'>
-      <view style='flex: 1;padding-right: 10px;'>
+  <view style="text-align: center;">
+    <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>您未选择任何商品</view>
+    <view style="color: #999999; font-size: 24rpx">提交订单将跳转退件流程</view>
+    <view style='padding: 180rpx 30rpx 0px;display: flex;'>
+      <view style='flex: 1;padding-right: 10rpx;'>
         <form bindsubmit='confirmNoPay' report-submit='true'>
-          <button class='btngreen' form-type='submit'>确定</button>
+          <button class='button-choice' form-type='submit' bindtap='refuse'>确定</button>
         </form>
       </view>
-      <view style='flex: 1;padding-left: 10px;'>
+      <view style='flex: 1;padding-left: 10rpx;'>
         <form bindsubmit='hideComfirm' report-submit='true'>
-          <button class='btngreen' form-type='submit'>再看看</button>
+          <button class='button-choice' form-type='submit' >再看看</button>
         </form>
       </view>
     </view>
   </view>
 </view>
+
 
 </view>

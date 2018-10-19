@@ -11,15 +11,17 @@
 .header .title{
   margin-right:20rpx;
   font-weight: 600;
-  font-size:46rpx;
+  font-size:60rpx;
+  
 }
 .header .iconfont{
   color:#c3c3c3;
 }
 .headText{
-  font-size:28rpx;
-  color:#c3c3c3;
+  font-size:24rpx;
+  color:#999999;
   line-height: 60rpx;
+  margin-top: 10rpx;
 }
 .con{
   width:100%;
@@ -74,7 +76,6 @@
   line-height: 150rpx;
 }
 .explain{
-  width:60%;
   float:left;
 }
 .moneyBox{
@@ -122,10 +123,10 @@
 }
 .butBox{
   width:100%;
-  height:150rpx;
   position:fixed;bottom:0;
   background:#f3f3f3;
-  padding:25rpx 30rpx;
+  padding:50rpx 40rpx;
+  z-index: 222;
 }
 .but{
   width:100%;
@@ -159,7 +160,7 @@
   border-bottom:solid 1px #f3f3f3;
 }
 .vip .icon-arrow-right-copy{
-  color:#c3c3c3!important;
+  color:#666666!important;
 }
 .vipPro view{
   width:50%;
@@ -169,7 +170,8 @@
   text-align: right;
   width:30%!important;
   float:left;
-  color:#ff0000;
+  color:#FF7B7B;
+  padding-right: 20rpx;
 }
 .vipTwo{
   padding:50rpx 30rpx;
@@ -178,8 +180,9 @@
 .twoPro{
   width:70%!important;
   float:left;
-  font-size:32rpx;
-  color:#c3c3c3;
+  font-size:24rpx;
+  color:#999999;
+  padding-left: 20rpx;
 }
 .twoPros{
   width:30%;
@@ -193,16 +196,25 @@
 }
 .botTop{
   font-weight: 600;
+  padding-right: 20rpx;
 }
 .botFoot{
-  font-size:30rpx;
+  font-size:26rpx;
+  padding-right: 20rpx;
+  color: #666666;
 }
 .botActive{
   font-size:22rpx;
   color:#c3c3c3;
 }
 
-
+.checklabel {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  border-bottom:1px solid #f2f2f2;
+}
 
 /* 遮罩层 */
 .mark{
@@ -221,6 +233,21 @@
 
 }
 
+.button-choice {
+color:#999999;
+background-color:#ffffff;
+border:1rpx solid #999999;
+border-radius:20px;
+width:240rpx;
+line-height:56rpx;
+font-size: 28rpx;
+}
+
+.button-choice:hover {
+  color:#ffffff;
+background-color:#04B8A0;
+border: none;
+}
 /*使屏幕变暗  */
 
 .commodity_screen {
@@ -239,14 +266,13 @@
 /*对话框 */
 
 .commodity_attr_box {
-  width: 100%;
+  height: 472rpx;
+  width: 550rpx;
   overflow: hidden;
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 380rpx;
+  left: 100rpx;
   z-index: 2000;
   background: #fff;
-  padding-top: 20rpx;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 10px;
 }

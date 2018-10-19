@@ -544,5 +544,10 @@ Page({
       url: "/pages/assess/assess",
     })
   },
+  refuse: function(){
+    wx.switchTab({
+      url: "../index/index",
+    })
+  }
 
 })

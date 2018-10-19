@@ -36,7 +36,7 @@
                   <image src='{{gift}}' class='allow'></image>
        </view>  
         <view class="button-bottom">
-          <view class="day">{{day}}</view>
+          <!--<view class="day">{{day}}</view>-->
           <view class='message'>{{message}}</view>
           <view style='width:400rpx;'>
             <form report-submit='true' bindsubmit='getBoxBefore'>
