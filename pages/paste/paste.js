@@ -60,6 +60,7 @@ Page({
       item.wechatOpenId = wx.getStorageSync('openId')
       item.consumDesc = consumDesc
       this.updateUser(item)
+      wx.setStorageSync('pagen', 'plan')
       wx.navigateTo({
           url: '/pages/plan/plan'
       })

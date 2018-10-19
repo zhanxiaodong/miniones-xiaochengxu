@@ -53,7 +53,11 @@ Page({
             url = '../attitude/attitude'
           } else if (pagen == 'paste') {
             url = '../paste/paste'
+          } else if (pagen == 'plan') {
+            url = '../plan/plan'
           }
+        } else {
+          url = '../log/log'
         }
         wx.navigateTo({
           url: url
@@ -195,9 +199,9 @@ Page({
         url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
         success: function(res) {
           var result = res.data.data
-          var stylist = result.stylist
+          var stylist = result.stylist ? result.stylist : null
           var baby = result.baby
-          var tryOnDays = result.tryOnDays
+          var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
           var user = res.data.data.user
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null

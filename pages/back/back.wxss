@@ -1,0 +1,290 @@
+/* pages/affirm/affirm.wxss */
+.wrap{
+  background: hsl(0, 0%, 95%);
+  padding-bottom:150rpx;
+}
+.header{
+  width:100%;
+  padding:40rpx;
+  background: #fff;
+}
+.header .title{
+  margin-right:20rpx;
+  font-weight: 600;
+  font-size:60rpx;
+  
+}
+.header .iconfont{
+  color:#c3c3c3;
+}
+.headText{
+  font-size:24rpx;
+  color:#999999;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+}
+.con{
+  width:100%;
+  background: #fff;
+  height:180rpx;
+}
+.conLeft{
+  width:15%;
+  float:left;
+  height:100%;
+  text-align: center; 
+  
+  color:#c3c3c3;
+}
+.lish text{
+
+  border:solid 1px #c3c3c3;
+  padding:10rpx;
+  display:block;
+  width:40rpx;
+  height:40rpx;
+  margin:80rpx 20rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+}
+.conRight{
+  position:relative;
+  width:85%;
+  padding-left:15rpx;
+  height:180rpx;
+  border-top:solid 1px #f3f3f3;
+  float:left;
+}
+.rightTop{
+  padding:40rpx 0;
+}
+.conText{
+  font-size:32rpx;
+  font-weight: 600;
+}
+.conText text{
+  font-size:28rpx;
+  font-weight: 500;
+  color:#c3c3c3;
+}
+.info{
+  font-size: 30rpx;
+  color:#c3c3c3;
+  line-height:80rpx;
+}
+.conRight .action{
+  line-height: 150rpx;
+}
+.explain{
+  float:left;
+}
+.moneyBox{
+  width:40%;
+  float:left;
+  font-size:28rpx;
+}
+.radioBox,.money{
+  width:50%;
+  float:left;
+  text-align: center;
+  padding:30rpx 0;
+}
+
+.footer{
+  margin-top:20rpx;
+  padding:20rpx 20rpx;
+  font-size:28rpx;
+  background: #fff;
+}
+.textLeft{
+  width:65%;
+  float:left;
+  font-size:24rpx;
+  color:#c3c3c3;
+}
+.textActive{
+  line-height:50rpx;
+  font-size:30rpx;
+  font-weight: 500;
+  color:#000;
+}
+.textRight{
+  width:35%;
+  float:left;
+  line-height: 160rpx;
+}
+.textRight radio,.textRight text{
+  margin-left:15rpx;
+}
+.textBox{
+  width:100%;
+  padding:30rpx;
+
+}
+.butBox{
+  width:100%;
+  position:fixed;bottom:0;
+  background:#f3f3f3;
+  padding:50rpx 40rpx;
+  z-index: 222;
+}
+.but{
+  width:100%;
+  height:100rpx;
+  background:#04b8a0!important;
+  border-radius: 50rpx;
+  line-height: 100rpx;
+  color:#fff;
+}
+.upper{
+  width:100% !important;
+  padding-left:40rpx;
+}
+.upper .conText{
+  font-weight: 600;
+  color:#04b8a0;
+}
+.upperRadio{
+  float:right!important;
+}
+.conPro{
+  margin-top:20rpx;
+  width:100%;
+  background: #fff;
+}
+.vip{
+  width:100%;
+  height:200rpx;
+  line-height: 200rpx;
+  padding:0 30rpx;
+  border-bottom:solid 1px #f3f3f3;
+}
+.vip .icon-arrow-right-copy{
+  color:#666666!important;
+}
+.vipPro view{
+  width:50%;
+  float:left;
+}
+.proActive{
+  text-align: right;
+  width:30%!important;
+  float:left;
+  color:#FF7B7B;
+  padding-right: 20rpx;
+}
+.vipTwo{
+  padding:50rpx 30rpx;
+  border-bottom:solid 1px #f3f3f3;
+}
+.twoPro{
+  width:70%!important;
+  float:left;
+  font-size:24rpx;
+  color:#999999;
+  padding-left: 20rpx;
+}
+.twoPros{
+  width:30%;
+  float:left;
+}
+.vipBot{
+  width:100%;
+  height:300rpx;
+  padding:140rpx 30rpx;
+  text-align: right;
+}
+.botTop{
+  font-weight: 600;
+  padding-right: 20rpx;
+}
+.botFoot{
+  font-size:26rpx;
+  padding-right: 20rpx;
+  color: #666666;
+}
+.botActive{
+  font-size:22rpx;
+  color:#c3c3c3;
+}
+
+.checklabel {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  border-bottom:1px solid #f2f2f2;
+}
+
+/* 遮罩层 */
+.mark{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(30, 30, 30, 0.3);
+}
+.butBoxs{
+  width:100%;
+  height:700rpx;
+  position: fixed;bottom:0;
+  z-index:9999;
+  background: #fff;
+}
+.butBoxs button{
+  height:100rpx;
+
+}
+
+.button-choice {
+color:#999999;
+background-color:#ffffff;
+border:1rpx solid #999999;
+border-radius:20px;
+width:240rpx;
+line-height:56rpx;
+font-size: 28rpx;
+}
+
+.button-choice:hover {
+  color:#ffffff;
+background-color:#04B8A0;
+border: none;
+}
+/*使屏幕变暗  */
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+
+.commodity_attr_box {
+  height: 472rpx;
+  width: 550rpx;
+  overflow: hidden;
+  position: fixed;
+  bottom: 380rpx;
+  left: 100rpx;
+  z-index: 2000;
+  background: #fff;
+  border-radius: 10px;
+}
+.something-pay {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}

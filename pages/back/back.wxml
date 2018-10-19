@@ -1,0 +1,80 @@
+<import src="../../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view class="wrap">
+  <view class="header">
+    <view>
+      <text class="title">免费召回</text>
+    </view>
+    <view class="headText">为保障用户信誉评级，请在7日内完成退件操作哦</view>
+  </view>
+  <view class="content">
+    <view class='common-pad goods-list bg-white1 mt10'>
+      <view class='goods-list-all flex'>
+        <view class='flex_auto green1-color font14'>
+          召回商品清单
+        </view>
+        <view class="weui-cell__hd weui-check__hd_in-checkbox flex" bindtap="bindAllSelect">
+          <icon type="circle" size="23" wx:if="{{!allSelect}}"></icon>
+          <icon type="success" size="23" wx:if="{{allSelect}}"></icon>
+        </view>
+      </view>
+      <view class='goods-list-info'>
+        <checkbox-group bindchange="goodsChange">
+          <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
+            <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+            <view class='checklabel'>
+              <view>#{{index + 1}}</view>
+              <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+                <view class='flex_auto green1-color'>
+                  <view>{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
+                  <view>{{item.code}}</view>
+                </view>
+                <view style='padding-right:20rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
+              </view>
+
+              <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
+                <icon type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                <icon type="success" size="23" wx:if="{{item.checked}}"></icon>
+              </view>
+            </view>
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+  </view>
+  <view class="butBox">
+    <button bindtap="showModal" class="but">
+      <text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认召回（{{checkList.length?checkList.length:0}}）</text>
+    </button>
+  </view>
+  <view bindtap='reBuy'>
+    <button>
+      <text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">追加购买</text>
+    </button>
+  </view>
+  <!--屏幕背景变暗的背景  -->
+  <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <!--弹出框  -->
+  <view class="something-pay" wx:if="{{showModalStatus}}">
+    <view class='common-pad textcenter font14' wx:if='{{!recharge}}'>
+      <view class='flex pt20' style='align-items:center;'>
+        <text class='w80 font15 '>寄件地址</text>
+        <input placeholder='寄件地址' class='bb font14 flex_auto' style="height:30px;" bindtap='getAddr' value='{{address.address}}'></input>
+      </view>
+      <view>
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}" bindcancel="changeDateCanle">
+          <view class='flex' style='align-items:center;padding-top:20px'>
+            <text class='w80 font15'>上门时间</text>
+            <input class=' bb font14 flex_auto' style="height:30px;" value="{{ applyDate }}" type="text" disabled='true' />
+          </view>
+        </picker>
+      </view>
+      <view>
+        <form bindsubmit='commitBack' report-submit='true'>
+          <button class='btngreen' form-type='submit'>顺丰取件</button>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
+<include src="../../components/picker_datetime/picker_datetime.wxml" />

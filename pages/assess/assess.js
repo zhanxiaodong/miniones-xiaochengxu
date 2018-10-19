@@ -1,4 +1,4 @@
-// pages/assess/assess.js
+
 Page({
 
   /**
