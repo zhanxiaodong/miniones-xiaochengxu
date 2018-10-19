@@ -23,7 +23,7 @@
         
         </view>
             <view class="titleRight">特权详情
-            <text class="iconfont icon-arrow-right-copy"></text>
+            <text class="iconfont icon-arrow-right-copy" style="font-size: 22rpx;padding-top: 5rpx;"></text>
             </view>
         </view>
       <view class="listBox clearfix">
