@@ -34,7 +34,7 @@
               </view>
               <view style="display: flex; flex-direction: column;padding-right:40rpx;">
               <view class='fontWeight'>￥ {{item.realAmount}}</view>
-              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;">￥ {{item.oldAmount}}</view>
+              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
               </view>
             </view>
 
@@ -79,11 +79,15 @@
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">成为迷礼会员，本单再减99元起</view>
-                    <view>无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度199元无门槛立减券</view>
+                    <view style="font-size: 20rpx; color: #cccccc;">无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度199元无门槛立减券</view>
                 </view>
                 <view class="textRight">
-                    <text>-￥135.00</text>
+                    <text style="font-size:28rpx;color: #cccccc;font-weight: bold;padding: 0 15rpx; ">-￥135.00</text>
                     <radio></radio>
+                    <!--<view>
+                     <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
+            </view> -->
                 </view>
               </view>
    </view>
@@ -93,7 +97,7 @@
     <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <!--弹出框  -->
-<view class="commodity_attr_box" wx:if="{{showModalStatus}}">
+<view class="something-pay" wx:if="{{showModalStatus}}">
   <view class='common-pad textcenter font14' wx:if='{{!recharge}}'>
     <view class='font15'>给小朋友一份礼物仅需</view>
     <view class='font30 fontweight pt10'>支付{{totalPrice}}元</view>

@@ -3,23 +3,23 @@
 <view class="wrap">
    <view class="header">
       <view class="vip">
-         <text>会员等级</text>
+         <text style="color: #333333; font-weight: bold; font-size: 32rpx;">会员等级</text>
          <text class="action">我的幸运徽章</text>
       </view>
       <view class="explainBox">
          <view class="expla">快来加入迷你俱乐部</view>
          <view class="expla">我们为您准备了特权礼包</view>
-         <view class="explain expla">
+         <view class="explain expla" style='font-size: 28rpx; color: #ffffff;'>
             每季度送199无门槛立减券
          </view>
          <view class="explainBut">
-            <button class="butOne">开启惊喜之旅</button>
+            <button class="butOne" bindtap="click">开启惊喜之旅</button>
          </view>
       </view>
    </view>
    <view class="content">
       <view class="title">
-        <view class="titleLeft">送礼会员5大特权
+        <view class="titleLeft" style='color: #333333; font-size: 28rpx;'>送礼会员5大特权:
         
         </view>
             <view class="titleRight">特权详情
