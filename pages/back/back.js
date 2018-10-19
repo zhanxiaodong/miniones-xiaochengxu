@@ -104,7 +104,7 @@ Page({
   reBuy: function() {
     var boxId = this.data.boxId
     wx.navigateTo({
-      url: '../buy/buy?boxId=' + boxId
+      url: '../buy/buy?boxId=' + boxId + '&reBuy=true'
     })
   },
   /**
@@ -122,7 +122,7 @@ Page({
         confirmText: '付款',
         onConfirm(e) {
           wx.navigateTo({
-            url: '../buy/buy?boxId=' + boxId
+            url: '../buy/buy?boxId=' + boxId + '&reBuy=true'
           })
         },
         onCancel(e) {

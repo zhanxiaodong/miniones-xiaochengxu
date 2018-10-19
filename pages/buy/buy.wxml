@@ -35,7 +35,7 @@
               </view>
               <view style="display: flex; flex-direction: column;padding-right:40rpx;">
               <view class='fontWeight'>￥ {{item.realAmount}}</view>
-              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;">￥ {{item.initAmount}}</view>
+              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
               </view>
             </view>
 
@@ -51,14 +51,14 @@
 
    </view>
    <view class="conPro">
-       <view class="vip vipPro" bindtap='choseCoupo'>
+       <view class="vip vipPro" bindtap='choseCoupo' hidden='{{reBuy}}'>
            <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员立减券）</text></view>
            <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
            <text class='icon-arrow-right-copy iconfont'></text>
            </view>
        </view>
        <view class="vipTwo clearfix">
-          <view class="vipPro ">
+          <view class="vipPro " hidden='{{reBuy}}'>
              <view class="twoPro">预约支付抵扣</view>
              <view  class="proActive">-￥{{orderPay}}</view>
           </view>
@@ -80,11 +80,15 @@
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">成为迷礼会员，本单再减99元起</view>
-                    <view>无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度199元无门槛立减券</view>
+                    <view style="font-size: 20rpx; color: #cccccc;">无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度199元无门槛立减券</view>
                 </view>
                 <view class="textRight">
-                    <text>-￥135.00</text>
+                    <text style="font-size:28rpx;color: #cccccc;font-weight: bold;padding: 0 15rpx; ">-￥135.00</text>
                     <radio></radio>
+                    <!--<view>
+                     <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
+            </view> -->
                 </view>
               </view>
    </view>

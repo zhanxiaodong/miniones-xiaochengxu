@@ -1,4 +1,3 @@
-var app = getApp()
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
 import { $wuxDialog } from '../../components/wux'
@@ -29,6 +28,11 @@ Page({
   },
   onLoad: function (options) {
     var that = this
+    if (options.reBuy) {
+      that.setData({
+        reBuy: options.reBuy
+      })
+    }
     if (options.boxId) {
       var boxId = options.boxId
       that.setData({
@@ -259,7 +263,8 @@ Page({
         }
       }
       var voucher = this.data.voucher
-      if (voucher && totalPrice != 0) {
+      var reBuy = this.data.reBuy
+      if (voucher && totalPrice != 0 && !reBuy) {
         var vouAmount = voucher.amount
         if (vouAmount > totalPrice) {
           subPrice = totalPrice
@@ -270,7 +275,7 @@ Page({
         }
       }
       var orderPay = this.data.orderPay
-      if (orderPay > 0) {
+      if (orderPay > 0 && !reBuy) {
         if (orderPay > totalPrice) {
           subPrice = totalPrice
           totalPrice = 0
@@ -279,7 +284,6 @@ Page({
           subPrice = subPrice + orderPay
         }
       }
-      console.log(orderPay)
       // var badge = this.data.badge
       // if (badge && totalPrice > 0) {
       //   var baType = badge.type
@@ -420,18 +424,17 @@ Page({
     } else {
       var item = this.updateItem()
       var that = this
-      // wx.request({
-      //   url: util.requestUrl + 'user/balancePay',
-      //   method: 'POST',
-      //   data: item,
-      //   success: function (res) {
-      //     that.setData({
-      //       showModalStatus: false
-      //     })
-      //     that.confirm()
-      //   }
-      // })
-      that.confirm()
+      wx.request({
+        url: util.requestUrl + 'user/balancePay',
+        method: 'POST',
+        data: item,
+        success: function (res) {
+          that.setData({
+            showModalStatus: false
+          })
+          that.confirm()
+        }
+      })
     }
   },
   wepay: function (e) {
@@ -465,7 +468,6 @@ Page({
     });
   },
   confirm: function () {
-    console.log(11111)
     var that = this
     $wuxDialog.alert({
       content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
