@@ -116,8 +116,23 @@ Page({
     })
   },
   next: function () {
+    this.updateUser()
     wx.navigateTo({
-      url: '/pages/color/color?style=' + this.data.oldStyle
+      url: '/pages/color/color'
     })
+  },
+  updateUser: function () {
+    var item = new Object();
+    item.wechatOpenId = wx.getStorageSync('openId')
+    var style = this.data.oldStyle
+    if (style) {
+      item.style = style
+    }
+    wx.request({
+      url: util.requestUrl + 'user/updateUser',
+      method: 'POST',
+      data: item
+    })
+    wx.setStorageSync('pagen', 'color')
   }
 })

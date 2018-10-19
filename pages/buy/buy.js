@@ -78,7 +78,7 @@ Page({
       success: function (res) {
         var result = res.data.data
         var actTime = result.actTime ? result.actTime : null
-        var orderPay = result.orderPay
+        var orderPay = result.orderPay ? result.orderPay : 0.00
         var goodsList = result.goodsList
         var boxNum = result.boxNum
         var voucher = result.voucher ? result.voucher : null
@@ -279,6 +279,7 @@ Page({
           subPrice = subPrice + orderPay
         }
       }
+      console.log(orderPay)
       // var badge = this.data.badge
       // if (badge && totalPrice > 0) {
       //   var baType = badge.type
@@ -308,6 +309,7 @@ Page({
       //     })
       //   }
       // }
+      
       var vipo = this.data.vipo 
       if (vipo && totalPrice > 0) {
         discountPrice = totalPrice * vipo.discount
@@ -336,7 +338,8 @@ Page({
       avgPrice: avgPrice,
       subPrice: subPrice.toFixed(2),
       badgenum: (totalPrice / 199).toFixed(2),
-      discountPrice: discountPrice.toFixed(2)
+      discountPrice: discountPrice.toFixed(2), 
+      orderPay: orderPay
     })
   },
   goodsChange: function (e) {
@@ -417,17 +420,18 @@ Page({
     } else {
       var item = this.updateItem()
       var that = this
-      wx.request({
-        url: util.requestUrl + 'user/balancePay',
-        method: 'POST',
-        data: item,
-        success: function (res) {
-          that.setData({
-            showModalStatus: false
-          })
-          that.confirm()
-        }
-      })
+      // wx.request({
+      //   url: util.requestUrl + 'user/balancePay',
+      //   method: 'POST',
+      //   data: item,
+      //   success: function (res) {
+      //     that.setData({
+      //       showModalStatus: false
+      //     })
+      //     that.confirm()
+      //   }
+      // })
+      that.confirm()
     }
   },
   wepay: function (e) {
