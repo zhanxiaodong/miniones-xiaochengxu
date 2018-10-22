@@ -53,7 +53,7 @@
         <checkbox value='9'>特别444</checkbox>
       </checkbox-group>
     </view> -->
-        <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas" bindtap="changeFive">
+        <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas">
           <checkbox-group data-index1="{{ startIndex }}" class="checkbox-group" bindchange="onSelectFavorites">
             <label class="{{ favorite.checked ? 'checked': '' }}" wx:for-index="favorIndex" wx:key="favorIndex" wx:for="{{ starItem.favorites }}" wx:for-item="favorite">
               <checkbox value="{{ favorite.value }}"></checkbox>
@@ -80,6 +80,6 @@
     </view>
   </view>
   <view class="butBox">
-    <button class="but" bindtap="doPageToNext">提交评价</button>
+    <button class="but" bindtap="saveEva">提交评价</button>
   </view>
 </view>

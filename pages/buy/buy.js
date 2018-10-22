@@ -503,9 +503,16 @@ Page({
       content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
       onConfirm(e) {
         var allSelect = that.data.allSelect
-        wx.reLaunch({
-          url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
-        })
+        var reBuy = that.data.reBuy
+        if (reBuy) {
+          wx.reLaunch({
+            url: '../index/index',
+          })
+        } else {
+          wx.reLaunch({
+            url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
+          })
+        }
       }
     })
   },
