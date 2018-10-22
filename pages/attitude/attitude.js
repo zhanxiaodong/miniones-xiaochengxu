@@ -69,6 +69,9 @@ Page({
   },
   checkboxChange: function (e) {
     var checkboxItems = this.data.checkboxItems, values = e.detail.value;
+    if (values.length > 2) {
+      values = values.slice(1)
+    }
     for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
       checkboxItems[i].checked = false;
       for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
@@ -78,7 +81,6 @@ Page({
         }
       }
     }
-    console.log(values)
     this.setData({
       checkboxItems: checkboxItems,
       attitude: values

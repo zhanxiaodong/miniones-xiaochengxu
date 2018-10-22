@@ -7,7 +7,6 @@ Page({
     },
     onLoad: function (options) {
       var that = this
-      console.log(options.uploadImgTemp)
       var uploadImgTemp = options.uploadImgTemp
       var id = options.id
       if (options.uploadImgTemp&&id) {

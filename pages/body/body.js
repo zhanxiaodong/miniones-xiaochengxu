@@ -35,7 +35,7 @@ Page({
     var accepts = that.data.accepts
     if (more) {
       season = util.checkboxGroupChange(season, more.season)
-      occasions = util.checkboxGroupChange(occasions, more.occasions)
+      occasions = util.radioGroupChange(occasions, more.occasions)
       consumList = util.radioGroupChange(consumList, more.consum)
       accepts = util.radioGroupChange(accepts, more.accepts)
     } else {
