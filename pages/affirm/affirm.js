@@ -19,7 +19,11 @@ Page({
     hidIndex:false,
     addressInfo:null,
     date: "",
-    remarks:null
+    remarks:null,
+    more:{
+      occasions:'日常（默认）',
+      consumList:'不变（默认）'
+    }
   },
   onLoad: function (options) {
     var babyId = options.babyId

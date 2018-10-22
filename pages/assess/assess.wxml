@@ -1,30 +1,31 @@
-<!--pages/assess/assess.wxml-->
+<import src="../../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
 <view class="wrap">
-   <view class="header">
-     <view class="title">体验评价</view>
-     <view class="explain">我们非常在意您的感受，感谢您认真评价。</view>
-   </view>
-   <view class="content">
-      <view class="con">
-         <view class="score">请选择您的评分</view>
-         <view class="action">对于本次体验，您的直接感受如何</view>
-      </view>
-      <view class="iconBox">
+  <view class="header">
+    <view class="title">体验评价</view>
+    <view class="explain">我们非常在意您的感受，感谢您认真评价。</view>
+  </view>
+  <view class="content">
+    <view class="con">
+      <view class="score">请选择您的评分</view>
+      <view class="action">对于本次体验，您的直接感受如何</view>
+    </view>
+    <view class="iconBox">
       <view class="star-title">
-<image bindtap='onSelect' src="{{ starFlag >= 1 ? iconGreen : icon}}" class="{{ starFlag >= 1 ? 'star-selected': '' }}" data-index="1">
-  
-  </image>
-  <image bindtap='onSelect' src="{{ starFlag >= 2 ? iconGreen : icon}}"  class="{{ starFlag >= 2 ? 'star-selected': '' }}" data-index="2">
-  </image>
- <image bindtap='onSelect' src="{{ starFlag >= 3 ? iconGreen : icon}}"  class="{{ starFlag >= 3 ? 'star-selected': '' }}" data-index="3">
-  </image>
- <image bindtap='onSelect' src="{{ starFlag >= 4 ? iconGreen : icon}}"  class="{{ starFlag >= 4 ? 'star-selected': '' }}" data-index="4">
-  </image>
-   <image bindtap='onSelect' src="{{ starFlag >= 5 ? iconGreen : icon}}"  class="{{ starFlag >= 5 ? 'star-selected': '' }}" data-index="5">
-  </image>
-</view>
-  <view class="star-content" style="display:flex;flex-direction:row;">
-    <!-- <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
+        <image bindtap='onSelect' src="{{ starFlag >= 1 ? iconGreen : icon}}" class="{{ starFlag >= 1 ? 'star-selected': '' }}" data-index="1">
+
+        </image>
+        <image bindtap='onSelect' src="{{ starFlag >= 2 ? iconGreen : icon}}" class="{{ starFlag >= 2 ? 'star-selected': '' }}" data-index="2">
+        </image>
+        <image bindtap='onSelect' src="{{ starFlag >= 3 ? iconGreen : icon}}" class="{{ starFlag >= 3 ? 'star-selected': '' }}" data-index="3">
+        </image>
+        <image bindtap='onSelect' src="{{ starFlag >= 4 ? iconGreen : icon}}" class="{{ starFlag >= 4 ? 'star-selected': '' }}" data-index="4">
+        </image>
+        <image bindtap='onSelect' src="{{ starFlag >= 5 ? iconGreen : icon}}" class="{{ starFlag >= 5 ? 'star-selected': '' }}" data-index="5">
+        </image>
+      </view>
+      <view class="star-content" style="display:flex;flex-direction:row;">
+        <!-- <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
       <checkbox-group bindchange="onSelectFavorites">
         <checkbox value='1'>热爱111</checkbox>
         <checkbox value='2'>一般111</checkbox>
@@ -52,47 +53,33 @@
         <checkbox value='9'>特别444</checkbox>
       </checkbox-group>
     </view> -->
-    <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas" bindtap="changeFive">
-      <checkbox-group data-index1="{{ startIndex }}" class="checkbox-group" bindchange="onSelectFavorites">
-        <label class="{{ favorite.checked ? 'checked': '' }}" wx:for-index="favorIndex" wx:key="favorIndex" wx:for="{{ starItem.favorites }}" wx:for-item="favorite">
-          <checkbox value="{{ favorite.value }}"></checkbox>
-          {{ favorite.name }}
-        </label>
-      </checkbox-group>
+        <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas" bindtap="changeFive">
+          <checkbox-group data-index1="{{ startIndex }}" class="checkbox-group" bindchange="onSelectFavorites">
+            <label class="{{ favorite.checked ? 'checked': '' }}" wx:for-index="favorIndex" wx:key="favorIndex" wx:for="{{ starItem.favorites }}" wx:for-item="favorite">
+              <checkbox value="{{ favorite.value }}"></checkbox>
+              {{ favorite.name }}
+            </label>
+          </checkbox-group>
+        </view>
+      </view>
     </view>
   </view>
-      </view>
-   </view>
-   <view class="footer">
-       <view class="choice" >
-           <view class="choiceLeft">
-              <view>我非常乐意继续体验衣盒服务</view>
-              <view class="leftBot">我们将为您提供更佳服务</view>
-           </view>
-           <view class="choiceRight">
-              <radio></radio>
-           </view>
-       </view>
-       <view class="choice" >
-           <view class="choiceLeft">
-              <view>我会考虑继续体验衣盒服务</view>
-              <view class="leftBot">我们将尝试再次为您提供服务</view>
-           </view>
-           <view class="choiceRight">
-              <radio></radio>
-           </view>
-       </view>
-       <view class="choice" >
-           <view class="choiceLeft">
-              <view>我不会继续体验衣盒服务</view>
-              <view class="leftBot">我们将不会再次打扰您</view>
-           </view>
-           <view class="choiceRight">
-              <radio checkbox = ture></radio>
-           </view>
-       </view>
-   </view>
-    <view class="butBox">
-          <button class="but" bindtap="doPageToNext">提交评价</button>
-       </view>
+  <view class="footer">
+    <view class="choice">
+      <radio-group bindchange="feedbackChange">
+        <label class="checkbox" wx:for="{{feedbacks}}" wx:key="id">
+          <view class="choiceLeft">
+            <view>{{item.value}}</view>
+            <view class="leftBot">{{item.desc}}</view>
+          </view>
+          <view class="choiceRight">
+            <radio class="choice-box" value="{{item.value}}" checked="{{item.checked}}" />
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="butBox">
+    <button class="but" bindtap="doPageToNext">提交评价</button>
+  </view>
 </view>
