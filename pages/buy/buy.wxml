@@ -1,5 +1,4 @@
-<import src="../../components/dialog/dialog.wxml" />
-<template is="dialog" data="{{ ...$wux.dialog }}" />
+<!--pages/affirm/affirm.wxml-->
 <view class="wrap">
    <view class="header">
       <view>
@@ -76,6 +75,7 @@
            <view class="botFoot"><text class="botActive">（平均{{avgPrice}}元一件）</text>为您节省￥{{subPrice}}</view>
        </view>
    </view>
+   <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
    <view class="footer" wx:if="{{level < 40 }}" bindtap="goCulb">
             <view class="textBox clearfix">
                 <view class="textLeft">

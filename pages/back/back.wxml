@@ -10,26 +10,26 @@
   <view class="content">
     <view class='common-pad goods-list bg-white1 mt10'>
       <view class='goods-list-all flex'>
-        <view class='flex_auto green1-color font14'>
+        <view class='flex_auto green1-color font14' style="color: #333333; font-weight: bold;">
           召回商品清单
         </view>
-        <view class="weui-cell__hd weui-check__hd_in-checkbox flex" bindtap="bindAllSelect">
+        <!--<view class="weui-cell__hd weui-check__hd_in-checkbox flex" bindtap="bindAllSelect">
           <icon type="circle" size="23" wx:if="{{!allSelect}}"></icon>
           <icon type="success" size="23" wx:if="{{allSelect}}"></icon>
-        </view>
+        </view>-->
       </view>
       <view class='goods-list-info'>
         <checkbox-group bindchange="goodsChange">
           <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
             <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
             <view class='checklabel'>
-              <view>#{{index + 1}}</view>
+              <view style="font-size: 26rpx; font-weight: bold; color: #333;">#{{index + 1}}</view>
               <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
                 <view class='flex_auto green1-color'>
-                  <view>{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
-                  <view>{{item.code}}</view>
+                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
+                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.code}}</view>
                 </view>
-                <view style='padding-right:20rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
+                <view style='padding-right:20rpx;font-size: 30rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
               </view>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
@@ -47,9 +47,9 @@
       <text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认召回（{{checkList.length?checkList.length:0}}）</text>
     </button>
   </view>
-  <view bindtap='reBuy'>
-    <button>
-      <text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">追加购买</text>
+  <view bindtap='reBuy' class="retire">
+    <button class="but">
+      <text style="font-weight: bold; font-size: 36rpx;">追加购买</text>
     </button>
   </view>
   <!--屏幕背景变暗的背景  -->
@@ -71,7 +71,7 @@
       </view>
       <view>
         <form bindsubmit='commitBack' report-submit='true'>
-          <button class='btngreen' form-type='submit'>顺丰取件</button>
+          <button class='but' form-type='submit'>顺丰取件</button>
         </form>
       </view>
     </view>

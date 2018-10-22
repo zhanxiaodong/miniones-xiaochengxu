@@ -1,6 +1,5 @@
 /* pages/affirm/affirm.wxss */
 .wrap{
-  background: hsl(0, 0%, 95%);
   padding-bottom:150rpx;
 }
 .header{
@@ -125,7 +124,6 @@ textRight radio,.textRight text{
 .butBox{
   width:100%;
   position:fixed;bottom:0;
-  background:#f3f3f3;
   padding:50rpx 40rpx;
   z-index: 222;
 }

@@ -390,6 +390,11 @@ Page({
           goodsList[i].checked = true;
           goodsTotal = goodsTotal + goodsList[i].realAmount
           break;
+        } else {
+          // 取消选中
+          var id = goodsList[i].id
+          // 碳层
+          
         }
       }
     }
