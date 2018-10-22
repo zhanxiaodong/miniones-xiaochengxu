@@ -52,7 +52,7 @@
   width:85%;
   padding-left:15rpx;
   height:180rpx;
-  border-top:solid 1px #f3f3f3;
+  
   float:left;
 }
 .rightTop{
@@ -285,15 +285,92 @@ border: none;
   background: #fff;
   border-radius: 10px;
 }
-.something-pay {
+.something-send {
   width: 100%;
+  height: 612rpx;
   overflow: hidden;
   position: fixed;
   bottom: 0;
-  left: 0;
   z-index: 2000;
   background: #fff;
-  padding-top: 20rpx;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+}
+
+.header{
+  width:100%;
+  padding:40rpx;
+  background: #fff;
+}
+.header .title{
+  margin-right:20rpx;
+  font-weight: 600;
+  font-size:46rpx;
+}
+.header .iconfont{
+  color:#cccccc;
+}
+.headText{
+  font-size:24rpx;
+  color:#666666;
+  line-height: 60rpx;
+}
+.border {
+  width: 750rpx;
+  height: 1px;
+  background-color: #f3f3f3;
+  margin-left: 40rpx;
+}
+.con{
+  width:100%;
+  background: #fff;
+  height:172rpx;
+}
+.conLeft{
+  width:10%;
+  float:left;
+  height:100%;
+  text-align: center; 
+  line-height: 130rpx;
+  color:#cccccc;
+}
+.conRight{
+  position:relative;
+  width:90%;
+  height:172rpx;
+  float:left;
+}
+.rightTop{
+  padding:40rpx 0 0 10rpx;
+  /*border-bottom:solid 1px #f3f3f3;*/
+}
+.conText{
+  font-size:32rpx;
+  font-weight: 600;
+}
+.conText text{
+  font-size:28rpx;
+  font-weight: 500;
+  color:#999999;
+}
+
+.icon-arrow-right-copy {
+  font-size: 28rpx;
+
+}
+
+.info{
+  font-size: 30rpx;
+  color:#c3c3c3;
+}
+.conRight .action{
+  padding: 40rpx 0 0 10rpx;
+}
+.conRight .iconfont{
+position:absolute;
+top:50rpx;
+right:40rpx;
+color: #666666;
+}
+
+.content {
+margin: 45rpx 0 60rpx;
 }

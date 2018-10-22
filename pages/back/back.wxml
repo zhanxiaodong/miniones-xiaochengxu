@@ -55,26 +55,59 @@
   <!--屏幕背景变暗的背景  -->
   <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
   <!--弹出框  -->
-  <view class="something-pay" wx:if="{{showModalStatus}}">
-    <view class='common-pad textcenter font14' wx:if='{{!recharge}}'>
-      <view class='flex pt20' style='align-items:center;'>
-        <text class='w80 font15 '>寄件地址</text>
-        <input placeholder='寄件地址' class='bb font14 flex_auto' style="height:30px;" bindtap='getAddr' value='{{address.address}}'></input>
+  <view class="something-send" wx:if="{{showModalStatus}}">
+    <view class='content' wx:if='{{!recharge}}'>
+      <!--<view class='flex pt20' style='align-items:center;'>
+        <text class='w80 font15 '>取件地址</text>
+        <input placeholder='选择地址便于顺丰人员上门取件' class='bb font14 flex_auto' style="height:30px;" bindtap='getAddr' value='{{address.address}}'></input>
       </view>
       <view>
         <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}" bindcancel="changeDateCanle">
           <view class='flex' style='align-items:center;padding-top:20px'>
-            <text class='w80 font15'>上门时间</text>
+            <text class='w80 font15'>取件时间</text>
             <input class=' bb font14 flex_auto' style="height:30px;" value="{{ applyDate }}" type="text" disabled='true' />
           </view>
         </picker>
+      </view>-->
+       <view class="con clearfix">
+          <view class="conLeft">
+              <text class="iconfont icon-dingwei"></text>
+          </view>
+          <view class="conRight rightTop" style="border-bottom:solid 1px #f3f3f3;" bindtap='getAddr'>
+             <view class="conText">取件地址
+                 <text>您的寄件地址</text>
+             </view>
+             <view class="info">
+             <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto'  value='{{address.address}}'></input>
+             </view>
+             <text class='iconfont icon-arrow-right-copy'></text>
+          </view>
       </view>
-      <view>
-        <form bindsubmit='commitBack' report-submit='true'>
-          <button class='but' form-type='submit'>顺丰取件</button>
-        </form>
+       <view class="con clearfix">
+          <view class="conLeft">
+              <text class="iconfont  icon-solid-time"></text>
+          </view>
+          <view class="conRight rightTop">
+             <view class="conText">取件时间
+                 <text></text>
+             </view>
+             <view class="info">
+                   <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}" bindcancel="changeDateCanle">
+          <!--<view class='flex' style='align-items:center;padding-top:20px'>
+            <input class=' bb font14 flex_auto' style="height:30px;" value="{{ applyDate }}" type="text" disabled='true' />
+          </view>-->
+          <input class="weui-input size-15" value='{{applyDate}}' disabled="true" placeholder="请选择时间"/>
+        </picker>
+             </view>
+             <text class='iconfont icon-arrow-right-copy'></text>
+          </view>
       </view>
     </view>
+    <view>
+        <form bindsubmit='commitBack' report-submit='true'>
+          <button class='but' style="width: 80%;" form-type='submit'>顺丰取件</button>
+        </form>
+      </view>
   </view>
 </view>
 <include src="../../components/picker_datetime/picker_datetime.wxml" />
