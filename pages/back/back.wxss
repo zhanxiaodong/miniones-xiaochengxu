@@ -123,11 +123,20 @@
 }
 .butBox{
   width:100%;
-  position:fixed;bottom:0;
-  background:#f3f3f3;
+  position:fixed;
+  bottom:200rpx;
+  padding: 0 40rpx;
+  z-index: 222;
+}
+
+.retire {
+ width:100%;
+  position:fixed;
+  bottom:0;
   padding:50rpx 40rpx;
   z-index: 222;
 }
+
 .but{
   width:100%;
   height:100rpx;

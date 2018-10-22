@@ -6,11 +6,61 @@
    </view>
    <view class="content">
       <view class="con">
-         <view>请选择您的评分</view>
+         <view class="score">请选择您的评分</view>
          <view class="action">对于本次体验，您的直接感受如何</view>
       </view>
       <view class="iconBox">
-         <text wx:for="{{iconfontList}}" class="iconfont {{item.icon}}"></text>
+      <view class="star-title">
+<image bindtap='onSelect' src="{{ starFlag >= 1 ? iconGreen : icon}}" class="{{ starFlag >= 1 ? 'star-selected': '' }}" data-index="1">
+  
+  </image>
+  <image bindtap='onSelect' src="{{ starFlag >= 2 ? iconGreen : icon}}"  class="{{ starFlag >= 2 ? 'star-selected': '' }}" data-index="2">
+  </image>
+ <image bindtap='onSelect' src="{{ starFlag >= 3 ? iconGreen : icon}}"  class="{{ starFlag >= 3 ? 'star-selected': '' }}" data-index="3">
+  </image>
+ <image bindtap='onSelect' src="{{ starFlag >= 4 ? iconGreen : icon}}"  class="{{ starFlag >= 4 ? 'star-selected': '' }}" data-index="4">
+  </image>
+   <image bindtap='onSelect' src="{{ starFlag >= 5 ? iconGreen : icon}}"  class="{{ starFlag >= 5 ? 'star-selected': '' }}" data-index="5">
+  </image>
+</view>
+  <view class="star-content" style="display:flex;flex-direction:row;">
+    <!-- <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='1'>热爱111</checkbox>
+        <checkbox value='2'>一般111</checkbox>
+        <checkbox value='3'>特别111</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 2}}" class="starsHas  {{starFlag === 2? '': 'starNo'}}" bindtap="changeTwo">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='4'>热爱222</checkbox>
+        <checkbox value='5'>一般222</checkbox>
+        <checkbox value='6'>特别222</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 3}}" class="starsHas  {{starFlag === 3? '': 'starNo'}}" bindtap="changeThree">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='7'>热爱333</checkbox>
+        <checkbox value='8'>一般333</checkbox>
+        <checkbox value='9'>特别333</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 4}}" class="starsHas  {{starFlag === 4? '': 'starNo'}}" bindtap="changeFour">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='7'>热爱444</checkbox>
+        <checkbox value='8'>一般444</checkbox>
+        <checkbox value='9'>特别444</checkbox>
+      </checkbox-group>
+    </view> -->
+    <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas" bindtap="changeFive">
+      <checkbox-group data-index1="{{ startIndex }}" class="checkbox-group" bindchange="onSelectFavorites">
+        <label class="{{ favorite.checked ? 'checked': '' }}" wx:for-index="favorIndex" wx:key="favorIndex" wx:for="{{ starItem.favorites }}" wx:for-item="favorite">
+          <checkbox value="{{ favorite.value }}"></checkbox>
+          {{ favorite.name }}
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
       </view>
    </view>
    <view class="footer">
@@ -25,8 +75,8 @@
        </view>
        <view class="choice" >
            <view class="choiceLeft">
-              <view>我非常乐意继续体验衣盒服务</view>
-              <view class="leftBot">我们将为您提供更佳服务</view>
+              <view>我会考虑继续体验衣盒服务</view>
+              <view class="leftBot">我们将尝试再次为您提供服务</view>
            </view>
            <view class="choiceRight">
               <radio></radio>
@@ -34,8 +84,8 @@
        </view>
        <view class="choice" >
            <view class="choiceLeft">
-              <view>我非常乐意继续体验衣盒服务</view>
-              <view class="leftBot">我们将为您提供更佳服务</view>
+              <view>我不会继续体验衣盒服务</view>
+              <view class="leftBot">我们将不会再次打扰您</view>
            </view>
            <view class="choiceRight">
               <radio checkbox = ture></radio>
@@ -43,6 +93,6 @@
        </view>
    </view>
     <view class="butBox">
-          <button class="but">订单完成</button>
+          <button class="but" bindtap="doPageToNext">提交评价</button>
        </view>
 </view>

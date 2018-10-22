@@ -1,6 +1,6 @@
 /* pages/assess/assess.wxss */
 .wrap{
-  padding-left:40rpx;
+  padding: 40rpx;
 }
 .header{
   width:100%;
@@ -8,25 +8,31 @@
   border-bottom:solid 1px #f3f3f3;
 }
 .title{
-  font-size:50rpx;
+  font-size:60rpx;
   font-weight: 600;
 }
 .explain{
   height:80rpx;
   line-height: 80rpx;
-  font-size:30rpx;
+  font-size:24rpx;
   color:#c3c3c3;
 }
+.score {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
 .content{
-  padding:50rpx 0;
+  padding:50rpx 0 35rpx;
   border-bottom:solid 1px #f3f3f3;
 }
 .con{
   line-height: 60rpx;
 }
 .con .action{
-  color:#c3c3c3;
-  font-size:30rpx;
+ font-size: 24rpx;
+  color: #999999;
 }
 .iconBox .icon-xingxing{
   font-size:60rpx;
@@ -67,4 +73,62 @@
   border-radius: 50rpx;
   line-height: 100rpx;
   color:#fff;
+}
+
+.star {
+  color: black;
+}
+
+.star-title {
+ display: flex;
+ flex-direction: row;
+ margin: 50rpx 0 60rpx;
+}
+
+.star-content {
+  margin-right: 100rpx;
+}
+
+.starsHas {
+  
+}
+
+.checkbox-group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.checkbox-group label {
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 1rpx solid #999999;
+  color: #999999;
+  text-align: center;
+  font-size: 12px;
+  position: relative;
+  line-height: 30px;
+  margin-bottom: 30rpx;
+  border-radius: 30rpx;
+  flex-basis: 160rpx;
+}
+
+.checkbox-group label checkbox {
+  opacity: 0;
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+}
+
+.checkbox-group label.checked {
+  background: #26aea8;
+  color: #fff;
+}
+
+.star-title image {
+  width: 72rpx;
+  height: 72rpx;
+  padding-right: 18rpx;
 }

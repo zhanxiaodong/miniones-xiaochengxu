@@ -1,2 +1,59 @@
 <!--pages/demo/demo.wxml-->
-<text>pages/demo/demo.wxml</text>
+<view class="star">
+  <view bindtap='onSelect' class="{{ starFlag >= 1 ? 'star-selected': '' }}" data-index="1">
+    1
+  </view>
+  <view bindtap='onSelect' class="{{ starFlag >= 2 ? 'star-selected': '' }}" data-index="2">
+    2
+  </view>
+  <view bindtap='onSelect' class="{{ starFlag >= 3 ? 'star-selected': '' }}" data-index="3">
+    3
+  </view>
+  <view bindtap='onSelect' class="{{ starFlag >= 4 ? 'star-selected': '' }}" data-index="4">
+    4
+  </view>
+  <view bindtap='onSelect' class="{{ starFlag >= 5 ? 'star-selected': '' }}" data-index="5">
+    5
+  </view>
+
+  <view class="star-content" style="display:flex;flex-direction:row;">
+    <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='1'>热爱111</checkbox>
+        <checkbox value='2'>一般111</checkbox>
+        <checkbox value='3'>特别111</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 2}}" class="starsHas  {{starFlag === 2? '': 'starNo'}}" bindtap="changeTwo">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='4'>热爱222</checkbox>
+        <checkbox value='5'>一般222</checkbox>
+        <checkbox value='6'>特别222</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 3}}" class="starsHas  {{starFlag === 3? '': 'starNo'}}" bindtap="changeThree">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='7'>热爱333</checkbox>
+        <checkbox value='8'>一般333</checkbox>
+        <checkbox value='9'>特别333</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 4}}" class="starsHas  {{starFlag === 4? '': 'starNo'}}" bindtap="changeFour">
+      <checkbox-group bindchange="onSelectFavorites">
+        <checkbox value='7'>热爱444</checkbox>
+        <checkbox value='8'>一般444</checkbox>
+        <checkbox value='9'>特别444</checkbox>
+      </checkbox-group>
+    </view>
+    <view hidden="{{starFlag !== 5}}" class="starsHas" bindtap="changeFive">
+      <checkbox-group class='checkbox-group' bindchange="onSelectFavorites">
+        <label class='checkbox-item'>
+          <checkbox class='checkbox-raw' value='1'>热爱555</checkbox>
+        </label>
+        <checkbox value='6'>一般555</checkbox>
+        <checkbox value='7'>特别555</checkbox>
+      </checkbox-group>
+    </view>
+  </view>
+  <view bindtap='doPageToNext'>下一步</view>
+</view>
