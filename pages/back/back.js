@@ -16,7 +16,6 @@ Page({
     showModalStatus:false
   },
   onLoad: function (options) {
-    options.boxId = '5bc86312e4b0f0b2134945e3'
     if (options.boxId) {
       var boxId = options.boxId
       this.setData({

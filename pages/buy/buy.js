@@ -81,7 +81,7 @@ Page({
       url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
       success: function (res) {
         var result = res.data.data
-        var actTime = result.actTime ? result.actTime : null
+        var actTime = result.actTime ? result.actTime : 0
         var orderPay = result.orderPay ? result.orderPay : 0.00
         var goodsList = result.goodsList
         var boxNum = result.boxNum
@@ -123,6 +123,7 @@ Page({
           actTime: actTime,
           orderPay: orderPay
         })
+        
         if (goods) {
           var goodsTotal = that.data.goodsTotal
           that.updateAmount(goodsTotal ? goodsTotal : 0.00)
@@ -130,6 +131,16 @@ Page({
             update: null
           })
         } else {
+          var goodsLength = goodsList.length
+          for (var i = 0; i < goodsLength; i++) {
+            var postfix = ''
+            if (i < 10) {
+              postfix = '0' + i
+            } else {
+              postfix = '' + i
+            }
+            goodsList[i].id = goodsList[i].id + postfix
+          }
           that.setData({
             goodsList: goodsList
           })
@@ -165,6 +176,18 @@ Page({
       }
     })
   }, 
+  rmPostfix: function () {
+    var checkLists = this.data.checkList
+    var checks = new Array()
+    if (checkLists) {
+      for (var i = 0; i < checkLists.length; i++) {
+        var item = checkLists[i]
+        item = item.substring(0, item.length - 2)
+        checks.push(item)
+      }
+    }
+    return checks
+  },
   choseCoupo:function () {
     wx.navigateTo({
       url: '/pages/coupon/coupon?pick=true',
@@ -275,13 +298,15 @@ Page({
         }
       }
       var orderPay = this.data.orderPay
-      if (orderPay > 0 && !reBuy) {
-        if (orderPay > totalPrice) {
-          subPrice = totalPrice
-          totalPrice = 0
-        } else {
-          totalPrice = totalPrice - orderPay
-          subPrice = subPrice + orderPay
+      if (orderPay) {
+        if (orderPay > 0 && !reBuy) {
+          if (orderPay > totalPrice) {
+            subPrice = totalPrice
+            totalPrice = 0
+          } else {
+            totalPrice = totalPrice - orderPay
+            subPrice = subPrice + orderPay
+          }
         }
       }
       // var badge = this.data.badge
@@ -343,7 +368,7 @@ Page({
       subPrice: subPrice.toFixed(2),
       badgenum: (totalPrice / 199).toFixed(2),
       discountPrice: discountPrice.toFixed(2), 
-      orderPay: orderPay
+      orderPay: orderPay ? orderPay : 0.00
     })
   },
   goodsChange: function (e) {
@@ -495,7 +520,8 @@ Page({
     item.openId = wx.getStorageSync('openId')
     item.amount = this.data.totalPrice
     item.type = 'PAY'
-    item.checkList = this.data.checkList
+    item.checkList = this.rmPostfix()
+    console.log(item.checkList)
     item.boxNo = this.data.boxNo
 
     var badge = this.data.badge
@@ -526,9 +552,10 @@ Page({
     item.openId = wx.getStorageSync('openId')
     item.amount = this.data.totalPrice
     item.type = 'PAY'
-    item.checkList = this.data.checkList
     item.boxNo = this.data.boxNo
     var that = this
+    item.checkList = this.rmPostfix()
+    console.log(item.checkList)
     wx.request({
       url: util.requestUrl + 'user/balancePay',
       method: 'POST',
