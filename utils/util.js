@@ -315,7 +315,7 @@ function changeMsg(status, type) {
         result = '预约衣盒'
         break;
       case 'PAY_PART':
-        result = '一键退回'
+        result = '免费召回'
         break;
       case 'RETURN_EXPRESS':
         result = '等待取件'
@@ -387,7 +387,7 @@ function changeMsg(status, type) {
         result = '下一次盒子: '
         break;
       case 'PAY_PART':
-        result = '点击未付款的商品回家吧'
+        result = '一键退回剩余商品'
         break;
       case 'RETURN_EXPRESS':
         result = '请耐心等待快递员上门取件'

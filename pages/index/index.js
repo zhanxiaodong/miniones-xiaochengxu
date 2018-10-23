@@ -97,9 +97,9 @@ Page({
       url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
-  backBox: function() {
+  backBox: function(hasBack) {
     wx.navigateTo({
-      url: '../back/back?boxId=' + this.data.boxId
+      url: '../back/back?boxId=' + this.data.boxId + '&hasBack=' + hasBack
     })
   },
   /**
@@ -134,7 +134,7 @@ Page({
           this.seeBox()
           break;
         case 'RETURN_EXPRESS':
-          this.seeBox()
+          this.backBox(true)
           break;
         case 'DISPATCHING':
           this.seeBox()
@@ -146,7 +146,7 @@ Page({
           this.payBox()
           break;
         case 'PAY_PART':
-          this.backBox()
+          this.backBox(false)
           break;
       }
     }
