@@ -396,7 +396,7 @@ function changeMsg(status, type) {
         result = '下一次盒子: '
         break;
       default:
-        result = '欢迎体验迷你王国'
+        result = '当前没有进行中的搭配'
         break;
     }
   }
@@ -438,9 +438,9 @@ function radioGroupChange(group, value) {
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
-  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+// const requestUrl = 'https://interface.miniones.cn/merchant_new/'
 // const requestUrl = 'http://192.168.0.2:8080/merchant/'
-//const requestUrl = 'http://localhost:8080/merchant/'
+const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
   var originalWidth = e.detail.width;//图片原始宽  
@@ -622,9 +622,16 @@ function getPhoneNum(e) {
                     wx.setStorageSync('level', '10')
                     if (isOldUser) {
                       getUserInfo(openId)
-                      wx.switchTab({
-                        url: '../index/index'
+                      wx.showToast({
+                        title: '复制信息成功',
+                        icon: 'success',
+                        duration: 2000
                       })
+                      setTimeout(function () {
+                        wx.switchTab({
+                          url: '../index/index'
+                        })
+                      }, 2000)
                     } else {
                       wx.redirectTo({
                         url: '../detail/detail',
