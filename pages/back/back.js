@@ -159,15 +159,14 @@ Page({
         cancelText: '再看看',
         confirmText: '确定',
         onConfirm(e) {
-          console.log('退件啦啦啦啦啦啦啦啦啦啦')
-          // wx.request({
-          //   url: util.requestUrl + 'box/saveBoxBackGoods',
-          //   method: 'POST',
-          //   data: item,
-          //   success: function (res) {
-          //     wx.navigateBack()
-          //   }
-          // })
+          wx.request({
+            url: util.requestUrl + 'box/saveBoxBackGoods',
+            method: 'POST',
+            data: item,
+            success: function (res) {
+              wx.navigateBack()
+            }
+          })
         },
       })
     }

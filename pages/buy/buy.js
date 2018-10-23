@@ -1,6 +1,8 @@
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
-import { $wuxDialog } from '../../components/wux'
+import {
+  $wuxDialog
+} from '../../components/wux'
 Page({
   data: {
     otherdesc: '3件及以上8折，整盒6折',
@@ -18,15 +20,14 @@ Page({
     totalScoreToPay: 0.00,
     allSelect: false,
     badgenum: 0.0,
-    firstAmount: 39.00,
     vipDicount: 39.00,
-    orderPay:0.0,
+    orderPay: 0.0,
     cashuse: true,
     discountPrice: 0.00,
-    chooseCount:0,
-    avgPrice:0.00
+    chooseCount: 0,
+    avgPrice: 0.00
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this
     if (options.reBuy) {
       that.setData({
@@ -41,12 +42,12 @@ Page({
       this.updateInfo(null)
     }
     this.findBalance()
-    
+
   },
-  timeFormat(param) {//小于10的格式化函数
+  timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
-  },  
-  countDown() {//倒计时函数
+  },
+  countDown() { //倒计时函数
     let newTime = new Date().getTime();
     let actTime = this.data.actTime;
     let actEndTime = null;
@@ -58,7 +59,7 @@ Page({
       let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
       actEndTime = {
         day: this.timeFormat(day),
-        hou: this.timeFormat(hou+day*24),
+        hou: this.timeFormat(hou + day * 24),
         min: this.timeFormat(min),
         sec: this.timeFormat(sec)
       }
@@ -72,14 +73,16 @@ Page({
       }
     }
     // 渲染，然后每隔一秒执行一次倒计时函数
-    this.setData({ actEndTime: actEndTime })
+    this.setData({
+      actEndTime: actEndTime
+    })
   },
-  updateInfo: function (goods) {
+  updateInfo: function(goods) {
     var boxId = this.data.boxId
     var that = this
     wx.request({
       url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
-      success: function (res) {
+      success: function(res) {
         var result = res.data.data
         var actTime = result.actTime ? result.actTime : 0
         var orderPay = result.orderPay ? result.orderPay : 0.00
@@ -89,6 +92,9 @@ Page({
         var cash = result.cash ? result.cash : null
         var badge = result.badge ? result.badge : null
         var level = result.level
+        if (goods) {
+          level = that.data.level
+        }
         var boxNo = result.boxNo
         var couponsNum = result.couponsNum ? result.couponsNum : null
         var vipo
@@ -123,9 +129,10 @@ Page({
           actTime: actTime,
           orderPay: orderPay
         })
-        
+
         if (goods) {
           var goodsTotal = that.data.goodsTotal
+          that.findBalance()
           that.updateAmount(goodsTotal ? goodsTotal : 0.00)
           that.setData({
             update: null
@@ -144,13 +151,13 @@ Page({
           that.setData({
             goodsList: goodsList
           })
-          that.countDown()//优惠支付倒计时
-          that.bindAllSelect()//默认全选
+          that.countDown() //优惠支付倒计时
+          that.bindAllSelect() //默认全选
         }
       }
     })
   },
-  onShow: function () {
+  onShow: function() {
     var voucher = this.data.voucher
     if (voucher) {
       var goodsTotal = this.data.goodsTotal
@@ -161,11 +168,11 @@ Page({
       this.updateInfo(true)
     }
   },
-  findBalance: function () {
+  findBalance: function() {
     var that = this
     wx.request({
       url: util.requestUrl + 'user/findBalance?openId=' + wx.getStorageSync('openId'),
-      success: function (res) {
+      success: function(res) {
         var result = res.data.data
         if (result) {
           var balance = result.balanceAmount + result.backMoney
@@ -175,8 +182,8 @@ Page({
         }
       }
     })
-  }, 
-  rmPostfix: function () {
+  },
+  rmPostfix: function() {
     var checkLists = this.data.checkList
     var checks = new Array()
     if (checkLists) {
@@ -188,7 +195,7 @@ Page({
     }
     return checks
   },
-  choseCoupo:function () {
+  choseCoupo: function() {
     wx.navigateTo({
       url: '/pages/coupon/coupon?pick=true',
     })
@@ -196,7 +203,7 @@ Page({
   /**
    * 提交订单
    */
-  toPayOrder: function (e) {
+  toPayOrder: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var checkList = this.data.checkList
     if (checkList && checkList.length > 0) {
@@ -209,7 +216,7 @@ Page({
   /**
    * 全选按钮
    */
-  bindAllSelect: function () {
+  bindAllSelect: function() {
     var currentAllSelect = this.data.allSelect
     var list = this.data.goodsList
     var goodsTotal = 0.00
@@ -265,7 +272,7 @@ Page({
     })
     this.updateAmount(goodsTotal)
   },
-  updateAmount: function (goodsTotal) {
+  updateAmount: function(goodsTotal) {
     var subPrice = 0.00
     var totalPrice = 0.00
     var discountPrice = 0.00
@@ -275,16 +282,6 @@ Page({
     var avgPrice = 0.00
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
-      if (this.data.boxNum == 1) {
-        var firstAmount = this.data.firstAmount
-        if (totalPrice < firstAmount) {
-          totalPrice = 0
-          subPrice = goodsTotal
-        } else {
-          totalPrice = totalPrice - firstAmount
-          subPrice = subPrice + firstAmount
-        }
-      }
       var voucher = this.data.voucher
       var reBuy = this.data.reBuy
       if (voucher && totalPrice != 0 && !reBuy) {
@@ -338,8 +335,8 @@ Page({
       //     })
       //   }
       // }
-      
-      var vipo = this.data.vipo 
+
+      var vipo = this.data.vipo
       if (vipo && totalPrice > 0) {
         discountPrice = totalPrice * vipo.discount
         totalPrice = totalPrice - discountPrice
@@ -352,7 +349,7 @@ Page({
         totalPrice = totalPrice - otheramount
         subPrice = subPrice + otheramount
       }
-      
+
       var chooseCount = this.data.chooseCount
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
@@ -367,12 +364,13 @@ Page({
       avgPrice: avgPrice,
       subPrice: subPrice.toFixed(2),
       badgenum: (totalPrice / 199).toFixed(2),
-      discountPrice: discountPrice.toFixed(2), 
+      discountPrice: discountPrice.toFixed(2),
       orderPay: orderPay ? orderPay : 0.00
     })
   },
-  goodsChange: function (e) {
-    var goodsList = this.data.goodsList, values = e.detail.value;
+  goodsChange: function(e) {
+    var goodsList = this.data.goodsList,
+      values = e.detail.value;
     var goodsLen = goodsList.length
     var valusLen = values.length
     var currentAllSelect = this.data.allSelect
@@ -394,7 +392,7 @@ Page({
           // 取消选中
           var id = goodsList[i].id
           // 碳层
-          
+
         }
       }
     }
@@ -425,17 +423,17 @@ Page({
     });
     this.updateAmount(goodsTotal)
   },
-  showModal: function () {
+  showModal: function() {
     this.setData({
       showModalStatus: true
     })
   },
-  hideModal: function (e) {
+  hideModal: function(e) {
     this.setData({
       showModalStatus: false
     })
   },
-  showMsg: function (msg) {
+  showMsg: function(msg) {
     wx.showToast({
       title: msg,
       icon: 'success',
@@ -445,7 +443,7 @@ Page({
   /**
    * 余额支付
    */
-  balancePay: function (e) {
+  balancePay: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var totalPrice = this.data.totalPrice
     var balance = this.data.balance
@@ -458,7 +456,7 @@ Page({
         url: util.requestUrl + 'user/balancePay',
         method: 'POST',
         data: item,
-        success: function (res) {
+        success: function(res) {
           that.setData({
             showModalStatus: false
           })
@@ -467,7 +465,7 @@ Page({
       })
     }
   },
-  wepay: function (e) {
+  wepay: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var item = this.updateItem()
     var that = this
@@ -475,7 +473,7 @@ Page({
       url: util.requestUrl + 'wechat/wxPay',
       method: 'POST',
       data: item,
-      success: function (res) {
+      success: function(res) {
         var param = res.data;
         that.setData({
           outTradeNo: param.data.orderNo
@@ -486,7 +484,7 @@ Page({
           package: param.data.package,
           signType: 'MD5',
           paySign: param.data.paySign,
-          success: function (event) {
+          success: function(event) {
             that.updateBox()
             that.setData({
               showModalStatus: false
@@ -497,24 +495,26 @@ Page({
       }
     });
   },
-  confirm: function () {
+  confirm: function() {
     var that = this
-    // $wuxDialog.alert({
-      // content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
-      // onConfirm(e) {
-        var allSelect = that.data.allSelect
-        var reBuy = that.data.reBuy
-        if (reBuy) {
-          wx.reLaunch({
-            url: '../index/index',
-          })
-        } else {
-          wx.reLaunch({
-            url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
-          })
-        }
-      // }
-    // })
+    var allSelect = that.data.allSelect
+    var reBuy = that.data.reBuy
+    if (reBuy) {
+      wx.showToast({
+        title: '支付成功',
+        icon: 'success',
+        duration: 2000
+      })
+      setTimeout(function () {
+        wx.reLaunch({
+          url: '../index/index',
+        })
+      }, 2000)
+    } else {
+      wx.reLaunch({
+        url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
+      })
+    }
   },
   updateBox() {
     var item = new Object()
@@ -527,7 +527,7 @@ Page({
       data: item
     })
   },
-  updateItem: function () {
+  updateItem: function() {
     var item = new Object()
     item.openId = wx.getStorageSync('openId')
     item.amount = this.data.totalPrice
@@ -547,18 +547,18 @@ Page({
     item.payBoxInfo = payBoxInfo
     return item
   },
-  hideComfirm: function (e) {
+  hideComfirm: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     this.setData({
       confirmNo: false
     })
   },
-  showComfirm: function () {
+  showComfirm: function() {
     this.setData({
       confirmNo: true
     })
   },
-  confirmNoPay: function (e) {
+  confirmNoPay: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var item = new Object()
     item.openId = wx.getStorageSync('openId')
@@ -572,24 +572,19 @@ Page({
       url: util.requestUrl + 'user/balancePay',
       method: 'POST',
       data: item,
-      success: function (res) {
+      success: function(res) {
         wx.navigateTo({
           url: '../back/back?boxId=' + that.data.boxId,
         })
       }
     })
   },
-  goCulb:function(){
+  goCulb: function() {
     wx.navigateTo({
-      url:"/pages/club/club?up=true"
+      url: "/pages/club/club?up=true"
     })
   },
-  goAssess:function(){
-    wx.navigateTo({
-      url: "/pages/assess/assess",
-    })
-  },
-  refuse: function(){
+  refuse: function() {
     wx.switchTab({
       url: "../index/index",
     })

@@ -132,14 +132,16 @@ Page({
       method: 'POST',
       data: evaluate,
       success: function (res) {
-        $wuxDialog.alert({
-          content: '订单完成, 感谢您的合作,希望您对本次服务满意！',
-          onConfirm(e) {
-            wx.reLaunch({
-              url: '../index/index',
-            })
-          }
+        wx.showToast({
+          title: '评价成功',
+          icon: 'success',
+          duration: 2000
         })
+        setTimeout(function(){
+          wx.reLaunch({
+            url: '../index/index',
+          })
+        },2000)
       }
     })
   },
