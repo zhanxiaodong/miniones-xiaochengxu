@@ -78,6 +78,7 @@
         </label>
       </radio-group>
     </view>
+    <view style="height: 200px;"></view>
   </view>
   
 </view>
