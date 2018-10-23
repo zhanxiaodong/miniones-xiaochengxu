@@ -190,11 +190,11 @@ Page({
     var babyEdit = that.data.babyEdit
     var level = wx.getStorageSync('level')
     var openId = wx.getStorageSync('openId')
-    if (level == viplev.LOOK) { //未输入手机号
-      wx.navigateTo({
-        url: '/pages/log/log',
-      })
-    } else {
+    // if (level == viplev.LOOK) { //未输入手机号
+    //   wx.navigateTo({
+    //     url: '/pages/log/log',
+    //   })
+    // } else {
       wx.request({
         url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
         success: function(res) {
@@ -221,6 +221,6 @@ Page({
           })
         }
       })
-    }
+    // }
   }
 })

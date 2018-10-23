@@ -499,9 +499,9 @@ Page({
   },
   confirm: function () {
     var that = this
-    $wuxDialog.alert({
-      content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
-      onConfirm(e) {
+    // $wuxDialog.alert({
+      // content: '支付成功, 感谢您的合作,希望您对本次服务满意！',
+      // onConfirm(e) {
         var allSelect = that.data.allSelect
         var reBuy = that.data.reBuy
         if (reBuy) {
@@ -513,8 +513,8 @@ Page({
             url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
           })
         }
-      }
-    })
+      // }
+    // })
   },
   updateBox() {
     var item = new Object()
