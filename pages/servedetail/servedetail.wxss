@@ -1,0 +1,85 @@
+/* pages/servedetail/servedetail.wxss */
+.wrap{
+  
+}
+.header{
+  width:100%;
+  padding:40rpx;
+  background: #fff;
+}
+.header .title{
+  margin-right:20rpx;
+  font-weight: 600;
+  font-size:44rpx;
+  color: #000000;
+}
+.headText{
+  font-size:28rpx;
+  color:#333333;
+  margin: 30rpx 0;
+  width: 400rpx;
+}
+
+.server {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.server-detail {
+  font-size: 28rpx;
+  color: #000000;
+  padding-left: 22rpx;
+}
+
+.content-title {
+  font-size: 36rpx;
+  color: #333333;
+  font-weight: bold;
+  line-height: 130rpx;
+  padding-left:40rpx;
+  background-color: #fff;
+  margin-top: 18rpx;
+}
+
+.content {
+  background-color: #fff;
+  padding-left: 40rpx;
+  
+}
+
+.content-container {
+  padding: 44rpx 0;
+}
+
+.line {
+  height: 60rpx;
+  margin-left: 40rpx;
+  border-left: 1px solid #999999;
+}
+
+.content-item {
+  padding: 0 80rpx 0 40rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+}
+
+.point{
+  border-radius: 100%;
+  height: 4px;
+  width: 4px;
+  background-color:#999999;
+}
+
+.process,.time {
+  font-size: 24rpx;
+  color: #999999;
+}

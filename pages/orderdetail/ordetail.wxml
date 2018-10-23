@@ -1,0 +1,86 @@
+<!--pages/orderdetail/ordetail.wxml-->
+<view class="wrap" style="background-color: #F6F8F7;">
+   <view class="header">
+      <view>
+         <text class="title">本次订阅服务已完成</text>
+         <!--<text class="iconfont icon-wenhao"></text>-->
+      </view>
+      <view class="headText">感谢您对迷你王国的信任，期待下次订阅
+继续为您服务。
+      </view>
+      <view class="headButton">
+        <view class="detail">订单跟踪</view>
+        <view class="evaluate">评价</view>
+      </view>
+   </view>
+   <view style="height: 20rpx;"></view>
+   <view class="content">
+      <view class="con clearfix">
+          <view class="conRight rightTop upper">
+             <view class="explain">
+                <view class="conText">衣盒商品详情</view>
+              </view>
+           </view>
+      </view>
+
+      <view class='goods-list-info' style="background-color: #ffffff;">
+      <checkbox-group bindchange="goodsChange">
+        <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
+         
+          <view class='checklabel'>
+            <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
+            <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+              <view class='flex_auto green1-color'>
+                <view style="font-size: 28rpx;color: #000000;">{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
+                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}</view>
+              </view>
+              <view style="display: flex; flex-direction: column;padding-right:40rpx;">
+              <view class='fontWeight'>￥ {{item.realAmount}}</view>
+              <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
+              </view>
+            </view>
+
+            <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
+             <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+              <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
+            </view>
+          </view>
+        </label>
+      </checkbox-group>
+    </view>
+
+   </view>
+   <view class="conPro">
+       <view class="vip vipPro" bindtap='choseCoupo' hidden='{{reBuy}}'>
+           <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员立减券）</text></view>
+           <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
+           <text class='icon-arrow-right-copy iconfont'></text>
+           </view>
+       </view>
+       <view style="height: 1px; background-color: #F6F8F7; margin-left: 40rpx;"></view>
+       <view class="vipTwo clearfix">
+          <view class="vipPro " hidden='{{reBuy}}'>
+             <view class="twoPro">预约支付抵扣</view>
+             <view  class="proActive">-￥{{orderPay}}</view>
+          </view>
+          <view class="vipPro ">
+             <view class="twoPro">会员折扣</view>
+             <view  class="proActive">-￥{{discountPrice}}</view>
+          </view>
+          <view class="vipPro ">
+             <view class="twoPro">递增优惠（{{otherdesc}}）</view>
+             <view  class="proActive">-￥{{otheramount}}</view>
+          </view>
+       </view>
+       <view style="height: 1px; background-color: #F6F8F7; margin-left: 40rpx;"></view>
+       <view class="vipBot">
+           <view class="botTop"><text class="botActive">￥</text>{{totalPrice}}</view>
+           <view class="botFoot"><text class="botActive">（平均{{avgPrice}}元一件）</text>为您节省￥{{subPrice}}</view>
+       </view>          
+   </view>
+    <button class="server" open-type='contact'>
+      <image style="height: 36rpx; width: 36rpx;padding-right: 22rpx;" src="{{src}}"></image>
+      <view class="server-detail">迷你王国客服中心</view>
+    </button>
+</view>
