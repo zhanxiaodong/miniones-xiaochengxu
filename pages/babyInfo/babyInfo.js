@@ -7,26 +7,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0,
     defaultAva: '../../images/ava.png',
-    babyList: [
-      {
-        id: '1',
-        call: '阿离',
-        avatar: '../../images/ava.png',
-        birth: '3岁6月',
-        weight: '23',
-        size: '29',
-        num: 23
-      },
-      {
-        id: '2',
-        call: '测试',
-        avatar: '../../images/ava.png',
-        birth: '5岁6月',
-        weight: '32',
-        size: '23',
-        num: 44
-      }
-    ]
+    babyList: []
   },
   onLoad: function (options) {
     var that = this;

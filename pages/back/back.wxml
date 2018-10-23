@@ -44,7 +44,8 @@
   </view>
   <view class="butBox">
     <button bindtap="showModal" class="but">
-      <text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认召回（{{checkList.length?checkList.length:0}}）</text>
+      <text wx:if="{{hasBack}}" style="font-weight: bold; font-size: 36rpx;">重新预约</text>
+       <text wx:if="{{!hasBack}}" style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认召回（{{checkList.length?checkList.length:0}}）</text>
     </button>
   </view>
   <view bindtap='reBuy' class="retire">

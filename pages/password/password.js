@@ -47,9 +47,16 @@ Page({
               success: function (res) {
                 var isOldUser = res.data.data
                 if (isOldUser) {
-                  wx.switchTab({
-                    url: '../index/index'
+                  wx.showToast({
+                    title: '复制信息成功',
+                    icon: 'success',
+                    duration: 2000
                   })
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '../index/index'
+                    })
+                  }, 2000)
                 } else {
                   wx.redirectTo({
                     url: '../detail/detail',

@@ -10,11 +10,7 @@ Page({
     expCouponAmount: 0,
     expCoupon: null,
     payStatus: false,
-    recharge: false,
     useExpCoupon: false,
-    weights: [
-      '不确定', '10', '12', '14', '16', '18', '20', '22', '24', '26'
-    ],
     markIndex:false,
     hidIndex:false,
     addressInfo:null,
@@ -57,7 +53,6 @@ Page({
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
     item.amount = this.data.realPayAmount
-    // item.amount = 1.01
     if (this.data.useExpCoupon) {
       item.expCoupon = this.data.expCoupon
     }
@@ -77,9 +72,7 @@ Page({
           signType: 'MD5',
           paySign: param.data.paySign,
           success: function (event) {
-            console.log(111111)
             that.setData({
-              recharge: false,
               payStatus: false
             })
             wx.request({
@@ -92,7 +85,6 @@ Page({
                 })
               }
             })
-         
           }
         });
       }
@@ -116,15 +108,9 @@ Page({
     })
   },
   hideModal: function (e) {
-    if (this.data.recharge) {
-      this.setData({
-        recharge: false
-      })
-    } else {
-      this.setData({
-        payStatus: false
-      })
-    }
+    this.setData({
+      payStatus: false
+    })
   },
   bindRemarks: function (e) {
     var remarks = e.detail.value
@@ -204,11 +190,6 @@ Page({
       }
     }
   },
-  changeRe: function () {
-    this.setData({
-      recharge: true
-    })
-  },
   updateItem: function () {
     var that = this
     var box = that.data.more
@@ -256,24 +237,11 @@ Page({
             content: res.data.message
           })
         } else {
-          var status = box.status
-          var boxId = res.data.data.id
-          let pages = getCurrentPages(); //当前页面
-          let prevPage = pages[pages.length - 2]; //上一页面
-          prevPage.setData({ //直接给上移页面赋值
-            boxStatus: status,
-            boxId: boxId
-          });
-          wx.redirectTo({
-            url: '../designinfo/designinfo?boxId=' + boxId
+          wx.navigateTo({
+            url: '../giftBox/giftBox',
           })
         }
       }
-    })
-  },
-  goGift:function(){
-    wx.navigateTo({
-      url: '/pages/gift/gift',
     })
   },
   inMark:function(){

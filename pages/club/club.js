@@ -94,7 +94,6 @@ Page({
     })
   },
   updateTitle: function (lev, levTime, choose) {
-   
     this.setData({
       level: lev,
     })
@@ -129,7 +128,8 @@ Page({
       let pages = getCurrentPages(); //当前页面
       let prevPage = pages[pages.length - 2]; //上一页面
       prevPage.setData({ //直接给上移页面赋值
-        update: true
+        update: true,
+        level: level
       });
       wx.navigateBack({})
     }

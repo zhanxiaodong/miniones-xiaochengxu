@@ -6,7 +6,7 @@ Page({
     needAuth: false,
     gift: '/images/showa.png',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],
-    message: '欢迎体验迷你王国',
+    message: '当前没有进行中的搭配',
     btnMsg: '预约衣盒',
     tryOnDays: 0,
     activeIndex: 0,
@@ -28,21 +28,22 @@ Page({
       this.setData({
         needAuth: false
       })
-      this.fillInfo()
     }
   },
   getBoxBefore: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var level = wx.getStorageSync('level')
     var baby = this.data.baby
-    if (!level || level == viplev.LOOK) {
+    var user = this.data.user
+    if (!level || level == viplev.LOOK || !user) {
       wx.navigateTo({
         url: '../log/log'
       })
-    } else if (level < viplev.EXP) {
+    } else {
       var planAuto = this.data.user.planAuto
+      var stylist = this.data.stylist
       var pagen = wx.getStorageSync('pagen')
-      if (planAuto) {
+      if (planAuto && stylist) {
         this.getBox()
       } else {
         var url = '../style/style'
@@ -63,16 +64,19 @@ Page({
           url: url
         })
       }
-    } else {
-      this.getBox()
     }
+  },
+  userReg: function() {
+    wx.navigateTo({
+      url: '../log/log'
+    })
   },
   /**
    * 没有流程中的
    */
   boxNone: function() {
     wx.navigateTo({
-      url: '/pages/babyInfo/babyInfo?stylistId=' + this.data.stylist.id
+      url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
     })
   },
   /**
@@ -93,9 +97,9 @@ Page({
       url: '../buy/buy?boxId=' + this.data.boxId
     })
   },
-  backBox: function() {
+  backBox: function(hasBack) {
     wx.navigateTo({
-      url: '../back/back?boxId=' + this.data.boxId
+      url: '../back/back?boxId=' + this.data.boxId + '&hasBack=' + hasBack
     })
   },
   /**
@@ -104,10 +108,9 @@ Page({
   getBox: function(e) {
     var level = wx.getStorageSync('level')
     if (level == viplev.LOOK) {
-      this.goConfirm()
+      this.userReg()
     } else {
       var boxStatus = this.data.boxStatus
-      console.log(boxStatus)
       switch (boxStatus) {
         case 'NONE':
           this.boxNone()
@@ -131,7 +134,7 @@ Page({
           this.seeBox()
           break;
         case 'RETURN_EXPRESS':
-          this.seeBox()
+          this.backBox(true)
           break;
         case 'DISPATCHING':
           this.seeBox()
@@ -143,23 +146,14 @@ Page({
           this.payBox()
           break;
         case 'PAY_PART':
-          this.backBox()
+          this.backBox(false)
           break;
       }
     }
   },
-  goBuy: function() {
-    wx.navigateTo({
-      url: '/pages/buy/buy',
-    })
-  },
   onLoad: function(options) {
-    var that = this;
-    if (!wx.getStorageSync('openId')) {
-      that.setData({
-        needAuth: true
-      })
-    }
+    var that = this
+    that.checkAuth()
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -167,17 +161,33 @@ Page({
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
         });
       }
-    });
+    })
   },
   onShow: function() {
-    var that = this;
-    if (!wx.getStorageSync('openId')) {
-      that.setData({
-        needAuth: true
-      })
+    this.fillInfo()
+  },
+  setStep: function(data) {
+    var user = data.user
+    var stylist = data.stylist
+    var finshedInfo = false
+    if (user) {
+      if (!user.style) {
+        wx.clearStorageSync('pagen')
+      } else if (!user.colorType) {
+        wx.setStorageSync('pagen', 'color')
+      } else if (!user.attitude) {
+        wx.setStorageSync('pagen', 'attitude')
+      } else if (!user.consumDesc) {
+        wx.setStorageSync('pagen', 'paste')
+      } else if (!user.planAuto || !stylist) {
+        wx.setStorageSync('pagen', 'plan')
+      } else {
+        finshedInfo = true
+      }
     } else {
-      this.fillInfo()
+      wx.setStorageSync('level', 0)
     }
+    return finshedInfo
   },
   /**
    * 填充信息
@@ -187,25 +197,27 @@ Page({
    */
   fillInfo: function() {
     var that = this
-    var babyEdit = that.data.babyEdit
     var level = wx.getStorageSync('level')
     var openId = wx.getStorageSync('openId')
-    if (level == viplev.LOOK) { //未输入手机号
-      wx.navigateTo({
-        url: '/pages/log/log',
+    if (!level || level == viplev.LOOK) {
+      that.setData({
+        btnMsg: "开启服务"
       })
     } else {
       wx.request({
         url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
         success: function(res) {
           var result = res.data.data
-          var stylist = result.stylist ? result.stylist : null
-          var baby = result.baby
-          var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
           var user = res.data.data.user
+          var stylist = result.stylist ? result.stylist : null
+          var baby = result.baby ? result.baby : null
+          var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null
-          var btnMsg = util.changeMsg(boxStatus, 'btn')
+          var btnMsg =  util.changeMsg(boxStatus, 'btn')
+          if (!that.setStep(res.data.data)) {
+            btnMsg = '完善信息'
+          }
           var message = util.changeMsg(boxStatus, 'msg')
           var gift = util.changeMsg(boxStatus, 'img')
           that.setData({

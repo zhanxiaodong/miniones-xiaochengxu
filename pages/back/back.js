@@ -13,9 +13,16 @@ Page({
     dateTime1: null,
     startYear: 2018,
     endYear: 2018,
-    showModalStatus:false
+    showModalStatus:false,
+    hasBack:false
   },
   onLoad: function (options) {
+    if (options.hasBack) {
+      var hasBack = options.hasBack
+      this.setData({
+        hasBack: hasBack
+      })
+    }
     if (options.boxId) {
       var boxId = options.boxId
       this.setData({
@@ -159,15 +166,14 @@ Page({
         cancelText: '再看看',
         confirmText: '确定',
         onConfirm(e) {
-          console.log('退件啦啦啦啦啦啦啦啦啦啦')
-          // wx.request({
-          //   url: util.requestUrl + 'box/saveBoxBackGoods',
-          //   method: 'POST',
-          //   data: item,
-          //   success: function (res) {
-          //     wx.navigateBack()
-          //   }
-          // })
+          wx.request({
+            url: util.requestUrl + 'box/saveBoxBackGoods',
+            method: 'POST',
+            data: item,
+            success: function (res) {
+              wx.navigateBack()
+            }
+          })
         },
       })
     }
