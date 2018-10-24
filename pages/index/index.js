@@ -171,9 +171,12 @@ Page({
     var stylist = data.stylist
     var finshedInfo = false
     if (user) {
-      if (!user.style) {
+      if (stylist){
+        finshedInfo = true
+      }else if (!user.style) {
         wx.clearStorageSync('pagen')
       } else if (!user.colorType) {
+        console.log(wx.getStorageSync('pagen'))
         wx.setStorageSync('pagen', 'color')
       } else if (!user.attitude) {
         wx.setStorageSync('pagen', 'attitude')
