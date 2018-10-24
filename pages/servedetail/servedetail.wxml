@@ -12,7 +12,6 @@
   <view class="content-title">
   服务跟踪
   </view>
- <!--wx:for="{{progressData}}" wx:for-item="progress" wx:for-index="idx" wx:key="idx"-->
   <view class="content">
    <view style="height: 1px; background-color: #F6F8F7;"></view>
    <view class="content-container">
@@ -20,10 +19,10 @@
      wx:key="idx">
      <view class="content-item">
        <view class="point"></view>
-       <view class="process">{{item.process}} </view>
+       <view class="process"> {{item.desc}} </view>
        <view class="time"> {{item.time}} </view>
      </view>
-       <view class="line" style="height: 30px;margin-left: 40rpx;border-left: 1px solid #999999;"></view>
+       <view hidden="{{idx+1 == progressData.length}}" class="line" style="height: 30px;margin-left: 40rpx;border-left: 1px solid #999999;"></view>
      </view>
      
      </view>

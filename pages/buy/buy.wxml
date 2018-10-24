@@ -68,7 +68,7 @@
           </view>
           <view class="vipPro ">
              <view class="twoPro">递增优惠（{{otherdesc}}）</view>
-             <view  class="proActive">-￥{{otheramount}}</view>
+             <view  class="proActive">-￥{{otherAmount}}</view>
           </view>
        </view>
        <view class="vipBot">

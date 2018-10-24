@@ -1,66 +1,55 @@
-// pages/orderdetail/ordetail.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    goodsList:[],
+    payBoxInfo:{},
+    payAmount:0.0,
+    evaluateStatus:'去评价'
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    if (options.boxId) {
+      this.setData({
+        boxId: options.boxId
+      })
+    }
+    this.findBox()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  findBox: function () {
+    var that = this
+    var boxId = that.data.boxId
+    if (boxId) {
+      wx.request({
+        url: util.requestUrl + 'box/findBoxByBoxId?boxId=' + boxId,
+        success: function (res) {
+          var result = res.data.data
+          if (result.goodsList) {
+            that.setData({
+              goodsList: result.goodsList
+            })
+          }
+          if (result.payBoxInfo) {
+            that.setData({
+              payBoxInfo: result.payBoxInfo
+            })
+          }
+          that.setData({
+            payAmount: result.payAmount,
+            evaluateStatus: result.evaluateStatus
+          })
+        }
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  serveDetail: function (e) {
+    var boxId = this.data.boxId
+    wx.navigateTo({
+      url: '../servedetail/servedetail?boxId=' + boxId
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  goassess: function () {
+    var boxId = this.data.boxId
+    wx.navigateTo({
+      url: '../assess/assess?back=true&boxId=' + boxId
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

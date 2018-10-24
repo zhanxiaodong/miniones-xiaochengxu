@@ -84,7 +84,7 @@ Page({
    */
   seeBox: function() {
     wx.navigateTo({
-      url: '../designinfo/designinfo?boxId=' + this.data.boxId
+      url: '../servedetail/servedetail?boxId=' + this.data.boxId
     })
   },
   evaBox: function() {

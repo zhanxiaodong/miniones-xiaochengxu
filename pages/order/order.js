@@ -1,59 +1,48 @@
-// pages/order/order.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     tabs: ["完成订单","正在服务"],
     activeIndex: 0,
-    successOrder: [
-      {
-        successTitle:'服务已完成',
-        time: "2018-12-12 11:11:11",
-        woman: 'c.c',
-        evaluateStatus: '已评价',
-        price: '380.00',
-      },
-      {
-        successTitle:'服务已完成',
-        time: "2018-12-12 11:11:11",
-        woman: 'c.c',
-        evaluateStatus: '已评价',
-        price: '380.00',
-      },
-    ],
-    serveOrder: [
-      {
-      serveStatus:'正在服务',
-      serveTime: "2018-12-12 11:11:11",
-      woman: 'd.d',
-      evaluateStatus:'已评价',
-      payStatus: '未支付',
-      price: '330',
-      }
-    ],
+    successOrder: [],
+    serveOrder: [],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.findRecord()
+    this.findServiceRecord()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  findServiceRecord: function () {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'box/findServiceBoxRecord?openId=' + wx.getStorageSync('openId'),
+      success: function (res) {
+        var result = res.data.data
+        if (result) {
+          that.setData({
+            serveOrder: result
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+  findRecord: function () {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'box/findBoxRecord?openId=' + wx.getStorageSync('openId'),
+      success: function (res) {
+        var result = res.data.data
+        if (result) {
+          that.setData({
+            successOrder: result
+          })
+        }
+      }
+    })
+  },
+  goassess: function (e) {
+    var boxId = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../assess/assess?back=true&boxId=' + boxId
+    })
   },
   tabClick: function (e) {
     this.setData({
@@ -61,7 +50,6 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
-
   edit: function (event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)
     var id = event.currentTarget.dataset.id
@@ -69,9 +57,16 @@ Page({
       url: '../order/order?inter=edit&id=' + id
     })
   },
-  orderDetail: function () {
+  orderDetail: function (e) {
+    var boxId = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../orderdetail/orderdetail'
+      url: '../orderdetail/orderdetail?boxId=' + boxId
+    })
+  },
+  serveDetail: function(e) {
+    var boxId = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../servedetail/servedetail?boxId=' + boxId
     })
   }
 })

@@ -65,7 +65,7 @@
         <image class='member-more-icon' src='/images/more.png'></image>
       </view>
     </view>
-    <view class='xz-member'>
+    <view class='xz-member' bindtap='goOrder'>
       <image class='member-icon' src='/images/home.png'></image>
       <view class='member-info'>
         <view class='member-title'>所有订单</view>

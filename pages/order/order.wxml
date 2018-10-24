@@ -1,80 +1,91 @@
-<!--pages/order/order.wxml-->
 <view>
-    <view class='xz-top-title'>
-  <!--<view class='top-order'>完成订单</view>
-  <view class='top-sever'>正在服务</view>-->
-    
-      <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
+  <view class='xz-top-title'>
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+  </view>
+  <block wx:for='{{successOrder}}' wx:key="title">
+    <view class='xz-order-card'  wx:if='{{!edit}}' wx:for="{{item.boxList}}" wx:for-item="box" wx:key="boxId" hidden="{{activeIndex == 1}}">
+      <view bindtap="orderDetail" data-id="{{box.boxId}}">
+        <view class='card-section-one'>
+          <view class='section-left'>
+            <view class='status-icon'></view>
+            <view class='status-txt'>{{box.status == 'CLOSE'?'服务已取消':'服务已完成'}}</view>
           </view>
-      </block>
+        </view>
+        <view class='card-section-two'>
+          <view class='done-time' wx:if="{{box.status == 'CLOSE'}}">
+            <view class='time-label'>取消时间:</view>
+            <view class='done-content'>{{box.updateTime}}</view>
+          </view>
+          <view class='done-time' wx:if="{{box.status == 'PAY_COMPLETE'}}">
+            <view class='time-label'>完成时间:</view>
+            <view class='done-content'>{{box.updateTime}}</view>
+          </view>
+          <view class='done-time' wx:if="{{box.status == 'END'}}">
+            <view class='time-label'>完成时间:</view>
+            <view class='done-content'>{{box.finshedTime}}</view>
+          </view>
+          <view class='done-time'>
+            <view class='time-label'>搭配小姑:</view>
+            <view class='done-content'>{{box.name}}</view>
+          </view>
+          <view class='done-time'>
+            <view class='time-label'>订单详情</view>
+          </view>
+        </view>
+        <view class='card-section-three'>
+          <view class='button-group'>
+            <view wx:if="{{box.evaluateStatus == '已评价'}}" class="comment-btn">已评价</view>
+            <view wx:if="{{box.evaluateStatus == '去评价'}}" class="commented-btn" data-id='{{box.boxId}}' bindtap='goassess'>去评价</view>
+            <view wx:if="{{box.evaluateStatus == '未评价'}}" class="commented-btn">未评价</view>
+            <view class='pay-btn'>{{box.amount?'已支付':'未支付'}}</view>
+          </view>
+          <view class='price-group' wx:if="{{box.amount}}">
+            <view class='price-sign'>¥</view>
+            <view class='price-num'>{{box.amount}}</view>
+          </view>
+        </view>
+      </view>
     </view>
-<view class='xz-order-card' bindtap="orderDetail" wx:if='{{!edit}}' wx:for='{{successOrder}}' wx:key="id" hidden="{{activeIndex == 1}}">
-  <view class='card-section-one'>
-    <view class='section-left'>
-      <view class='status-icon'></view>
-      <view class='status-txt'>{{item.successTitle}}</view>
+  </block>
+  <block wx:for='{{serveOrder}}' wx:key="title">
+    <view class='xz-order-card serve' hidden="{{activeIndex != 1}}" wx:for='{{item.boxList}}' wx:for-item="box" wx:key='boxId'>
+      <view bindtap="serveDetail" data-id='{{box.boxId}}'>
+        <view class='card-section-one'>
+          <view class='section-left'>
+            <view class='status-icon'></view>
+            <view class='status-txt'>正在服务</view>
+          </view>
+        </view>
+        <view class='card-section-two'>
+          <view class='done-time'>
+            <view class='time-label'>创建时间:</view>
+            <view class='done-content'>{{box.day}}</view>
+          </view>
+          <view class='done-time'>
+            <view class='time-label'>搭配小姑:</view>
+            <view class='done-content'>{{box.name}}</view>
+          </view>
+          <view class='done-time'>
+            <view class='time-label'>订单详情</view>
+          </view>
+        </view>
+        <view class='card-section-three'>
+          <view class='button-group'>
+            <view wx:if="{{box.evaluateStatus == '已评价'}}" class="comment-btn">已评价</view>
+            <view wx:if="{{box.evaluateStatus == '去评价'}}" class="commented-btn" data-id='{{box.boxId}}' bindtap='goassess'>去评价</view>
+            <view wx:if="{{box.evaluateStatus == '未评价'}}" class="commented-btn">未评价</view>
+            <view class='pay-btn'>{{box.amount?'已支付':'未支付'}}</view>
+          </view>
+          <view class='price-group' wx:if="{{box.amount}}">
+            <view class='price-sign'>¥</view>
+            <view class='price-num'>{{box.amount}}</view>
+          </view>
+        </view>
+      </view>
     </view>
-    <!--<view class='status-time'>{{item.time}}</view>-->
-  </view>
-  <view class='card-section-two'>
-    <view class='done-time'>
-      <view class='time-label'>完成时间:</view>
-      <view class='done-content'>{{item.time}}</view>
-    </view>
-    <view class='done-time'>
-      <view class='time-label'>搭配小姑:</view>
-      <view class='done-content'>{{item.woman}}</view>
-    </view>
-    <view class='done-time'>
-      <view class='time-label'>订单详情</view>
-    </view>
-  </view>
-  <view class='card-section-three'>
-    <view class='button-group'>
-      <view class='comment-btn'>{{item.evaluateStatus}}</view>
-      <view class='pay-btn'>已支付</view>
-    </view>
-    <view class='price-group'>
-      <view class='price-sign'>¥</view>
-      <view class='price-num'>{{item.price}}</view>
-    </view>
-  </view>
+  </block>
 </view>
-
-<view class='xz-order-card serve' hidden="{{activeIndex != 1}}"     bindtap="serveDetail" wx:for='{{serveOrder}}' wx:key='id'>
-  <view class='card-section-one'>
-    <view class='section-left'>
-      <view  class='status-icon'></view>
-      <view class='status-txt'>{{item.serveStatus}}</view>
-    </view>
-    <!--<view class='status-time'>2018/8/25</view>-->
-  </view>
-  <view class='card-section-two'>
-    <view class='done-time'>
-      <view class='time-label'>创建时间:</view>
-      <view class='done-content'>{{item.serveTime}}</view>
-    </view>
-    <view class='done-time'>
-      <view class='time-label'>搭配小姑:</view>
-      <view class='done-content'>{{item.woman}}</view>
-    </view>
-    <view class='done-time'>
-      <view class='time-label'>订单详情</view>
-    </view>
-  </view>
-  <view class='card-section-three'>
-    <view class='button-group'>
-      <view class='commented-btn'>{{item.evaluateStatus}}</view>
-      <view class='pay-btn'>{{item.payStatus}}</view>
-    </view>
-    <view class='price-group'>
-      <view class='price-sign'>¥</view>
-      <view class='price-num'>{{item.price}}</view>
-    </view>
-  </view>
-</view>
-
-</view>
-
