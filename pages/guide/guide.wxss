@@ -1,1 +1,218 @@
 /* pages/guide/guide.wxss */
+.section {
+  position: relative;
+  height: 1204rpx;
+}
+
+.section image.section-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1204rpx;
+  z-index: 9;
+}
+
+.section .section-body {
+  position: relative;
+  color: #333333;
+  z-index: 10;
+  padding-top: 234rpx;
+  padding-left: 36rpx;
+}
+
+.section-chinese {
+  padding-top: 94rpx;
+}
+
+.section-title-list {
+  font-size: 80rpx;
+  font-weight: bold;
+  line-height: 92rpx;
+}
+
+.section-chinese-list {
+  font-size:32rpx;
+}
+
+
+/*111*/
+.content-distance {
+  padding: 100rpx 0 28rpx 0;
+}
+.content-title {
+  color: #04B8A0;
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content-line {
+  height: 2rpx;
+  width:146rpx;
+  background-color: #04B8A0; 
+  margin: 40rpx 0 0 290rpx;
+}
+/*开启档案部分*/
+.content-process {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 100rpx;
+}
+
+.content-process-img {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.content-process-title {
+  color: #333333;
+  font-weight: bold;
+  font-size: 36rpx;
+  text-align: center;
+  padding:45rpx 0 36rpx 0;
+}
+
+.index-distance {
+   letter-spacing:  12rpx;
+}
+
+.content-process-describe {
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+}
+
+/*衣盒里都有什么*/
+.cloth-distance {
+  padding: 140rpx 0 40rpx 0;
+}
+
+.box-img {
+  width: 100%;
+  height: 500rpx;
+  padding: 60rpx 0 56rpx 0;
+}
+
+.describe-two {
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  line-height: 48rpx;
+}
+/*为什么选择迷你王国*/
+.choose-distance {
+ padding-top: 120rpx;
+}
+
+.cloth-content {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-top: 100rpx;
+}
+
+.describe-three {
+   display: flex;
+   flex-direction: column;
+}
+
+.cloth-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin:0 27px;
+  padding-top: 30rpx;
+}
+
+.describe-three-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.describe-three-content {
+  padding-top: 20rpx;
+}
+
+.describe-three-content-one {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 32rpx;
+}
+
+/*常见问题*/
+.question-distance {
+  padding: 120rpx 0 100rpx 0;
+}
+
+.question {
+  width: 640rpx;
+  margin-left: 56rpx;
+}
+
+.describe-distance {
+  padding: 40rpx 0 60rpx 0;
+}
+.describe-four-title {
+  color: #04B8A0;
+  font-size: 28rpx;
+}
+
+.describe-four-content-one {
+  font-size: 28rpx;
+  color: #666666;
+}
+/*底部*/
+.footer {
+   width: 600rpx;
+   margin-left: 75rpx;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding:100rpx 0 200rpx 0;
+}
+
+.footer-question {
+  font-size: 24rpx;
+  color: #0066cc;
+}
+
+.footer-contact,.footer-phone,.footer-book {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.footer-contact {
+  padding: 20rpx 0 40rpx 0;
+}
+
+.footer-img {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.footer-love {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.footer-book {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.button {
+  width: 280rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #04B8A0;
+  color: #ffffff;
+  line-height: 90rpx;
+  border-radius: 80rpx;
+  position: fixed;
+  bottom: 50rpx;
+  left:235rpx;
+  text-align:center;
+  z-index: 33333;
+}

@@ -1,5 +1,82 @@
 <!--pages/guide/guide.wxml-->
 
 <view>
- <image src="/imge"> </image>
+  <view class="section">
+    <image class="section-bg" src="/images/guide.jpg"></image>
+    <view class="section-body">
+      <view class="section-title">
+         <view class="section-title-list">让孩子</view>
+         <view class="section-title-list">从小</view>
+         <view class="section-title-list">与众不同</view>
+      </view>
+      <view class="section-chinese">
+         <view class="section-chinese-list">贵不是时尚，风格才是</view>
+         <view class="section-chinese-list">全球品牌，先试后买</view>
+      </view>
+      <!--<view class="section-english">
+         <view class="section-english-list">fashion is not about</view>
+         <view class="section-english-list">money,</view>
+         <view class="section-english-list">it's about style</view>
+      </view>-->
+    </view>
+  </view>
+<view class="content-distance">
+ <view class="content-title">{{titleOne}}</view>
+ <view class="content-line"></view>
+ </view>
+
+ <view class="content-process" wx:for="{{contentList}}">
+    <image class="content-process-img" src="{{item.img}}"></image>
+    <view class="content-process-title"><text class="index-distance">{{item.index}}</text>{{item.title}}</view>
+    <view class="content-process-describe">{{item.describe}}</view>
+    <view class="content-process-describe">{{item.last}}</view>
+ </view>
+
+<view class="cloth-distance">
+ <view class="content-title">{{titleTwo}}</view>
+ <view class="content-line"></view>
+</view>
+<view>
+<image class="box-img" src="{{boxImg}}"></image>
+<view class="describe-two">6-12件衣服、鞋子和配饰</view>
+<view class="describe-two" style="padding: 20rpx 0;">专业的搭配建议手记</view>
+<view class="describe-two">填好的回寄快递面单</view>
+</view>
+
+<view class="choose-distance">
+ <view class="content-title">{{titleThree}}</view>
+ <view class="content-line"></view>
+</view>
+<view class="cloth-content" wx:for="{{describeList}}">
+ <image class="cloth-icon" src="{{item.img}}"></image>
+ <view class="describe-three">
+    <view class="describe-three-title">{{item.title}}</view>
+    <view class="describe-three-content">
+      <view class="describe-three-content-one">{{item.describe}}</view>
+      <view class="describe-three-content-one">{{item.last}}</view>
+    </view>
+ </view>
+</view>
+
+<view class="question-distance">
+ <view class="content-title">{{titleFour}}</view>
+ <view class="content-line"></view>
+</view>
+<view class="question" wx:for="{{questionList}}">
+  <view class="describe-four-title">{{item.title}}</view>
+  <view class='describe-distance' style="">
+   <view class="describe-four-content-one">{{item.one}}</view>
+   <view class="describe-four-content-one">{{item.two}}</view>
+  </view>
+</view>
+<view class="footer">
+  <view class="footer-question">更多常见问题 ></view>
+  <view class="footer-contact">还有疑问？欢迎联系我们</view>
+  <image class="footer-img" src="{{contactImg}}"></image>
+  <view class="footer-love">关爱，从第一次到每一次</view>
+  <view class="footer-book">请关注迷你王国微信公众号（搜索“迷你王国”）
+通过对话框直接咨询</view>
+  <view class="footer-phone">或直接垂询：400-108-2028</view>
+</view>
+<view class="button">开启风格</view>
 </view>
