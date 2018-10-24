@@ -1,0 +1,5 @@
+<!--pages/guide/guide.wxml-->
+
+<view>
+ <image src="/imge"> </image>
+</view>
