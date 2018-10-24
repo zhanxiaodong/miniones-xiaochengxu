@@ -107,5 +107,10 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  goOrder:function() {
+    wx.navigateTo({
+      url: '../order/order',
+    })
   }
 })

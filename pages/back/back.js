@@ -3,7 +3,6 @@ var util = require("../../utils/util.js")
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 Page({
   data: {
-    totalNum: 3,
     goodsList: [],
     date: '2018-10-01',
     time: '12:00',

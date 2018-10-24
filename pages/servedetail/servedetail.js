@@ -1,85 +1,32 @@
-// pages/servedetail/servedetail.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    progressData: [
-      {
-        process: '发起衣盒预约', time: '10月10日 12:12'
-      },
-      {
-        process: '搭配师沟通／包装衣盒', time: '10月10日 12:12'
-      },
-      {
-        process: '衣盒已发出／顺丰速递', time: '10月10日 12:12'
-      },
-      {
-        process: '发衣盒已送达／在家试穿', time: '10月10日 12:12'
-      },
-      {
-        process: '订单已支付／评价', time: '10月10日 12:12'
-      },
-      {
-        process: '订单已完成／召回', time: '10月10日 12:12'
-      },
-    ]
+    progressData: [],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    if (options.boxId){
+      this.setData({
+        boxId: options.boxId
+      })
+    }
+    this.findBoxTrack()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  findBoxTrack: function() {
+    var that = this
+    var boxId = that.data.boxId
+    if (boxId) {
+      wx.request({
+        url: util.requestUrl + 'box/findBoxTrack?boxId=' + boxId,
+        success: function (res) {
+          var result = res.data.data
+          if (result.boxTrack) {
+            that.setData({
+              progressData: result.boxTrack
+            })
+          }
+        }
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

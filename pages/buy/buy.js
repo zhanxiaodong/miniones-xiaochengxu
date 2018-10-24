@@ -7,7 +7,7 @@ Page({
   data: {
     otherdesc: '3件及以上8折，整盒6折',
     other: false,
-    otheramount: 0,
+    otherAmount: 0,
     showModalStatus: false,
     confirmNo: false,
     resultAmount: 0.00,
@@ -277,7 +277,7 @@ Page({
     var totalPrice = 0.00
     var discountPrice = 0.00
     var badgeAmount = 0.00
-    var otheramount = 0.00
+    var otherAmount = 0.00
     var vipoprice = 0.00
     var avgPrice = 0.00
     if (goodsTotal > 0) {
@@ -345,9 +345,9 @@ Page({
         vipoprice = totalPrice * 0.15
       }
       if (this.data.other && totalPrice > 0) {
-        otheramount = totalPrice * this.data.otherDic
-        totalPrice = totalPrice - otheramount
-        subPrice = subPrice + otheramount
+        otherAmount = totalPrice * this.data.otherDic
+        totalPrice = totalPrice - otherAmount
+        subPrice = subPrice + otherAmount
       }
 
       var chooseCount = this.data.chooseCount
@@ -357,7 +357,7 @@ Page({
     }
     this.setData({
       vipoprice: vipoprice.toFixed(2),
-      otheramount: otheramount.toFixed(2),
+      otherAmount: otherAmount.toFixed(2),
       badgeAmount: badgeAmount,
       goodsTotal: goodsTotal,
       totalPrice: totalPrice.toFixed(2),
@@ -511,8 +511,8 @@ Page({
         })
       }, 2000)
     } else {
-      wx.reLaunch({
-        url: '../assess/assess?back=true&boxId=' + that.data.boxId + '&allSelect' + allSelect,
+      wx.navigateTo({
+        url: '../assess/assess?back=true&boxId=' + that.data.boxId
       })
     }
   },
@@ -533,7 +533,6 @@ Page({
     item.amount = this.data.totalPrice
     item.type = 'PAY'
     item.checkList = this.rmPostfix()
-    console.log(item.checkList)
     item.boxNo = this.data.boxNo
 
     var badge = this.data.badge
@@ -544,6 +543,11 @@ Page({
     payBoxInfo.voucherId = voucher ? voucher.id : null
     payBoxInfo.cashId = cash ? cash.id : null
     payBoxInfo.subPrice = this.data.subPrice
+    payBoxInfo.VoucherAmount = this.data.voucher ? this.data.voucher.amount : 0
+    payBoxInfo.orderPay = this.data.orderPay
+    payBoxInfo.discountPrice = this.data.discountPrice
+    payBoxInfo.otherAmount = this.data.otherAmount
+    payBoxInfo.avgPrice = this.data.avgPrice
     item.payBoxInfo = payBoxInfo
     return item
   },

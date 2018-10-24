@@ -66,12 +66,7 @@ Page({
     ]
   },
   onLoad: function(options) {
-    options.boxId = '5bcd798f9d6128511f4cbba8'
-    if (options.allSelect) {
-      this.setData({
-        allSelect: options.allSelect
-      }) 
-    }
+    console.log(options)
     if (options.boxId) {
       this.setData({
         boxId: options.boxId
@@ -112,11 +107,6 @@ Page({
       starFlag: Number(index)
     })
   },
-  doPageToNext() {
-    console.log('selectedFavorites', this.data.selectedFavorites)
-    console.log(this.data.feedback)
-    console.log('selectedFavorites', this.data.selectedFavorites.join(','))
-  },
   /**
    * 提交评价
    */
@@ -126,7 +116,7 @@ Page({
     evaluate.boxId = this.data.boxId
     evaluate.evalLabel = this.data.selectedFavorites
     evaluate.feedback = this.data.feedback 
-    var that = this
+    evaluate.rec = this.data.starFlag
     wx.request({
       url: util.requestUrl + 'box/saveBoxEva',
       method: 'POST',
