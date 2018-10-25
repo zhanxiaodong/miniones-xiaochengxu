@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     setTimeout(function () {
-      wx.switchTab ({
+      wx.reLaunch({
         url: '../index/index',
       })
     }, 2000)

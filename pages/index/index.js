@@ -28,6 +28,7 @@ Page({
       this.setData({
         needAuth: false
       })
+      this.fillInfo()
     }
   },
   getBoxBefore: function(e) {
@@ -43,7 +44,7 @@ Page({
       var planAuto = this.data.user.planAuto
       var stylist = this.data.stylist
       var pagen = wx.getStorageSync('pagen')
-      if (planAuto && stylist) {
+      if (planAuto > 0 && stylist) {
         this.getBox()
       } else {
         var url = '../style/style'
@@ -57,9 +58,7 @@ Page({
           } else if (pagen == 'plan') {
             url = '../plan/plan'
           }
-        } else {
-          url = '../log/log'
-        }
+        } 
         wx.navigateTo({
           url: url
         })
@@ -164,15 +163,22 @@ Page({
     })
   },
   onShow: function() {
-    this.fillInfo()
+    var needAuth = this.data.needAuth
+    if (needAuth) {
+      this.fillInfo()
+    }
   },
   setStep: function(data) {
+    var planAuto = data.user.planAuto
     var user = data.user
     var stylist = data.stylist
     var finshedInfo = false
+    console.log(data)
     if (user) {
-      if (!user.style) {
-        wx.clearStorageSync('pagen')
+      if (planAuto > 0 && stylist){
+        finshedInfo = true
+      }else if (!user.style) {
+        wx.setStorageSync('pagen','')
       } else if (!user.colorType) {
         wx.setStorageSync('pagen', 'color')
       } else if (!user.attitude) {
@@ -182,11 +188,13 @@ Page({
       } else if (!user.planAuto || !stylist) {
         wx.setStorageSync('pagen', 'plan')
       } else {
+        wx.setStorageSync('pagen', '')
         finshedInfo = true
       }
     } else {
       wx.setStorageSync('level', 0)
     }
+    console.log(wx.getStorageSync('pagen'))
     return finshedInfo
   },
   /**

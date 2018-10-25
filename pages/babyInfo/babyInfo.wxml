@@ -1,50 +1,48 @@
-<!--pages/babyInfo/babyInfo.wxml-->
 <view class="page">
-  
-    <view class="weui-tab">
-      <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class="cardcsl" wx:if='{{!edit}}' wx:for='{{babyList}}' wx:key="id">
-            <view class="flexcs">
-              <view class="card-left">
-                <view>
-                  <text style="font-size: 50rpx;font-weight: bold;color: #333333;">{{item.call}}</text>
-                </view>
-                <view>
-                  <text class='desccs' style="color: #707070;">{{item.birth}}</text>
-                </view>
-                <view class="style" style="margin-top: 20rpx;"> 
-                  <image src="/images/icons/height-green.png" class="infopg"></image>
-                  <text class='desccs'>身高 {{item.height}} cm</text>
-                </view >
-                <view class="style">
-                  <image src="/images/icons/weight-green.png" class="infopg"></image>
-                  <text class='desccs'>体重 {{item.weight}} kg</text>
-                </view>
-                <view class="style">
-                  <image src="/images/icons/shoes-green.png" class="infopg"></image>
-                  <text class='desccs'>鞋码 {{item.size}} size</text>
-                </view>
-             <!--   <view>
+  <view class="weui-tab">
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="cardcsl" wx:for='{{babyList}}' wx:key="id">
+          <view class="flexcs" bindtap='edit' data-id="{{item.id}}">
+            <view class="card-left">
+              <view>
+                <text style="font-size: 50rpx;font-weight: bold;color: #333333;">{{item.call}}</text>
+              </view>
+              <view>
+                <text class='desccs' style="color: #707070;">{{item.birth}}</text>
+              </view>
+              <view class="style" style="margin-top: 20rpx;">
+                <image src="/images/icons/height-green.png" class="infopg"></image>
+                <text class='desccs'>身高 {{item.height}} cm</text>
+              </view>
+              <view class="style">
+                <image src="/images/icons/weight-green.png" class="infopg"></image>
+                <text class='desccs'>体重 {{item.weight}} kg</text>
+              </view>
+              <view class="style">
+                <image src="/images/icons/shoes-green.png" class="infopg"></image>
+                <text class='desccs'>鞋码 {{item.size}} size</text>
+              </view>
+              <!--   <view>
                   <image src="/images/xie.png" class="infopg"></image>
                  <text class='desccs'>记录{{item.num==null?0:item.num}}个瞬间</text>
                 </view>-->
-              </view>
-              <view class="card-right">
-                <image src="{{item.bodyPic ? item.bodyPic : defaultAva }}" class="avatarcs"></image>
-                   <form bindsubmit='choose' data-id="{{item.id}}" report-submit='true'>
-              <button size='mini' class='btnedit' form-type='submit'>选择</button>
-            </form>
-              </view>
+            </view>
+            <view class="card-right">
+              <image src="{{item.bodyPic ? item.bodyPic : defaultAva }}" class="avatarcs"></image>
+              <form bindsubmit='choose' data-id="{{item.id}}" report-submit='true'>
+                <button size='mini' class='btnedit' form-type='submit'>选择</button>
+              </form>
             </view>
           </view>
-          <view class="addb">
-            <form bindsubmit='add' report-submit='true'>
-              <button class='btnadd' form-type='submit'>添加宝贝</button>
-            </form>
-          </view>
+        </view>
+        <view class="addb">
+          <form bindsubmit='add' report-submit='true'>
+            <button class='btnadd' form-type='submit'>添加宝贝</button>
+          </form>
         </view>
       </view>
     </view>
+  </view>
 
 </view>
