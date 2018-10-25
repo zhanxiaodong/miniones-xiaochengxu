@@ -438,9 +438,9 @@ function radioGroupChange(group, value) {
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
- const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+//  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
 // const requestUrl = 'http://192.168.0.2:8080/merchant/'
-//const requestUrl = 'http://localhost:8080/merchant/'
+const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
   var originalWidth = e.detail.width;//图片原始宽  
@@ -570,6 +570,17 @@ function getUserInfo(openId) {
 
 }
 
+function updateStep (step) {
+  var item = new Object()
+  item.wechatOpenId = wx.getStorageSync('openId')
+  item.step = step
+  wx.request({
+    url: requestUrl + 'user/updateStep',
+    method: 'POST',
+    data: item
+  })
+}
+
 /**
  * 是否老用户
  */
@@ -670,5 +681,6 @@ module.exports = {
   getPhoneNum: getPhoneNum,
   getUserInfo: getUserInfo,
   saveFormId: saveFormId,
-  checkOldUser: checkOldUser
+  checkOldUser: checkOldUser,
+  updateStep: updateStep
 }

@@ -42,9 +42,10 @@ Page({
       })
     } else {
       var planAuto = this.data.user.planAuto
+      var plan = this.data.user.plan
       var stylist = this.data.stylist
       var pagen = wx.getStorageSync('pagen')
-      if (planAuto > 0 && stylist) {
+      if ((planAuto > 0 && stylist) || (plan && stylist)) {
         this.getBox()
       } else {
         var url = '../style/style'
@@ -58,7 +59,7 @@ Page({
           } else if (pagen == 'plan') {
             url = '../plan/plan'
           }
-        } 
+        }
         wx.navigateTo({
           url: url
         })
@@ -164,21 +165,27 @@ Page({
   },
   onShow: function() {
     var needAuth = this.data.needAuth
-    if (needAuth) {
+    if (!needAuth) {
       this.fillInfo()
     }
   },
   setStep: function(data) {
-    var planAuto = data.user.planAuto
     var user = data.user
     var stylist = data.stylist
     var finshedInfo = false
-    console.log(data)
     if (user) {
-      if (planAuto > 0 && stylist){
+      var planAuto = data.user.planAuto
+      var plan = data.user.plan
+      var step = data.user.step
+      if (!step) {
+        wx.navigateTo({
+          url: '../guide/guide'
+        })
+      }
+      if ((planAuto > 0 && stylist) || (plan && stylist)) {
         finshedInfo = true
-      }else if (!user.style) {
-        wx.setStorageSync('pagen','')
+      } else if (!user.style) {
+        wx.setStorageSync('pagen', '')
       } else if (!user.colorType) {
         wx.setStorageSync('pagen', 'color')
       } else if (!user.attitude) {
@@ -211,7 +218,8 @@ Page({
       that.setData({
         btnMsg: "开启服务"
       })
-    } else {
+    } 
+    // else {
       wx.request({
         url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
         success: function(res) {
@@ -222,7 +230,7 @@ Page({
           var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null
-          var btnMsg =  util.changeMsg(boxStatus, 'btn')
+          var btnMsg = util.changeMsg(boxStatus, 'btn')
           if (!that.setStep(res.data.data)) {
             btnMsg = '完善信息'
           }
@@ -241,6 +249,6 @@ Page({
           })
         }
       })
-    }
+    // }
   }
 })

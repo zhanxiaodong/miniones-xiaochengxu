@@ -1,5 +1,6 @@
-<!--pages/guide/guide.wxml-->
-
+<view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 100001;'>
+  <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
+</view>
 <view>
   <view class="section">
     <image class="section-bg" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
