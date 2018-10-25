@@ -9,7 +9,7 @@ Page({
     titleTwo:'衣服里都有什么？',
     titleThree: '为什么选择迷你王国',
     titleFour: '常见问题FAQ',
-    boxImg: '/images/xiaolu.jpg',
+    boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiaolu.jpg',
     contactImg: '/images/erweima.jpg',
     contentList: [
       {

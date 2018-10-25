@@ -2,7 +2,7 @@
 
 <view>
   <view class="section">
-    <image class="section-bg" src="/images/guide.jpg"></image>
+    <image class="section-bg" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
     <view class="section-body">
       <view class="section-title">
          <view class="section-title-list">让孩子</view>
@@ -13,7 +13,7 @@
          <view class="section-chinese-list">贵不是时尚，风格才是</view>
          <view class="section-chinese-list">全球品牌，先试后买</view>
       </view>
-      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 466rpx 0 0 314rpx;" src="/images/xiala.png"></image>
+      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 466rpx 0 0 314rpx;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
     </view>
   </view>
 <view class="content-distance">
@@ -21,7 +21,7 @@
  <view class="content-line"></view>
  </view>
 
- <view class="content-process" wx:for="{{contentList}}">
+ <view class="content-process" wx:for="{{contentList}}" wx:key="{{item.index}}">
     <image class="content-process-img" src="{{item.img}}"></image>
     <view class="content-process-title"><text class="index-distance">{{item.index}}</text>{{item.title}}</view>
     <view class="content-process-describe">{{item.describe}}</view>
@@ -43,7 +43,7 @@
  <view class="content-title">{{titleThree}}</view>
  <view class="content-line"></view>
 </view>
-<view class="cloth-content" wx:for="{{describeList}}">
+<view class="cloth-content" wx:for="{{describeList}}" wx:key="{{item.index}}">
  <image class="cloth-icon" src="{{item.img}}"></image>
  <view class="describe-three">
     <view class="describe-three-title">{{item.title}}</view>
@@ -58,7 +58,7 @@
  <view class="content-title">{{titleFour}}</view>
  <view class="content-line"></view>
 </view>
-<view class="question" wx:for="{{questionList}}">
+<view class="question" wx:for="{{questionList}}" wx:key="{{item.index}}">
   <view class="describe-four-title">{{item.title}}</view>
   <view class='describe-distance' style="">
    <view class="describe-four-content-one">{{item.one}}</view>
