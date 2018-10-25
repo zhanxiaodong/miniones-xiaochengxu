@@ -1,6 +1,7 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
+    src: '/images/phone-2.png',
     progressData: [],
   },
   onLoad: function(options) {

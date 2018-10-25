@@ -1,6 +1,7 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
+    src: '/images/phone-2.png',
     goodsList:[],
     payBoxInfo:{},
     payAmount:0.0,

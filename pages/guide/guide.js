@@ -99,5 +99,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  clickIndex: function () {
+   wx.switchTab({
+     url: '../index/index',
+   }) 
   }
+
 })

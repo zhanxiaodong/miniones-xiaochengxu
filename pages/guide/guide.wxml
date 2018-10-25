@@ -13,11 +13,7 @@
          <view class="section-chinese-list">贵不是时尚，风格才是</view>
          <view class="section-chinese-list">全球品牌，先试后买</view>
       </view>
-      <!--<view class="section-english">
-         <view class="section-english-list">fashion is not about</view>
-         <view class="section-english-list">money,</view>
-         <view class="section-english-list">it's about style</view>
-      </view>-->
+      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 466rpx 0 0 314rpx;" src="/images/xiala.png"></image>
     </view>
   </view>
 <view class="content-distance">
@@ -78,5 +74,5 @@
 通过对话框直接咨询</view>
   <view class="footer-phone">或直接垂询：400-108-2028</view>
 </view>
-<view class="button">开启风格</view>
+<view class="button" bindtap="clickIndex">开启风格</view>
 </view>

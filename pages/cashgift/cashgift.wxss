@@ -1,0 +1,20 @@
+page {
+  background-color: #F2F2F2;
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.btncs {
+  background-color: #26AEA8;
+  color: #fff;
+  border-radius: 32px;
+}
+
+button::after {
+  border: none;
+}

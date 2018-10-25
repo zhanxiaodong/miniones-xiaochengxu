@@ -1,5 +1,5 @@
 <!--pages/servedetail/servedetail.wxml-->
-<view class="wrap" style="background-color: #F6F8F7;">
+<view class="wrap" style="background-color: #F6F8F7;height:1334rpx; ">
   <view class="header">
       <view>
          <text class="title">本次订阅服务进行中</text>

@@ -1,7 +1,7 @@
  <view class="page">
  <view class='bg-white1'>
     <block wx:for="{{recordList}}" wx:key="item.id" key="{{item.id}}">
-      <navigator url="../{item.page}/{item.page}?amount={item.amount}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <navigator url="{{item.url}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__hd">
           <image src="{{item.icon}}" style="vertical-align: middle;width:30px; height: 30px;"></image>
         </view>

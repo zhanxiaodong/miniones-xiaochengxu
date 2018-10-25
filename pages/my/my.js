@@ -5,52 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    proList: [
-      {
-        logo: '/images/yuebing1.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-       {
-         logo: '/images/meinv1.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-       {
-         logo: '/images/yuebing2.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-       {
-        logo: '/images/yuebing2.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-      {
-        logo: '/images/meinv1.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-      {
-        logo: '/images/yuebing2.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      },
-      {
-        logo: '/images/yuebing2.jpg',
-        title: '月饼礼盒',
-        desc: '中秋礼品装，有五仁有团圆！'
-      }
-    ]
+    babyMath: '2',
+    womanMath: '1',
+    orderMath: '3',
+    reduceMath: '50'
   },
 
   /**
@@ -108,9 +66,53 @@ Page({
   onShareAppMessage: function () {
   
   },
+
+  goWoman: function () {
+    wx.navigateTo({
+      url: '../designinfo/designinfo',
+    })
+  },
+
   goOrder:function() {
     wx.navigateTo({
       url: '../order/order',
     })
+  },
+
+  goBaby: function () {
+    wx.navigateTo({
+      url: '../babyInfo/babyInfo',
+    })
+  },
+
+  goReduce: function () {
+    wx.navigateTo({
+      url: '../coupon/coupon',
+    })
+  },
+
+  goVip: function () {
+    wx.navigateTo({
+      url: '../club/club',
+    })
+  },
+
+  goPlan: function () {
+    wx.navigateTo({
+      url: '../plan/plan',
+    })
+  },
+
+  goWallet: function () {
+    wx.navigateTo({
+      url: '../wallet/wallet',
+    })
+  },
+
+  goGuide: function () {
+    wx.navigateTo({
+      url: '../guide/guide',
+    })
   }
+
 })

@@ -15,25 +15,25 @@
       <image  class='xz-my-more' src='/images/more.png'></image>
     </view>
     <view class='xz-button-bar'>
-      <view class='button-group'>
-        <image class='button-icon' src='/images/afterSale.png'></image>
+      <view class='button-group' bindtap='goBaby'>
+        <view class='button-icon'>{{babyMath}}</view>
         <view class='button-txt'>宝贝</view>
       </view>
-      <view class='button-group'>
-        <image class='button-icon' src='/images/afterSale.png'></image>
+      <view class='button-group' bindtap='goWoman'>
+         <view class='button-icon'>{{womanMath}}</view>
         <view class='button-txt'>搭配师</view>
       </view>
-      <view class='button-group'>
-        <image class='button-icon' src='/images/afterSale.png'></image>
-        <view class='button-txt'>订单</view>
+      <view class='button-group' bindtap='goOrder'>
+         <view class='button-icon'>{{orderMath}}</view>
+        <view class='button-txt'>当前订单</view>
       </view>
-      <view class='button-group'>
-        <image class='button-icon' src='/images/afterSale.png'></image>
+      <view class='button-group' bindtap='goReduce'>
+         <view class='button-icon'>{{reduceMath}}</view>
         <view class='button-txt'>优惠券</view>
       </view>
     </view>
   </view>
-  <view class='xz-share'>
+  <view class='xz-share' bindtap='invitePerson'>
     <view class='share-txt'>
       <view class='share-title'>邀请好友得现金</view>  
       <view class='share-btn'>多邀多得</view>
@@ -41,68 +41,69 @@
     <view class='share-desc'>每邀请一位好友成为会员可立即提现50元现金</view>
   </view>
   <view class='xz-list'>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
+    <view class='xz-member' bindtap='goVip'>
+      <image class='member-icon' src='/images/crown-2.png'></image>
       <view class='member-info'>
         <view class='member-title'>亲礼会员</view>
         <view class='member-more'>
           <view class='member-desc'>终身会员限量开放</view>
-          <image class='member-more-icon' src='/images/more.png'></image>
+          <image class='member-more-icon' src='/images/direction.png'></image>
         </view>
       </view>
     </view>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
-      <view class='member-info'>
-        <view class='member-title'>我的宝贝</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
-      </view>
-    </view>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
-      <view class='member-info'>
-        <view class='member-title'>搭配小姑</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
-      </view>
-    </view>
-    <view class='xz-member' bindtap='goOrder'>
-      <image class='member-icon' src='/images/home.png'></image>
+     <view class='xz-member' bindtap='goOrder'>
+      <image class='member-icon' src='/images/order-list.png'></image>
       <view class='member-info'>
         <view class='member-title'>所有订单</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
+        <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
-      <view class='member-info last-child'>
+    <view class='xz-member' bindtap="goPlan">
+      <image class='member-icon' src='/images/notice.png'></image>
+      <view class='member-info'>
+        <view class='member-title'>订阅计划</view>
+        <image class='member-more-icon' src='/images/direction.png'></image>
+      </view>
+    </view>
+    <view class='xz-member' bindtap="goWallet">
+      <image class='member-icon' src='/images/vipcard.png'></image>
+      <view class='member-info'>
         <view class='member-title'>我的钱包</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
+        <image class='member-more-icon' src='/images/direction.png'></image>
+      </view>
+    </view>
+   
+    <view class='xz-member'>
+      <image class='member-icon' src='/images/friend_favor.png'></image>
+      <view class='member-info last-child'>
+        <view class='member-title'>消费画像</view>
+        <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
   </view>
   <view class='xz-list'>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
+    <view class='xz-member' bindtap='goExchange'>
+      <image class='member-icon' src='/images/present2.png'></image>
       <view class='member-info'>
-        <view class='member-title'>订阅计划</view>
+        <view class='member-title'>兑换码</view>
         <view class='member-more'>
-          <view class='member-desc'>终身会员限量开放</view>
-          <image class='member-more-icon' src='/images/more.png'></image>
+          <view class='member-desc'>限量兑换vip</view>
+          <image class='member-more-icon' src='/images/direction.png'></image>
         </view>
       </view>
     </view>
     <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
-      <view class='member-info'>
-        <view class='member-title'>偏好设置</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
+      <image class='member-icon' src='/images/phone-2.png'></image>
+      <view class='button-info'>
+        <button class='button-title' open-type="contact">在线客服</button>
+        <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
-    <view class='xz-member'>
-      <image class='member-icon' src='/images/home.png'></image>
+    <view class='xz-member' bindtap='goGuide'>
+      <image class='member-icon' src='/images/evaluate.png'></image>
       <view class='member-info last-child'>
-        <view class='member-title'>在线客服</view>
-        <image class='member-more-icon' src='/images/more.png'></image>
+        <view class='member-title'>关于迷你王国</view>
+        <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
   </view>

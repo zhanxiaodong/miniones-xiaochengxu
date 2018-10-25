@@ -63,12 +63,17 @@
     justify-content: space-between;
   }
   .button-group {
-    width: 80rpx;
+    width: 100rpx;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
   .button-icon {
     width: 50rpx;
     height: 50rpx;
-    margin-left: 15rpx;
+    text-align: center;
+    color: #999;
+    font-size: 20rpx;
   }
   .button-txt {
     font-size: 24rpx;
@@ -146,6 +151,24 @@
     color: #333;
     line-height: 100rpx;
   }
+  
+  .button-info {
+    width: 660rpx;
+    height: 100rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+  }
+
+  .button-title {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 100rpx;
+    background-color: #fff;
+    margin-left:4rpx;
+  }
+
   .member-more {
     display: flex;
     flex-flow: row nowrap;

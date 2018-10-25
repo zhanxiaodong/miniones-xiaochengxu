@@ -1,0 +1,81 @@
+page {
+  background-color: #f2f2f2;
+  height: 100%;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.btncs {
+  background-color: #26aea8;
+  color: #fff;
+  border-radius: 32px;
+}
+
+.btngreens {
+  color: #fff;
+  background-color: #26aea8;
+  font-size: 15px;
+  line-height: 40px;
+}
+
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.weui-grids {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid #f2f2f2;
+}
+
+.weui-grid {
+  position: relative;
+  float: left;
+  padding: 20rpx 10rpx;
+  width: 33.33333333%;
+  box-sizing: border-box;
+  text-align: center;
+  border-right: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.rechargeGroup .active {
+  background-color: #26aea8;
+  color: #fff;
+}
+
+.inputView {
+  border-radius: 40px;
+  margin-left: 15px;
+  background-color: #f2f2f2;
+  flex: 1;
+}
