@@ -89,6 +89,7 @@ Page({
   
   next:function(){
     this.updateUser()
+    util.updateStep(5)
     wx.navigateTo({
         url: '/pages/paste/paste'
     })

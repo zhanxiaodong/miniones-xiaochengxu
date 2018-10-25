@@ -61,6 +61,7 @@ Page({
         delta:2
       })
     } else {
+      util.updateStep(2)
       wx.navigateTo({
         url: '/pages/style/style',
       })

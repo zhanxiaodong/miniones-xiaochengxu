@@ -117,6 +117,7 @@ Page({
   },
   next: function () {
     this.updateUser()
+    util.updateStep(3)
     wx.navigateTo({
       url: '/pages/color/color'
     })
