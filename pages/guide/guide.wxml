@@ -11,10 +11,11 @@
          <view class="section-title-list">与众不同</view>
       </view>
       <view class="section-chinese">
-         <view class="section-chinese-list">贵不是时尚，风格才是</view>
-         <view class="section-chinese-list">全球品牌，先试后买</view>
+         <view class="section-chinese-list">全球品牌先试后买</view>
+         <view class="section-chinese-list">每月免费配送满满一盒子</view>
+         <view class="section-chinese-list">的时尚搭配</view>
       </view>
-      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 466rpx 0 0 314rpx;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
+      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 420rpx 0 0 314rpx;" src="/images/xiala2.png"></image>
     </view>
   </view>
 <view class="content-distance">
