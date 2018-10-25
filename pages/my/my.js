@@ -91,6 +91,12 @@ Page({
     })
   },
 
+  invitePerson: function () {
+    wx.navigateTo({
+      url: '../invitation/invitation',
+    })
+  },
+  
   goVip: function () {
     wx.navigateTo({
       url: '../club/club',
