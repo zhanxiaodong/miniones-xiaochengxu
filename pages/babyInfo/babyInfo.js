@@ -8,7 +8,7 @@ Page({
     sliderLeft: 0,
     defaultAva: '../../images/ava.png',
     babyList: [],
-    edit: true
+    edit: false
   },
   onLoad: function(options) {
     var that = this;

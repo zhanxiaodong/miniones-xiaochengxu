@@ -49,7 +49,7 @@ Page({
   },
   goassess: function () {
     var boxId = this.data.boxId
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../assess/assess?back=true&boxId=' + boxId
     })
   },
