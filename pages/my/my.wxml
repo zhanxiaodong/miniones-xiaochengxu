@@ -12,7 +12,7 @@
           <view class='info-time'>伴随236天</view>
         </view>
       </view>
-      <image  class='xz-my-more' src='/images/more.png'></image>
+      <image  class='xz-my-more' src='/images/direction.png'></image>
     </view>
     <view class='xz-button-bar'>
       <view class='button-group' bindtap='goBaby'>
@@ -107,5 +107,6 @@
       </view>
     </view>
   </view>
+  <view style="height:60rpx; width: 100%;background-color: #f6f8f7; "></view>
 </view>
 

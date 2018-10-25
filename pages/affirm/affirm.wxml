@@ -57,14 +57,14 @@
    <view class="qzone"></view>
    <view class="footer">
        <view class="textBox">
-          <textarea class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
+          <textarea style='position: absolute!important;' class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
         </view>
         <view class="butBox">
            <button class="but" bindtap="needBox">确认预约</button>
         </view>
    </view>
 <!-- 确认预约点击底部弹窗 -->
-   <view class="mark" bindtap="inMark"  hidden="{{!markIndex}}"></view>
+   <view class="mark" style="z-index: 20;" bindtap="inMark"  hidden="{{!markIndex}}"></view>
    <view class="payBox" hidden="{{!hidIndex}}">
        <view class="payTop">
            <view class="left"><text>体验券</text>（邀请体验）</view>

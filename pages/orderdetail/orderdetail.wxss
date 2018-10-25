@@ -1,7 +1,8 @@
 /* pages/orderdetail/ordetail.wxss */
-.wrap{
-  padding-bottom:150rpx;
+page {
+  background-color: #f6f8f7;
 }
+
 .header{
   width:100%;
   padding:40rpx;

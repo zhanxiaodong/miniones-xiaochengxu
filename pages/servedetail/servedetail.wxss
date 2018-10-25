@@ -1,7 +1,8 @@
 /* pages/servedetail/servedetail.wxss */
-.wrap{
-  
+page {
+  background-color: #f6f8f7;
 }
+
 .header{
   width:100%;
   padding:40rpx;
