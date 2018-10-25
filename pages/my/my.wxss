@@ -1,7 +1,7 @@
 /* pages/my/my.wxss */
 .xz-component {
     height: 100%;
-    background-color: #eee;
+    background-color:#f6f8f7;
     display: flex;
     flex-flow: column;
   }

@@ -88,6 +88,10 @@ color: #666666;
   font-size:28rpx;
   background: #fff;
 }
+
+.style {
+  position: absolute!important;
+}
 .butBox{
   position: fixed;
   bottom: 50rpx;
