@@ -1,0 +1,48 @@
+<view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 100001;'>
+  <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
+</view>
+<view class="page">
+  <view style='flex: 1;justify-content: center;align-items: center;display: flex;flex-direction: column;border-top: 1px solid #f2f2f2;'>
+    <view style='font-size: 26px;font-weight: bold;'>邀请好友加入迷你王国</view>
+    <view style='font-size: 14px;color: #999999;padding-top: 15px;'>好友首次支付后,您得50元现金</view>
+    <view style='padding-top: 5px;'>
+    <form bindsubmit='modalStatus' report-submit='true'>
+        <button class='btn_text_gray' form-type='submit'>查看活动细则></button>
+      </form>
+    </view>
+  </view>
+  <view style='padding: 0px 20px;'>
+    <button class='btngreen' style='font-size: 15px;line-height:42px;' open-type='share' >赠送好友新用户体验券</button>
+  </view>
+</view>
+<view class="bottom-box" style='justify-content: center;align-items: center;font-size: 14px;'>
+  <view style='flex: 1;text-align: center;'>
+    <text>已获得奖励:{{casha}}元</text>
+  </view>
+  <view style='color:#999999;flex: 1;text-align: center;'>
+    <form bindsubmit='goBalance' report-submit='true'>
+        <button class='btn_text_gray' form-type='submit'>去提现 ></button>
+      </form>
+  </view>
+</view>
+<view class="commodity_screen"  wx:if="{{showModalStatus}}"></view>
+<!--弹出框  -->
+<view  class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <view style='padding: 10px 20px 15px;border-bottom: 1px solid #f2f2f2;' class='flex'>
+    <view style='flex: 1;text-align: center;font-size: 18px;'>活动规则</view>
+    <view><image src='/images/icons/close.png' class='img15' bindtap='modalStatus'></image> </view>
+  </view>
+  <view style='padding: 0 20px;'>
+    <view style='font-size: 16px;padding: 10px 0 10px;'>活动时间</view>
+    <view style='color: #999999;font-size: 14px;'>2018年7月1日 - 2018年7月31日</view>
+     <view style='font-size: 16px;padding: 10px 0 10px;'>参与方式</view>
+     <view>
+      <scroll-view scroll-y='true' style='color: #999999;font-size: 14px;height:180px;'>
+        活动期间，通过邀请链接，邀请新用户注册，分享立得一次抽奖机会（每日首次分享咳得，每次奖项只限领取一次）。被邀请用户注册成为付费会员后并准备了一个盒子，邀请者和被邀请用户将立即获得50元账户充值卡奖励。邀请用户越多，获得奖励越多。成功邀请5个新激活会员用户，邀请者将额外获得一份价值99元的儿童玩具；成功邀请10名及以上，邀请者将获得一份价值299的九阳豆浆机；成功邀请20名及以上，邀请者将获得一份价值499的儿童基因检测套餐；活动期间成功邀请人数最高者将获得一步价值6499元的iphone x 64gb。以上奖励均不叠加，实物礼品将在邀请者下次mini盒子一同发出。
+      </scroll-view>
+     </view>
+     <view class='pt20 pb20'>
+      <button class='btngreen' style='font-size: 15px;line-height42px;' open-type='share'>立即邀请</button>
+     </view>
+  </view>
+</view>
