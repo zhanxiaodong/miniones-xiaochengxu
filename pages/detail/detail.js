@@ -32,19 +32,13 @@ Page({
     skinColors: ['不确定', '白皙', '正常', '偏黑'],
   },
   onLoad: function (options) {
+    console.log(options)
     this.initValidate()
     var inter = options.inter
     var id = options.id
     if (inter) {
       this.setData({
-        inter: inter,
-        checkOrEdit: true
-      })
-    }
-    var step = options.step
-    if (step) {
-      this.setData({
-        step: step
+        inter: inter
       })
     }
     //id不为空,需要获取到宝贝的详情
@@ -73,7 +67,6 @@ Page({
               uploadImgTemp: result.bodyPic,
               uploadImg: result.bodyPic
             })
-            // that.imageLoad(result.bodyPic,120,120)
           }
         }
       })
@@ -151,6 +144,7 @@ Page({
     params.gender = this.data.form.gender
     var that = this
     params.openId = wx.getStorageSync('openId')
+    var inter = that.data.inter
     wx.request({
       url: url,
       method: 'POST',
@@ -158,14 +152,12 @@ Page({
       success: function (res) {
         if (!that.data.form.id) {
           var form = res.data.data
-          console.log(res.data.data)
-          console.log(form)
           that.setData({
             form: form
           })
         }
         wx.navigateTo({
-          url: '/pages/photo/photo?uploadImgTemp=' + that.data.uploadImgTemp + '&id=' + that.data.form.id
+          url: '/pages/photo/photo?uploadImgTemp=' + that.data.uploadImgTemp + '&id=' + that.data.form.id + '&inter=' + inter
         })
       }
     })

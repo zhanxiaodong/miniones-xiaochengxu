@@ -54,6 +54,7 @@ Page({
     })
   },
   next: function () {
+    this.updateUser()
     wx.navigateTo({
       url: "/pages/attitude/attitude"
       })
