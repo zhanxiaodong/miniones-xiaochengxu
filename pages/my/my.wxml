@@ -4,38 +4,53 @@
     <view class='xz-my-info'>
       <view class='my-info-left'>
         <view class='info-img'>
-          <view class='info-sign'></view>
+          <image class='info-img' src='{{userInfo.avatarUrl}}'></image>
         </view>
-        
         <view class='info-text'>
-          <view class='info-name'>阿狸妈妈</view>
-          <view class='info-time'>伴随236天</view>
+          <view class='info-name'>{{userInfo.nickName}}</view>
+          <view class='info-time'>伴随{{user.days}}天</view>
         </view>
       </view>
-      <image  class='xz-my-more' src='/images/direction.png'></image>
+      <image class='xz-my-more' src='/images/direction.png'></image>
     </view>
     <view class='xz-button-bar'>
-      <view class='button-group' bindtap='goBaby'>
-        <view class='button-icon'>{{babyMath}}</view>
+    <view class='button-group' wx:if="{{user.babyCount>0}}" bindtap='goBaby'>
+        <view class='button-icon'>{{user.babyCount}}</view>
         <view class='button-txt'>宝贝</view>
       </view>
-      <view class='button-group' bindtap='goWoman'>
-         <view class='button-icon'>{{womanMath}}</view>
+      <view class='button-group' wx:if="{{user.babyCount==0}}">
+        <view class='button-icon'>{{user.babyCount}}</view>
+        <view class='button-txt'>宝贝</view>
+      </view>
+      <view class='button-group' wx:if="{{user.stylistCount}}" bindtap='goWoman'>
+        <view class='button-icon'>{{user.stylistCount}}</view>
         <view class='button-txt'>搭配师</view>
       </view>
-      <view class='button-group' bindtap='goOrder'>
-         <view class='button-icon'>{{orderMath}}</view>
+      <view class='button-group' wx:if="{{!user.stylistCount}}">
+        <view class='button-icon'>{{user.stylistCount}}</view>
+        <view class='button-txt'>搭配师</view>
+      </view>
+      <view class='button-group' wx:if="{{user.currentBoxCount>0}}" bindtap='goOrder'>
+        <view class='button-icon'>{{user.currentBoxCount}}</view>
         <view class='button-txt'>当前订单</view>
       </view>
-      <view class='button-group' bindtap='goReduce'>
-         <view class='button-icon'>{{reduceMath}}</view>
+      <view class='button-group' wx:if="{{user.currentBoxCount==0}}">
+        <view class='button-icon'>{{user.currentBoxCount}}</view>
+        <view class='button-txt'>当前订单</view>
+      </view>
+      <view class='button-group' wx:if="{{user.CouponCount>0}}" bindtap='goReduce'>
+        <view class='button-icon'>{{user.CouponCount}}</view>
+        <view class='button-txt'>优惠券</view>
+      </view>
+      <view class='button-group' wx:if="{{user.CouponCount==0}}">
+        <view class='button-icon'>{{user.CouponCount}}</view>
         <view class='button-txt'>优惠券</view>
       </view>
     </view>
   </view>
   <view class='xz-share' bindtap='invitePerson'>
     <view class='share-txt'>
-      <view class='share-title'>邀请好友得现金</view>  
+      <view class='share-title'>邀请好友得现金</view>
       <view class='share-btn'>多邀多得</view>
     </view>
     <view class='share-desc'>每邀请一位好友成为会员可立即提现50元现金</view>
@@ -51,7 +66,7 @@
         </view>
       </view>
     </view>
-     <view class='xz-member' bindtap='goOrder'>
+    <view class='xz-member' bindtap='goOrder'>
       <image class='member-icon' src='/images/order-list.png'></image>
       <view class='member-info'>
         <view class='member-title'>所有订单</view>
@@ -72,7 +87,7 @@
         <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
-   
+
     <view class='xz-member'>
       <image class='member-icon' src='/images/friend_favor.png'></image>
       <view class='member-info last-child'>
@@ -109,4 +124,3 @@
   </view>
   <view style="height:60rpx; width: 100%;background-color: #f6f8f7; "></view>
 </view>
-

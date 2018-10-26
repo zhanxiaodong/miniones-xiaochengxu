@@ -7,10 +7,10 @@
     <view class="flexcs pt10 gray1-color">
       <view class="card-left">
         <view>
-          <text class='coupon-title'>会员专享 {{item.typeDesc}}</text>
+          <text class='coupon-title'> {{item.typeDesc}}</text>
         </view>
         <view>
-          <text class='coupon-desc'>有效期至{{item.effect}}</text>
+          <text class='coupon-desc'>有效期：{{item.effect}}</text>
         </view>
       </view>
       <view class="card-right ">
@@ -28,7 +28,7 @@
           <view class="flexcs pt10 gray1-color">
             <view class="card-left">
               <view>
-                <text class='coupon-title'>会员专享 {{item.typeDesc}}</text>
+                <text class='coupon-title'> {{item.typeDesc}}</text>
               </view>
               <view>
                 <text class='coupon-desc'>有效期至{{item.effect}}</text>
