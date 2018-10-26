@@ -8,7 +8,6 @@
 .title-first {
     font-size:50rpx;
     color:#323232;
-    font-size:50rpx;
     font-weight: bold;
 }
 
@@ -24,18 +23,27 @@
 }
 
 .color {
-    line-height: 100rpx;
+    line-height: 140rpx;
     padding-left:28px;
 }
 
 #height {
-  padding: 20rpx 0;
-  width: 750rpx;
+   width: 100%;
 }
 
 .active {
   background-color: #EEFAF7; 
+  
 }
+
+.unactive .line {
+  height: 1px; background-color: #f6f8f7;margin: 0 30px;
+}
+
+.active .line {
+  height: 1px; background-color:#ffffff;margin: 0 30px;
+}
+
 
 .weui-cell {
   padding: 0!important;

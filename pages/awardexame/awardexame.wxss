@@ -1,0 +1,133 @@
+/* pages/awardexame/awardexame.wxss */
+page {
+   background-color: #f6f8f7;
+
+}
+
+.wrap {
+   margin: 20rpx;
+}
+
+.award-img {
+  width: 710rpx;
+  height: 312rpx;
+}
+
+.award-list {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 20rpx;
+}
+
+.award-index {
+  width: 100rpx;
+  line-height: 38rpx;
+  background-color: #F0ECE5;
+  font-size: 16rpx;
+  color: #000000;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.award-detail {
+  color: #000000;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+
+.award-rule {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+}
+
+.award-rule-title {
+  width: 72rpx;
+  margin-left: 20rpx;
+}
+
+.award-rule-describe {
+  display: flex;
+  flex-direction: column;
+  width: 400rpx;
+}
+
+.award-rule-title,.award-rule-describe {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.award-time {
+  color: #999999;
+  font-size: 24rpx;
+  margin: 40rpx 0 40rpx 20rpx;
+}
+
+.line {
+  width: 335px;
+  height: 1px;
+  background-color: #f2f2f2;
+  margin: 0 20rpx;
+}
+
+.award-count {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.award-count-math {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.award-count-look {
+  color: #D6BC8A;
+  font-size: 24rpx;
+}
+
+.line-qzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  height: 404rpx;
+}
+
+.award-circle {
+  height: 220rpx;
+  width: 220rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  background-color: #f6f8f7;
+  margin: 40rpx 0 -40rpx;
+}
+
+.award-share {
+  display: flex;
+  flex-flow: row nowrap;
+  position: fixed;
+  bottom: 20rpx;
+}
+
+.award-share-button {
+  width: 342rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #04B8A0;
+  text-align: center;
+  border: 1px solid #04B8A0;
+  margin-left: 10px;
+}
+
+.award-share-button:active {
+  background-color: #04B8A0;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.award-share-button:hover {
+  background-color: #04B8A0;
+  color: #fff;
+  border: 1px solid #fff;
+}
