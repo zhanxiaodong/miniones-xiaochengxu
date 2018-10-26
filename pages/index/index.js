@@ -176,8 +176,8 @@ Page({
     if (user) {
       var planAuto = data.user.planAuto
       var plan = data.user.plan
-      var step = data.user.step
-      if (!step) {
+      var guide = data.user.guide
+      if (!guide) {
         wx.navigateTo({
           url: '../guide/guide'
         })
@@ -231,10 +231,11 @@ Page({
           var boxStatus = result.boxStatus
           var boxId = result.boxId ? result.boxId : null
           var btnMsg = util.changeMsg(boxStatus, 'btn')
+          var message = util.changeMsg(boxStatus, 'msg')
           if (!that.setStep(res.data.data)) {
             btnMsg = '完善信息'
+            message = '当前没有进行中的搭配'
           }
-          var message = util.changeMsg(boxStatus, 'msg')
           var gift = util.changeMsg(boxStatus, 'img')
           that.setData({
             user: user,

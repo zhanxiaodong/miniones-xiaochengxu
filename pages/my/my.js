@@ -3,7 +3,6 @@ Page({
   data: {
     user:{},
     userInfo:{},
-    
   },
   onShow: function (options) {
     this.findInfo()

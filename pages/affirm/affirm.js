@@ -107,11 +107,6 @@ Page({
       }
     })
   },
-  hideModal: function (e) {
-    this.setData({
-      payStatus: false
-    })
-  },
   bindRemarks: function (e) {
     var remarks = e.detail.value
     this.setData({
@@ -246,6 +241,7 @@ Page({
   },
   inMark:function(){
     this.setData({
+      payStatus: false,
       markIndex: false,
       hidIndex: false
     })

@@ -14,35 +14,19 @@
       <image class='xz-my-more' src='/images/direction.png'></image>
     </view>
     <view class='xz-button-bar'>
-    <view class='button-group' wx:if="{{user.babyCount>0}}" bindtap='goBaby'>
+      <view class='button-group' bindtap='goBaby'>
         <view class='button-icon'>{{user.babyCount}}</view>
         <view class='button-txt'>宝贝</view>
       </view>
-      <view class='button-group' wx:if="{{user.babyCount==0}}">
-        <view class='button-icon'>{{user.babyCount}}</view>
-        <view class='button-txt'>宝贝</view>
-      </view>
-      <view class='button-group' wx:if="{{user.stylistCount}}" bindtap='goWoman'>
-        <view class='button-icon'>{{user.stylistCount}}</view>
+      <view class='button-group' bindtap='goWoman'>
+        <view class='button-icon'>{{user.stylistCount ? user.stylistCount : 0}}</view>
         <view class='button-txt'>搭配师</view>
       </view>
-      <view class='button-group' wx:if="{{!user.stylistCount}}">
-        <view class='button-icon'>{{user.stylistCount}}</view>
-        <view class='button-txt'>搭配师</view>
-      </view>
-      <view class='button-group' wx:if="{{user.currentBoxCount>0}}" bindtap='goOrder'>
+      <view class='button-group' bindtap='goOrder'>
         <view class='button-icon'>{{user.currentBoxCount}}</view>
         <view class='button-txt'>当前订单</view>
       </view>
-      <view class='button-group' wx:if="{{user.currentBoxCount==0}}">
-        <view class='button-icon'>{{user.currentBoxCount}}</view>
-        <view class='button-txt'>当前订单</view>
-      </view>
-      <view class='button-group' wx:if="{{user.CouponCount>0}}" bindtap='goReduce'>
-        <view class='button-icon'>{{user.CouponCount}}</view>
-        <view class='button-txt'>优惠券</view>
-      </view>
-      <view class='button-group' wx:if="{{user.CouponCount==0}}">
+      <view class='button-group' bindtap='goReduce'>
         <view class='button-icon'>{{user.CouponCount}}</view>
         <view class='button-txt'>优惠券</view>
       </view>

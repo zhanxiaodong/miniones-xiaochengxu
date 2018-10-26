@@ -2,90 +2,97 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
 <view class="wrap">
-   <view class="header">
-      <view>
-         <text class="title">亲盒配送</text>
-         <text class="iconfont icon-wenhao"></text>
+  <view class="header">
+    <view>
+      <text class="title">亲盒配送</text>
+      <text class="iconfont icon-wenhao"></text>
+    </view>
+    <view class="headText">为确保您的衣盒体验，请确认您的信息</view>
+  </view>
+  <view class="border"></view>
+  <view class="content">
+    <view class="con clearfix">
+      <view class="conLeft">
+        <text class="iconfont icon-dingwei"></text>
       </view>
-      <view class="headText">为确保您的衣盒体验，请确认您的信息</view>
-   </view>
-   <view class="border"></view>
-   <view class="content">
-      <view class="con clearfix">
-          <view class="conLeft">
-              <text class="iconfont icon-dingwei"></text>
-          </view>
-          <view class="conRight rightTop" bindtap='getAddr'>
-             <view class="conText">您的寄件地址
-                 <text>收件地址</text>
-             </view>
-             <view class="info">
-             <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto'  value='{{address.address}}'></input>
-             </view>
-             <text class='iconfont icon-arrow-right-copy'></text>
-          </view>
-      </view>
-       <view class="con clearfix">
-          <view class="conLeft">
-              <text class="iconfont  icon-solid-time"></text>
-          </view>
-          <view class="conRight rightTop">
-             <view class="conText">配送时间
-                 <text></text>
-             </view>
-             <view class="info">
-                  <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
-                  <input class="weui-input size-15" value='{{date}}' disabled="true" placeholder="请选择时间"/>
-                </picker>
-             </view>
-             <text class='iconfont icon-arrow-right-copy'></text>
-          </view>
-      </view>
-       <view class="con clearfix" bindtap="more">
-          <view class="conLeft">
-              <text class="iconfont icon-lingdang"></text>
-          </view>
-          <view class="conRight">
-             <view class="conText action">明确需求
-                 <text>选填...</text>
-                 <text class='iconfont icon-arrow-right-copy'></text>
-             </view>
-             
-          </view>
-      </view>
-   </view>
-   <view class="qzone"></view>
-   <view class="footer">
-       <view class="textBox">
-          <textarea style='position: absolute!important;' class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
+      <view class="conRight rightTop" bindtap='getAddr'>
+        <view class="conText">您的寄件地址
+          <text>收件地址</text>
         </view>
-        <view class="butBox">
-           <button class="but" bindtap="needBox">确认预约</button>
+        <view class="info">
+          <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
         </view>
-   </view>
-<!-- 确认预约点击底部弹窗 -->
-   <view class="mark" style="z-index: 20;" bindtap="inMark"  hidden="{{!markIndex}}"></view>
-   <view class="payBox" hidden="{{!hidIndex}}">
-       <view class="payTop">
-           <view class="left"><text>体验券</text>（邀请体验）</view>
-           <view class="right">-￥{{expCouponAmount}}<text class="iconfont icon-arrow-right-copy" style="color: #666666;"></text></view>
-       </view>
-       <view class="pay">
-          <view class="paySon clearfix">
-             <view class="left">搭配服务费（会员免费）<text class="iconfont icon-wenhao"></text></view>
-             <view class="right">￥{{payAmount}}</view>
-          </view>
-          <view class="paySon clearfix">
-             <view class="left">顺丰配送费（会员免费）</view>
-             <view class="right">￥0.00</view>
-          </view>
-       </view>
-       <view class="payBot clearfix">
-          <view class="left">实付金额</view>
-          <view class="right">￥<text>{{realPayAmount}}</text></view>
-       </view>
-       <view class="butBoxPro" bindtap="wepay">
-          <button class="butPro">支付订单</button>
-       </view>
-   </view>
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </view>
+    </view>
+    <view class="con clearfix">
+      <view class="conLeft">
+        <text class="iconfont  icon-solid-time"></text>
+      </view>
+      <view class="conRight rightTop">
+        <view class="conText">配送时间
+          <text></text>
+        </view>
+        <view class="info">
+          <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+            <input class="weui-input size-15" value='{{date}}' disabled="true" placeholder="请选择时间" />
+          </picker>
+        </view>
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </view>
+    </view>
+    <view class="con clearfix" bindtap="more">
+      <view class="conLeft">
+        <text class="iconfont icon-lingdang"></text>
+      </view>
+      <view class="conRight">
+        <view class="conText action">明确需求
+          <text>选填...</text>
+          <text class='iconfont icon-arrow-right-copy'></text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="qzone"></view>
+  <view class="footer">
+    <view class="textBox">
+      <textarea hidden="{{payStatus}}" style='position: absolute!important;' class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
+    </view>
+    <view class="butBox">
+      <button class="but" bindtap="needBox">确认预约</button>
+    </view>
+  </view>
+  <!-- 确认预约点击底部弹窗 -->
+  <view class="mark" style="z-index: 20;" bindtap="inMark" hidden="{{!markIndex}}"></view>
+  <view class="payBox" hidden="{{!hidIndex}}">
+    <view class="payTop">
+      <view class="left">
+        <text>体验券</text>（邀请体验）</view>
+      <view class="right">-￥{{expCouponAmount}}
+        <text class="iconfont icon-arrow-right-copy" style="color: #666666;"></text>
+      </view>
+    </view>
+    <view class="pay">
+      <view class="paySon clearfix">
+        <view class="left">搭配服务费（会员免费）
+          <text class="iconfont icon-wenhao"></text>
+        </view>
+        <view class="right">￥{{payAmount}}</view>
+      </view>
+      <view class="paySon clearfix">
+        <view class="left">顺丰配送费（会员免费）</view>
+        <view class="right">￥0.00</view>
+      </view>
+    </view>
+    <view class="payBot clearfix">
+      <view class="left">实付金额</view>
+      <view class="right">￥
+        <text>{{realPayAmount}}</text>
+      </view>
+    </view>
+    <view class="butBoxPro" bindtap="wepay">
+      <button class="butPro">支付订单</button>
+    </view>
+  </view>
 </view>

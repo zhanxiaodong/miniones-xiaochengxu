@@ -2,7 +2,7 @@ var util = require("../../utils/util.js")
 Page({
   data: {
     tabs: ["完成订单","正在服务"],
-    activeIndex: 0,
+    activeIndex: 1,
     successOrder: [],
     serveOrder: [],
   },

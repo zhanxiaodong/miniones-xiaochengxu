@@ -191,3 +191,18 @@ color: #666666;
   margin-left: 45rpx;
   height: 260rpx;
 }
+
+/*使屏幕变暗  */
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.3;
+  overflow: hidden;
+  z-index: 20;
+  color: #fff;
+}

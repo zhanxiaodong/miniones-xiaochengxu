@@ -107,6 +107,10 @@ Page({
       this.setData({
         needAuth: false
       })
+      var openId = wx.getStorageSync('openId')
+      wx.request({
+        url: util.requestUrl + 'user/updateGuide?openId=' + openId,
+      })
     }
   },
   clickIndex: function() {

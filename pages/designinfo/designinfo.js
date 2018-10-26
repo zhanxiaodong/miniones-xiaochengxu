@@ -87,7 +87,7 @@ Page({
   go: function (e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     wx.switchTab({
-      url: '../classify/index',
+      url: '../index/index',
     })
   },
   findBox: function () {
