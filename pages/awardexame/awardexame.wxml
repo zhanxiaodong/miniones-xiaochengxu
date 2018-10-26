@@ -1,0 +1,21 @@
+<!--pages/awardexame/awardexame.wxml-->
+<view class="wrap">
+ <image class="award-img" src="{{awardImg}}"></image>
+ <view wx:for="{{awardList}}" class="award-list">
+   <view class="award-index">{{item.index}}</view>
+   <view class="award-detail">{{item.detail}}</view>
+ </view>
+<view class="award-rule">
+   <view class="award-rule-title">规则：</view>
+   <view class="award-rule-describe">任意用户皆可参与问卷并获得奖励；
+现金红包翻倍最高5倍</view>
+</view>
+<view class="award-time">{{deadline}}</view>
+<view class="line"></view>
+<view class="award-circle"></view>
+<view class="award-count"></view>
+<view class="award-share">
+  <view class="award-share-return">迷你王国</view>
+  <view class="award-share-womens">分享给老妈子们</view>
+</view>
+</view>

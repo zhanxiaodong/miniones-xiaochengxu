@@ -5,6 +5,10 @@ import {
 } from '../../components/wux'
 Page({
   data: {
+    onFocus: false,    //textarea焦点是否选中
+    isShowText: false, //控制显示 textarea 还是 text
+    remark: '',        //用于存储textarea输入内容
+
     payAmount: 0,
     realPayAmount: 0,
     expCouponAmount: 0,
@@ -21,6 +25,26 @@ Page({
       consumList:'不变（默认）'
     }
   },
+
+  onShowTextare() {       //显示textare
+    this.setData({
+      isShowText: false,
+      onFocus: true
+    })
+  },
+  onShowText() {       //显示text
+    this.setData({
+      isShowText: true,
+      onFocus: false
+    })
+  },
+  onRemarkInput(event) {               //保存输入框填写内容
+    var value = event.detail.value;
+    this.setData({
+      remark: value,
+    });
+  },
+
   onLoad: function (options) {
     var babyId = options.babyId
     var stylistId = options.stylistId
@@ -176,6 +200,7 @@ Page({
             realPayAmount = 0
           }
           that.setData({
+            /*isShowText: true,*/
             payStatus: true,
             realPayAmount: realPayAmount,
             markIndex: true,

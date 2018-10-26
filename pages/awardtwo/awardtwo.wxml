@@ -1,0 +1,26 @@
+<view class="page">
+ <view class="title">
+   <view class="title-first">您通常在什么渠道购买童装？</view>
+   
+   <!--<view class="title-intro">我们将根据您和孩子的颜色偏好进行搭配</view>-->
+ </view>
+
+ <view class="content">
+        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+          <label class="weui-cell weui-check__label"  wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}" id="height">
+              <view class="color">{{item.value}}</view>
+              <view class="line"></view>
+            </view>
+ 
+            <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+              
+          </label>
+       
+        </radio-group>
+ </view>
+ <view class="bottom">
+    <button class="fixed-button" bindtap="next">下一步</button>
+</view>
+</view>
+

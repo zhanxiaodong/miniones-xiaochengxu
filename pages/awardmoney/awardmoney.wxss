@@ -1,0 +1,44 @@
+/* pages/awardmoney/awardmoney.wxss */
+.wrap {
+  margin: 200rpx 231rpx 0;
+  text-align: center;
+}
+
+.top-img {
+  height: 164rpx;
+  width: 164rpx;
+  background-color: #333333;
+}
+
+.title {
+  font-size: 44rpx;
+  color: #333333;
+  padding: 40rpx;
+}
+
+.money {
+  font-size: 100rpx;
+  color: #04B8A0;
+  line-height: 100rpx;
+}
+
+.money-intro {
+  font-size: 24rpx;
+  color: #999999;
+  padding: 30rpx 0;
+}
+
+.send {
+  width: 288rpx;
+  line-height: 90rpx;
+  background-color: #04B8A0;
+  color: #fff;
+  font-size: 32rpx;
+  border-radius: 50px;
+  margin: 40rpx 0;
+}
+
+.return {
+  font-size:24rpx;
+  color:#999999;
+}

@@ -57,7 +57,7 @@
    <view class="qzone"></view>
    <view class="footer">
        <view class="textBox">
-          <textarea style='position: absolute!important;' class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
+          <textarea  wx:if="{{!isShowText}}" bindblur="onRemarkInput" bindconfirm='onShowText' focus='{{onFocus}}' value="{{remark}}"  class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）' /><text  wx:else class='style' bindtap='onShowTextare'> </text>
         </view>
         <view class="butBox">
            <button class="but" bindtap="needBox">确认预约</button>

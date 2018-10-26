@@ -1,0 +1,40 @@
+/* pages/awardexame/awardexame.wxss */
+page {
+   background-color: #f6f8f7;
+
+}
+
+.wrap {
+   margin: 20rpx;
+}
+
+.award-img {
+  width: 710rpx;
+  height: 312rpx;
+}
+
+.award-list {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.award-index {
+  width: 100rpx;
+  line-height: 38rpx;
+  background-color: #F0ECE5;
+  font-size: 16rpx;
+  color: #000000;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.award-detail {
+  color: #000000;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+
+
+.award-detail {
+
+}
