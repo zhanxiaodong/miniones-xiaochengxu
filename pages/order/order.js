@@ -40,7 +40,7 @@ Page({
   },
   goassess: function (e) {
     var boxId = e.currentTarget.dataset.id
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../assess/assess?back=true&boxId=' + boxId
     })
   },

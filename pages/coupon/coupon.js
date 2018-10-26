@@ -35,7 +35,7 @@ Page({
   findCoupon:function(){
     var that = this
     wx.request({
-      url: util.requestUrl + 'user/findCoupon?openId=' + wx.getStorageSync('openId') + '&type=VOUCHER',
+      url: util.requestUrl + 'user/findCoupon?openId=' + wx.getStorageSync('openId'),
       success:function(res){
         var result = res.data.data
         if(result){
