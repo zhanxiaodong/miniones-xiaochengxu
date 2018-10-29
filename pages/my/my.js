@@ -1,13 +1,19 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-    user:{},
-    userInfo:{},
+    user: {
+      days: 0,
+      babyCount: 0,
+      stylistCount: 0,
+      currentBoxCount: 0,
+      CouponCount:0
+    },
+    userInfo: {},
   },
-  onShow: function (options) {
+  onShow: function(options) {
     this.findInfo()
   },
-  findInfo: function () {
+  findInfo: function() {
     var that = this
     var openId = wx.getStorageSync('openId')
     var userInfo = wx.getStorageSync('userInfo')
@@ -18,7 +24,7 @@ Page({
     }
     wx.request({
       url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
-      success: function (res) {
+      success: function(res) {
         var result = res.data.data
         that.setData({
           user: result
@@ -26,47 +32,47 @@ Page({
       }
     })
   },
-  goWoman: function () {
+  goWoman: function() {
     wx.navigateTo({
       url: '../designinfo/designinfo',
     })
   },
-  goOrder:function() {
+  goOrder: function() {
     wx.navigateTo({
       url: '../order/order',
     })
   },
-  goBaby: function () {
+  goBaby: function() {
     wx.navigateTo({
       url: '../babyInfo/babyInfo',
     })
   },
-  goReduce: function () {
+  goReduce: function() {
     wx.navigateTo({
       url: '../coupon/coupon',
     })
   },
-  invitePerson: function () {
+  invitePerson: function() {
     wx.navigateTo({
       url: '../invitation/invitation',
     })
   },
-  goVip: function () {
+  goVip: function() {
     wx.navigateTo({
       url: '../club/club',
     })
   },
-  goPlan: function () {
+  goPlan: function() {
     wx.navigateTo({
       url: '../plan/plan',
     })
   },
-  goWallet: function () {
+  goWallet: function() {
     wx.navigateTo({
       url: '../wallet/wallet',
     })
   },
-  goGuide: function () {
+  goGuide: function() {
     wx.navigateTo({
       url: '../guide/guide',
     })
