@@ -366,28 +366,28 @@ function changeMsg(status, type) {
   } else {
     switch (status) {
       case 'CREATE':
-        result = '盒子正在准备中'
+        result = '请您耐心等待衣盒配送'
         break;
       case 'LINK_UP':
-        result = '盒子正在准备中'
+        result = '请您耐心等待衣盒配送'
         break;
-      case 'NOTIFY_EXPRESS':
-        result = '盒子在配送中'
+      case 'NOTIFY_EXPRESS': 
+        result = '请您耐心等待衣盒送达'
         break;
       case 'DISPATCHING':
-        result = '盒子在配送中'
+        result = '请您耐心等待衣盒送达'
         break;
       case 'DELIVERY_COMPLETE':
         result = '感觉如何？来评价下吧'
         break;
       case 'EVALUATED':
-        result = '选择小朋友喜欢的留下吧'
+        result = '配送成功，为喜欢的买单！'
         break;
       case 'PAY_COMPLETE':
         result = '下一次盒子: '
         break;
       case 'PAY_PART':
-        result = '一键退回剩余商品'
+        result = '送没有留下的小衣服回家吧'
         break;
       case 'RETURN_EXPRESS':
         result = '请耐心等待快递员上门取件'

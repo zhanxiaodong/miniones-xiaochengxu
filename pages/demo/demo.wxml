@@ -60,7 +60,7 @@
 
 <view style="padding: 300rpx 27rpx 0 27rpx; position: relative;"> 
 <view style="display: flex; flex-direction: column; align-items: center;">
-  <image style="position: absolute; z-index:2;" src="/images/console.png"></image>
+  <image style="position: absolute; z-index:2;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/console.png"></image>
   <view style="width: 48rpx; height: 88rpx;z-index: 3; position: relative;">
     <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;rpx;"></view>
     <image src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
