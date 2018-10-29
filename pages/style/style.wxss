@@ -1,18 +1,18 @@
 .title {
-    padding: 60rpx 56rpx;
+    padding: 80rpx 60rpx;
 }
 
 .title-first {
     font-size:50rpx;
     color:#323232;
-    font-size:50rpx;
+    font-weight: bold;
 }
 
 .title-last {
     height:76rpx;
     background-color:#F2F2F2;
     border-radius:40rpx;
-    margin-top:70rpx;
+    margin-top:50rpx;
     display: flex;
     align-items: center;
 }
@@ -68,7 +68,7 @@ view.active view {
   color:#666666;
   background-color:#ffffff;
   border-radius:40rpx;
-  border:1px solid #666666;
+  border:1px solid #e4e4e4;
 }
 
 .fixed-button {

@@ -62,7 +62,7 @@
   width: 750rpx;
   height: 420rpx;
   text-align: center;
-  padding: 30rpx 0  0 56rpx;
+  padding-left: 60rpx;
 }
 
 .photo-image-wrap {
@@ -115,7 +115,7 @@
   height: 100%;
 }
 .top {
-  margin: 60rpx 56rpx;
+  margin: 80rpx 60rpx;
 }
 
 #repair-one {

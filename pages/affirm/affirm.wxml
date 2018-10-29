@@ -16,8 +16,8 @@
         <text class="iconfont icon-dingwei"></text>
       </view>
       <view class="conRight rightTop" bindtap='getAddr'>
-        <view class="conText">您的寄件地址
-          <text>收件地址</text>
+        <view class="conText">寄件地址
+          <text>您的收件地址</text>
         </view>
         <view class="info">
           <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
