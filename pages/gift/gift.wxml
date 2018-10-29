@@ -4,6 +4,6 @@
         <view class="imgBox">
              <image src="../../images/showa.png"/>
            </view>
-        <view class="imgText" bindtap='timegoList'>打开赠品</view>
+        <view class="imgText" bindtap="timeList">打开赠品</view>
     </view>
 </view>

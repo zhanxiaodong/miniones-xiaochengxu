@@ -69,13 +69,13 @@ Page({
         that.updateStep()
         /**wx.redirectTo({
           url: '../viptype/viptype?inter=init',
-        })
-        wx.redirectTo({
-          url: '../editcom/editcom',
         })*/
-        wx.reLaunch({
-          url: '/pages/index/index'
+        wx.redirectTo({
+          url: '../create/create',
         })
+        /*wx.reLaunch({
+          url: '/pages/index/index'
+        })*/
       }
     })
   },
