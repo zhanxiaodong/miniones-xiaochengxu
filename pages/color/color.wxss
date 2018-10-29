@@ -2,7 +2,7 @@
     height: 100%;
 }
 .title {
-    padding: 80rpx 56rpx 0;
+    padding: 80rpx 60rpx 0;
 }
 
 .title-first {
@@ -24,7 +24,7 @@
 
 .color {
     line-height: 140rpx;
-    padding-left:28px;
+    padding-left:30px;
 }
 
 #height {

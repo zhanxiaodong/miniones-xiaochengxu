@@ -2,13 +2,12 @@
     height: 100%;
 }
 .title {
-    padding: 80rpx 56rpx 0;
+    padding: 80rpx 60rpx 0;
 }
 
 .title-first {
     font-size:50rpx;
     color:#323232;
-    font-size:50rpx;
     font-weight: bold;
 }
 
@@ -49,7 +48,7 @@
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #666666;
+      border:1px solid #e4e4e4;
       line-height:80rpx;
   }
   

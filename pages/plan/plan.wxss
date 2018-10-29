@@ -4,7 +4,7 @@
   }
   
 .header {
-   margin: 56rpx;
+   margin: 80rpx 60rpx 60rpx;
 }
   
 .header-title {
@@ -31,7 +31,7 @@
   align-items: center;
   height: 236rpx;
   width: 630rpx;
-  border: 1rpx solid #999999;
+  border: 1rpx solid #e4e4e4;
   border-radius: 15rpx;
 }
 
@@ -63,5 +63,7 @@
       line-height: 100rpx;
       color: #FFFFFF;
       letter-spacing: 6rpx;
-      bottom: -40rpx;
+      bottom: 50rpx;
+      position:fixed;
+      margin-left:80rpx;
     }

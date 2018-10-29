@@ -17,7 +17,7 @@
 }
 .headText{
   font-size:24rpx;
-  color:#666666;
+  color:#999999;
   line-height: 60rpx;
 }
 .border {

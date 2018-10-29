@@ -3,6 +3,7 @@ var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
 Page({
   data: {
+    showModalStatus: 'false',
     needAuth: false,
     gift: '/images/showa.png',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],

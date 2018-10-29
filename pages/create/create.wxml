@@ -1,0 +1,6 @@
+<!--pages/create/create.wxml-->
+<view class="wrap">
+  
+  <image src="../../images/show1.gif" class="photo"></image>
+  <view class="describe">正在生成档案...</view>
+</view>
