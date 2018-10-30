@@ -14,10 +14,10 @@
           <label class="weui-cell weui-check__label" style="border-bottom:1px solid #e4e4e4;" wx:for="{{pasteAllItems}}" wx:key="value" wx:for-item="item">
             <view >
               <view class="color">{{item.value}}
-                 <text class="style">{{item.math}}</text>
+                 <text class="style">￥{{item.math}}</text>
               </view>
             </view>
-            <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+            <radio class="weui-check" value="{{item.value+' '+item.math}}" checked="{{item.checked}}" />
             <view style="height: 1px;width 100%; margin: 0 60rpx;background-color:#e4e4e4; "></view>
           </label>
    </radio-group>

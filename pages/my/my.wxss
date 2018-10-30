@@ -86,7 +86,22 @@
     background-color: #fff;
     margin-top: 20rpx;
     padding: 20rpx 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-around;
   }
+
+  .left-img {
+    width: 114rpx;
+    height: 96rpx;
+    margin-left: 40rpx;
+    padding-top: 18rpx;
+  }
+   
+   .right {
+     width: 420rpx;
+     margin-right: 60rpx;
+   }
   .share-txt {
     display: flex;
     flex-flow: row nowrap;

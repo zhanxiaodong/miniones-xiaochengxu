@@ -1,84 +1,23 @@
-<!--pages/demo/demo.wxml-->
-<!--<view class="star">
-  <view bindtap='onSelect' class="{{ starFlag >= 1 ? 'star-selected': '' }}" data-index="1">
-    1
-  </view>
-  <view bindtap='onSelect' class="{{ starFlag >= 2 ? 'star-selected': '' }}" data-index="2">
-    2
-  </view>
-  <view bindtap='onSelect' class="{{ starFlag >= 3 ? 'star-selected': '' }}" data-index="3">
-    3
-  </view>
-  <view bindtap='onSelect' class="{{ starFlag >= 4 ? 'star-selected': '' }}" data-index="4">
-    4
-  </view>
-  <view bindtap='onSelect' class="{{ starFlag >= 5 ? 'star-selected': '' }}" data-index="5">
-    5
-  </view>
-
-  <view class="star-content" style="display:flex;flex-direction:row;">
-    <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='1'>热爱111</checkbox>
-        <checkbox value='2'>一般111</checkbox>
-        <checkbox value='3'>特别111</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 2}}" class="starsHas  {{starFlag === 2? '': 'starNo'}}" bindtap="changeTwo">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='4'>热爱222</checkbox>
-        <checkbox value='5'>一般222</checkbox>
-        <checkbox value='6'>特别222</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 3}}" class="starsHas  {{starFlag === 3? '': 'starNo'}}" bindtap="changeThree">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='7'>热爱333</checkbox>
-        <checkbox value='8'>一般333</checkbox>
-        <checkbox value='9'>特别333</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 4}}" class="starsHas  {{starFlag === 4? '': 'starNo'}}" bindtap="changeFour">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='7'>热爱444</checkbox>
-        <checkbox value='8'>一般444</checkbox>
-        <checkbox value='9'>特别444</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 5}}" class="starsHas" bindtap="changeFive">
-      <checkbox-group class='checkbox-group' bindchange="onSelectFavorites">
-        <label class='checkbox-item'>
-          <checkbox class='checkbox-raw' value='1'>热爱555</checkbox>
-        </label>
-        <checkbox value='6'>一般555</checkbox>
-        <checkbox value='7'>特别555</checkbox>
-      </checkbox-group>
-    </view>
-  </view>
-  <view bindtap='doPageToNext'>下一步</view>
-</view>-->
 <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}" style="z-index: 1"></view>
-
-
-<view style="padding: 300rpx 27rpx 0 27rpx; position: relative; z-index: 2;" wx:if="{{showModalStatus}}"> 
+<view style="padding: 300rpx 27rpx 0 27rpx; position: relative; z-index: 2;" wx:if="{{showModalStatus}}">
   <view style="display: flex; flex-direction: column; align-items: center;z-index: 2;">
-   <image style="position: absolute; width: 640rpx; height: 480rpx;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/console.png"></image>
+    <image style="position: absolute; width: 640rpx; height: 480rpx;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/console.png"></image>
     <view style="width: 48rpx; height: 88rpx;z-index: 2; position: absolute; margin-top: 440rpx;">
       <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
       <image bindtap="offClick" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
     </view>
   </view>
- <view style="display: flex; flex-direction: column; align-items: center;position: relative; z-index: 22; width: 698rpx; height: 480rpx;padding-top: 60rpx;" wx:if="{{showModalStatus}}">  
-  <view style="flex-grow: 1;">
-    <view style="font-size: 24rpx; color: #fff; ">阿离小朋友</view>
-    <view style="font-size: 32rpx; color: #fff;">体验会员</view>
+  <view style="display: flex; flex-direction: column; align-items: center;position: relative; z-index: 22; width: 698rpx; height: 480rpx;padding-top: 60rpx;" wx:if="{{showModalStatus}}">
+    <view style="flex-grow: 1;">
+      <view style="font-size: 24rpx; color: #fff; ">阿离小朋友</view>
+      <view style="font-size: 32rpx; color: #fff;">体验会员</view>
+    </view>
+    <view style="text-align: center; flex-grow: 0.5">
+      <view style="font-size: 28rpx; color: #000000; line-height: 50rpx;">开启档案成功！ </view>
+      <view style="font-size: 28rpx; color: #000000;">赠送您免押金先试后买权益 </view>
+    </view>
+    <view style="font-size: 28rpx; color: #fff; flex-grow: 1.3;" bindtap="clickBox"> 约个衣盒试试
+    </view>
   </view>
-  <view style="text-align: center; flex-grow: 0.5">
-    <view style="font-size: 28rpx; color: #000000; line-height: 50rpx;">开启档案成功！ </view>
-    <view style="font-size: 28rpx; color: #000000;">赠送您免押金先试后买权益               </view>
-  </view>
-  <view style="font-size: 28rpx; color: #fff; flex-grow: 1.3;" bindtap="clickBox"> 约个衣盒试试
-  </view>
- </view> 
 </view>

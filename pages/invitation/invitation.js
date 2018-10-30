@@ -52,7 +52,7 @@ Page({
     return {
       title: '孩童穿搭订阅:职场妈妈最爱,省时省心省力',
       imageUrl: "/images/inv.jpg",
-      path: "pages/websh/websh?openId=" + wx.getStorageSync('openId')
+      path: "pages/index/index?openId=" + wx.getStorageSync('openId')
     }
   }
 });
