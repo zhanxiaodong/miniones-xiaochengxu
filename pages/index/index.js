@@ -155,6 +155,13 @@ Page({
   onLoad: function(options) {
     var that = this
     that.checkAuth()
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo.nickName) {
+      that.setData({
+        nickName: userInfo.nickName
+      })
+    }
+
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -232,6 +239,7 @@ Page({
         var boxId = result.boxId ? result.boxId : null
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
+        that.showModal(boxStatus,user.level)
         message = that.updateNext(boxStatus, user.plan, message)
         if (!that.setStep(res.data.data)) {
           btnMsg = '完善信息'
@@ -280,5 +288,38 @@ Page({
       plantitle: message
     })
     return message
+  },
+  hideModal: function (e) {
+    this.setData(
+      {
+        showModalStatus: false
+      }
+    )
+    wx.setStorageSync('times', 1)
+  },
+  showModal: function (boxStatus, level) {
+    var times = wx.getStorageSync('times')
+    var userLev
+    if (level == viplev.EXP) {
+      userLev = '体验用户'
+    } else if (level == viplev.YEAR) {
+      userLev = '年度会员用户'
+    } else if (level > viplev.YEAR) {
+      userLev = '终身会员用户'
+    }
+    if (userLev) {
+      this.setData({
+        userLev: userLev
+      })
+    }
+    if (level >= viplev.REG && !times && boxStatus == 'NONE') (
+      setTimeout(function () {
+        this.setData(
+          {
+            showModalStatus: true
+          }
+        )
+      }.bind(this), 1000)
+    )
   },
 })
