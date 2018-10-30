@@ -1,7 +1,7 @@
 /* pages/order/order.wxss */
-page {
+/*page {
   background: #f3f3f3;
-}
+}*/
 .xz-top-title {
   background-color: #fff;
   display: flex;
