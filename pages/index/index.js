@@ -161,7 +161,6 @@ Page({
         nickName: userInfo.nickName
       })
     }
-
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -319,7 +318,7 @@ Page({
             showModalStatus: true
           }
         )
-      }.bind(this), 1000)
+      }.bind(this), 2000)
     )
   },
 })
