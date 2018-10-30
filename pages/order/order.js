@@ -20,7 +20,7 @@ Page({
           that.setData({
             serveOrder: result
           })
-        }
+        } 
       }
     })
   },
@@ -38,6 +38,11 @@ Page({
       }
     })
   },
+
+  emptyStatus: function () {
+      
+  },
+
   goassess: function (e) {
     var boxId = e.currentTarget.dataset.id
     wx.reLaunch({
@@ -45,10 +50,19 @@ Page({
     })
   },
   tabClick: function (e) {
+    
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+    if (this.data.activeIndex==0 && this.data.successOrder.length==0) {
+      console.log(11111)
+    }
+    if (this.data.activeIndex == 1 && this.data.serveOrder.length == 0) {
+      console.log(2222)
+    }
+    console.log(this.data.activeIndex, this.data.successOrder, this.data.serveOrder)
+    
   },
   edit: function (event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)

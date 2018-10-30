@@ -17,8 +17,8 @@ page {
   line-height: 80rpx;
 }
 .weui-navbar__item {
-  font-size: 24rpx;
-  color: #ccc;
+  font-size: 28rpx;
+  color: #999999;
   font-weight: 100;
   line-height: 80rpx;
   margin-left: 30rpx;
@@ -138,4 +138,18 @@ page {
   font-weight: bold;
   margin-left: 5rpx;
   line-height: 60rpx;
+}
+
+/*没有订单显示部分*/
+.fixed-button {
+    border-radius: 60rpx;
+    background-color: #04B8A0;
+    width: 300rpx;
+    line-height: 100rpx;
+    color: #FFFFFF;
+    letter-spacing: 6rpx;
+    position:fixed;
+    bottom:60rpx;
+    font-size:32rpx;
+    font-weight:bold;
 }

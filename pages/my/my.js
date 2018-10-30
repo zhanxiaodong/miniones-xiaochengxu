@@ -72,6 +72,12 @@ Page({
       url: '../wallet/wallet',
     })
   },
+  goEmpty: function() {
+    wx.navigateTo({
+      url: '../empty/empty',
+    })
+  },
+  
   goGuide: function() {
     wx.navigateTo({
       url: '../guide/guide',

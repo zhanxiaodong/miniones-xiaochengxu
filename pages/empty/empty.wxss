@@ -1,0 +1,14 @@
+/* pages/empty/empty.wxss */
+.fixed-button {
+    border-radius: 60rpx;
+    background-color: #04B8A0;
+    width: 300rpx;
+    line-height: 100rpx;
+    color: #FFFFFF;
+    letter-spacing: 6rpx;
+    position:fixed;
+    bottom:60rpx;
+    font-size:32rpx;
+    font-weight:bold;
+    margin-left: 224rpx;
+}

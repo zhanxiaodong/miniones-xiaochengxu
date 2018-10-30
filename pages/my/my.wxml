@@ -12,7 +12,7 @@
           <view class='info-time'>伴随{{user.days}}天</view>
         </view>
       </view>
-      <image class='xz-my-more' src='/images/direction.png'></image>
+      <!--<image class='xz-my-more' src='/images/direction.png'></image>-->
     </view>
     <view class='xz-button-bar'>
       <view class='button-group' bindtap='goBaby'>
@@ -78,7 +78,7 @@
       </view>
     </view>
 
-    <view class='xz-member'>
+    <view class='xz-member' bindtap="goEmpty">
       <image class='member-icon' src='/images/friend_favor.png'></image>
       <view class='member-info last-child'>
         <view class='member-title'>消费画像</view>
@@ -92,18 +92,19 @@
       <view class='member-info'>
         <view class='member-title'>兑换码</view>
         <view class='member-more'>
-          <view class='member-desc'>限量兑换vip</view>
+          <view class='member-desc' id='fuck-two'>限量兑换vip</view>
           <image class='member-more-icon' src='/images/direction.png'></image>
         </view>
       </view>
     </view>
     <view class='xz-member'>
       <image class='member-icon' src='/images/phone-2.png'></image>
-      <view class='button-info'>
+      <view class='button-info'  id='fuck-you'>
         <button class='button-title' open-type="contact">在线客服</button>
         <image class='member-more-icon' src='/images/direction.png'></image>
       </view>
     </view>
+    <view style='height: 1px;background-color: #f2f2f2;width:602rpx;margin-left:68rpx;'></view>
     <view class='xz-member' bindtap='goGuide'>
       <image class='member-icon' src='/images/evaluate.png'></image>
       <view class='member-info last-child'>

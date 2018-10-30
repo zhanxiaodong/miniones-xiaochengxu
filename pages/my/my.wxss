@@ -57,7 +57,7 @@
     margin-top: 55rpx;
   }
   .xz-button-bar {
-    padding: 40rpx 30rpx;
+    padding: 68rpx 30rpx 44rpx;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -72,14 +72,16 @@
     width: 50rpx;
     height: 50rpx;
     text-align: center;
-    color: #999;
-    font-size: 20rpx;
+    color: #333;
+    font-size: 32rpx;
+    font-weight: bold;
   }
   .button-txt {
     font-size: 24rpx;
     font-weight: bold;
     color: #333;
     text-align: center;
+    padding-top: 20rpx;
   }
   
   .xz-share {
@@ -106,12 +108,13 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    padding: 10px 0;
+    padding: 10px 0 6rpx;
   }
   .share-title {
     font-size: 32rpx;
     color: #000;
     font-weight: bold;
+    padding-right: 18rpx;
   }
   .share-btn {
     width: 128rpx;
@@ -145,9 +148,9 @@
     justify-content: space-between;
   }
   .member-icon {
-    width: 40rpx;
-    height: 40rpx;
-    margin: 30rpx 0;
+    width: 48rpx;
+    height: 48rpx;
+    margin: 25rpx 0;
   }
   .member-info {
     width: 660rpx;
@@ -163,7 +166,7 @@
   }
   .member-title {
     font-size: 30rpx;
-    color: #333;
+    color: #333333;
     line-height: 100rpx;
   }
   
@@ -173,7 +176,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f2f2f2;
   }
 
   .button-title {
@@ -197,9 +200,15 @@
     color: #999;
   }
   .member-more-icon {
-    width: 20rpx;
-    height: 20rpx;
-    margin: 40rpx 0;
+    width: 50rpx;
+    height: 50rpx;
+    margin: 26rpx 0;
   }
   
-  
+  #fuck-you {
+    border: none;
+  }
+
+  #fuck-two {
+    padding-left: 76rpx;
+  }
