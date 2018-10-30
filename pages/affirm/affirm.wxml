@@ -16,7 +16,7 @@
         <text class="iconfont icon-dingwei"></text>
       </view>
       <view class="conRight rightTop" bindtap='getAddr'>
-        <view class="conText">寄件地址
+        <view class="conText">收件地址
           <text>您的收件地址</text>
         </view>
         <view class="info">
