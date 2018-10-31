@@ -7,7 +7,9 @@
 .top-img {
   height: 164rpx;
   width: 164rpx;
-  background-color: #333333;
+  background-color: #f2f2f2;
+  border-radius:50%;
+
 }
 
 .title {

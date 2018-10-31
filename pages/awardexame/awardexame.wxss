@@ -99,7 +99,6 @@ page {
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
-  background-color: #f6f8f7;
   margin: 40rpx 0 -40rpx;
 }
 

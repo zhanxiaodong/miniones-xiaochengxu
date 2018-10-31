@@ -1,0 +1,10 @@
+<!--pages/awardPeople/awardPeople.wxml-->
+<view class="all">
+  <view class="people-line" wx:for="{{personPhotos}}">
+    <image class="people-img" src="{{item.photo}}"></image>
+    <image class="people-img" src="{{item.photo}}"></image>
+    <image class="people-img" src="{{item.photo}}"></image>
+    <image class="people-img" src="{{item.photo}}"></image>
+    <image class="people-img" src="{{item.photo}}"></image>
+  </view>
+</view>

@@ -22,5 +22,17 @@ Page({
     wx.navigateTo({
       url: '../awardone/awardone',
     })
+  },
+
+  goPeople: function () {
+    wx.navigateTo({
+      url: '../awardPeople/awardPeople',
+    })
+  },
+
+  goIndex: function () {
+    wx.switchTab({
+      url: '../index/index',
+    })
   }
 })

@@ -52,7 +52,7 @@ page {
 }
 
 .weui-tab__content {
-  padding-top: 60px;
+  padding-top: 60rpx;
   text-align: center;
 }
 

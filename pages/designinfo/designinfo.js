@@ -9,7 +9,6 @@ Page({
     defaultImg: '/images/ava.png',
     array: ['', '沟通风格更亲切', '搭配风格更前卫', '仅是想尝试新的选择'],
     index: 0,
-    tabs: ["我的搭配师", "搭配盒子"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,

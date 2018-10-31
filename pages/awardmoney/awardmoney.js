@@ -2,6 +2,7 @@
 Page({
   data: {
     money: '2.25',
+    topImg: '',
   },
   
   sendFriend: function () {

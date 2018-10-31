@@ -1,0 +1,51 @@
+<!--pages/vip/vip.wxml-->
+<view>
+      <view class="card">
+         <view class="cardLeft">
+            <view class="leftTitle">
+              <view>终生会员（无限）</view>
+              <view class="leftBot">INFINITY</view>
+            </view>
+            <view class="cardBot">
+               <view>.终生无限制免费配送</view>
+               <view>每年至少六次服务，预计可省￥1968</view>
+            </view>
+         </view>
+         <view class="cardRight">
+            <view class="money">￥199.00</view>
+            <view class="radioBox">
+               <radio bindtap="chooseFirst" checked = "{{choose=='FIRST'}}"></radio>
+            </view>
+         </view>
+      </view>
+      <view class="card cardTwo" hidden="{{hiddenYEAR}}">
+         <view class="cardLeft">
+            <view class="leftTitle">
+              <view>年卡会员（一年）</view>
+              <view class="leftBot">YEAR</view>
+            </view>
+            <view class="cardBot">
+               <view>.年度免费配送</view>
+               <view>一年至少4次服务，预计可省￥1312</view>
+            </view>
+         </view>
+         <view class="cardRight">
+            <view class="money">￥99.00</view>
+            <view class="radioBox">
+               <radio bindtap="chooseYear" checked = "{{choose=='YEAR'}}"></radio>
+            </view>
+         </view>
+      </view>
+      <view>
+        
+      </view>
+         <view class="vip-title">
+           <view class="vip-title-one"></view>
+           <view class="vip-title-two"></view>
+         </view>
+         <view class="vip-detail" wx:for="{{vipDetail}}">
+           <image class='vip-icon' src="{{vipIcon}}"></image>
+           <view class='vip-describe'>{{item.describe}}</view>
+         </view>
+     
+</view>

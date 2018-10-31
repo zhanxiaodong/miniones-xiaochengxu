@@ -1,0 +1,60 @@
+/* pages/vip/vip.wxss */
+.card{
+  width:100%;
+  height:332rpx;
+  border-radius: 15rpx;
+  background: #D6BC8A;
+  padding:32rpx;
+  margin-top:30rpx;
+  color:#fff;
+}
+.cardBot,.leftTitle{
+  height:50%;
+  margin-top:15rpx;
+}
+.cardBot{
+  padding:15rpx 0;
+  font-size:26rpx;
+}
+.cardBot view{
+  height:50%;
+  line-height: 100%;
+}
+.cardLeft{
+  width:75%;
+  height:100%;
+  float:left;
+}
+.leftTitle view{
+  font-size:38rpx;
+line-height: 50rpx;
+font-weight: bold;
+}
+.leftBot{
+  letter-spacing: 8rpx;
+  font-size:28rpx!important;
+}
+.cardRight{
+  width:25%;
+  height:100%;
+  float:left;
+}
+.money,.radioBox{
+  height:50%;
+}
+.money{
+  height:134rpx;
+  vertical-align: bottom;
+  display:table-cell;
+}
+.radioBox{
+  position: relative;
+}
+.radioBox radio{
+  position:absolute;bottom:0;right:0;
+}
+
+.cardTwo{
+  background: #cccccc;
+  margin-bottom: 20rpx;
+}
