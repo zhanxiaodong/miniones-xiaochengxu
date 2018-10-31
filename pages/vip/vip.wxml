@@ -1,6 +1,6 @@
 <!--pages/vip/vip.wxml-->
 <view>
-      <view class="card">
+     <!-- <view class="card">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>终生会员（无限）</view>
@@ -8,17 +8,17 @@
             </view>
             <view class="cardBot">
                <view>.终生无限制免费配送</view>
-               <view>每年至少六次服务，预计可省￥1968</view>
+               <view>立赠199无门槛低扣券，预计可省￥1968</view>
             </view>
          </view>
          <view class="cardRight">
             <view class="money">￥199.00</view>
             <view class="radioBox">
-               <radio bindtap="chooseFirst" checked = "{{choose=='FIRST'}}"></radio>
+               <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
             </view>
          </view>
-      </view>
-      <view class="card cardTwo" hidden="{{hiddenYEAR}}">
+      </view>-->
+     <view class="card cardTwo" hidden="{{hiddenYEAR}}">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>年卡会员（一年）</view>
@@ -26,26 +26,28 @@
             </view>
             <view class="cardBot">
                <view>.年度免费配送</view>
-               <view>一年至少4次服务，预计可省￥1312</view>
+               <view>立赠99无门槛低扣券，预计可省￥1312</view>
             </view>
          </view>
          <view class="cardRight">
             <view class="money">￥99.00</view>
             <view class="radioBox">
-               <radio bindtap="chooseYear" checked = "{{choose=='YEAR'}}"></radio>
+               <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
             </view>
          </view>
       </view>
       <view>
         
       </view>
+        <view class="vip-container">
          <view class="vip-title">
-           <view class="vip-title-one"></view>
-           <view class="vip-title-two"></view>
+           <view class="vip-title-one">迷礼会员</view>
+           <view class="vip-title-two">该等级可享7项权益</view>
          </view>
-         <view class="vip-detail" wx:for="{{vipDetail}}">
+         <view class="vip-detail" wx:for="{{vipDetail}}" wx:key="{{item.describe}}">
            <image class='vip-icon' src="{{vipIcon}}"></image>
            <view class='vip-describe'>{{item.describe}}</view>
          </view>
+        </view>
      
 </view>

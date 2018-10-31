@@ -3,12 +3,15 @@
 </view>
 <view class="page" id="repair-page" style="z-index: 2;">
   <view class="page__bd" id="repair_bd">
-    <view class="weui-navbar">
+    <!--<view class="weui-navbar">
       <block wx:for="{{tabs}}" wx:key="*this">
         <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
           <view class="weui-navbar__title" wx:if="{{item}}">{{item}}</view>
         </view>
       </block>
+    </view>-->
+    <view bindtap="goAward" class="award" style="position:absolute;top:10rpx;background-color:#f2f2f2;width:672rpx;line-height:54rpx;text-align:center;border-radius:60rpx;font-size:28rpx;color:#999999;">
+      有奖调研征集正在进行中...
     </view>
     <view class="weui-tab__panel" id="repair-two">
       <view class='infoView'>

@@ -14,6 +14,14 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0
   },
+
+  /* 参与抽奖路由*/
+  goAward: function () {
+    wx.navigateTo({
+      url: '../awardexame/awardexame'
+    })
+  },
+
   onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
       this.getOpenId()
