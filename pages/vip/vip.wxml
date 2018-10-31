@@ -1,14 +1,18 @@
 <!--pages/vip/vip.wxml-->
 <view>
-     <!-- <view class="card">
+     <view class="title-all">
+        <view class="title-first">会员等级</view>
+        <view class="title-second">我的幸运徽章</view>
+     </view>
+      <view class="card">
          <view class="cardLeft">
             <view class="leftTitle">
-              <view>终生会员（无限）</view>
+              <view >终生会员（无限）</view>
               <view class="leftBot">INFINITY</view>
             </view>
             <view class="cardBot">
-               <view>.终生无限制免费配送</view>
-               <view>立赠199无门槛低扣券，预计可省￥1968</view>
+               <view class="card-one">.终生无限制免费配送</view>
+               <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
             </view>
          </view>
          <view class="cardRight">
@@ -17,25 +21,25 @@
                <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
             </view>
          </view>
-      </view>-->
-     <view class="card cardTwo" hidden="{{hiddenYEAR}}">
+      </view>
+      <!--<view class="card cardTwo" hidden="{{hiddenYEAR}}">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>年卡会员（一年）</view>
               <view class="leftBot">YEAR</view>
             </view>
             <view class="cardBot">
-               <view>.年度免费配送</view>
-               <view>立赠99无门槛低扣券，预计可省￥1312</view>
+               <view class="card-one">.年度免费配送</view>
+               <view class="card-two">立赠99无门槛低扣券，预计可省￥1312</view>
             </view>
          </view>
          <view class="cardRight">
             <view class="money">￥99.00</view>
-            <view class="radioBox">
+            
                <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
-            </view>
+            
          </view>
-      </view>
+      </view>-->
       <view>
         
       </view>
