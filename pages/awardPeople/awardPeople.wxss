@@ -10,9 +10,14 @@
   padding-bottom: 40rpx;
 }
 
-.people-img {
+.people-horizontal {
   height: 100rpx;
   width: 100rpx;
   background-color: #f2f2f2;
+}
+
+.people-img {
+  height: 100rpx;
+  width: 100rpx;
 }
 

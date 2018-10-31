@@ -28,5 +28,5 @@
 </view>
 <view class="award-share">
   <view class="award-share-button" bindtap="goIndex">迷你王国</view>
-  <view class="award-share-button">分享给老妈子们</view>
+  <button class="award-share-button" open-type='share'>分享给老妈子们</button>
 </view>

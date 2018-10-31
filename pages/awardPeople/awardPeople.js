@@ -1,10 +1,11 @@
 // pages/awardPeople/awardPeople.js
 Page({
   data: {
-    personPhotos: [{
-      photo: '/images/1.png'
-    },
-    { photo: '/images/2.png'}
-    ]
+    verticalPhotos: [{
+         photos: [{
+        name: '/images/2.png',
+        name: '/images/1.png',
+         }]
+    }]
   },
 })
