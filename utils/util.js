@@ -461,95 +461,95 @@ function imageUtil(e, windowWidth, windowHeight) {
 }
 function getOpenId() {
   var openId = wx.getStorageSync('openId')
-  if (!openId) {
-    wx.login({
-      success: function (res) {
-        var code = res.code
-        if (code) {
-          wx.getUserInfo({
-            withCredentials: true,
-            success: function (resU) {
-              wx.setStorageSync('userInfo', resU.userInfo);
-              wx.request({
-                url: requestUrl + 'wechat/decodeUserInfo',
-                method: 'POST',
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded'
-                },
-                data: {
-                  encryptedData: resU.encryptedData,
-                  iv: resU.iv,
-                  code: code
-                },
-                success: function (data) {
-                  var openId = data.data.data.openid
-                  wx.setStorageSync('openId', openId)
-                  wx.request({
-                    url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
-                    success: function (res) {
-                      var result = res.data.data
-                      var level = "0"
-                      if (result) {
-                        level = result.level
-                      }
-                      wx.setStorageSync('level', level)
-                    }
-                  })
-                }
-              })
-            },
-            fail: function () {
-              wx.showModal({
-                title: '警告通知',
-                content: '您点击了拒绝授权,将无法正常显示个人信息,点击确定重新获取授权。',
-                success: function (res) {
-                  if (res.confirm) {
-                    wx.openSetting({
-                      success: (res) => {
-                        if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
-                          wx.login({
-                            success: function (res_login) {
-                              if (res_login.code) {
-                                wx.getUserInfo({
-                                  withCredentials: true,
-                                  success: function (res_user) {
-                                    wx.request({
-                                      url: requestUrl + 'wechat/decodeUserInfo',
-                                      method: 'POST',
-                                      header: {
-                                        'content-type': 'application/x-www-form-urlencoded'
-                                      },
-                                      data: {
-                                        code: res_login.code,
-                                        encryptedData: res_user.encryptedData,
-                                        iv: res_user.iv
-                                      },
-                                      success: function (res) {
-                                        var openId = data.data.data.openid
-                                        wx.setStorageSync('openId', openId);
-                                        getUserInfo(openId)
-                                      }
-                                    })
-                                  }
-                                })
-                              }
-                            }
-                          });
+    if (!openId) {
+      wx.login({
+        success: function (res) {
+          var code = res.code
+          if (code) {
+            wx.getUserInfo({
+              withCredentials: true,
+              success: function (resU) {
+                wx.setStorageSync('userInfo', resU.userInfo);
+                wx.request({
+                  url: requestUrl + 'wechat/decodeUserInfo',
+                  method: 'POST',
+                  header: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                  },
+                  data: {
+                    encryptedData: resU.encryptedData,
+                    iv: resU.iv,
+                    code: code
+                  },
+                  success: function (data) {
+                    var openId = data.data.data.openid
+                    wx.setStorageSync('openId', openId)
+                    wx.request({
+                      url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
+                      success: function (res) {
+                        var result = res.data.data
+                        var level = "0"
+                        if (result) {
+                          level = result.level
                         }
-                      }, fail: function (res) {
-
+                        wx.setStorageSync('level', level)
                       }
                     })
-
                   }
-                }
-              })
-            }
-          })
+                })
+              },
+              fail: function () {
+                wx.showModal({
+                  title: '警告通知',
+                  content: '您点击了拒绝授权,将无法正常显示个人信息,点击确定重新获取授权。',
+                  success: function (res) {
+                    if (res.confirm) {
+                      wx.openSetting({
+                        success: (res) => {
+                          if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
+                            wx.login({
+                              success: function (res_login) {
+                                if (res_login.code) {
+                                  wx.getUserInfo({
+                                    withCredentials: true,
+                                    success: function (res_user) {
+                                      wx.request({
+                                        url: requestUrl + 'wechat/decodeUserInfo',
+                                        method: 'POST',
+                                        header: {
+                                          'content-type': 'application/x-www-form-urlencoded'
+                                        },
+                                        data: {
+                                          code: res_login.code,
+                                          encryptedData: res_user.encryptedData,
+                                          iv: res_user.iv
+                                        },
+                                        success: function (res) {
+                                          var openId = data.data.data.openid
+                                          wx.setStorageSync('openId', openId);
+                                          getUserInfo(openId)
+                                        }
+                                      })
+                                    }
+                                  })
+                                }
+                              }
+                            });
+                          }
+                        }, fail: function (res) {
+
+                        }
+                      })
+
+                    }
+                  }
+                })
+              }
+            })
+          }
         }
-      }
-    })
-  }
+      })
+    }
   return openId
 }
 function getUserInfo(openId) {
@@ -621,35 +621,22 @@ function getPhoneNum(e) {
             if (result) {
               var tel = result.userInfo.phoneNumber
               var openId = result.openid
-              if (tel) {
-                var item = new Object()
-                item.tel = tel
-                item.openId = openId
-                wx.request({
-                  url: requestUrl + 'user/checkOldUser',
-                  method: 'POST',
-                  data: item,
-                  success: function (res) {
-                    var isOldUser = res.data.data
-                    wx.setStorageSync('level', '10')
-                    if (isOldUser) {
-                      getUserInfo(openId)
-                      wx.showToast({
-                        title: '复制信息成功',
-                        icon: 'success',
-                        duration: 2000
-                      })
-                      setTimeout(function () {
-                        wx.switchTab({
-                          url: '../index/index'
-                        })
-                      }, 2000)
-                    } else {
-                      wx.redirectTo({
-                        url: '../detail/detail',
-                      })
-                    }
-                  }
+              var copyUser = result.copyUser
+              getUserInfo(openId)
+              if (copyUser) {
+                wx.showToast({
+                  title: '复制信息成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../index/index'
+                  })
+                }, 2000)
+              } else {
+                wx.redirectTo({
+                  url: '../detail/detail',
                 })
               }
             }
