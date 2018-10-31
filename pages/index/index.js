@@ -3,12 +3,12 @@ var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
 Page({
   data: {
-    showModalStatus: 'false',
+    showModalStatus: false,
     needAuth: false,
     gift: '/images/showa.png',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],
     message: '当前没有进行中的搭配',
-    btnMsg: '预约衣盒',
+    btnMsg: '开启服务',
     tryOnDays: 0,
     activeIndex: 0,
     sliderOffset: 0,
@@ -16,8 +16,7 @@ Page({
   },
   onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
-      util.getOpenId()
-      this.checkAuth()
+      this.getOpenId()
     }
   },
   checkAuth: function() {
@@ -155,12 +154,6 @@ Page({
   onLoad: function(options) {
     var that = this
     that.checkAuth()
-    var userInfo = wx.getStorageSync('userInfo')
-    if (userInfo.nickName) {
-      that.setData({
-        nickName: userInfo.nickName
-      })
-    }
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -218,14 +211,10 @@ Page({
    * 已登录 -》显示界面
    */
   fillInfo: function() {
+    console.log('fillInfo')
     var that = this
     var level = wx.getStorageSync('level')
     var openId = wx.getStorageSync('openId')
-    if (!level || level == viplev.LOOK) {
-      that.setData({
-        btnMsg: "开启服务"
-      })
-    }
     wx.request({
       url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
       success: function(res) {
@@ -238,13 +227,15 @@ Page({
         var boxId = result.boxId ? result.boxId : null
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
-        that.showModal(boxStatus,user.level)
         message = that.updateNext(boxStatus, user.plan, message)
         if (!that.setStep(res.data.data)) {
           btnMsg = '完善信息'
-          message = '当前没有进行中的搭配'
-        }
+        } 
+        if (!level || level == viplev.LOOK) {
+          btnMsg = '开启服务'
+        } 
         var gift = util.changeMsg(boxStatus, 'img')
+        that.showModal(boxStatus, user)
         that.setData({
           user: user,
           stylist: stylist,
@@ -288,37 +279,85 @@ Page({
     })
     return message
   },
-  hideModal: function (e) {
-    this.setData(
-      {
-        showModalStatus: false
-      }
-    )
+  hideModal: function(e) {
+    this.setData({
+      showModalStatus: false
+    })
     wx.setStorageSync('times', 1)
   },
-  showModal: function (boxStatus, level) {
+  showModal: function(boxStatus, user) {
     var times = wx.getStorageSync('times')
-    var userLev
-    if (level == viplev.EXP) {
-      userLev = '体验用户'
-    } else if (level == viplev.YEAR) {
-      userLev = '年度会员用户'
-    } else if (level > viplev.YEAR) {
-      userLev = '终身会员用户'
+    var level = user ? user.level : ''
+    console.log(level, times, boxStatus)
+    if (level && level >= viplev.REG && !times && boxStatus == 'NONE') {
+      var userLev = '体验用户'
+      var userInfo = wx.getStorageSync('userInfo')
+      if (userInfo.nickName) {
+        this.setData({
+          nickName: userInfo.nickName
+        })
+      }
+      if (level == viplev.EXP) {
+        userLev = '体验用户'
+      } else if (level == viplev.YEAR) {
+        userLev = '年度会员用户'
+      } else if (level > viplev.YEAR) {
+        userLev = '终身会员用户'
+      }
+      if (userLev) {
+        this.setData({
+          userLev: userLev
+        })
+      }
+      setTimeout(function() {
+        this.setData({
+          showModalStatus: true
+        })
+      }.bind(this), 1000)
     }
-    if (userLev) {
-      this.setData({
-        userLev: userLev
-      })
-    }
-    if (level >= viplev.REG && !times && boxStatus == 'NONE') (
-      setTimeout(function () {
-        this.setData(
-          {
-            showModalStatus: true
-          }
-        )
-      }.bind(this), 2000)
-    )
   },
+  getOpenId: function() {
+    var that = this
+    wx.login({
+      success: function(res) {
+        var code = res.code
+        if (code) {
+          wx.getUserInfo({
+            withCredentials: true,
+            success: function(resU) {
+              wx.setStorageSync('userInfo', resU.userInfo);
+              wx.request({
+                url:util.requestUrl + 'wechat/decodeUserInfo',
+                method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                data: {
+                  encryptedData: resU.encryptedData,
+                  iv: resU.iv,
+                  code: code
+                },
+                success: function(data) {
+                  var openId = data.data.data.openid
+                  wx.setStorageSync('openId', openId)
+                  wx.request({
+                    url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+                    success: function(res) {
+                      var result = res.data.data
+                      var level = "0"
+                      if (result) {
+                        level = result.level
+                      }
+                      wx.setStorageSync('level', level)
+                      that.checkAuth()
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      }
+    })
+  }
 })

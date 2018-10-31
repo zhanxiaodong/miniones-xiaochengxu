@@ -37,33 +37,22 @@ Page({
           },
           success: function (res) {
             wx.setStorageSync('level', res.data.data.level)
-            var item = new Object()
-            item.tel = tel
-            item.openId = openId
-            wx.request({
-              url: util.requestUrl + 'user/checkOldUser',
-              method: 'POST',
-              data: item,
-              success: function (res) {
-                var isOldUser = res.data.data
-                if (isOldUser) {
-                  wx.showToast({
-                    title: '复制信息成功',
-                    icon: 'success',
-                    duration: 2000
-                  })
-                  setTimeout(function () {
-                    wx.switchTab({
-                      url: '../index/index'
-                    })
-                  }, 2000)
-                } else {
-                  wx.redirectTo({
-                    url: '../detail/detail',
-                  })
-                }
-              }
-            })
+            if (res.data.data.copyUser) {
+              wx.showToast({
+                title: '复制信息成功',
+                icon: 'success',
+                duration: 2000
+              })
+              setTimeout(function () {
+                wx.switchTab({
+                  url: '../index/index'
+                })
+              }, 2000)
+            } else {
+              wx.redirectTo({
+                url: '../detail/detail',
+              })
+            }
           }
         })
       } else {
