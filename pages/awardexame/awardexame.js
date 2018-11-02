@@ -1,36 +1,46 @@
-// pages/awardexame/awardexame.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-     awardImg: '/images/bd1.png',
-     deadline: '2018-10-31 00:00截至',
-     count: '998',
-     awardList: [{
-       index: '奖项一',
-       detail: '仔细答题结束可以获得随机现金红包'
-     },
-     {
-       index: '奖项二',
-       detail: '每满1000份回答，现金红包翻倍一次'
-     }]
+    awardImg: '/images/bd1.png',
+    image: '/images/question-green.png',
+    result: {
+      awards: ['仔细答题结束可以获得随机现金红包', '每满1000份回答，现金红包翻倍一次'],
+      deadlineStr: '2018-10-31 00:00截至',
+      rules: '任意用户皆可参与问卷并获得奖励；\n现金红包翻倍最高5倍',
+      joinNum: 0,
+    }
   },
 
-  clickTab: function () {
+  onLoad: function() {
+    this.findActivity();
+  },
+  findActivity: function() {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'survey/findActivity?title=问卷调查',
+      success: function(res) {
+        var result = res.data.data
+        if (result) {
+          that.setData({
+            result: result
+          })
+        }
+      }
+    })
+  },
+  clickTab: function() {
     wx.navigateTo({
-      url: '../awardone/awardone',
+      url: '../awardone/awardone?activityId=' + this.data.result.id,
     })
   },
 
-  goPeople: function () {
+  goPeople: function() {
     wx.navigateTo({
       url: '../awardPeople/awardPeople',
     })
   },
 
-  goIndex: function () {
+  goIndex: function() {
     wx.switchTab({
       url: '../index/index',
     })

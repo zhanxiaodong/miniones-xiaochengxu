@@ -1,0 +1,22 @@
+<import src="../../components/dialog/dialog.wxml"/>
+<template is="dialog" data="{{ ...$wux.dialog }}"/>
+<view style='flex-direction: column;height: 100%;display:flex;'>
+  <view style='height:10px;'></view>
+  <view class='flex_auto' style='background-color: #ffffff;display: flex;flex-direction: column;'>
+    <view class='flex_auto'>
+      <view class='poscenter' style='border-bottom: 1px solid #f2f2f2;padding: 20px;'>
+        <text style='font-size:25px;padding-right:20px;'>¥</text>
+        <input placeholder='实际可转出金额{{detail.balanceAmount}}' placeholder-style='color:#999999;font-size:15px;' value='{{refundAmount}}' style='flex:1;font-size:25px;' bindinput='inputChange' type='number'></input>
+        <text style='font-size:18px;color:#26aea8;' bindtap='allRefund'>全部</text>
+      </view>
+      <view style='font-size: 15px;display: flex;padding: 15px 20px;border-bottom: 1px solid #f2f2f2;'>
+        <text style='flex: 1;color: #666666;'>有{{detail.backMoney}}元不可转出</text>
+        <text style='color:#26aea8;' bindtap='showReason'>查看原因</text>
+      </view>
+    </view>
+    <view style='padding: 20px 20px 30px 20px;'>
+      <button class='btngreenradius' wx:if="{{btnStatus}}" bindtap='refund'>确认转出</button>
+      <button class='btngreenradiusun' wx:else >确认转出</button>
+    </view>
+  </view>
+</view>

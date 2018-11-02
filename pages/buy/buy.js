@@ -283,15 +283,23 @@ Page({
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
       var voucher = this.data.voucher
+      console.log(totalPrice)
       var reBuy = this.data.reBuy
       if (voucher && totalPrice != 0 && !reBuy) {
         var vouAmount = voucher.amount
-        if (vouAmount > totalPrice) {
-          subPrice = totalPrice
-          totalPrice = 0
+        var vouCondition = voucher.condition ? voucher.condition : 0
+        if (totalPrice >= vouCondition) {
+          if (vouAmount > totalPrice) {
+            subPrice = totalPrice
+            totalPrice = 0
+          } else {
+            totalPrice = totalPrice - voucher.amount
+            subPrice = subPrice + voucher.amount
+          }
         } else {
-          totalPrice = totalPrice - voucher.amount
-          subPrice = subPrice + voucher.amount
+          this.setData({
+            voucher:null
+          })
         }
       }
       var orderPay = this.data.orderPay
@@ -505,7 +513,7 @@ Page({
         icon: 'success',
         duration: 2000
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.reLaunch({
           url: '../index/index',
         })
