@@ -79,8 +79,8 @@ line-height: 80rpx;
   padding:30rpx 0;
 }
 .list .imgBox{
-  width:76rpx;
-  height:76rpx;
+  width:56rpx;
+  height:56rpx;
   border-radius: 25rpx;
   margin:0 auto;
  
