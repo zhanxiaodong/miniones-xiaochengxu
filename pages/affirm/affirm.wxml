@@ -4,7 +4,7 @@
 <view class="wrap">
   <view class="header">
     <view>
-      <text class="title">亲盒配送</text>
+      <text class="title">衣盒配送</text>
       <text class="iconfont icon-wenhao"></text>
     </view>
     <view class="headText">为确保您的衣盒体验，请确认您的信息</view>
