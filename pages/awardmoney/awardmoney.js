@@ -1,3 +1,4 @@
+var util = require("../../utils/util.js")
 Page({
   data: {
     bonus: '0.00',
@@ -5,6 +6,7 @@ Page({
     userInfo: {}
   },
   onLoad: function(options) {
+    console.log(options)
     var bonus = options.bonus
     var forward = options.forward
     var activityId = options.activityId
@@ -31,18 +33,20 @@ Page({
     }
   },
   shareActivity: function() {
+    var that = this
     var item = new Object();
     item.openId = wx.getStorageSync('openId')
-    item.activityId = this.data.activityId
+    item.activityId = that.data.activityId
     wx.request({
       url: util.requestUrl + 'survey/shareActivity',
       method: 'POST',
       data: item,
       success: function(res) {
         var result = res.data.data
-        if (result) {
-
-        }
+        that.setData({
+          bonus: result.totalBonus,
+          forward: 'forward'
+        })
       }
     })
   },
@@ -52,7 +56,10 @@ Page({
       path: 'pages/awardexame/awardexame',
       imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
       success: (res) => {
-        console.log("转发成功", res);
+        var forward = this.data.forward
+        if (forward != 'forward'){
+          this.shareActivity()
+        }
       },
       fail: (res) => {
         console.log("转发失败", res);
