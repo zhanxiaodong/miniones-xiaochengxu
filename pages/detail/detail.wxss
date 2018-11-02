@@ -31,8 +31,9 @@ page {
   }
   
   .radiocs label.active {
-    color: #666666;
-    border: 1px solid #666666;
+    color: #fff;
+    background-color: #04B8A0;
+    border: 1px solid #04B8A0;
   }
   
   .btncon {
@@ -45,7 +46,7 @@ page {
   .rowcs {
     padding-top: 40rpx;
     padding-bottom: 40rpx;
-    border-bottom: 0.5px solid #cccccc;
+    border-bottom: 0.5px solid #f2f2f2;
   }
   
   .rowcs.hover {
@@ -125,7 +126,7 @@ page {
     color:#999999;
     float: left;
     margin-top: 20rpx;
-    font-weight: regular;
+    font-weight: 400;
   }
   #name-repair {
     font-size: 18px;

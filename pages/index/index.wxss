@@ -85,14 +85,18 @@ page, .page, .page__bd {
     height: 85%;
     border-radius: 20px;
     box-shadow: 0px 0px 15px 6px rgba(128,128,128,0.08);
-    margin-top: 40rpx;
+    margin-top: 60rpx;
   }
   
   .button-bottom {
     padding-bottom: 60rpx;
     text-align: center;
   }
-  
+
+  .picture {
+    margin-bottom: 20rpx;
+  } 
+
   .allow {
     height: 300rpx;
     width: 300rpx;
@@ -105,7 +109,7 @@ page, .page, .page__bd {
   .message {
     padding-top: 70rpx;
     padding-bottom: 40rpx;
-    color: #cccccc; 
+    color: #666666; 
     font-weight:Regular;
     font-size: 24rpx;
   }

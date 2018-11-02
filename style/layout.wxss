@@ -550,7 +550,7 @@ button::after {
 
 .btngreen {
   color: #fff;
-  background-color: #26aea8;
+  background-color: #04B8A0;
   font-size: 28rpx;
 }
 

@@ -1,7 +1,7 @@
  <view class='common-pad' id="repair-one" wx:if="{{!second && !imgshow}}">
     <view class='pb20 font30 fontWeight' id='repair-two'>
       <text style='font-size:25px;color:#323232;'>关于您的孩子</text>
-      <text id='child-call'>请告诉我们一些孩子的基本信息，初步建立风格</text>
+      <view id='child-call'>请告诉我们一些孩子的基本信息，初步建立风格</view>
     </view>
     <form bindsubmit='submitForm'>
       <view class='rowcs'>
