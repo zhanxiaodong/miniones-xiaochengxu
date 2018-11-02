@@ -1,12 +1,8 @@
 <!--pages/awardPeople/awardPeople.wxml-->
 <view class="all">
-  <view class="people-line" wx:for="{{verticalPhotos}}" wx:key="{{photos}}"> 
-    <view class="people-horizontal" wx:for="{{item.photos}}" wx:for-item="photo" wx:key="{{photo}}">
-      <image class="people-img" src="{{photo.name}}" ></image>
+ <view class="people-line clearfix">
+    <view class="people-horizontal"  wx:for="{{photos}}">
+      <image class="people-img" src="{{item.name}}" ></image>
     </view>
-    <!--<image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>-->
   </view>
 </view>

@@ -99,7 +99,7 @@ page {
   font-size: 28rpx;
   font-weight: bold;
   color: #333;
-  margin: 40rpx 0 -40rpx;
+  
 }
 
 .award-share {
@@ -119,13 +119,7 @@ page {
   margin-left: 10px;
 }
 
-.award-share-button:active {
-  background-color: #04B8A0;
-  color: #fff;
-  border: 1px solid #fff;
-}
-
-.award-share-button:hover {
+.espacial {
   background-color: #04B8A0;
   color: #fff;
   border: 1px solid #fff;

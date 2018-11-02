@@ -16,6 +16,7 @@
        
         </radio-group>
  </view>
+ <view style="height: 160rpx;"></view>
  <view class="bottom">
     <button wx:if="{{index != sum}}" class="fixed-button" bindtap="next" disabled='{{!enable}}'>下一步{{times}}</button>
     <button wx:if="{{index == sum}}" class="fixed-button" bindtap="saveSurveyRecord" disabled='{{!enable}}'>答完了，领红包{{times}}</button>

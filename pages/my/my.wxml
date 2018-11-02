@@ -5,7 +5,7 @@
       <view class='my-info-left'>
         <view class='info-img' style="display: flex;">
           <image class='info-img' src='{{userInfo.avatarUrl}}'></image>
-          <image src='/images/icons/h-gray.png' style='width:36rpx;height:36rpx;padding-top:100rpx;padding-left:100rpx;position: absolute; z-index: 5;'></image>
+          <image src='{{vipImg}}' style='width:36rpx;height:36rpx;padding-top:100rpx;padding-left:100rpx;position: absolute; z-index: 5;'></image>
         </view>
         <view class='info-text'>
           <view class='info-name'>{{userInfo.nickName}}</view>

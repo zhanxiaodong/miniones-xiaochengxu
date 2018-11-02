@@ -2,6 +2,7 @@ var util = require("../../utils/util.js")
 Page({
   data: {
     awardImg: '/images/bd1.png',
+    image: '/images/question-green.png',
     result: {
       awards: ['仔细答题结束可以获得随机现金红包', '每满1000份回答，现金红包翻倍一次'],
       deadlineStr: '2018-10-31 00:00截至',
@@ -26,7 +27,7 @@ Page({
           var surveyRecord = result.surveyRecord
           if (surveyRecord) {
             that.setData({
-              result: result
+              image: '/images/question-hey.png'
             })
           }
         }

@@ -2,13 +2,13 @@
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
 
-Page({
+/*Page({
 
   data: {
     showModalStatus: 'false'
   },
 
-/*  onSelectFavorites(e) {
+  onSelectFavorites(e) {
     this.data.selectedFavorites = e.detail.value
     console.log(e.detail.value)
   },
@@ -23,7 +23,7 @@ Page({
   doPageToNext() {
     console.log('selectedFavorites', this.data.selectedFavorites)
     console.log('selectedFavorites', this.data.selectedFavorites.join(','))
-  },*/
+  },
 
   hideModal: function (e) {
     this.setData(
@@ -45,4 +45,13 @@ Page({
       url: '/pages/affirm/affirm',
     })
   }
+})*/
+
+Page({
+  onClick() {
+    wx.showModal({
+      title: 'Thank you for your support!',
+      showCancel: !1,
+    })
+  },
 })

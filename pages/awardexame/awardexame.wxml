@@ -11,12 +11,11 @@
 <view class="award-time">{{result.deadlineStr}}</view>
 <view class="line"></view>
 <view class="line-qzone">
-  <view class="award-circle">
-   <view style=" height: 220rpx; width: 220rpx; box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.1); border-radius: 50%;" bindtap="clickTab">
-     <view style="height: 180rpx; width: 180rpx; background-color: #04B8A0;border-radius: 50%; top: 20rpx; left: 20rpx;position: relative;">
-       <view style="color: #fff; font-weight: bold;position: relative;top:35px;left:18px;">参与问卷</view>
-     </view>
-   </view>
+  <view class="award-circle" bindtap="clickTab">
+    <view style="z-index=2;color: #fff; font-weight: bold;position: relative;top:130rpx;left:52rpx;">参与问卷</view>
+    
+     <!--<view style="height: 180rpx; width: 180rpx; background-color: #04B8A0;border-radius: 50%; top: 20rpx; left: 20rpx;position: relative;"></view>-->
+     <image style="height: 220rpx;width: 220rpx;"src="{{image}}"></image>
   </view>
   <view class="award-count">
    <view class="award-count-math">共{{result.joinNum}}人参与,</view>
@@ -26,5 +25,5 @@
 </view>
 <view class="award-share">
   <view class="award-share-button" bindtap="goIndex">迷你王国</view>
-  <button class="award-share-button" open-type='share'>分享给老妈子们</button>
+  <button class="award-share-button espacial" open-type='share'>分享给老妈子们</button>
 </view>
