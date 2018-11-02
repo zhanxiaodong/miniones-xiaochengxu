@@ -1,23 +1,27 @@
 /* pages/awardPeople/awardPeople.wxss */
 .all {
-  margin: 40rpx 45rpx 0 45rpx;
+  background:#fff;
 }
-
 .people-line {
-  display: flex;
+  padding:0 20px;
+  background:#fff;
+  /* display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  padding-bottom: 40rpx;
+  padding-bottom: 40rpx; */
+  width:100vw;
 }
 
 .people-horizontal {
-  height: 100rpx;
-  width: 100rpx;
-  background-color: #f2f2f2;
+  height: 120rpx;
+  width: 20%;
+  float:left;
 }
 
 .people-img {
+  display:block;
   height: 100rpx;
   width: 100rpx;
+  margin:0 auto;
 }
 

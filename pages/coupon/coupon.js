@@ -1,8 +1,13 @@
 var util = require("../../utils/util.js")
 Page({
   data:{
-    tabs:['未使用','已过期'],
+    tabs:['可使用','已过期'],
+    activeIndex: 0,
+    index: 0,
     coupons:[],
+    expiredCoupons:[],
+    sliderOffset: 0,
+    sliderLeft: 0,
     pick:false
   },
   onLoad:function(options){
@@ -13,6 +18,7 @@ Page({
       })
     }
     this.findCoupon()
+    this.findExpiredCoupon()
   },
   radioChange: function (e) {
     var value = e.detail.value
@@ -46,5 +52,27 @@ Page({
         }
       }
     })
+  },
+
+  findExpiredCoupon:function(){
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findExpiredCoupon?openId=' + wx.getStorageSync('openId'),
+      success:function(res){
+        var result = res.data.data
+        if(result){
+          that.setData({
+            expiredCoupons: result
+          })
+        }
+      }
+    })
+  },
+  
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
   }
 });

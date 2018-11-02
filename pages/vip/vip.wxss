@@ -46,6 +46,7 @@ font-weight: bold;
   height:134rpx;
   vertical-align: bottom;
   display:table-cell;
+  font-weight: bold;
 }
 .radioBox{
   position: relative;

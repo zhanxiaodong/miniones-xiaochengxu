@@ -158,7 +158,17 @@ font-weight: bold;
   height:134rpx;
   vertical-align: bottom;
   display:table-cell;
+  font-weight: bold;
 }
+.card-one {
+  font-size: 28rpx;
+
+}
+
+.card-two {
+   font-size: 24rpx;
+}
+
 .radioBox{
   position: relative;
 }

@@ -44,8 +44,8 @@
               <view class="leftBot">INFINITY</view>
             </view>
             <view class="cardBot">
-               <view>.终生无限制免费配送</view>
-               <view>立赠199无门槛低扣券，预计可省￥1968</view>
+               <view class="card-one">.终生无限制免费配送</view>
+               <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
             </view>
          </view>
          <view class="cardRight">
