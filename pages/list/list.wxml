@@ -3,23 +3,21 @@
       <view class="listBox">
          <view class="header">
             <view class="imgBox">
-                <image src="../../images/img1.jpg"/>
+                <image src="/images/p-green-a.png"/>
             </view>
-            <view class="explain">恭喜您获得</view>
+            <view class="explain">预约成功！正在为您准备配送</view>
          </view>
          <view class="content">
              <view class="box"></view>
-             <view class="boxText">学院风秋院小短裙</view>
+             <view class="boxText">山羊奶儿童呵护保湿乳</view>
          </view>
          <view class="footer">
-            <view class="share">分享三位好友即可获得该赠品</view>
+            <view class="share">英国进口CC山羊奶系列</view>
             <view class="radioBox">
-                <radio></radio>
-                <radio></radio>
-                <radio></radio>
+                ¥98
             </view>
             <view class="butBox">
-               <button class="but" type="primary" open-type="share">分享好友解锁</button>
+               <button class="but" type="primary" open-type="share">分享好友即可获赠</button>
             </view>
          </view>
       </view>

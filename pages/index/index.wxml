@@ -17,8 +17,8 @@
       <view class='infoView'>
         <view style='width:100%;height:120px'>
           <view style='position: relative;width: 100%;height: 100px;opacity: 0.9;z-index: 3;display: flex;flex-direction: column;justify-content: center;color: #333333;'>
-            <view style="margin-top: -20px;color: #333333;font-weight: bold; font-size: 32rpx;"> 迷你亲盒 </view>
-            <view style="margin-top:20rpx; color: #cccccc;font-size: 24rpx; font-weight:bold;">孩童时尚，轻松定制</view>
+            <view style="margin-top: -20px;color: #333333;font-weight: bold; font-size: 32rpx;"> 穿搭衣盒 </view>
+            <view style="margin-top:20rpx; color: #cccccc;font-size: 24rpx; font-weight:bold;">免支付，先收货</view>
           </view>
         </view>
       </view>

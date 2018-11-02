@@ -1,6 +1,5 @@
 {
- 
   "navigationBarTitleText": "订单赠品",
-  "navigationBarTextStyle":"#fff"
-  
+  "navigationBarBackgroundColor": "#04B8A0",
+  "navigationBarTextStyle": "white"
 }

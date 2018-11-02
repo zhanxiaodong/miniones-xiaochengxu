@@ -4,7 +4,7 @@
 <view class="wrap">
   <view class="header">
     <view>
-      <text class="title">亲盒配送</text>
+      <text class="title">衣盒配送</text>
       <text class="iconfont icon-wenhao"></text>
     </view>
     <view class="headText">为确保您的衣盒体验，请确认您的信息</view>
@@ -20,7 +20,7 @@
           <text>您的收件地址</text>
         </view>
         <view class="info">
-          <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
+          <input placeholder='选择地址便于顺丰人员送货上门' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
         </view>
         <text class='iconfont icon-arrow-right-copy'></text>
       </view>
