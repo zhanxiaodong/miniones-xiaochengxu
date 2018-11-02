@@ -20,7 +20,8 @@ Page({
     ],
     surveyResults: [],
     enable: false,
-    times: 6
+    times: 6,
+    choose:false
   },
   onLoad: function(options) {
     console.log(options)
@@ -29,16 +30,11 @@ Page({
         activityId: options.activityId
       })
     }
-    if (options.index) {
-      this.setData({
-        index: options.index - 1,
-        times: 1
-      })
-    }
     this.findSurveyByType()
   },
   countDown: function() {
     var times = this.data.times
+    var choose = this.data.choose
     if (times > 1) {
       times--
       this.setData({
@@ -46,32 +42,11 @@ Page({
       })
       setTimeout(this.countDown, 1000);
     } else {
+      console.log(choose)
       this.setData({
-        times: ''
+        times: '',
+        enable: choose
       })
-    }
-  },
-  onUnload: function(e) {
-    var that = this
-    var index = that.data.index
-    if (index != 1) {
-      wx.hideLoading()
-      wx.navigateTo({
-        url: '../awardone/awardone?index=' + index,
-      })
-    }
-  },
-  back: function() {
-    var that = this
-    var index = that.data.index
-    var sum = that.data.sum
-    if (index < sum) {
-      this.setData({
-        index: index - 1,
-        enable: false,
-        times: 6
-      })
-      this.updateTitle()
     }
   },
   next: function() {
@@ -82,6 +57,7 @@ Page({
       this.setData({
         index: index + 1,
         enable: false,
+        choose: false,
         times: 6
       })
       this.updateTitle()
@@ -179,9 +155,11 @@ Page({
     }
     var answerAllItems = util.radioGroupChange(this.data.answerAllItems, value)
     this.setData({
+      choose:true,
       answerAllItems: answerAllItems,
       surveyResults: surveyResults,
-      enable: true
+      enable: this.data.times == 1 || !this.data.times,
+      times: this.data.times == 1 ? '' : this.data.times
     })
   },
   saveSurveyRecord: function() {
