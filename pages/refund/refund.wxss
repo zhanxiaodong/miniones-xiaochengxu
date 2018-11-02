@@ -1,0 +1,11 @@
+page {
+  height: 100%;
+}
+
+.btngreenradiusun {
+  color: #fff;
+  background-color: #cccccc;
+  font-size: 14px;
+  border-radius: 30px;
+  padding: 8px 40px;
+}

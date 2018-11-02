@@ -1,13 +1,10 @@
 <view class="page">
  <view class="title">
-   <view class="title-first">您对孩子目前的日常穿搭是否满意？</view>
-   
-   <!--<view class="title-intro">我们将根据您和孩子的颜色偏好进行搭配</view>-->
+   <view class="title-first">{{question}}</view>
  </view>
-
  <view class="content">
-        <radio-group bindchange="colorAllChange" data-index="{{index}}">
-          <label class="weui-cell weui-check__label"  wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
+        <radio-group bindchange="answerAllChange" data-index="{{index}}">
+          <label class="weui-cell weui-check__label"  wx:for="{{answerAllItems}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}" id="height">
               <view class="color">{{item.value}}</view>
               <view class="line"></view>
@@ -20,7 +17,8 @@
         </radio-group>
  </view>
  <view class="bottom">
-    <button class="fixed-button" bindtap="next">下一步</button>
+    <button wx:if="{{index != sum}}" class="fixed-button" bindtap="next" disabled='{{!enable}}'>下一步{{times}}</button>
+    <button wx:if="{{index == sum}}" class="fixed-button" bindtap="saveSurveyRecord" disabled='{{!enable}}'>答完了，领红包{{times}}</button>
 </view>
 </view>
 
