@@ -1,0 +1,17 @@
+/* pages/buffer/buffer.wxss */
+.wrap {
+  margin-top: 360rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photo {
+  height: 120rpx;
+  width: 120rpx;
+}
+.describe {
+  font-size: 40rpx;
+  color: #666666;
+  text-align: center;
+  padding-top: 60rpx;
+}

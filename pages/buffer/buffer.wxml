@@ -1,0 +1,6 @@
+<!--pages/buffer/buffer.wxml-->
+<view class="wrap">
+  
+  <image src="/images/show2.gif" class="photo"></image>
+ 
+</view>

@@ -4,9 +4,5 @@
     <view class="people-horizontal"  wx:for="{{photos}}">
       <image class="people-img" src="{{item.name}}" ></image>
     </view>
-    <!--<image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>
-    <image class="people-img" src="{{item.photo}}"></image>-->
   </view>
 </view>

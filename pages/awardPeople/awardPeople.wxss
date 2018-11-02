@@ -3,7 +3,7 @@
   background:#fff;
 }
 .people-line {
-  padding:0 20px;
+  padding: 40rpx;
   background:#fff;
   /* display: flex;
   flex-flow: row nowrap;

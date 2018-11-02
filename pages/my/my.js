@@ -6,9 +6,10 @@ Page({
       babyCount: 0,
       stylistCount: 0,
       currentBoxCount: 0,
-      CouponCount:0
+      CouponCount:0,
     },
     userInfo: {},
+    vipImg: '/images/icons/h-gray.png'
   },
   onShow: function(options) {
     this.findInfo()
@@ -26,8 +27,14 @@ Page({
       url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
       success: function(res) {
         var result = res.data.data
+        var level = res.data.data.user.level
+        var vipImg = that.data.vipImg
+        if (level >= 40){
+          vipImg = '/images/icons/h-yellow.png'
+        }
         that.setData({
-          user: result
+          user: result,
+          vipImg: vipImg
         })
       }
     })

@@ -1,0 +1,18 @@
+<view class="share-wrap">
+  <view class="share-header">
+    <image class="share-header-img" src='/images/share-one.jpg'></image>
+    <view class="share-header-title">订阅美好童年时光</view>
+  </view>
+  <view class="share-content">
+    <view class="share-content-top">
+       <view class="share-content-top-one">xxxxx说：</view>
+       <view class="share-content-top-two">“给老妈子们推荐个好玩的，他们家每月会免费给孩子寄送一个搭配好的衣服盒子，大部分是海淘洋货，价格比淘宝还便宜～我试过还挺惊喜，你们也试试。反正1钱买不了吃亏买不了上当，哈哈”</view>
+    </view>
+    <view class='share-content-award'>
+       
+    </view>
+    <view class="share-content-get">
+       立即领取
+    </view>
+  </view>
+</view>
