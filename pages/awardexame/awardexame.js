@@ -16,13 +16,19 @@ Page({
   findActivity: function() {
     var that = this
     wx.request({
-      url: util.requestUrl + 'survey/findActivity?title=问卷调查',
+      url: util.requestUrl + 'survey/findActivity?title=问卷调查&openId=' + wx.getStorageSync('openId'),
       success: function(res) {
         var result = res.data.data
         if (result) {
           that.setData({
             result: result
           })
+          var surveyRecord = result.surveyRecord
+          if (surveyRecord) {
+            that.setData({
+              result: result
+            })
+          }
         }
       }
     })
