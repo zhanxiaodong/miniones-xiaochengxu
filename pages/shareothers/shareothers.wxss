@@ -23,8 +23,15 @@
   flex-direction: column;
   background-color: #f6f8f7;
   margin: 0 20rpx 40rpx;
+  padding: 34rpx;
+  align-items: center;
+  border-radius: 20rpx;
 }
 
+.share-content-top {
+  padding: 6rpx;
+
+}
 
 .share-content-top-one {
   color: #333333;
@@ -35,11 +42,30 @@
 .share-content-top-two {
    color: #333333;
    font-size: 24rpx;
+   text-align: center;
+   margin: 40rpx 0 60rpx; 
 }
 
 .share-content-award {
   height: 140rpx;
   width: 641rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:center;
+  align-items:center;
+  margin-bottom: 30rpx;
+}
+
+.share-content-award-detail-type {
+  color: #333333;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.share-content-award-detail-describe {
+  color: #999999;
+  font-size: 24rpx;
 }
 
 .share-content-get {
@@ -51,5 +77,5 @@
   height: 224rpx;
   border-radius: 50%;
   text-align: center;
-  padding-top: 80rpx;
+  padding-top: 80rpx;margin-top: 60rpx;
 }
