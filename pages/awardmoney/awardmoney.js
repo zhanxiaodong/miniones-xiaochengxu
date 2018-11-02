@@ -47,15 +47,9 @@ Page({
     })
   },
   onShareAppMessage: function(res) {
-    if (res.from === 'button') {
-      console.log("来自页面内转发按钮");
-      console.log(res.target);
-    } else {
-      console.log("来自右上角转发菜单")
-    }
     return {
       title: '这是一个有红包的问卷哦（限宝妈参与）',
-      path: '../awardexame/awardexame',
+      path: 'pages/awardexame/awardexame',
       imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
       success: (res) => {
         console.log("转发成功", res);
