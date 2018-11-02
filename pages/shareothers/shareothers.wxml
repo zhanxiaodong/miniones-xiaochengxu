@@ -1,6 +1,6 @@
 <view class="share-wrap">
   <view class="share-header">
-    <image class="share-header-img" src='/images/share-one.jpg'></image>
+    <image class="share-header-img" src='http://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-one.jpg'></image>
     <view class="share-header-title">订阅美好童年时光</view>
   </view>
   <view class="share-content">
