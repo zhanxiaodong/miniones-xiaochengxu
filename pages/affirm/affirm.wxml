@@ -20,7 +20,7 @@
           <text>您的收件地址</text>
         </view>
         <view class="info">
-          <input placeholder='选择地址便于顺丰人员上门取件' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
+          <input placeholder='衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
         </view>
         <text class='iconfont icon-arrow-right-copy'></text>
       </view>
@@ -67,31 +67,31 @@
   <view class="payBox" hidden="{{!hidIndex}}">
     <view class="payTop">
       <view class="left">
-        <text>体验券</text>（邀请体验）</view>
+        <text>体验券</text></view>
       <view class="right">-￥{{expCouponAmount}}
         <text class="iconfont icon-arrow-right-copy" style="color: #666666;"></text>
       </view>
     </view>
     <view class="pay">
       <view class="paySon clearfix">
-        <view class="left">搭配服务费（会员免费）
+        <view class="left">搭配服务费（会员永久免费）
           <text class="iconfont icon-wenhao"></text>
         </view>
         <view class="right">￥{{payAmount}}</view>
       </view>
       <view class="paySon clearfix">
-        <view class="left">顺丰配送费（会员免费）</view>
+        <view class="left">顺丰配送费</view>
         <view class="right">￥0.00</view>
       </view>
     </view>
     <view class="payBot clearfix">
-      <view class="left">实付金额</view>
+      <view class="left">实付金额（等额抵扣）</view>
       <view class="right">￥
         <text>{{realPayAmount}}</text>
       </view>
     </view>
     <view class="butBoxPro" bindtap="wepay">
-      <button class="butPro">支付订单</button>
+      <button class="butPro">确认预约</button>
     </view>
   </view>
 </view>
