@@ -178,7 +178,10 @@ Page({
       success: function(res) {
         var result = res.data.data
         if (result) {
-
+          var bonus = result.bonus
+          wx.redirectTo({
+            url: '../buffer/buffer?bonus=' + bonus + '&activityId=' + activityId,
+          })
         }
       }
     })

@@ -17,7 +17,7 @@ Page({
   findActivity: function() {
     var that = this
     wx.request({
-      url: util.requestUrl + 'survey/findActivity?title=问卷调查&openId=' + wx.getStorageSync('openId'),
+      url: util.requestUrl + 'survey/findActivity?title=WQDC&openId=' + wx.getStorageSync('openId'),
       success: function(res) {
         var result = res.data.data
         if (result) {
@@ -26,8 +26,9 @@ Page({
           })
           var surveyRecord = result.surveyRecord
           if (surveyRecord) {
-            that.setData({
-              image: '/images/question-hey.png'
+            var totalBonus = surveyRecord.bonus + surveyRecord.shareBonus
+            wx.redirectTo({
+              url: '../awardmoney/awardmoney?bonus=' + totalBonus +'&forward=forward',
             })
           }
         }
