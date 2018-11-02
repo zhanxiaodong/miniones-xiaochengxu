@@ -8,11 +8,11 @@ Page({
    */
   data: {
     conList:[
-      { img: "../../images/img1.jpg", text: "免服务费"},
-      { img: "../../images/img1.jpg", text: "会员折上折" },
-      { img: "../../images/img1.jpg", text: "专属搭配师" },
-      { img: "../../images/img1.jpg", text: "199免/季" },
-      { img: "../../images/img1.jpg", text: "全账号通行" },
+      { img: "/images/vip-one.png", text: "免服务费"},
+      { img: "/images/vip-two.png", text: "会员折上折" },
+      { img: "/images/vip-three.png", text: "专属搭配师" },
+      { img: "/images/vip-four.png", text: "199免/季" },
+      { img: "/images/vip-five.png", text: "全账号通行" },
     ],
     hiddenYEAR: false,
     choose:'FIRST',

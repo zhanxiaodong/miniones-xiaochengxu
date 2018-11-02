@@ -59,7 +59,35 @@ font-weight: bold;
   margin-bottom: 20rpx;
 }
 
+.card-one {
+  font-size: 28rpx;
+
+}
+
+.card-two {
+   font-size: 24rpx;
+}
+
 /*修改*/
+.title-all {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 40rpx;
+}
+
+.title-first {
+  font-size: 32rpx;
+  color:#333333;
+  font-weight: bold;
+}
+
+.title-second {
+   font-size: 24rpx;
+   color: #cccccc;
+   line-height: 44rpx;
+   padding-left: 20rpx;
+}
+
 .vip-container {
  
  margin:70rpx 0 0 48rpx;

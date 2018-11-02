@@ -1,6 +1,7 @@
 var util = require("../../utils/util.js")
 Page({
   data:{
+    tabs:['未使用','已过期'],
     coupons:[],
     pick:false
   },

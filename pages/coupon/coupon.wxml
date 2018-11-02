@@ -1,8 +1,5 @@
 <view class="page">
-  <view class='flexcs font14'>
-    <view class='flex1 textleft gray2-color'>优惠券</view>
-    <view class='gray1-color'>使用规则</view>
-  </view>
+  
   <view class='coupon-cs' wx:if="{{!pick}}" wx:for="{{coupons}}" wx:key="id">
     <view class="flexcs pt10 gray1-color">
       <view class="card-left">
@@ -49,3 +46,20 @@
     </radio-group>
   </view>
 </view>
+<!--<view class="">
+  <view class='header'>
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="title-click {{activeIndex == index ? 'title-click-on' : ''}}" bindtap="tabClick">
+        <view class="title-click">{{item}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="content">
+    <view class="content-detail">
+      <view class="content-left">
+        <>
+      </view>
+      <view class="content-right"></view>
+    </view>
+  </view>
+</view>-->
