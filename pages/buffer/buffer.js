@@ -3,7 +3,8 @@ Page({
 
   },
 
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log(options)
     var bonus = options.bonus
     var activityId = options.activityId
     if (bonus) {
@@ -22,7 +23,7 @@ Page({
     var activityId = this.data.activityId
     setTimeout(function () {
       wx.reLaunch({
-       url: '../buffer/buffer?bonus=' + bonus + '&activityId=' + activityId,
+        url: '../awardmoney/awardmoney?bonus=' + bonus + '&activityId=' + activityId,
       })
     }, 2000)
   },

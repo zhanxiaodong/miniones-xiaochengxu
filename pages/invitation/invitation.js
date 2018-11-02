@@ -51,7 +51,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '孩童穿搭订阅:职场妈妈最爱,省时省心省力',
-      imageUrl: "/images/inv.jpg",
+      imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-one.jpg",
       path: "pages/index/index?openId=" + wx.getStorageSync('openId')
     }
   }

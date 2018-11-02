@@ -27,8 +27,12 @@ Page({
           var surveyRecord = result.surveyRecord
           if (surveyRecord) {
             var totalBonus = surveyRecord.bonus + surveyRecord.shareBonus
+            var url = '../awardmoney/awardmoney?bonus=' + totalBonus + '&forward=forward&activityId=' + surveyRecord.activityId
+            if (surveyRecord.shareBonus == 0) {
+              url = '../awardmoney/awardmoney?bonus=' + totalBonus + '&activityId=' + surveyRecord.activityId
+            }
             wx.redirectTo({
-              url: '../awardmoney/awardmoney?bonus=' + totalBonus +'&forward=forward',
+              url: url,
             })
           }
         }
