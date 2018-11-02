@@ -35,7 +35,7 @@
   </view>
   <view class='xz-share' bindtap='invitePerson'>
    <view class='left'>
-      <image class='left-img' src='/images/photo3.jpeg'></image>
+      <image class='left-img' src='http://miniany.oss-cn-beijing.aliyuncs.com/minianys/photo3.jpeg'></image>
    </view>
    <view class='right'>
       <view class='share-txt'>
