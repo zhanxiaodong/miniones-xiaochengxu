@@ -170,9 +170,7 @@ Page({
     if (surveyResults) {
       item.surveyResults = surveyResults
     }
-    if (activityId) {
-      item.activityId = activityId
-    }
+    item.activityId = activityId
     wx.request({
       url: util.requestUrl + 'survey/saveSurveyRecord',
       method: 'POST',
