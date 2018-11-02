@@ -20,7 +20,7 @@ Page({
     ],
     surveyResults: [],
     enable: false,
-    times: 6,
+    times: 4,
     choose:false
   },
   onLoad: function(options) {
@@ -58,7 +58,7 @@ Page({
         index: index + 1,
         enable: false,
         choose: false,
-        times: 6
+        times: 4
       })
       this.updateTitle()
     }

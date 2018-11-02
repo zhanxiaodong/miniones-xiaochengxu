@@ -54,9 +54,9 @@ Page({
       console.log("来自右上角转发菜单")
     }
     return {
-      title: '妹子图片',
+      title: '这是一个有红包的问卷哦（限宝妈参与）',
       path: '../awardexame/awardexame',
-      imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-one.jpg",
+      imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
       success: (res) => {
         console.log("转发成功", res);
       },
