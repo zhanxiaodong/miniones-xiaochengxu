@@ -304,6 +304,7 @@ Page({
     form.openId = openId
     form.lat = this.data.form.lat
     form.lng = this.data.form.lng
+    console.log(form)
     var id = this.data.form.id.trim()
     var url = util.requestUrl + 'user/saveAddress'
     if (id) {
