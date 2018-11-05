@@ -65,8 +65,26 @@ Page({
     })
   },
   goVip: function() {
-    wx.navigateTo({
-      url: '../club/club',
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = res.data.data.user.level
+        if (level >= 40) {
+          wx.navigateTo({
+            url: '../vip/vip',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../club/club',
+          })
+        }
+        that.setData({
+          user: result,
+        })
+      }
     })
   },
   goPlan: function() {

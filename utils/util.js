@@ -438,7 +438,7 @@ function radioGroupChange(group, value) {
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
-//  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+  //const requestUrl = 'https://interface.miniones.cn/merchant_new/'
  const requestUrl = 'http://192.168.0.2:8080/merchant/'
 //const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
@@ -456,6 +456,7 @@ function imageUtil(e, windowWidth, windowHeight) {
     imageSize.imageHeight = windowHeight;
     imageSize.imageWidth = (windowHeight * originalWidth) / originalHeight;
   }
+  
   return imageSize;
 }
 function getOpenId() {

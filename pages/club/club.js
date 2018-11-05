@@ -16,6 +16,8 @@ Page({
     ],
     hiddenYEAR: false,
     choose:'FIRST',
+    scrollTop: '50',
+    toView: 'red',
     vipprice:"199.00"
   },
   chooseFirst:function(){
@@ -30,6 +32,7 @@ Page({
       vipprice: "99.00"
     })
   },
+
   onLoad: function (options) {
     this.findUser()
     this.findBalance()
@@ -116,6 +119,13 @@ Page({
       btnedit: btnedit
     })
   },
+
+  click: function () {
+    this.setData({
+      toView:'red'
+    })
+  },
+
   goLast: function (level) {
     if (this.data.inter && this.data.inter != 'setting') {
       setTimeout(function () {

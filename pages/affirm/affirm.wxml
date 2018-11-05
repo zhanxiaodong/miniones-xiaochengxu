@@ -17,10 +17,10 @@
       </view>
       <view class="conRight rightTop" bindtap='getAddr'>
         <view class="conText">收件地址
-          <text>您的收件地址</text>
+          <text></text>
         </view>
         <view class="info">
-          <input placeholder='衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
+          <input placeholder='您的收件地址，衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
         </view>
         <text class='iconfont icon-arrow-right-copy'></text>
       </view>
