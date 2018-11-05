@@ -196,8 +196,9 @@ Page({
     return checks
   },
   choseCoupo: function() {
+    var condition = Number(this.data.totalPrice) + Number(this.data.subPrice)
     wx.navigateTo({
-      url: '/pages/coupon/coupon?pick=true',
+      url: '/pages/coupon/coupon?pick=true&vouType=VOUCHER&condition=' + condition,
     })
   },
   /**
