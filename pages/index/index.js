@@ -16,7 +16,7 @@ Page({
   },
 
   /* 参与抽奖路由*/
-  goAward: function () {
+  goAward: function() {
     wx.navigateTo({
       url: '../awardexame/awardexame'
     })
@@ -235,13 +235,13 @@ Page({
         var boxId = result.boxId ? result.boxId : null
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
-        message = that.updateNext(boxStatus, user.plan, message)
+        message = that.updateNext(boxStatus, user, message)
         if (!that.setStep(res.data.data)) {
           btnMsg = '完善信息'
-        } 
+        }
         if (!level || level == viplev.LOOK) {
           btnMsg = '开启服务'
-        } 
+        }
         var gift = util.changeMsg(boxStatus, 'img')
         that.showModal(boxStatus, user)
         that.setData({
@@ -258,12 +258,28 @@ Page({
       }
     })
   },
-  updateNext: function(boxStatus, plan, message) {
+  updateNext: function(boxStatus, user, message) {
+    var planAuto = user.planAuto
+    var plan = user.plan
     if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
       message = this.updateMonth(plan, message)
+    } else if (planAuto) {
+      this.updateAMonth(planAuto, message)
     } else {
       this.updateMonth(plan, '')
     }
+    return message
+  },
+  updateAMonth: function(planAuto, message) {
+    var nowM = util.getMonth(new Date())
+    if (planAuto === 3) {
+      nowM = nowM + 2
+    } else if (planAuto === 2) {
+      nowM = nowM + 1
+    } else {
+      return '下一次节日'
+    }
+    message = message + nowM + "月15日"
     return message
   },
   updateMonth: function(plan, message) {
@@ -282,9 +298,6 @@ Page({
       nowM = nowM + 1
     }
     message = message + nowM + "月15日"
-    this.setData({
-      plantitle: message
-    })
     return message
   },
   hideModal: function(e) {
@@ -335,7 +348,7 @@ Page({
             success: function(resU) {
               wx.setStorageSync('userInfo', resU.userInfo);
               wx.request({
-                url:util.requestUrl + 'wechat/decodeUserInfo',
+                url: util.requestUrl + 'wechat/decodeUserInfo',
                 method: 'POST',
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
