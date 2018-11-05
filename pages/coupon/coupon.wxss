@@ -57,6 +57,7 @@
   font-size: 92rpx;
   color: #333333;
   margin-left: 20rpx;
+  width: 164rpx;
 }
 
 .card-right {
