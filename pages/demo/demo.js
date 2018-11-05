@@ -41,7 +41,7 @@ Page({
     })
   }*/
   data: {
-    text: "这是一条测试公告，看看效果怎么样，2019年3月23日",
+    text: "点击参与，有奖调研征集正在进行中...",
     marqueePace: 1,//滚动速度
     marqueeDistance: 0,//初始滚动距离
     marquee_margin: 30,
@@ -70,7 +70,7 @@ Page({
     var that = this;
     var length = that.data.length;//滚动文字的宽度
     var windowWidth = that.data.windowWidth;//屏幕宽度
-    if (length > windowWidth) {
+    if (length < windowWidth) {
       var interval = setInterval(function () {
         var maxscrollwidth = length + that.data.marquee_margin;//滚动的最大宽度，文字宽度+间距，如果需要一行文字滚完后再显示第二行可以修改marquee_margin值等于windowWidth即可
         var crentleft = that.data.marqueeDistance;

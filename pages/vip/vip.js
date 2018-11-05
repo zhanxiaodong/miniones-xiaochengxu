@@ -1,4 +1,5 @@
 // pages/vip/vip.js
+var util = require("../../utils/util.js")
 Page({
 
   data: {
@@ -13,5 +14,29 @@ Page({
     ]
   },
 
-  
+  onShow: function (options) {
+    this.findInfo()
+  },
+
+  findInfo: function () {
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      })
+    }
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = res.data.data.user.level
+        that.setData({
+          user: result,
+          level: level
+        })
+      }
+    })
+  }
 })

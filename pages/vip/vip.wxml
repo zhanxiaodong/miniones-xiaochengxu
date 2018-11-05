@@ -4,7 +4,7 @@
         <view class="title-first">会员等级</view>
         <view class="title-second">我的幸运徽章</view>
      </view>
-      <view class="card">
+      <view class="card" wx:if="{{level > 40}}">
          <view class="cardLeft">
             <view class="leftTitle">
               <view >终生会员（无限）</view>
@@ -22,7 +22,7 @@
             </view>
          </view>
       </view>
-      <!--<view class="card cardTwo" hidden="{{hiddenYEAR}}">
+      <view class="card cardTwo" wx:if="{{level == 40}}">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>年卡会员（一年）</view>
@@ -39,7 +39,7 @@
                <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
             
          </view>
-      </view>-->
+      </view>
       <view>
         
       </view>
