@@ -13,7 +13,7 @@
       </view>
       <view class="card-right ">
           <view class="card-right-container"> 
-            <text class='card-right-title'>{{item.type == 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
+            <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
             <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
           </view>  
           <view class='card-right-intro'>通用优惠券</view>
@@ -28,7 +28,7 @@
       </view>
       <view class="card-right ">
           <view class="card-right-container"> 
-            <text class='card-right-title'>{{item.type == 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
+            <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
             <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
           </view>  
           <view class='card-right-intro'>通用优惠券</view>
@@ -46,7 +46,7 @@
       </view>
       <view class="card-right ">
           <view class="card-right-container"> 
-            <text class='card-right-title'>{{item.type == 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
+            <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
             <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
           </view>  
           <view class='card-right-intro'>通用优惠券</view>
