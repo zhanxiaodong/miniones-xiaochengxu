@@ -5,8 +5,11 @@ page {
 
 .header{
   width:100%;
-  padding:40rpx;
+  padding:40rpx 0 40rpx 40rpx;
   background: #fff;
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content:space-between;
 }
 .header .title{
   margin-right:20rpx;
@@ -18,7 +21,7 @@ page {
   font-size:28rpx;
   color:#333333;
   margin: 30rpx 0;
-  width: 400rpx;
+  width: 520rpx;
 }
 
 .server {

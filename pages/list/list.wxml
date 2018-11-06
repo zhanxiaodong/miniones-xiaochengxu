@@ -3,12 +3,14 @@
       <view class="listBox">
          <view class="header">
             <view class="imgBox">
-                <image src="/images/p-green-a.png"/>
+                <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/p-green-a.png"/>
             </view>
             <view class="explain">预约成功！正在为您准备配送</view>
          </view>
          <view class="content">
-             <view class="box"></view>
+             <view class="box">
+               <image style="height: 384rpx;width: 382rpx;"src="/images/123.jpg" />
+             </view>
              <view class="boxText">山羊奶儿童呵护保湿乳</view>
          </view>
          <view class="footer">

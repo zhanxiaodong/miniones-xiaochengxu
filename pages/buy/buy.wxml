@@ -30,8 +30,8 @@
             <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
             <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
               <view class='flex_auto green1-color'>
-                <view style="font-size: 28rpx;color: #000000;">{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
-                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}</view>
+                <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
+                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
               </view>
               <view style="display: flex; flex-direction: column;padding-right:40rpx;">
               <view class='fontWeight'>￥ {{item.realAmount}}</view>
@@ -77,7 +77,7 @@
        </view>
    </view>
    <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
-   <view class="footer" wx:if="{{level < 40 }}" bindtap="goCulb">
+   <view class="footer-buy" wx:if="{{level < 40 }}" bindtap="goCulb">
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">成为迷礼会员，本单再减99元起</view>
@@ -94,7 +94,7 @@
               </view>
    </view>
     <view class="butBox">
-        <button bindtap="toPayOrder" class="but"><text style="padding-left: 40px;font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text><text style="font-size: 28rpx; font-weight: bold; color: #ffffff; padding-left:40px; ">{{totalPrice}}</text> </button>
+        <button bindtap="toPayOrder" class="but"><text style="padding-left: 120rpx;font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text><text style="font-size: 28rpx; font-weight: bold; color: #ffffff; padding-left:40rpx; ">{{totalPrice}}</text> </button>
     </view>
     <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>

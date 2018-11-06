@@ -25,7 +25,7 @@ Page({
     return {
       title: '帮帮我！我想要这个赠品',
       path: '../shareothers/shareothers',
-      imageUrl: "/images/send.jpeg",
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/send.jpg",
       success: (res) => {
         console.log("转发成功", res);
       },
