@@ -27,8 +27,8 @@ Page({
    */
   onShow: function () {
     setTimeout(function () {
-      wx.reLaunch({
-        url: '../index/index',
+      wx.redirectTo({
+        url: '../list/list',
       })
     }, 2000)
   },

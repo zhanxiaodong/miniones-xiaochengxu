@@ -28,6 +28,10 @@ clear: both ;
 visibility: hidden ;
 }
 
+.footer {
+  height: 600rpx;
+}
+
 
 
 

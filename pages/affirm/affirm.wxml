@@ -13,42 +13,41 @@
   <view class="content">
     <view class="con clearfix">
       <view class="conLeft">
-        <text class="iconfont icon-dingwei"></text>
+        <image class="conLeft-img" src="/images/get-three.png" />
       </view>
-      <view class="conRight rightTop" bindtap='getAddr'>
+      <view class="conRight rightTop" id="repair-one" bindtap='getAddr'>
         <view class="conText">收件地址
-          <text></text>
         </view>
         <view class="info">
-          <input placeholder='您的收件地址，衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
+          <input placeholder='衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
         </view>
-        <text class='iconfont icon-arrow-right-copy'></text>
+        <image class="conleft-direction" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix">
       <view class="conLeft">
-        <text class="iconfont  icon-solid-time"></text>
+        <image class="conLeft-img" src="/images/get-two.png" />
       </view>
-      <view class="conRight rightTop">
+      <view class="conRight rightTop" id="repair-two">
         <view class="conText">配送时间
           <text></text>
         </view>
         <view class="info">
-          <picker mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+          <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
             <input class="weui-input size-15" value='{{date}}' disabled="true" placeholder="请选择时间" />
           </picker>
         </view>
-        <text class='iconfont icon-arrow-right-copy'></text>
+       <image class="conleft-direction" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix" bindtap="more">
       <view class="conLeft">
-        <text class="iconfont icon-lingdang"></text>
+         <image class="conLeft-img" src="/images/get-one.png" />
       </view>
       <view class="conRight">
         <view class="conText action">明确需求
-          <text>选填...</text>
-          <text class='iconfont icon-arrow-right-copy'></text>
+          <text style="padding-left: 10rpx;">选填...</text>
+         <image class="conleft-direction-last" src="/images/direction.png" />
         </view>
       </view>
     </view>
