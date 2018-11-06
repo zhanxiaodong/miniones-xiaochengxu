@@ -4,7 +4,7 @@
 }*/
 .header{
   width:100%;
-  padding:60rpx 40rpx;
+  padding:60rpx 40rpx 40rpx;
   background: #fff;
 }
 .header .title{
@@ -36,7 +36,7 @@
   float:left;
   height:100%;
   text-align: center; 
-  line-height: 130rpx;
+  line-height: 195rpx;
   color:#cccccc;
   padding-left: 30rpx;
 }
@@ -47,7 +47,7 @@
   float:left;
 }
 .rightTop{
-  padding:40rpx 0 0 30rpx;
+  padding:70rpx 0 0 30rpx;
   border-bottom:solid 1px #f3f3f3;
 }
 .conText{
@@ -68,13 +68,15 @@
 .info{
   font-size: 30rpx;
   color:#c3c3c3;
+  padding-left: 20rpx;
+  width: 400rpx;
 }
 .conRight .action{
-  padding: 40rpx 0 0 30rpx;
+  padding: 70rpx 0 0 30rpx;
 }
 .conRight .iconfont{
 position:absolute;
-top:55rpx;
+top:75rpx;
 right:40rpx;
 color: #666666;
 }
@@ -189,4 +191,33 @@ color: #666666;
 .style {
   margin-left: 45rpx;
   height: 220rpx;
+}
+
+/*修改*/
+#repair-one {
+  display: flex;
+  flex-direction: row;
+}
+
+#repair-two {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.conLeft-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.conleft-direction {
+  width: 54rpx;
+  height: 54rpx;
+  padding-left: 40rpx;
+}
+
+.conleft-direction-last {
+  width: 54rpx;
+  height: 54rpx;
+  float: right;
+  padding-right: 24rpx;
 }
