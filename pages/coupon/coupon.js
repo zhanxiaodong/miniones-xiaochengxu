@@ -56,6 +56,7 @@ Page({
   findCoupon: function() {
     var that = this
     var condition = that.data.condition
+    condition = 1
     var vouType = that.data.vouType
     var queryparam = ''
     var url = util.requestUrl + 'user/findCanUseCoupons?openId=' + wx.getStorageSync('openId')
