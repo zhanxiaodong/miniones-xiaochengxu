@@ -2,7 +2,7 @@
    <image class="top-img" src="{{userInfo.avatarUrl}}"></image>
    <view class="title">恭喜</view>
    <view class="money">¥{{bonus}}</view>
-   <view class="money-intro">红包已存入余额，提现秒到</view>
+   <view class="money-intro">分享最高翻10倍，可直接在我的钱包－余额里提现</view>
    <button class="send" open-type='share'>转发翻倍</button>
    <view class="return" bindtap="returnIndex">1元订阅并领取</view>
 </view>

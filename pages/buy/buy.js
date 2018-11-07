@@ -520,9 +520,16 @@ Page({
         })
       }, 2000)
     } else {
-      wx.navigateTo({
-        url: '../assess/assess?back=true&boxId=' + that.data.boxId
+      wx.showToast({
+        title: '支付成功',
+        icon: 'success',
+        duration: 2000
       })
+      setTimeout(function() {
+       wx.redirectTo({
+        url: '../assess/assess?back=true&boxId=' + that.data.boxId
+       })
+      }, 2000) 
     }
   },
   updateBox() {
