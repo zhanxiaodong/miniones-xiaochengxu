@@ -4,5 +4,5 @@
    <view class="money">¥{{bonus}}</view>
    <view class="money-intro">红包已存入余额，提现秒到</view>
    <button class="send" open-type='share'>转发翻倍</button>
-   <view class="return" bindtap="returnIndex">前往迷你王国</view>
+   <view class="return" bindtap="returnIndex">1元订阅并领取</view>
 </view>

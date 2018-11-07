@@ -41,6 +41,11 @@
 }
 
 .return {
-  font-size:24rpx;
-  color:#999999;
+  width: 288rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  color:#04B8A0;
+  font-size: 32rpx;
+  border-radius: 50px;
+  border: 1rpx solid #04B8A0;
 }
