@@ -42,7 +42,7 @@ Page({
     item.amount = this.data.refundAmount
     item.dealType = 'BALANCE'
     wx.request({
-      url: util.requestUrl + 'user/refund',
+      url: util.requestUrl + 'user/transfer',
       method: 'POST',
       data: item,
       success:function(res){
