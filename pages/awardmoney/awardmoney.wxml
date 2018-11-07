@@ -4,5 +4,5 @@
    <view class="money">¥{{bonus}}</view>
    <view class="money-intro">分享最高翻10倍，可直接在我的钱包－余额里提现</view>
    <button class="send" open-type='share'>转发翻倍</button>
-   <view class="return" bindtap="returnIndex">1元订阅并领取</view>
+   <view class="return" bindtap="returnIndex">订阅并领取</view>
 </view>

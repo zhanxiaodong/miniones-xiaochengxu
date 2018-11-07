@@ -8,7 +8,7 @@ Page({
     expiredCoupons: [],
     sliderOffset: 0,
     sliderLeft: 0,
-    pick: true,
+    pick: false,
     condition: 0,
   },
   onLoad: function(options) {
