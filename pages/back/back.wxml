@@ -26,8 +26,8 @@
               <view style="font-size: 26rpx; font-weight: bold; color: #333;">#{{index + 1}}</view>
               <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
                 <view class='flex_auto green1-color'>
-                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.name}}/{{item.brand}}/{{item.color}}/{{item.size}}</view>
-                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.code}}</view>
+                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.brand}}/{{item.name}}</view>
+                  <view style="color: #04B8A0; font-size: 26rpx;">{{item.code}}/{{item.color}}/{{item.size}}</view>
                 </view>
                 <view style='padding-right:20rpx;font-size: 30rpx;' class='fontWeight'>￥ {{item.realAmount}}</view>
               </view>

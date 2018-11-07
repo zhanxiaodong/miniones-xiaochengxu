@@ -51,9 +51,10 @@ Page({
     })
   },
   onShareAppMessage: function(res) {
+    var openId = wx.getStorageSync('openId')
     return {
       title: '这是一个有红包的问卷哦（限宝妈参与）',
-      path: 'pages/awardexame/awardexame',
+      path: 'pages/awardexame/awardexame?openId=' + openId,
       imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
       success: (res) => {
         var forward = this.data.forward

@@ -120,11 +120,11 @@ Page({
     })
   },
 
-  click: function () {
+  /*click: function () {
     this.setData({
       toView:'red'
     })
-  },
+  },*/
 
   goLast: function (level) {
     if (this.data.inter && this.data.inter != 'setting') {
@@ -182,6 +182,7 @@ Page({
           that.setData({
             btnedit: false
           })
+          that.confirm()
         }
       })
     }
@@ -227,16 +228,43 @@ Page({
             that.updateTitle(vipOrder.level, levTime, choose)
             that.hideModal('pay')
             that.goLast(vipOrder.level)
+            that.confirm()
           },
           fail: function (error) {
           },
           complete: function () {
-
+             
           }
         });
       }
     });
   },
+
+  confirm: function () {
+    var that = this
+    if (this.data.up) {
+      let pages = getCurrentPages(); //当前页面
+      let prevPage = pages[pages.length - 2]; //上一页面
+      prevPage.setData({ //直接给上移页面赋值
+        update: true,
+        level: level
+      });
+      wx.navigateBack({})
+    }
+    else {
+      wx.showToast({
+        title: '支付成功',
+        icon: 'success',
+        duration: 2000
+      })
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '../vip/vip',
+        })
+      }, 2000)
+    } 
+  },
+
   confirmInfo: function () {
     var that = this
     that.setData({

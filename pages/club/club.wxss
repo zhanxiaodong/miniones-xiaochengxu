@@ -1,6 +1,6 @@
 /* pages/club/club.wxss */
 .wrap{
-  background: #f3f3f3;
+  background: #f6f8f7;
   padding-bottom:100rpx;
 }
 .vip{
@@ -177,7 +177,7 @@ font-weight: bold;
 }
 /* 第二张卡片 */
 .cardTwo{
-  background: #cccccc;
+  background: #666666;
   margin-bottom: 20rpx;
 }
 .footer{
@@ -198,8 +198,8 @@ font-weight: bold;
   width:100%;
   height:100rpx;
   line-height: 100rpx;
-  color:#fff;
-  background:#7dd8cb;
+  color:#04B8A0;
+  background:#fff;
   text-align: center;
   position:fixed;bottom:0;
 

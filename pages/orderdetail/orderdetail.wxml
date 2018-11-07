@@ -1,5 +1,6 @@
 <view class="wrap" style="background-color: #F6F8F7;">
   <view class="header">
+  <view class="left">
     <view>
       <text class="title">本次订阅服务已完成</text>
       <!--<text class="iconfont icon-wenhao"></text>-->
@@ -11,6 +12,10 @@
       <view wx:if="{{evaluateStatus == '已评价'}}" class="evaluate">已评价</view>
             <view wx:if="{{evaluateStatus == '去评价'}}" class="evaluate" bindtap='goassess'>去评价</view>
             <view wx:if="{{evaluateStatus == '未评价'}}" class="evaluate">未评价</view>
+    </view>
+    </view>
+    <view class="right">
+      <image style="width: 74rpx;height: 162rpx;" src="/images/half.jpg"/>
     </view>
   </view>
   <view style="height: 20rpx;"></view>

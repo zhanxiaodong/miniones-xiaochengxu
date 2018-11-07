@@ -89,7 +89,7 @@
   padding:30rpx 0;
 }
 
-.footer{
+.footer-buy{
   margin-top:20rpx;
   padding:20rpx 20rpx;
   font-size:28rpx;
@@ -171,6 +171,7 @@ textRight radio,.textRight text{
   float:left;
   color:#FF7B7B;
   padding-right: 20rpx;
+  font-weight: bold;
 }
 .vipTwo{
   padding:50rpx 30rpx;

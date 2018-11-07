@@ -1,7 +1,7 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-    awardImg: '/images/bd1.png',
+    awardImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/bd1.png',
     image: 'http://miniany.oss-cn-beijing.aliyuncs.com/minianys/question-green.png',
     result: {
       awards: ['仔细答题结束可以获得随机现金红包', '每满1000份回答，现金红包翻倍一次'],

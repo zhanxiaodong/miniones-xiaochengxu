@@ -1,6 +1,7 @@
 <!--pages/servedetail/servedetail.wxml-->
 <view class="wrap" style="background-color: #F6F8F7;height:1334rpx; ">
   <view class="header">
+  <view class="left">
       <view>
          <text class="title">本次订阅服务进行中</text>
          <!--<text class="iconfont icon-wenhao"></text>-->
@@ -8,6 +9,10 @@
       <view class="headText">感谢您对迷你王国的信任，我们正在用心
      服务您的订单。
       </view>
+  </view>
+  <view class="right">
+    <image style="height: 162rpx;width: 74rpx;" src='/images/half.jpg' />
+  </view>
   </view>
   <view class="content-title">
   服务跟踪
