@@ -199,8 +199,12 @@ Page({
   refund: function(){
     var that = this
     var detail = that.data.detail
-
-    if(!detail || detail.balanceAmount == 0 ){
+    var level = wx.getStorageSync('level')
+    if (!level && level < 20) {
+      $wuxDialog.alert({
+        content: '提现需先完成注册，成为体验会员！'
+      })
+    }else if(!detail || detail.balanceAmount == 0 ){
       $wuxDialog.alert({
         content: '您没有金额可以提现！现有金额为系统赠送,只能用在消费中!'
       })

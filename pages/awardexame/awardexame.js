@@ -8,10 +8,16 @@ Page({
       deadlineStr: '2018-10-31 00:00截至',
       rules: '任意用户皆可参与问卷并获得奖励；\n现金红包翻倍最高5倍',
       joinNum: 0,
-    }
+    },
+    shareOpenId:''
   },
-
-  onLoad: function() {
+  onLoad: function(options) {
+    console.log(options)
+    if (options.shareOpenId) {
+      this.setData({
+        shareOpenId: options.shareOpenId
+      })
+    }
     this.findActivity();
   },
   findActivity: function() {
@@ -41,7 +47,7 @@ Page({
   },
   clickTab: function() {
     wx.navigateTo({
-      url: '../awardone/awardone?activityId=' + this.data.result.id,
+      url: '../awardone/awardone?activityId=' + this.data.result.id + '&shareOpenId=' + this.data.shareOpenId,
     })
   },
 
