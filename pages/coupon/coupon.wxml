@@ -36,7 +36,7 @@
       </view>
   </view>
   <!--选取未使用页面-->
-<view wx:if="{{pick}}" hidden="{{activeIndex == 1}}">
+<!--<view wx:if="{{pick}}" hidden="{{activeIndex == 1}}">
       <label bindtap="noChoose">
         <view class='coupon-cs' >
            <view class="card-left">
@@ -53,26 +53,26 @@
       </view>
         </view>
       </label>
-  </view>
+  </view>-->
 
   <view wx:if="{{pick}}" hidden="{{activeIndex == 1}}">
+    <view class="nochoose" bindtap="noChoose">不使用优惠券</view>
     <radio-group bindchange="radioChange">
       <label wx:for="{{coupons}}" wx:key="id">
         <view class='coupon-cs'>
-           <view class="card-left">
-        <view class="card-left-icon">¥</view>
-        <view class='card-left-price'>{{item.amount}}</view>
-      </view>
-      <view class="card-right ">
-          <view class="card-right-container"> 
-            <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
-            <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
-          </view>  
-          <view class='card-right-intro'>通用优惠券</view>
-          <view class='card-right-data'>有效期：{{item.effect}}</view>
-      </view>
+          <view class="card-left">
+             <view class="card-left-icon">¥</view>
+             <view class='card-left-price'>{{item.amount}}</view>
+           </view>
+          <view class="card-right ">
+            <view class="card-right-container"> 
+             <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
+             <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
+             </view>  
+            <view class='card-right-intro'>通用优惠券</view>
+            <view class='card-right-data'>有效期：{{item.effect}}</view>
+          </view>
           <radio class="coupon-check" value="{{item.id}}" checked="{{item.checked}}" />
-
         </view>
       </label>
     </radio-group>

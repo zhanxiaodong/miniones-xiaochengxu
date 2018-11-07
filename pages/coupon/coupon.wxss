@@ -105,3 +105,8 @@
 .card-right-container {
   width: 360rpx;
 }
+
+.nochoose {
+ text-align:right; 
+ font-size: 32rpx;
+}
