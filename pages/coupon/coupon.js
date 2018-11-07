@@ -8,8 +8,8 @@ Page({
     expiredCoupons: [],
     sliderOffset: 0,
     sliderLeft: 0,
-    pick: false,
-    condition: 0
+    pick: true,
+    condition: 0,
   },
   onLoad: function(options) {
     console.log(options)
@@ -34,6 +34,7 @@ Page({
     this.findCoupon()
     this.findExpiredCoupon()
   },
+
   radioChange: function(e) {
     var value = e.detail.value
     var coupons = this.data.coupons
@@ -53,6 +54,19 @@ Page({
     });
     wx.navigateBack()
   },
+
+  noChoose: function(e) {
+  let voucher = e.detail.value
+      voucher = that.data.coupons
+      
+    let pages = getCurrentPages(); //当前页面
+    let prevPage = pages[pages.length - 2]; //上一页面
+    prevPage.setData({ //直接给上移页面赋值
+      voucher: null
+    });
+    wx.navigateBack()
+  },
+
   findCoupon: function() {
     var that = this
     var condition = that.data.condition

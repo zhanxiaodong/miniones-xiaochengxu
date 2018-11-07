@@ -49,7 +49,7 @@ page {
 .award-rule-describe {
   display: flex;
   flex-direction: column;
-  width: 400rpx;
+  width: 500rpx;
 }
 
 .award-rule-title,.award-rule-describe {

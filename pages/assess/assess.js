@@ -7,8 +7,8 @@ Page({
     starFlag: null,
     selectedFavorites: [],
     feedbacks: [
-      { id: 1, value: "我非常乐意继续体验衣盒服务", desc: "我们将为您提供更佳服务" },
-      { id: 2, value: "我会考虑继续体验衣盒服务", desc:"我们将尝试再次为您提供服务" },
+      { id: 1, value: "我非常乐意继续体验衣盒服务", desc: "我们将为您提供更佳服务", checked: 'true'  },
+      { id: 2, value: "我会考虑继续体验衣盒服务", desc: "我们将尝试再次为您提供服务"},
       { id: 3, value: "我不会继续体验衣盒服务", desc:"我们将不会再次打扰您" }
     ], 
     starList: [

@@ -11,7 +11,11 @@
 }
 
 .coupon-check{
-  margin: 110rpx 0 0 80rpx;
+ width: 60rpx;
+ height: 60rpx;
+ position: relative;
+ top: 114rpx;
+ right: 40rpx;
 }
 
 .coupon-title {
@@ -86,14 +90,18 @@
   width: 670rpx;
   height: 200rpx;
   margin-top: 40rpx;
-  border-radius: 4px;
   box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.1);
   display: flex;
   flex-flow: row nowrap;
+  
 }
 
 .title-click-on view {
   color: #333333;
   font-size: 32rpx;
   font-weight:bold;
+}
+
+.card-right-container {
+  width: 360rpx;
 }
