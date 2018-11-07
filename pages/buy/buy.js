@@ -25,13 +25,15 @@ Page({
     cashuse: true,
     discountPrice: 0.00,
     chooseCount: 0,
-    avgPrice: 0.00
+    avgPrice: 0.00,
+    backCount: 0
   },
   onLoad: function(options) {
     var that = this
     if (options.reBuy) {
       that.setData({
-        reBuy: options.reBuy
+        reBuy: options.reBuy == 'true' ? true : false,
+        backCount: Number(options.backCount)
       })
     }
     if (options.boxId) {
@@ -42,7 +44,6 @@ Page({
       this.updateInfo(null)
     }
     this.findBalance()
-
   },
   timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
@@ -92,6 +93,8 @@ Page({
         var cash = result.cash ? result.cash : null
         var badge = result.badge ? result.badge : null
         var level = result.level
+        var totalAllPrice = result.totalPrice
+        var hasBuy = result.hasBuy ? result.hasBuy : false
         if (goods) {
           level = that.data.level
         }
@@ -127,7 +130,9 @@ Page({
           vipo: vipo,
           boxNo: boxNo,
           actTime: actTime,
-          orderPay: orderPay
+          orderPay: orderPay,
+          totalAllPrice: totalAllPrice,
+          reBuy: hasBuy
         })
 
         if (goods) {
@@ -196,7 +201,10 @@ Page({
     return checks
   },
   choseCoupo: function() {
-    var condition = Number(this.data.totalPrice) + Number(this.data.subPrice)
+    var condition = this.data.totalAllPrice
+    if (!condition) {
+      condition = 0
+    }
     wx.navigateTo({
       url: '/pages/coupon/coupon?pick=true&vouType=VOUCHER&condition=' + condition,
     })
@@ -284,7 +292,6 @@ Page({
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
       var voucher = this.data.voucher
-      console.log(totalPrice)
       var reBuy = this.data.reBuy
       if (voucher && totalPrice != 0 && !reBuy) {
         var vouAmount = voucher.amount
@@ -299,7 +306,7 @@ Page({
           }
         } else {
           this.setData({
-            voucher:null
+            voucher: null
           })
         }
       }
@@ -363,6 +370,10 @@ Page({
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
       }
+    } else {
+      this.setData({
+        voucher: null
+      })
     }
     this.setData({
       vipoprice: vipoprice.toFixed(2),
@@ -526,10 +537,10 @@ Page({
         duration: 2000
       })
       setTimeout(function() {
-       wx.redirectTo({
-        url: '../assess/assess?back=true&boxId=' + that.data.boxId
-       })
-      }, 2000) 
+        wx.reLaunch({
+          url: '../assess/assess?back=true&boxId=' + that.data.boxId
+        })
+      }, 2000)
     }
   },
   updateBox() {

@@ -13,7 +13,7 @@ Page({
     startYear: 2018,
     endYear: 2018,
     showModalStatus:false,
-    hasBack:false
+    hasBack:'false'
   },
   onLoad: function (options) {
     if (options.hasBack) {
@@ -108,8 +108,9 @@ Page({
   },
   reBuy: function() {
     var boxId = this.data.boxId
+    var backCount = this.data.goodsList.length
     wx.navigateTo({
-      url: '../buy/buy?boxId=' + boxId + '&reBuy=true'
+      url: '../buy/buy?boxId=' + boxId + '&reBuy=true' + '&backCount=' + backCount
     })
   },
   /**
