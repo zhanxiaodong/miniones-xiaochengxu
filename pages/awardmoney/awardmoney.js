@@ -31,6 +31,26 @@ Page({
         userInfo: userInfo
       })
     }
+    this.findSurveyRecord()
+  },
+  findSurveyRecord: function() {
+    var that = this
+    var item = new Object();
+    item.openId = wx.getStorageSync('openId')
+    item.activityId = that.data.activityId
+    wx.request({
+      url: util.requestUrl + 'survey/findSurveyRecord',
+      method: 'POST',
+      data: item,
+      success: function (res) {
+        var surveyRecord = res.data.data
+        if (surveyRecord) {
+          that.setData({
+            surveyRecord: surveyRecord
+          })
+        }
+      }
+    })
   },
   shareActivity: function() {
     var that = this
@@ -51,20 +71,16 @@ Page({
     })
   },
   onShareAppMessage: function(res) {
-    var openId = wx.getStorageSync('openId')
+    var shareOpenId = wx.getStorageSync('openId')
+    console.log(shareOpenId)
+    var forward = this.data.forward
+    if (forward != 'forward') {
+      this.shareActivity()
+    }
     return {
       title: '这是一个有红包的问卷哦（限宝妈参与）',
-      path: 'pages/awardexame/awardexame?openId=' + openId,
+      path: 'pages/awardexame/awardexame?shareOpenId=' + shareOpenId,
       imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
-      success: (res) => {
-        var forward = this.data.forward
-        if (forward != 'forward'){
-          this.shareActivity()
-        }
-      },
-      fail: (res) => {
-        console.log("转发失败", res);
-      }
     }
   },
   returnIndex: function() {

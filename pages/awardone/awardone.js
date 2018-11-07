@@ -30,6 +30,11 @@ Page({
         activityId: options.activityId
       })
     }
+    if (options.shareOpenId) {
+      this.setData({
+        shareOpenId: options.shareOpenId
+      })
+    }
     this.findSurveyByType()
   },
   countDown: function() {
@@ -167,6 +172,10 @@ Page({
     item.openId = wx.getStorageSync('openId')
     var surveyResults = this.data.surveyResults
     var activityId = this.data.activityId
+    var shareOpenId = this.data.shareOpenId
+    if (shareOpenId) {
+      item.shareOpenId = shareOpenId
+    }
     if (surveyResults) {
       item.surveyResults = surveyResults
     }

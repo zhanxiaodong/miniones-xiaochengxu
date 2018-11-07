@@ -439,7 +439,11 @@ function radioGroupChange(group, value) {
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
   const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+<<<<<<< HEAD
  //const requestUrl = 'http://192.168.0.2:8080/merchant/'
+=======
+//  const requestUrl = 'http://192.168.0.2:8080/merchant/'
+>>>>>>> 061057f31d309537966129580c7993ade4a2d9ad
 //const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
