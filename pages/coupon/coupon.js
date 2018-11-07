@@ -12,7 +12,6 @@ Page({
     condition: 0,
   },
   onLoad: function(options) {
-    console.log(options)
     var pick = options.pick
     var condition = options.condition
     var vouType = options.vouType
@@ -56,9 +55,6 @@ Page({
   },
 
   noChoose: function(e) {
-  let voucher = e.detail.value
-      voucher = that.data.coupons
-      
     let pages = getCurrentPages(); //当前页面
     let prevPage = pages[pages.length - 2]; //上一页面
     prevPage.setData({ //直接给上移页面赋值
