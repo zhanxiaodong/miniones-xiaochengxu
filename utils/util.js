@@ -582,6 +582,14 @@ function updateStep (step) {
   })
 }
 
+function saveShareRecord (item) {
+  wx.request({
+    url: requestUrl + 'user/saveShareRecord',
+    method: 'POST',
+    data: item
+  })
+}
+
 /**
  * 是否老用户
  */
@@ -670,5 +678,6 @@ module.exports = {
   getUserInfo: getUserInfo,
   saveFormId: saveFormId,
   checkOldUser: checkOldUser,
-  updateStep: updateStep
+  updateStep: updateStep,
+  saveShareRecord: saveShareRecord
 }

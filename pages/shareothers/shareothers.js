@@ -1,77 +1,117 @@
-// pages/shareothers/shareothers.js
+var util = require("../../utils/util.js")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-       awardlist: [
-         { title: '邀请体验券', detail: '1元体验，3套时尚搭配免费送到家', color: '#04B8A0'},
-         { title: '99抵扣券', detail: '会员专享，每季度可领600低扣券', color: '#04B8A0'},
-         { title: '199抵扣券', detail: '会员专享，每季度可领600低扣券', color: '#04B8A0'}
-       ]
+    awardlist: [{
+        title: '邀请体验券',
+        detail: '1元体验，3套时尚搭配免费送到家',
+        color: '#04B8A0'
+      },
+      {
+        title: '99抵扣券',
+        detail: '会员专享，每季度可领600低扣券',
+        color: '#04B8A0'
+      },
+      {
+        title: '199抵扣券',
+        detail: '会员专享，每季度可领600低扣券',
+        color: '#04B8A0'
+      }
+    ],
+    needAuth: false,
   },
-  
-  goGuide: function () {
+
+  goGuide: function() {
     wx.redirectTo({
       url: '/pages/guide/guide'
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    var that = this
+    if (options.shareOpenId) {
+      that.setData({
+        shareOpenId: options.shareOpenId
+      })
+    }
+    if (options.shareType) {
+      that.setData({
+        shareType: options.shareType
+      })
+    }
+    that.checkAuth()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  saveShareRecord: function (openId) {
+    var that = this
+    var item = new Object()
+    item.openId = openId
+    var shareType = that.data.shareType
+    if (shareType) {
+      item.shareType = shareType
+    }
+    var shareOpenId = that.data.shareOpenId
+    if (shareType) {
+      item.shareOpenId = shareOpenId
+    }
+    util.saveShareRecord(item)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  checkAuth: function() {
+    if (!wx.getStorageSync('openId')) {
+      this.setData({
+        needAuth: true
+      })
+    } else {
+      this.setData({
+        needAuth: false
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onGotUserInfo: function(e) {
+    if (e.detail.userInfo) {
+      this.getOpenId()
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getOpenId: function() {
+    var that = this
+    wx.login({
+      success: function(res) {
+        var code = res.code
+        if (code) {
+          wx.getUserInfo({
+            withCredentials: true,
+            success: function(resU) {
+              wx.setStorageSync('userInfo', resU.userInfo);
+              wx.request({
+                url: util.requestUrl + 'wechat/decodeUserInfo',
+                method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                data: {
+                  encryptedData: resU.encryptedData,
+                  iv: resU.iv,
+                  code: code
+                },
+                success: function(data) {
+                  var openId = data.data.data.openid
+                  wx.setStorageSync('openId', openId)
+                  wx.request({
+                    url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+                    success: function(res) {
+                      var result = res.data.data
+                      var level = "0"
+                      if (result) {
+                        level = result.level
+                      }
+                      wx.setStorageSync('level', level)
+                      that.checkAuth()
+                      that.saveShareRecord(openId)
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      }
+    })
   }
-
-
 })
