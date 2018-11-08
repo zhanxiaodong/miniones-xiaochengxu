@@ -54,7 +54,7 @@ Page({
         if (result) {
           var balance = result.balanceAmount + result.backMoney
           that.setData({
-            balance: balance,
+            balance: balance.toFixed(2),
             detail: result
           })
         }

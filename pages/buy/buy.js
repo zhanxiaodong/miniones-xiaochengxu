@@ -562,19 +562,21 @@ Page({
     item.checkList = this.rmPostfix()
     item.boxNo = this.data.boxNo
 
-    var badge = this.data.badge
+    // var badge = this.data.badge
     var voucher = this.data.voucher
-    var cash = this.data.cash
+    // var cash = this.data.cash
     var payBoxInfo = new Object()
-    payBoxInfo.badgeId = badge ? badge.id : null
+    // payBoxInfo.badgeId = badge ? badge.id : null
     payBoxInfo.voucherId = voucher ? voucher.id : null
-    payBoxInfo.cashId = cash ? cash.id : null
+    // payBoxInfo.cashId = cash ? cash.id : null
     payBoxInfo.subPrice = this.data.subPrice
     payBoxInfo.VoucherAmount = this.data.voucher ? this.data.voucher.amount : 0
     payBoxInfo.orderPay = this.data.orderPay
     payBoxInfo.discountPrice = this.data.discountPrice
     payBoxInfo.otherAmount = this.data.otherAmount
     payBoxInfo.avgPrice = this.data.avgPrice
+    payBoxInfo.payAmount = this.data.totalPrice
+    payBoxInfo.goodsTotal = this.data.goodsTotal
     item.payBoxInfo = payBoxInfo
     return item
   },

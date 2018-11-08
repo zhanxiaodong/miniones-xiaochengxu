@@ -64,7 +64,7 @@ Page({
       success: function(res) {
         var result = res.data.data
         that.setData({
-          bonus: result.totalBonus,
+          bonus: result.totalBonus.toFixed(2),
           forward: 'forward'
         })
       }

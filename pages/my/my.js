@@ -89,7 +89,7 @@ Page({
   },
   goPlan: function() {
     wx.navigateTo({
-      url: '../plan/plan',
+      url: '../plan/plan?setting=setting',
     })
   },
   goWallet: function() {

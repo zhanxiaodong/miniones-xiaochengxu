@@ -18,5 +18,5 @@
         </label>
       </radio-group>
 </view>
-<button  bindtap='next'  class='repair-button' >下一步</button>
+<button  bindtap='next'  class='repair-button' >{{btnMsg}}</button>
 </view>
