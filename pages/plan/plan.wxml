@@ -9,7 +9,7 @@
           <radio class="content-check" value="{{item.value}}" checked="{{item.checked}}" />
           <view style="padding: 60rpx; text-align: center;" class="{{item.checked? 'active':'unactive'}}">
             <view class="content-title">{{item.title}}</view>
-            <view class="content-explain">{{item.name}}
+            <view class="content-explain">{{item.name}}{{item.checked==true}}
               <view wx:if="{{item.checked}}" style="position: fixed;margin: -160rpx 500rpx;">
                 <icon type="success_no_circle" color="#ffffff" size="14"></icon>
               </view>

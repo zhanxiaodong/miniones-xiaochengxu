@@ -79,6 +79,7 @@ Page({
   },
   next: function() {
     var intel = this.data.intel
+    var setting = this.data.setting
     var item = new Object()
     item.wechatOpenId = wx.getStorageSync('openId')
     item.planAuto = this.data.planAuto
@@ -89,15 +90,13 @@ Page({
       data: item,
       success: function() {
         that.updateStep()
-        /**wx.redirectTo({
-          url: '../viptype/viptype?inter=init',
-        })*/
-        wx.redirectTo({
-          url: '../create/create',
-        })
-        /*wx.reLaunch({
-          url: '/pages/index/index'
-        })*/
+        if (setting) {
+          wx.navigateBack()
+        } else {
+          wx.redirectTo({
+            url: '../create/create',
+          })
+        }
       }
     })
   },

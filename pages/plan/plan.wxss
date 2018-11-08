@@ -1,22 +1,22 @@
 .page {
-    background-color: #fff;
-    /*border-top: 1px solid #666666;*/
-  }
-  
-.header {
-   margin: 80rpx 60rpx 60rpx;
+  background-color: #fff;
+  /*border-top: 1px solid #666666;*/
 }
-  
+
+.header {
+  margin: 80rpx 60rpx 60rpx;
+}
+
 .header-title {
-   font-size: 50rpx;
-   color: #323232;
-   font-weight: bold;
+  font-size: 50rpx;
+  color: #323232;
+  font-weight: bold;
 }
 
 .header-content {
   margin-top: 18rpx;
   font-size: 28rpx;
-  color: #666666;
+  color: #666;
 }
 
 .content-check {
@@ -25,7 +25,7 @@
 }
 
 .content-list {
-  margin:0 0 20rpx 60rpx;
+  margin: 0 0 20rpx 60rpx;
   position: relative;
   display: flex;
   align-items: center;
@@ -36,34 +36,41 @@
 }
 
 .content-list:hover {
- background-color: #D6BC8A;
- border: none;
+  background-color: #d6bc8a;
+  border: none;
 }
 
 .content-list:hover view {
- color: #FFFFFF;
+  color: #fff;
 }
 
 .content-title {
-  font-size:34rpx;
-  color: #999999;
+  font-size: 34rpx;
+  color: #999;
 }
 
 .content-explain {
   font-size: 26rpx;
-  color:#999999;
+  color: #999;
   margin-top: 20rpx;
 }
-  /*修改*/
-  .repair-button {
-      border-radius: 60rpx;
-      background-color: #04B8A0;
-      width: 590rpx;
-      height: 100rpx;
-      line-height: 100rpx;
-      color: #FFFFFF;
-      letter-spacing: 6rpx;
-      bottom: 50rpx;
-      position:fixed;
-      margin-left:80rpx;
-    }
+
+/*修改*/
+
+.repair-button {
+  border-radius: 60rpx;
+  background-color: #04b8a0;
+  width: 590rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  letter-spacing: 6rpx;
+  bottom: 50rpx;
+  position: fixed;
+  margin-left: 80rpx;
+}
+
+view.active {
+  background-color: #d6bc8a;
+}
+
