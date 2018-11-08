@@ -108,11 +108,11 @@ Page({
     var lev = wx.getStorageSync('level')
     if (lev < 20) {
       wx.setStorageSync('level', '20')
+      wx.request({
+        url: util.requestUrl + 'user/updateStep',
+        method: 'POST',
+        data: item
+      })
     }
-    wx.request({
-      url: util.requestUrl + 'user/updateStep',
-      method: 'POST',
-      data: item
-    })
   }
 })
