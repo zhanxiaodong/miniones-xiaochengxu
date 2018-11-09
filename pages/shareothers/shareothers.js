@@ -26,6 +26,7 @@ Page({
     })
   },
   onLoad: function(options) {
+    console.log(options)
     var that = this
     if (options.shareOpenId) {
       that.setData({
@@ -62,6 +63,7 @@ Page({
       this.setData({
         needAuth: false
       })
+      this.saveShareRecord(wx.getStorageSync('openId'))
     }
   },
   onGotUserInfo: function(e) {

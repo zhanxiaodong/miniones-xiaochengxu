@@ -49,15 +49,13 @@ Page({
     })
   },
   onShareAppMessage: function () {
+    var shareOpenId = wx.getStorageSync('openId')
     return {
       title: '我们爱所有孩子，如同自己一般',
-      imageUrl: "/images/send.jpeg",
-      path: "../shareothers/shareothers",
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/send.jpg",
+      path: 'pages/shareothers/shareothers?shareType=INVITATION&shareOpenId=' + shareOpenId,
       success: (res) => {
-        var forward = this.data.forward
-        if (forward != 'forward') {
-          this.shareActivity()
-        }
+        console.log("转发成功", res);
       },
       fail: (res) => {
         console.log("转发失败", res);

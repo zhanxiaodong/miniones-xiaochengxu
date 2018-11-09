@@ -12,7 +12,7 @@ Page({
     var activityId = options.activityId
     if (bonus) {
       this.setData({
-        bonus: options.bonus
+        bonus: Number(bonus).toFixed(2)
       })
     }
     if (forward) {
@@ -42,7 +42,7 @@ Page({
       url: util.requestUrl + 'survey/findSurveyRecord',
       method: 'POST',
       data: item,
-      success: function (res) {
+      success: function(res) {
         var surveyRecord = res.data.data
         if (surveyRecord) {
           that.setData({
@@ -62,6 +62,9 @@ Page({
       method: 'POST',
       data: item,
       success: function(res) {
+        wx.showToast({
+          title: '成功翻倍',
+        })
         var result = res.data.data
         that.setData({
           bonus: result.totalBonus.toFixed(2),
@@ -79,7 +82,7 @@ Page({
     }
     return {
       title: '这是一个有红包的问卷哦（限宝妈参与）',
-      path: 'pages/awardexame/awardexame?shareOpenId=' + shareOpenId,
+      path: 'pages/awardexame/awardexame?shareType=EXAME&shareOpenId=' + shareOpenId,
       imageUrl: "http://miniany.oss-cn-beijing.aliyuncs.com/minianys/shareImg.jpg",
     }
   },

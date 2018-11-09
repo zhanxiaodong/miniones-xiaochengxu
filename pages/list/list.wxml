@@ -19,7 +19,7 @@
                 ¥98
             </view>
             <view class="butBox">
-               <button class="but" type="primary" open-type="share">分享好友即可获赠</button>
+               <button class="but" type="primary" open-type="share">分享3位好友即订阅即赠</button>
             </view>
          </view>
       </view>

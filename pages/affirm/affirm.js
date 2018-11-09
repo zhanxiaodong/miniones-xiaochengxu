@@ -104,7 +104,7 @@ Page({
               method: 'POST',
               data: item,
               success: function (res) {
-                wx.navigateTo({
+                wx.reLaunch({
                   url: '../giftBox/giftBox',
                 })
               }
@@ -257,7 +257,7 @@ Page({
             content: res.data.message
           })
         } else {
-          wx.navigateTo({
+          wx.reLaunch({
             url: '../giftBox/giftBox',
           })
         }
