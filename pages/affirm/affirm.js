@@ -6,9 +6,9 @@ import {
 } from '../../components/wux'
 Page({
   data: {
-    onFocus: false,    //textarea焦点是否选中
+    onFocus: false, //textarea焦点是否选中
     isShowText: false, //控制显示 textarea 还是 text
-    remark: '',        //用于存储textarea输入内容
+    remark: '', //用于存储textarea输入内容
 
     payAmount: 0,
     realPayAmount: 0,
@@ -16,14 +16,14 @@ Page({
     expCoupon: null,
     payStatus: false,
     useExpCoupon: false,
-    markIndex:false,
-    hidIndex:false,
-    addressInfo:null,
+    markIndex: false,
+    hidIndex: false,
+    addressInfo: null,
     date: "",
-    remarks:null,
-    more:{
-      occasions:'日常（默认）',
-      consumList:'不变（默认）'
+    remarks: null,
+    more: {
+      occasions: '日常（默认）',
+      consumList: '不变（默认）'
     },
     date: {
       month: '',
@@ -31,26 +31,26 @@ Page({
     }
   },
 
-  onShowTextare() {       //显示textare
+  onShowTextare() { //显示textare
     this.setData({
       isShowText: false,
       onFocus: true
     })
   },
-  onShowText() {       //显示text
+  onShowText() { //显示text
     this.setData({
       isShowText: true,
       onFocus: false
     })
   },
-  onRemarkInput(event) {               //保存输入框填写内容
+  onRemarkInput(event) { //保存输入框填写内容
     var value = event.detail.value;
     this.setData({
       remark: value,
     });
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var babyId = options.babyId
     var stylistId = options.stylistId
     var today = dateUtils.formatDate2(
@@ -66,12 +66,13 @@ Page({
       this.updatePayAmount()
     }
     this.findExpCoupon()
+    this.findLastBox()
   },
-  updatePayAmount: function () {
+  updatePayAmount: function() {
     var that = this
     wx.request({
       url: util.requestUrl + 'box/updatePayAmount?openId=' + wx.getStorageSync('openId'),
-      success: function (res) {
+      success: function(res) {
         that.setData({
           payAmount: res.data.data,
           realPayAmount: res.data.data
@@ -79,7 +80,7 @@ Page({
       }
     })
   },
-  wepay: function (e) {
+  wepay: function(e) {
     var item = this.updateItem()
     item.payChannel = 'WECHAT'
     item.type = 'SERVICE'
@@ -93,7 +94,7 @@ Page({
       url: util.requestUrl + 'wechat/wxPay',
       method: 'POST',
       data: item,
-      success: function (res) {
+      success: function(res) {
         var param = res.data;
         item.otherNo = param.data.orderNo
         wx.requestPayment({
@@ -102,7 +103,7 @@ Page({
           package: param.data.package,
           signType: 'MD5',
           paySign: param.data.paySign,
-          success: function (event) {
+          success: function(event) {
             that.setData({
               payStatus: false
             })
@@ -110,7 +111,7 @@ Page({
               url: util.requestUrl + 'user/balanceGetBox',
               method: 'POST',
               data: item,
-              success: function (res) {
+              success: function(res) {
                 wx.reLaunch({
                   url: '../giftBox/giftBox',
                 })
@@ -124,11 +125,11 @@ Page({
   /**
    * 查看是否存在体验券
    */
-  findExpCoupon: function () {
+  findExpCoupon: function() {
     var that = this
     wx.request({
       url: util.requestUrl + 'user/findCoupon?openId=' + wx.getStorageSync('openId') + '&type=EXPVOUCHER&status=CREATE',
-      success: function (res) {
+      success: function(res) {
         if (res.data.data) {
           that.setData({
             expCoupon: res.data.data[0],
@@ -138,13 +139,26 @@ Page({
       }
     })
   },
-  bindRemarks: function (e) {
+  findLastBox: function() {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findLastBox?openId=' + wx.getStorageSync('openId'),
+      success: function(res) {
+        if (res.data.data) {
+          that.setData({
+            address: res.data.data.address
+          })
+        }
+      }
+    })
+  },
+  bindRemarks: function(e) {
     var remarks = e.detail.value
     this.setData({
       remarks: remarks
     })
   },
-  more: function (e) {
+  more: function(e) {
     var more = this.data.more
     if (more) {
       wx.navigateTo({
@@ -159,17 +173,17 @@ Page({
   /**
    * 选择地址
    */
-  getAddr: function () {
+  getAddr: function() {
     wx.navigateTo({
       url: '../readdr/readdr?check=' + true
     })
   },
-  bindInput: function (e) {
+  bindInput: function(e) {
     this.setData({
       style: e.detail.value
     })
   },
-  bindDateChange: function (e) {
+  bindDateChange: function(e) {
     console.log(e)
     var dataRes = e.detail.value
     var newDate = dateUtils.plusDay(dateUtils.parseDate(dataRes), 2)
@@ -180,7 +194,7 @@ Page({
   /**
    * 要一个盒子
    */
-  needBox: function (e) {
+  needBox: function(e) {
     var that = this
     var address = that.data.address
     if (!address) {
@@ -220,7 +234,7 @@ Page({
       }
     }
   },
-  updateItem: function () {
+  updateItem: function() {
     var that = this
     var box = that.data.more
     if (!box) {
@@ -239,7 +253,7 @@ Page({
     box.remarks = that.data.remarks
     return box
   },
-  saveBox: function (e) {
+  saveBox: function(e) {
     var that = this
     var box = that.data.more
     console.log(box)
@@ -258,9 +272,9 @@ Page({
     box.formId = e.detail.formId
     wx.request({
       url: util.requestUrl + 'box/saveBox',
-      method: 'POSTssssssssssssssssssss',
+      method: 'POST',
       data: box,
-      success: function (res) {
+      success: function(res) {
         var code = res.data.code
         if (code == "0") {
           $wuxDialog.alert({
@@ -274,7 +288,7 @@ Page({
       }
     })
   },
-  inMark:function(){
+  inMark: function() {
     this.setData({
       payStatus: false,
       markIndex: false,

@@ -51,7 +51,7 @@ Page({
   },
   goBaby: function() {
     wx.navigateTo({
-      url: '../babyInfo/babyInfo',
+      url: '../babyInfo/babyInfo?edit=edit',
     })
   },
   goReduce: function() {

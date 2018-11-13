@@ -1,4 +1,3 @@
-var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 var util = require("../../utils/util.js")
 Page({
   data: {
@@ -10,16 +9,10 @@ Page({
     edit: false
   },
   onLoad: function(options) {
+    console.log(options)
     var that = this;
-    wx.getSystemInfo({
-      success: function(res) {
-        that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
-        });
-      }
-    })
     var stylistId = options.stylistId
+
     if (stylistId) {
       that.setData({
         stylistId: stylistId
@@ -28,7 +21,7 @@ Page({
     var edit = options.edit
     if (edit) {
       that.setData({
-        edit: edit
+        edit: edit == 'edit' ? true : false
       })
     }
   },
@@ -82,7 +75,7 @@ Page({
     } else {
       result = days > 0 ? mnthString + dayString : mnthString;
     }
-    return result 
+    return result
   },
   choose: function(event) {
     var babyId = event.currentTarget.dataset.id
