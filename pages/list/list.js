@@ -1,8 +1,13 @@
+var util = require("../../utils/util.js")
 Page({
   data: {
   
   },
-  
+  onUnload: function () {
+    wx.reLaunch({
+      url: '../index/index'
+    })
+  },
   onShareAppMessage: function (res) {
     var shareOpenId = wx.getStorageSync('openId')
     return {
