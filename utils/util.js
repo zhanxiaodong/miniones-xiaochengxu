@@ -608,6 +608,10 @@ function checkOldUser(item) {
 
 function getPhoneNum(e) {
   var mobile = ''
+  wx.showLoading({
+    title: '',
+    mask: true
+  })
   wx.login({
     success: function (res) {
       console.log(res)
@@ -632,6 +636,7 @@ function getPhoneNum(e) {
               var copyUser = result.copyUser
               getUserInfo(openId)
               if (copyUser) {
+                wx.hideLoading()
                 wx.showToast({
                   title: '复制信息成功',
                   icon: 'success',

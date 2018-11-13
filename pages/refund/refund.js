@@ -41,11 +41,16 @@ Page({
     item.openId = wx.getStorageSync('openId')
     item.amount = this.data.refundAmount
     item.dealType = 'BALANCE'
+    wx.showLoading({
+      title: '',
+      mask: true
+    })
     wx.request({
       url: util.requestUrl + 'user/transfer',
       method: 'POST',
       data: item,
       success:function(res){
+        wx.hideLoading()
         var result = res.data.data
         if(result){
           $wuxDialog.alert({
