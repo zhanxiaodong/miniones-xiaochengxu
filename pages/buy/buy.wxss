@@ -268,7 +268,6 @@ border: none;
 .commodity_attr_box {
   height: 472rpx;
   width: 550rpx;
-  overflow: hidden;
   position: fixed;
   bottom: 380rpx;
   left: 100rpx;
@@ -288,4 +287,32 @@ border: none;
   padding-top: 20rpx;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+/*取消每一个按钮弹窗样式*/
+.content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top: 40rpx;
+}
+.unactive {
+  font-size: 28rpx;
+  color: #999999;
+  line-height: 56rpx;
+  width: 240rpx;
+  border-radius: 20px;
+  border: 1px solid #999999;
+  margin-bottom: 30rpx;
+}
+
+.active {
+  font-size: 28rpx;
+  color:#ffffff;
+  background-color:#04B8A0;
+  border: 1px solid #04B8A0;
+  width: 240rpx;
+  border-radius: 20px;
+  line-height: 56rpx;
+  margin-bottom: 30rpx;
 }

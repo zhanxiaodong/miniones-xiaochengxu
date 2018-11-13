@@ -26,7 +26,15 @@ Page({
     discountPrice: 0.00,
     chooseCount: 0,
     avgPrice: 0.00,
-    backCount: 0
+    backCount: 0,
+    checkboxItems: [
+      { value: '太小了', },
+      { value: '太大了', },
+      { value: '贵了' },
+      { value: '款式不喜欢' },
+      { value: '面料问题' },
+      { value: '颜色问题' },
+    ]
   },
   onLoad: function(options) {
     var that = this
@@ -562,21 +570,19 @@ Page({
     item.checkList = this.rmPostfix()
     item.boxNo = this.data.boxNo
 
-    // var badge = this.data.badge
+    var badge = this.data.badge
     var voucher = this.data.voucher
-    // var cash = this.data.cash
+    var cash = this.data.cash
     var payBoxInfo = new Object()
-    // payBoxInfo.badgeId = badge ? badge.id : null
+    payBoxInfo.badgeId = badge ? badge.id : null
     payBoxInfo.voucherId = voucher ? voucher.id : null
-    // payBoxInfo.cashId = cash ? cash.id : null
+    payBoxInfo.cashId = cash ? cash.id : null
     payBoxInfo.subPrice = this.data.subPrice
     payBoxInfo.VoucherAmount = this.data.voucher ? this.data.voucher.amount : 0
     payBoxInfo.orderPay = this.data.orderPay
     payBoxInfo.discountPrice = this.data.discountPrice
     payBoxInfo.otherAmount = this.data.otherAmount
     payBoxInfo.avgPrice = this.data.avgPrice
-    payBoxInfo.payAmount = this.data.totalPrice
-    payBoxInfo.goodsTotal = this.data.goodsTotal
     item.payBoxInfo = payBoxInfo
     return item
   },
@@ -612,6 +618,25 @@ Page({
       }
     })
   },
+  
+  checkboxChange: function (e) {
+    var checkboxItems = this.data.checkboxItems, values = e.detail.value;
+    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+      checkboxItems[i].checked = false;
+
+      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
+        if (checkboxItems[i].value == values[j]) {
+          checkboxItems[i].checked = true;
+          break;
+        }
+      }
+    }
+    this.setData({
+      checkboxItems: checkboxItems,
+    });
+    console.log(e.detail.value)
+  },
+  
   goCulb: function() {
     wx.navigateTo({
       url: "/pages/club/club?up=true"

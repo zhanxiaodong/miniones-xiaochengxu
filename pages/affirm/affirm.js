@@ -1,5 +1,6 @@
 var util = require("../../utils/util.js")
 var viplev = require('../../utils/viplev.js')
+var dateUtils = require('../../utils/date.js')
 import {
   $wuxDialog
 } from '../../components/wux'
@@ -23,6 +24,10 @@ Page({
     more:{
       occasions:'日常（默认）',
       consumList:'不变（默认）'
+    },
+    date: {
+      month: '',
+      day: ''
     }
   },
 
@@ -48,7 +53,9 @@ Page({
   onLoad: function (options) {
     var babyId = options.babyId
     var stylistId = options.stylistId
-    var today = util.getToday(new Date())
+    var today = dateUtils.formatDate2(
+      dateUtils.plusDay(new Date(), 2)
+    )
     this.setData({
       date: today,
       babyId: babyId,
@@ -163,8 +170,11 @@ Page({
     })
   },
   bindDateChange: function (e) {
+    console.log(e)
+    var dataRes = e.detail.value
+    var newDate = dateUtils.plusDay(dateUtils.parseDate(dataRes), 2)
     this.setData({
-      date: e.detail.value
+      date: dateUtils.formatDate2(newDate)
     })
   },
   /**
@@ -248,7 +258,7 @@ Page({
     box.formId = e.detail.formId
     wx.request({
       url: util.requestUrl + 'box/saveBox',
-      method: 'POST',
+      method: 'POSTssssssssssssssssssss',
       data: box,
       success: function (res) {
         var code = res.data.code

@@ -72,5 +72,6 @@
 
 view.active {
   background-color: #d6bc8a;
+  border-radius:15rpx;
 }
 

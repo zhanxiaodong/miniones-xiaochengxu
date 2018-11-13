@@ -27,7 +27,7 @@ Page({
    */
   onShow: function () {
     setTimeout(function () {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../list/list',
       })
     }, 2000)
