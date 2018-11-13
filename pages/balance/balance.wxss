@@ -1,5 +1,4 @@
 page {
-  background-color: #f2f2f2;
   height: 100%;
 }
 
@@ -10,14 +9,14 @@ page {
 }
 
 .btncs {
-  background-color: #26aea8;
+  background-color: #04B8A0;
   color: #fff;
   border-radius: 32px;
 }
 
 .btngreens {
   color: #fff;
-  background-color: #26aea8;
+  background-color:04B8A0;
   font-size: 15px;
   line-height: 40px;
 }
@@ -69,7 +68,7 @@ page {
 }
 
 .rechargeGroup .active {
-  background-color: #26aea8;
+  background-color: #04B8A0;
   color: #fff;
 }
 

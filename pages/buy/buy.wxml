@@ -96,7 +96,7 @@
     <view class="butBox">
         <button bindtap="toPayOrder" class="but"><text style="padding-left: 120rpx;font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text><text style="font-size: 28rpx; font-weight: bold; color: #ffffff; padding-left:40rpx; ">{{totalPrice}}</text> </button>
     </view>
-    <!--屏幕背景变暗的背景  -->
+<!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <!--弹出框  -->
 <view class="something-pay" wx:if="{{showModalStatus}}">
@@ -116,27 +116,72 @@
     </view>
   </view>
 </view> 
-
+<!--屏幕背景变暗 -->
 <view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
 <!--弹出框  -->
 <view class="commodity_attr_box" wx:if="{{confirmNo}}">
   <view style="text-align: center;">
     <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>您未选择任何商品</view>
     <view style="color: #999999; font-size: 24rpx">提交订单将跳转退件流程</view>
-    <view style='padding: 180rpx 30rpx 0px;display: flex;'>
-      <view style='flex: 1;padding-right: 10rpx;'>
+    <view style='padding: 120rpx 30rpx 0px;'>
+      <view style="padding-bottom: 30rpx;">
         <form bindsubmit='confirmNoPay' report-submit='true'>
           <button class='button-choice' form-type='submit' bindtap='refuse'>确定</button>
         </form>
       </view>
-      <view style='flex: 1;padding-left: 10rpx;'>
+      <view>
         <form bindsubmit='hideComfirm' report-submit='true'>
           <button class='button-choice' form-type='submit' >再看看</button>
         </form>
       </view>
     </view>
   </view>
+  <view style="display: flex; flex-direction: column; align-items: center;z-index: 20000;">
+    <view style="width: 48rpx; height: 88rpx;z-index: 2000; position: absolute; margin-top: 44rpx;">
+      <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
+      <image bindtap="hideModal" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
+    </view>
+  </view>
 </view>
 
+<!--不买会员屏幕背景变暗 -->
+<view class="commodity_screen" bindtap="hideVip" wx:if="{{noVip}}"></view>
+<!--弹出框  -->
+<view class="commodity_attr_box" wx:if="{{noVip}}">
+  <view style="text-align: center;">
+    <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>确认放弃优惠</view>
+    <view style="color: #999999; font-size: 24rpx">成为迷你会员后，本单会立减至少99</view>
+    <view style="color: #999999; font-size: 24rpx">元的优惠哦</view>
+    <view style='padding-top: 80rpx;'>
+      <view style='flex: 1;padding-bottom:30rpx;'>
+        <form bindsubmit='hideVip' report-submit='true'>
+          <button class='button-choice' form-type='submit' bindtap='refuse'>放弃优惠</button>
+        </form>
+      </view>
+      <view style='flex: 1;'>
+        <form bindsubmit='returnVip' report-submit='true'>
+          <button class='button-choice' form-type='submit' >再考虑下</button>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
 
+<!--取消衣服弹窗-->
+<view class="commodity_screen" bindtap="hideCloth" wx:if="{{clothNo}}"></view>
+<!--弹出框  -->
+<view class="commodity_attr_box" style="height: 726rpx;bottom:180rpx;" wx:if="{{clothNo}}">
+  <view style="text-align: center;">
+    <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>抛弃原因</view>
+    <view style="color: #999999; font-size: 24rpx">小衣服表示很委屈</view>
+    <checkbox-group class="content" bindchange="checkboxChange">
+      <label  wx:for="{{checkboxItems}}" wx:key="value">
+        <view class="{{item.checked ? 'active' : 'unactive'}}">
+         <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
+         <view class="name">{{item.value}}</view>
+        </view>
+      </label>
+    </checkbox-group>
+  </view>
+</view>
 </view>
