@@ -9,12 +9,12 @@
     </view>
   </view>
   <view class='flex1'>
-    <view style='padding: 5px 20px;'>
+    <!-- <view style='padding: 5px 20px;'>
       <button class="btncs" bindtap='showModal'>充值</button>
-    </view>
-    <!--<view style='padding: 5px 20px;'>
+    </view> -->
+    <view style='padding: 5px 20px;'>
       <button class="btncs" bindtap='refund'>提现</button>
-    </view>-->
+    </view>
   </view>
 
 </view>
