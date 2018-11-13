@@ -2,7 +2,6 @@ var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 var util = require("../../utils/util.js")
 Page({
   data: {
-    tabs: ["我的宝贝", "我的公益"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
