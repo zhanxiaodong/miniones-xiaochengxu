@@ -19,7 +19,7 @@ Page({
     var that = this;
     return {
       title: '给你孩子免费寄去搭配衣盒，全球品牌先试后买',
-      path: '../guide/guide',
+      path: '/pages/guide/guide',
       imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-guide.jpg",
       success: (res) => {
         console.log("转发成功", res);

@@ -8,12 +8,12 @@ Page({
       },
       {
         title: '99抵扣券',
-        detail: '会员专享，每季度可领600低扣券',
+        detail: '会员专享，每季度可领600抵扣券',
         color: '#04B8A0'
       },
       {
         title: '199抵扣券',
-        detail: '会员专享，每季度可领600低扣券',
+        detail: '会员专享，每季度可领600抵扣券',
         color: '#04B8A0'
       }
     ],
@@ -28,6 +28,11 @@ Page({
   onLoad: function(options) {
     console.log(options)
     var that = this
+    if (options.shareUserInfo) {
+      that.setData({
+        shareUserInfo: options.shareUserInfo
+      })
+    }
     if (options.shareOpenId) {
       that.setData({
         shareOpenId: options.shareOpenId

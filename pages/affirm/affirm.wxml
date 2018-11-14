@@ -12,14 +12,27 @@
   <view class="border"></view>
   <view class="content">
     <view class="con clearfix">
-      <view class="conLeft">
+      <view class="conLeft" id="repair-three">
         <image class="conLeft-img" src="/images/get-three.png" />
       </view>
       <view class="conRight rightTop" id="repair-one" bindtap='getAddr'>
-        <view class="conText">收件地址
+        <!--<view class="conText">收件地址
         </view>
         <view class="info">
           <input placeholder='衣盒将由顺丰送达您的指定地址' placeholder-class='inputhcs' class='inputcs flex_auto' value='{{address.address}}'></input>
+        </view>-->
+        <view class="address-left">
+          <view class="address-line">
+            <input placeholder="收件地址" placeholder-style="color:#333333;" value='{{address.address}}' class="address" />
+            <view class="address-detail">{{address.addressDetail}}</view>
+          </view>
+          <view class="information">
+           <view class="name">{{address.name}}</view>
+           <view class="type">{{address.type}}</view>
+           <!--<view style="height: 40rpx;width: 1px;background-color: #999999;"> </view>-->
+           
+            <input placeholder='请选择您的收货地址' placeholder-style="margin-left: -40rpx;" value="{{address.tel}}" class="phone" />
+          </view>
         </view>
         <image class="conleft-direction" src="/images/direction.png" />
       </view>
@@ -30,14 +43,14 @@
       </view>
       <view class="conRight rightTop" id="repair-two">
         <view class="conText">配送时间
-          <text></text>
+          <text style="font-weight:400;color: #04B8A0; padding-left: 10rpx;">预计</text>
         </view>
-        <view class="info">
+        <view class="show-time">
           <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
             <input class="weui-input size-15" value='{{date}}' disabled="true" placeholder="请选择时间" />
           </picker>
         </view>
-       <image class="conleft-direction" src="/images/direction.png" />
+       <image class="conleft-direction" id="distance" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix" bindtap="more">
