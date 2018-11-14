@@ -135,6 +135,12 @@ color: #666666;
   color:#c3c3c3;
   z-index: 333;
 }
+.show-time {
+  font-size: 28rpx;
+}
+#distance {
+  padding-left:66rpx;
+}
 .payTop{
   width:100%;
   height:120rpx;
@@ -197,11 +203,16 @@ color: #666666;
 #repair-one {
   display: flex;
   flex-direction: row;
+  padding: 40rpx 0 0 30rpx;
 }
 
 #repair-two {
   display: flex;
   flex-flow: row nowrap;
+}
+
+#repair-three {
+  line-height: 135rpx;
 }
 
 .conLeft-img {
@@ -220,4 +231,58 @@ color: #666666;
   height: 54rpx;
   float: right;
   padding-right: 24rpx;
+}
+
+.address-left {
+  display: flex;
+  flex-direction: column;
+  width: 524rpx;
+}
+
+.information {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.name,.phone,.address-detail,.type {
+  font-size: 28rpx;
+  color: #999999;
+  letter-spacing: 1px;
+}
+.type {
+  font-size: 28rpx;
+  color: #999999;
+  
+  line-height: 52rpx;
+}
+
+.name {
+  line-height: 52rpx;
+}
+.phone {
+  padding-left:40rpx
+} 
+
+.address-line {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 10rpx;
+}
+.address {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 600;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+  width:250rpx;
+}
+
+.address-detail {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+  padding-left: 15rpx;
+  line-height:54rpx;
+  width: 100px;
 }
