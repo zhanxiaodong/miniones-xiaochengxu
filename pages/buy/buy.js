@@ -172,10 +172,10 @@ Page({
   },
   onShow: function() {
     var voucher = this.data.voucher
-    if (voucher) {
+    // if (voucher) {
       var goodsTotal = this.data.goodsTotal
       this.updateAmount(goodsTotal ? goodsTotal : 0.00)
-    }
+    // }
     var update = this.data.update
     if (update) {
       this.updateInfo(true)
@@ -299,6 +299,8 @@ Page({
     var avgPrice = 0.00
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
+      console.log(totalPrice)
+      var userCoupon = false
       var voucher = this.data.voucher
       var reBuy = this.data.reBuy
       if (voucher && totalPrice != 0 && !reBuy) {
@@ -312,6 +314,7 @@ Page({
             totalPrice = totalPrice - voucher.amount
             subPrice = subPrice + voucher.amount
           }
+          userCoupon = true
         } else {
           this.setData({
             voucher: null
@@ -368,7 +371,7 @@ Page({
       } else {
         vipoprice = totalPrice * 0.15
       }
-      if (this.data.other && totalPrice > 0) {
+      if (this.data.other && totalPrice > 0 && !userCoupon) {
         otherAmount = totalPrice * this.data.otherDic
         totalPrice = totalPrice - otherAmount
         subPrice = subPrice + otherAmount

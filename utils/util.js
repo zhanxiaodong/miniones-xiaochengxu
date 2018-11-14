@@ -437,7 +437,7 @@ function radioGroupChange(group, value) {
   return group
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
-// const requestUrl = 'https://interface.miniones.cn/merchant/'
+// const requestUrl = 'http://interface.miniones.cn/merchant/'
   //  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
  const requestUrl = 'http://192.168.0.2:8080/merchant/'
 //const requestUrl = 'http://localhost:8080/merchant/'
