@@ -483,11 +483,16 @@ Page({
     } else {
       var item = this.updateItem()
       var that = this
+      wx.showLoading({
+        title: '',
+        mask: true
+      })
       wx.request({
         url: util.requestUrl + 'user/balancePay',
         method: 'POST',
         data: item,
         success: function(res) {
+          wx.hideLoading()
           that.setData({
             showModalStatus: false
           })

@@ -21,6 +21,10 @@ Page({
       })
     },
     codeCheck: function () {
+      wx.showLoading({
+        title: '',
+        mask: true
+      })
       var codeIn = this.data.codeIn
       var code = this.data.code
       var tel = this.data.mobile
@@ -36,6 +40,7 @@ Page({
             openId: wx.getStorageSync('openId')
           },
           success: function (res) {
+            wx.hideLoading()
             wx.setStorageSync('level', res.data.data.level)
             if (res.data.data.copyUser) {
               wx.showToast({

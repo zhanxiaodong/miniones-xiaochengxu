@@ -171,11 +171,16 @@ Page({
         vipOrder.level = viplev.EXP
       }
       item.vipOrder = vipOrder
+      wx.showLoading({
+        title: '',
+        mask: true
+      })
       wx.request({
         url: util.requestUrl + 'user/balancePay',
         method: 'POST',
         data: item,
         success: function (res) {
+          wx.hideLoading()
           that.updateTitle(vipOrder.level, levTime, choose)
           that.hideModal('pay')
           that.goLast(vipOrder.level)

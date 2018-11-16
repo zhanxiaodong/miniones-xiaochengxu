@@ -461,6 +461,10 @@ function imageUtil(e, windowWidth, windowHeight) {
 }
 function getOpenId() {
   var openId = wx.getStorageSync('openId')
+  wx.showLoading({
+    title: '',
+    mask: true
+  })
     if (!openId) {
       wx.login({
         success: function (res) {
@@ -487,6 +491,7 @@ function getOpenId() {
                     wx.request({
                       url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
                       success: function (res) {
+                        wx.hideLoading()
                         var result = res.data.data
                         var level = "0"
                         if (result) {
@@ -525,6 +530,7 @@ function getOpenId() {
                                           iv: res_user.iv
                                         },
                                         success: function (res) {
+                                          wx.hideLoading()
                                           var openId = data.data.data.openid
                                           wx.setStorageSync('openId', openId);
                                           getUserInfo(openId)
@@ -537,7 +543,7 @@ function getOpenId() {
                             });
                           }
                         }, fail: function (res) {
-
+                          wx.hideLoading()
                         }
                       })
 
