@@ -22,7 +22,7 @@
   </view>
   <view class="award-count">
    <view class="award-count-math">共{{result.joinNum}}人参与,</view>
-   <view class="award-count-look" bindtap="goPeople">查看全部></view>
+   <view class="award-count-look" >查看全部></view>
   </view>
 </view>
 </view>
