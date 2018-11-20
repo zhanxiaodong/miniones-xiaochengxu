@@ -436,18 +436,12 @@ function radioGroupChange(group, value) {
   }
   return group
 }
-// const requestUrl = 'https://minianys.bananayc.com/merchant/'
-<<<<<<< HEAD
+
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
    const requestUrl = 'https://interface.miniones.cn/merchant_new/'
- // const requestUrl = 'http://192.168.0.2:8080/merchant/'
-//const requestUrl = 'http://localhost:8080/merchant/'
-=======
 // const requestUrl = 'http://interface.miniones.cn/merchant/'
-  //  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
- const requestUrl = 'http://192.168.0.2:8080/merchant/'
+ //const requestUrl = 'http://192.168.0.2:8080/merchant/'
 // const requestUrl = 'http://localhost:8080/merchant/'
->>>>>>> 25eaea36d1d4be1d90ccd6d1937d956b94031cd2
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
   var originalWidth = e.detail.width;//图片原始宽  

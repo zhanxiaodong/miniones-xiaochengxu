@@ -14,12 +14,12 @@ Page({
         title: '换洗季'
       }],
     recordList: [{
-        math: '98cm'
+        math: '98cm',icon: '/images/shangsheng.png'
     },{
-        math: '18kg'
+        math: '18kg', icon: '/images/shangsheng.png'
       },
       {
-        math: '15cm'
+        math: '15cm', icon: '/images/chiping.png'
       }],  
     showModalStatus: false,
     needAuth: false,

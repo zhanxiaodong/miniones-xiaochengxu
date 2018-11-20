@@ -61,13 +61,13 @@
   }
 /*修改*/
  .repair-one {
-    background-color: #04B8A0;
     color: #FFFFFF;
-    line-height: 80rpx;
-    width: 400rpx;
+    line-height: 90rpx;
+    width: 300rpx;
     font-size: 28rpx;
-    font-weight: Regular;
+    font-weight: 600;
     border-radius: 60rpx;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
   }
   
   #repair_bd {
@@ -84,13 +84,12 @@
     align-items:center;
     justify-content:space-around;
     width: 90%;
-    height: 85%;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0px 0px 15px 6px rgba(128,128,128,0.08);
   }
   
   .button-bottom {
-    padding-bottom: 60rpx;
+    padding-bottom: 90rpx;
     text-align: center;
   }
 
@@ -99,14 +98,14 @@
   } 
 
   .allow {
-    height: 300rpx;
-    width: 300rpx;
+    height: 240rpx;
+    width: 240rpx;
   }
 
   .infoView {
       text-align: left;
       width: 100%;
-      padding: 40rpx 0 100rpx 40rpx;
+      padding: 50rpx 0 92rpx 40rpx;
   }
  
   .infoView-one {
@@ -219,7 +218,7 @@ page {
   height: 80rpx;
   width: 80rpx;
   border-radius: 40rpx;
-  background-color: red;
+  background-color: #f6f8f7;
 }
 
 /*主题*/
@@ -227,7 +226,7 @@ page {
   width: 675rpx;
   margin: 40rpx 0 0 37.5rpx;
   background-color: #fff;
-  border-radius: 15px;
+  border-radius: 12px;
   box-shadow:0px 0px 15px 6px rgba(128,128,128,0.08);
 }
 
@@ -238,6 +237,7 @@ page {
 .theme-title {
   font-size: 32rpx;
   color: #333333;
+  font-weight: 600;
 }
 
 .theme-detail {
@@ -275,4 +275,14 @@ page {
   color: #999999;
   text-align: center;
   padding: 60rpx 0 160rpx;
+}
+
+.theme-intro-item-title-img {
+  height: 44rpx;
+  width: 44rpx;
+}
+
+.theme-intro-item-container {
+  display: flex;
+  flex-flow: row nowrap;
 }

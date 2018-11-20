@@ -68,8 +68,11 @@
        <block wx:for="{{recordList}}" wx:key="*this">
         <view class="theme-intro-item">
           <image class="theme-intro-item-icon" src="{{}}"/>
-          <view class="theme-intro-item-title">{{item.math}}<text style="padding-left: 10rpx;">+</text></view>
-        </view>
+          <view class="theme-intro-item-container">
+            <view class="theme-intro-item-title">{{item.math}}</view>
+            <image src="{{item.icon}}" class="theme-intro-item-title-img"/>
+          </view>  
+       </view>
       </block>
      </view>
      <view class="content-repair">我要修正</view>

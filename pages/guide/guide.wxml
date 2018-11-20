@@ -25,7 +25,7 @@
    <view class="describe-six">MINIONES（迷你王国）为订阅会员提供愉悦可靠的购物体验。通过每个月寄送一个专属盒子，将全球有趣的儿童品牌商品送到孩子面前，留下喜欢的付款，剩下的免费一键退回。</view>
    <view class="describe-seven">
      <view class="describe-seven-item" wx:for="{{sectionOne}}" wx:key="*this">
-       <view class="describe-seven-item-math">{{item.math}}<text class="describe-seven-item-math-add">+</text></view>
+       <view class="describe-seven-item-math">{{item.math}}</view>
        <view class="describe-seven-item-title">{{item.title}}</view>
      </view>
    </view>
@@ -67,7 +67,7 @@
   </view>
 </view>
 <view class="content-vip-two">
- <view class="content-vip-container">
+ <view class="content-vip-container" style="padding-left:26rpx;">
     <view class="content-vip-list" wx:for="{{vipListAgain}}" wx:key="*this">
       <view class="content-vip-list-one">
         <view class="vip-math">{{item.math}}</view>
@@ -117,7 +117,7 @@
 </swiper>
 <view class="question-distance">
  <view class="content-title">{{titleFour}}</view>
- <view class="content-line">Vip Privilege</view>
+ <view class="content-line">VIP Privilege</view>
 </view>
 <view class="vip-privilege">
   <view class="vip-privilege-detail" wx:for="{{vipPrivilege}}" wx:key="*this">
@@ -191,6 +191,7 @@
 通过对话框直接咨询</view>
   <view class="footer-phone">或直接垂询：400-108-2028</view>
 </view>
+<view style="height: 65rpx"></view>
 <!--<view class="button" bindtap="clickIndex">开启风格</view>-->
 </view>
 <import src="../../tabbar.wxml" />
