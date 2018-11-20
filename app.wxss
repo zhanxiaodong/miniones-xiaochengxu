@@ -28,10 +28,6 @@ clear: both ;
 visibility: hidden ;
 }
 
-.footer {
-  height: 600rpx;
-}
-
 
 
 
@@ -68,3 +64,40 @@ visibility: hidden ;
 .icon-wenhao:before { content: "\e645"; }
 
 
+/*add*/
+.container {
+  width: 100%rpx;
+  height: 100%rpx;
+  font-size: 32rpx;
+}
+ 
+ 
+.menu-item {
+  width: 33%;
+  float: left;
+  text-align: center;
+  padding: 26rpx 0;
+}
+
+/*.menu-item:link {color: red!important}
+.menu-item:visited {color:red!important}
+.menu-item:hover {color: red!important}
+.menu-item:active {color:red!important}*/       
+
+.img {
+  width: 23px;
+  height: 23px;
+  display: block;
+  margin: auto;
+}
+
+.clear {
+  clear: both;
+}
+ 
+.tab-bar {
+  background-color:#fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}

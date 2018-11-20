@@ -19,9 +19,9 @@
 .usermotto {
   margin-top: 200px;
 } */
-page, .page, .page__bd {
+/*page, .page, .page__bd {
     height: 100%;
-  }
+  }*/
   
   .page {
     background: #fff;
@@ -74,9 +74,11 @@ page, .page, .page__bd {
     display: flex;
     justify-content:center;
     align-items:center;
+    background-color:#f6f8f7;
   }
   
   #repair-two {
+    background-color:#fff;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -85,7 +87,6 @@ page, .page, .page__bd {
     height: 85%;
     border-radius: 20px;
     box-shadow: 0px 0px 15px 6px rgba(128,128,128,0.08);
-    margin-top: 60rpx;
   }
   
   .button-bottom {
@@ -103,7 +104,21 @@ page, .page, .page__bd {
   }
 
   .infoView {
-      text-align: center;
+      text-align: left;
+      width: 100%;
+      padding: 40rpx 0 100rpx 40rpx;
+  }
+ 
+  .infoView-one {
+    font-size: 32rpx;
+    color: #999999;
+    padding-bottom:10rpx;
+  }
+
+  .infoView-two {
+    font-size: 44rpx;
+    font-weight: 600;
+    color: #666666;
   }
 
   .message {
@@ -152,4 +167,112 @@ page, .page, .page__bd {
 #sb {
   background:rgba(0, 0, 0, 0.5); 
   opacity: 1;
+}
+
+page {
+  background-color: #f6f8f7;
+}
+/*头部*/
+.header {
+  padding: 37.5rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+/*左边*/
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-info {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-bottom: 10rpx;
+}
+
+.header-place {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.header-icon {
+  height: 40rpx;
+  width: 40rpx;
+  padding: 0 20rpx;
+}
+
+.header-tem {
+  font-size: 32rpx;
+  color: #666666;
+}
+
+.header-warn {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #04B8A0;
+}
+
+/*右边*/
+.header-right {
+  margin-top: 20rpx;
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 40rpx;
+  background-color: red;
+}
+
+/*主题*/
+.theme {
+  width: 675rpx;
+  margin: 40rpx 0 0 37.5rpx;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow:0px 0px 15px 6px rgba(128,128,128,0.08);
+}
+
+.theme-container {
+  padding: 60rpx 40rpx; 
+}
+
+.theme-title {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.theme-detail {
+  font-size: 24rpx;
+  color: #999999;
+  margin: 40rpx 0 60rpx;
+}
+
+.theme-intro {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.theme-intro-item-icon {
+  width: 48rpx;
+  height: 48rpx;
+  padding: 0 0 20rpx 20rpx;
+}
+
+.theme-intro-item-title {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.content-repair {
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  padding-top: 60rpx;
+}
+
+.footer {
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+  padding: 60rpx 0 160rpx;
 }

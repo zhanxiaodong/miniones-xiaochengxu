@@ -1,12 +1,151 @@
-var util = require("../../utils/util.js")
+var util = require("../../utils/util.js");
+const app = getApp();
 Page({
   data: {
-    titleOne: '如何使用迷你王国？',
-    titleTwo: '衣服里都有什么？',
-    titleThree: '为什么选择迷你王国',
-    titleFour: '常见问题FAQ',
-    boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiaolu.jpg',
-    contactImg: '/images/erweima.jpg',
+    titleOne: '迷你王国的全新购物体验',
+    titleTwo: '超过200000名高知妈妈的托付',
+    titleThree: '为什么要选择迷你王国',
+    titleFour: '订阅会员专享特权',
+    vipGrey: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-grey.png',
+    vipYellow: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-yellow.png',
+    vipGreen: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-green.png',
+    vipOne: '/images/1.png',
+    vipTwo: '/images/2.png',
+    boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbg.png',
+    contactImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg',
+    sectionOne: [{
+      math: '1',
+      title: '每月可要一盒'
+    },
+    {
+      math: '3',
+      title: '严选2-3套搭配'
+    },
+    {
+      math: '50%',
+      title: '不高于5折'
+    }
+    ],
+    sectionTwo: [{
+        math: '60',
+        title: '全球童装品牌'
+      },
+      {
+        math: '22,000',
+        title: '严选品质单品'
+      },
+      {
+        math: '190,000',
+        title: '亲子家庭托付'
+      },
+    ],
+    vipList: [{
+        math: '01.',
+        title: '注册订阅',
+        content: '填写孩子的个性资料，并设定你的预期。'
+      },
+      {
+        math: '02.',
+        title: '要个盒子',
+        content: '随时随地，一键下单，精美搭配顺丰到家。'
+      },
+    ],
+    vipListAgain: [{
+      math: '03.',
+      title: '在家试穿',
+      content: '留下孩子喜欢的进行购买，会员享优惠折扣。'
+      },
+      {
+        math: '04.',
+        title: '免费退回',
+        content: '不合适的免费退回，一键顺丰上门取走。'
+      },
+      {
+        math: '05.',
+        title: '连续服务',
+        content: '等待下一个衣盒，也可以主动发起需求。'
+      },
+    ],
+    vipPrivilege: [{
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou2.png',
+        title: '专属搭配'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou.png',
+        title: '专享折扣'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou3.png',
+        title: '先试后买'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou4.png',
+        title: '往返包邮'
+      }
+    ],
+     
+    indicatorDots: false,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000,
+    circular: true,
+
+    lunbotuList: [{
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sara.png',
+      photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sara1.png',
+      name: 'sara',
+      company: '华为',
+      job: '高级经理',
+      detail: '14年在美国出差就听说过miniones，很感兴趣。今年年初miniones在国内上线的时候，我立即要了一个盒子，说实话第一个盒子并没有十分惊艳，但我还是买了会员，因为我需要一个可靠的服务帮我节省时间。',
+      like: '品牌偏好：next (UK) ｜jacadi (FR)',
+      set: '消费预设：500+/套',
+      add: '累计盒子：6个'
+    },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xinghumama.png',
+        photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xinghumama1.png',
+        name: '@幸胡麻麻',
+        company: '自媒体人',
+        job: '全职妈妈',
+        detail: '们家小可的很多衣服都在微商上买的。微商的衣服好看是好看，就是质量实在是...收了几次minibox后最大的感受是衣服摸起来都很软糯，质量真的很棒！',
+        like: '品牌偏好：马克珍妮(CN) ｜巴布豆(CN)',
+        set: '消费预设：100 - 300 / 套',
+        add: '累计盒子：3个'
+      },
+      { 
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dajiaoban.png',
+        photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dajiaoban1.png',
+        name: '@大脚板',
+        company: '私企',
+        job: '私企',
+        detail: '为什么选择你们？方便啊，自己花时间去筛选还是花点钱让可靠的人帮你准备，我选择后者。别问，问就是懒。',
+        like: '品牌偏好：马克珍妮(CN) ｜bebeby(CN)',
+        set: '消费预设：100 - 300 / 套',
+        add: '累计盒子：3个'
+      },
+      { 
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/baibaibai.png',
+        photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/baibaibai1.png',
+        name: '@白白白',
+        company: '网易',
+        job: '平面设计',
+        detail: '衣服都很舒适，之前收到防晒服和遮阳帽正好旅游用上，刚收到的这个盒子里给我放了一个全棉时代的纱布浴巾，我想知道搭配师是怎么知道我正好想买这个的～',
+        like: '品牌偏好：zara(ES) ｜carter(US)',
+        set: '消费预设：100 - 300 / 套',
+        add: '累计盒子：4个'
+      },
+      { 
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/jiangyiyi.png',
+        photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/jiangyiyi1.png',
+        name: '@刘燕',
+        company: '艺人',
+        job: '著名演员',
+        detail: '非常有趣的购物体验， 补充了我在工作忙碌时的疏忽，迷你王国会主动提醒我并配送一个丰富的搭配盒子，有些之前没见过的牌子，但看到衣服会十分惊喜。',
+        like: '品牌偏好：bopoint(FR) ｜nonas(ES)',
+        set: '消费预设：500 + /套',
+        add: '累计盒子：8个'
+      }],
+
     contentList: [{
         img: '/images/1.png',
         index: '1',
@@ -44,22 +183,24 @@ Page({
       },
     ],
     describeList: [{
-        img: '/images/why1.png',
-        title: '亲民友好的定价',
-        describe: '由于孩子快速成长需要常换衣服,',
-        last: '我们的服装起价仅为12元'
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xin.png',
+        title: '智慧推荐',
+        describe: '给孩子成长需求推荐，合理搭配'
       },
       {
-        img: '/images/why2.png',
-        title: '独一无二的风格',
-        describe: '不用担心孩子在街上与别人撞衫,',
-        last: '我们不断更新超过100000独特搭配'
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/biaoqian-one.png',
+        title: '好看不贵',
+        describe: '精选商品搭配组合，优质评价'
       },
       {
-        img: '/images/why3.png',
-        title: '方便、轻松有趣的体验',
-        describe: '我们将试衣间搬到舒适的家中，',
-        last: '省时省心省力，先试后买更放心'
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/liwu-one.png',
+        title: '先试后买',
+        describe: '喜欢才付款，剩下的免费一键退回'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/kafei.png',
+        title: '方便省心',
+        describe: '一键购物/退回，顺丰免费上门'
       },
     ],
     questionList: [{
@@ -90,6 +231,7 @@ Page({
     ],
   },
   onLoad: function(options) {
+    app.editTabBar();
     this.checkAuth()
   },
   onGotUserInfo: function(e) {

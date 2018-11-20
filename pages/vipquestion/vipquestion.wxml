@@ -1,0 +1,43 @@
+<view class="top-title">会员及有效问题</view>
+<wux-accordion-group  accordion default-current="{{ ['0'] }}">
+            <wux-accordion title="1.会员享有什么权利?">
+            <view class="detail">1) ¥99元的年度会员享有在成为会员后的12月内无限次订阅衣盒(免寄出及退回邮费).</view>
+            <view class="detail">2) ¥199元的连续订阅会员享有在孩童0-7岁内无限次订阅衣盒(免寄出及退回邮费). </view>
+            <view class="detail">3) 同时, 会员可以享受全场6.5折的衣服优惠, 季度满减券( 消费¥199减¥100, 消费¥399减¥200) </view>
+            <view class="detail">4) 及全盒留下的额外6折优惠.</view>
+            </wux-accordion>
+            <wux-accordion title="2.如何成为会员? 我能同时开通多个会员账号吗?"><view class="detail">打开迷你王国小程序, 完成注册, 付费成为会员. </view> 
+    <view class="detail">一个会员只能服务一个宝宝, 妈妈可以为在小程序中添加宝宝及注册新会员.  </view>       
+            </wux-accordion>
+            <wux-accordion title="3.如何查看会员状态及有效期?"><view class="detail">进入迷你王国小程序 "我的" 页面点击“亲礼会员”即可查看会员状态及有效期</view></wux-accordion>
+            <wux-accordion title="4.会员有效期如何计算?">
+              <view class="detail">1)年度会员: 12月, 连续订阅: 0-7岁 </view>
+              <view class="detail">2)会员有效期从首次下单开始计算, 若15天未下单, 系统将自动开始计算会员有效期. </view>
+            </wux-accordion>
+            <wux-accordion title="5.会员到期后如何续费?">
+              <view class="detail">1)年度会员可进入小程序, “我的” 的页面点击“亲礼会员”即可续费. </view>
+            </wux-accordion>
+            <wux-accordion title="6.如何从年度会员升级成为连续会员?">
+            <view class="detail">已经是年度会员的妈妈们可以通过迷你王国小程序“我的”页面支付¥100元即可升级为连续会员 </view>
+            </wux-accordion>
+            <wux-accordion title="7. 升级后的会员费可以成为抵扣金吗?">
+             <view class="detail">补充缴纳的会员费可以作为下一个盒子的抵扣金. </view>
+            </wux-accordion>
+            <wux-accordion title="8.我是否可以随时取消会员?"><view class="detail">成为迷你王国的会员后如要终止服务, 在支付会员费后7日内未使用会员服务, 可申请退还已缴纳的会员费. </view> 
+            <view class="detail">超出7日内使用了会员费, 则不予退还已缴纳的会员费 (会员费可在消费时作为抵扣金额). </view> 
+            <view class="detail">如果迷你王国任何地方让您不满意, 可联系在线服务或拨打客服电话: 0571-8889-1552进行反馈, 我们会认真对打每一位客户的意见和建议.</view> 
+            </wux-accordion>
+        </wux-accordion-group> 
+      <view class="click-right">  
+       <navigator url="/pages/shopquestion/shopquestion" class="next" hover-class="none">下一篇:商品问题</navigator>
+       <image class="next-icon" src='/images/direction.png'/>
+      </view>
+      <view class="content-line"></view>
+       <view class="footer">
+ <view clas="contact">联系我们</view>
+ <view class="footer-content">拨打客服电话:<text style="color: #ff3300; padding-left: 10rpx;">400-108-2028</text></view>
+ <view class="footer-content">客服服务时间:<text style="color: #ff3300;padding-left: 10rpx;">8:00-22:00</text></view>
+ <view class="footer-content">在官方微信中留言:<text style="color: #ff3300;padding-left: 10rpx;">微信搜索“迷你王国”</text></view>
+ <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+ <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+</view>

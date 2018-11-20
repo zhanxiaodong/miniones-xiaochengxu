@@ -1,8 +1,26 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-var util = require("../../utils/util.js")
-var viplev = require('../../utils/viplev.js')
+var util = require("../../utils/util.js");
+var viplev = require('../../utils/viplev.js');
+const app = getApp();
 Page({
   data: {
+    themList: [{
+      title: '圣诞季'
+    },
+      {
+        title: '保暖季'
+      },
+      {
+        title: '换洗季'
+      }],
+    recordList: [{
+        math: '98cm'
+    },{
+        math: '18kg'
+      },
+      {
+        math: '15cm'
+      }],  
     showModalStatus: false,
     needAuth: false,
     gift: '/images/showa.png',
@@ -14,6 +32,7 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0
   },
+
   /* 右上角转发*/
   onShareAppMessage: function (res) {
     var that = this;
@@ -175,6 +194,7 @@ Page({
     }
   },
   onLoad: function(options) {
+    app.editTabBar();
     var that = this
     that.checkAuth()
     wx.getSystemInfo({

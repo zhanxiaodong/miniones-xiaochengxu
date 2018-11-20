@@ -35,5 +35,80 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+/*自定义*/
+  editTabBar: function () {
+
+    var _curPageArr = getCurrentPages();
+
+    var _curPage = _curPageArr[_curPageArr.length - 1];
+
+    var _pagePath = _curPage.__route__;
+
+    if (_pagePath.indexOf('/') != 0) {
+
+      _pagePath = '/' + _pagePath;
+
+    }
+
+    var tabBar = this.globalData.tabBar;
+
+    for (var i = 0; i < tabBar.list.length; i++) {
+
+      tabBar.list[i].active = false;
+
+      if (tabBar.list[i].pagePath == _pagePath) {
+
+        tabBar.list[i].active = true;//根据页面地址设置当前页面状态
+
+      }
+
+    }
+
+    _curPage.setData({
+
+      tabBar: tabBar
+
+    });
+
+  },
+
+  globalData: {
+
+    userInfo: null,
+
+    tabBar: {
+      borderStyle: "white",
+      list: [
+        {
+          "selectedIconPath": "/images/bangdan-4.png",
+          "iconPath": "/images/bangdan-3.png",
+          "pagePath": "/pages/guide/guide",
+          "clas": "menu-item",
+          "selected": false
+        },
+
+        {
+          "selectedIconPath": "/images/yuedu-2.png",
+          "iconPath": "/images/yuedu.png",
+          "pagePath": "/pages/index/index",
+          "clas": "menu-item",
+          "selected": false
+        },
+        {
+          "selectedIconPath": "/images/iconlineuser--3.png",
+          "iconPath": "/images/iconlineuser--2.png",
+          "pagePath": "/pages/my/my",
+          "clas": "menu-item menu-item2",
+          "selected": false
+        }
+
+      ],
+
+      position: "bottom"
+
+    }
+
   }
+
 })

@@ -1,0 +1,42 @@
+<view class="top-title">迷你王国使用规则</view>
+<wux-accordion-group  accordion default-current="{{ ['0'] }}">
+            <wux-accordion title="1.如何感受迷你王国带来的美好体验?">
+            <view class="detail">1) 打开迷你王国的小程序, 完成注册, 付费成为会员或选择1元会员体验。</view>
+            <view class="detail">2) 注册完成后填写宝贝信息及衣盒需求, 点击预约衣盒。</view>
+            <view class="detail">3) 确认预约衣盒后, 填写详细正确的快递信息. </view>
+            <view class="detail">4) 等待衣盒送达, 检查衣盒并签收, 如有问题请在签收后24小时内联系迷你王国客服.</view>
+            <view class="detail">5) 宝宝试穿衣服, 享受迷你王国带来的美好体验, 喜欢的衣服通过小程序购买, 不喜欢的衣服一键退还.</view>
+            <view class="detail">6) 体验结束, 如有需要退还的衣物, 请等待快递上门取件寄回 (已购买的服饰无需寄回).</view>
+            </wux-accordion>
+            <wux-accordion title="2.怎么样才能使用迷你王国的服务呢?"><view class="detail">您可以成为迷你王国会员或成为体验用户便可使用迷你王国的服务.</view> </wux-accordion>
+            <wux-accordion title="3.每个衣盒里有几件单品?"><view class="detail">衣盒里的单品会根据宝宝的需求搭配, 常见搭配单品数量为6-10件.</view></wux-accordion>
+            <wux-accordion title="4.妈妈能收到多少衣盒?">
+              <view class="detail">1)您能收到多少衣盒是根据您的订阅计划决定的: </view>
+              <view class="detail">2)¥99元的年度会员享有在成为会员后的12月内无限次订阅衣盒,</view>
+              <view class="detail">3)¥199元的连续订阅会员享有在孩童0-7岁内无限次订阅衣盒,</view>
+              <view class="detail">4)妈妈也可以选择¥49的单次搭配订阅哦.</view>
+            </wux-accordion>
+            <wux-accordion title="5.需要支付邮费吗?">
+              <view class="detail">1)在成为会员后, 每次订阅衣盒的邮寄寄出及退回是免费的.</view>
+              <view class="detail">2)不是会员的妈妈, 单次订阅衣盒的邮件寄出及退回费是包括在¥49元的服务费内. </view>
+            </wux-accordion>
+            <wux-accordion title="6.妈妈下单后什么时间发货, 多久可以收到衣服?">
+            <view class="detail">1)下单后会在2天内发货, 进入迷你王国小程序可查看物流进度. </view>
+             <view class="detail">2)如有特殊需求, 搭配师会提前与您沟通.</view>
+            </wux-accordion>
+            <wux-accordion title="7.收到盒子后宝宝有多长时间去试穿,支付及退还?"><view class="detail">请在签收衣盒的5内完成宝宝的试穿, 支付及退还.</view> </wux-accordion>
+            <wux-accordion title="8.那些城市可以使用迷你王国?"><view class="detail">我们已经开通全国服务, 期待您的体验.</view> </wux-accordion>
+        </wux-accordion-group> 
+      <view class="click-right">  
+       <navigator url="/pages/vipquestion/vipquestion" class="next" hover-class="none">下一篇:会员及有效问题</navigator>
+       <image class="next-icon" src='/images/direction.png'/>
+      </view>
+      <view class="content-line"></view>
+      <view class="footer">
+ <view clas="contact">联系我们</view>
+ <view class="footer-content">拨打客服电话:<text style="color: #ff3300; padding-left: 10rpx;">400-108-2028</text></view>
+ <view class="footer-content">客服服务时间:<text style="color: #ff3300;padding-left: 10rpx;">8:00-22:00</text></view>
+ <view class="footer-content">在官方微信中留言:<text style="color: #ff3300;padding-left: 10rpx;">微信搜索“迷你王国”</text></view>
+ <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+ <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+</view>

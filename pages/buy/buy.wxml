@@ -50,6 +50,14 @@
     </view>
 
    </view>
+   <view class="content-price">
+      <view class="content-price-left">合计:</view>
+      <view class="content-price-right">
+          <view class="content-price-icon">￥</view>
+          <view class="content-price-show">{{goodsTotal}}</view>
+      </view>
+   </view>
+   <view style="height: 20rpx; background-color: #f6f8f7;"></view>
    <view class="conPro">
        <view class="vip vipPro" bindtap='choseCoupo' hidden='{{reBuy}}'>
            <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员立减券）</text></view>

@@ -316,3 +316,37 @@ border: none;
   line-height: 56rpx;
   margin-bottom: 30rpx;
 }
+
+.goods-list-info {
+  width: 100%;
+}
+
+.content-price {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:space-between;
+  padding:60rpx 40rpx 40rpx 60rpx;
+}
+
+.content-price-left {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.content-price-right {
+   display: flex;
+   flex-direction: row;
+}
+
+.content-price-icon {
+  font-size: 20rpx;
+  color: #999999;
+  padding-right: 10rpx;
+}
+
+.content-price-show {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #333333;
+}
+

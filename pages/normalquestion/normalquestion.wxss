@@ -1,0 +1,46 @@
+.every {
+  display: flex;
+  flex-flow: row nowrap;
+  height:140rpx;
+  width:670rpx;
+  margin-left:40rpx;
+  border-bottom:1px solid #f2f2f2;
+  position:relative;
+}
+
+.icon-left {
+  width: 54rpx;
+  height: 54rpx;
+  padding: 40rpx 30rpx 0;
+}
+
+.icon-right {
+  width: 54rpx;
+  height: 54rpx;
+  position:absolute;
+  right:0;
+  top:40rpx;
+
+}
+
+.question-title {
+  font-size: 32rpx;
+  color: #333333;
+  line-height:140rpx;
+
+}
+
+.contact {
+  font-size: 32rpx;
+  color: #333333
+}
+
+.footer {
+   padding: 80rpx 0 60rpx 40rpx;
+}
+
+.footer-content {
+  font-size: 28rpx;
+   color: #333333;
+   padding-top: 20rpx;
+}

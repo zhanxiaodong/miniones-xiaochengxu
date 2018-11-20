@@ -2,7 +2,7 @@
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
 </view>
 <view>
-  <view class="section">
+  <!--<view class="section">
     <image class="section-bg" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
     <view class="section-body">
       <view class="section-title">
@@ -17,64 +17,181 @@
       </view>
       <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 420rpx 0 0 314rpx;" src="/images/xiala2.png"></image>
     </view>
+  </view>-->
+  <view class="section-one">
+   <image class="box-img" src="{{boxImg}}"></image>
+   <view class="describe-two">孩童成长服饰订阅</view>
+   <view class="describe-five" style="padding: 20rpx 0 40rpx;">从出生到入学，每月一盒精美穿搭先试后买</view>
+   <view class="describe-six">MINIONES（迷你王国）为订阅会员提供愉悦可靠的购物体验。通过每个月寄送一个专属盒子，将全球有趣的儿童品牌商品送到孩子面前，留下喜欢的付款，剩下的免费一键退回。</view>
+   <view class="describe-seven">
+     <view class="describe-seven-item" wx:for="{{sectionOne}}" wx:key="*this">
+       <view class="describe-seven-item-math">{{item.math}}<text class="describe-seven-item-math-add">+</text></view>
+       <view class="describe-seven-item-title">{{item.title}}</view>
+     </view>
+   </view>
+   <view class="describe-seven">
+     <view class="describe-seven-item" wx:for="{{sectionTwo}}" wx:key="*this">
+       <view class="describe-seven-item-math">{{item.math}}<text class="describe-seven-item-math-add">+</text></view>
+       <view class="describe-seven-item-title">{{item.title}}</view>
+     </view>
+   </view>
   </view>
-<view class="content-distance">
- <view class="content-title">{{titleOne}}</view>
- <view class="content-line"></view>
- </view>
-
- <view class="content-process" wx:for="{{contentList}}" wx:key="{{item.index}}">
-    <image class="content-process-img" src="{{item.img}}"></image>
-    <view class="content-process-title"><text class="index-distance">{{item.index}}</text>{{item.title}}</view>
-    <view class="content-process-describe">{{item.describe}}</view>
-    <view class="content-process-describe">{{item.last}}</view>
- </view>
-
-<view class="cloth-distance">
- <view class="content-title">{{titleTwo}}</view>
- <view class="content-line"></view>
-</view>
-<view>
-<image class="box-img" src="{{boxImg}}"></image>
-<view class="describe-two">6-12件衣服、鞋子和配饰</view>
-<view class="describe-two" style="padding: 20rpx 0;">专业的搭配建议手记</view>
-<view class="describe-two">填好的回寄快递面单</view>
-</view>
-
 <view class="choose-distance">
  <view class="content-title">{{titleThree}}</view>
- <view class="content-line"></view>
+ <view class="content-line">Why Choose Miniones</view>
 </view>
-<view class="cloth-content" wx:for="{{describeList}}" wx:key="{{item.index}}">
+<view class="cloth-content" wx:for="{{describeList}}" wx:key="*this">
  <image class="cloth-icon" src="{{item.img}}"></image>
  <view class="describe-three">
     <view class="describe-three-title">{{item.title}}</view>
     <view class="describe-three-content">
-      <view class="describe-three-content-one">{{item.describe}}</view>
-      <view class="describe-three-content-one">{{item.last}}</view>
-    </view>
+      <view class="describe-three-content-one">{{item.describe}}         </view> 
+ </view>
  </view>
 </view>
-
+<view class="content-distance">
+ <view class="content-title">{{titleOne}}</view>
+ <view class="content-line">Amazing Experiences</view>
+ <view class="content-vip">会员期内不限次数免费服务</view>
+</view>
+<view class="content-vip-one">
+  <image class="vip-img" src="{{vipOne}}"/>
+  <view class="content-vip-container">
+    <view class="content-vip-list" wx:for="{{vipList}}" wx:key="*this">
+      <view class="content-vip-list-one">
+        <view class="vip-math">{{item.math}}</view>
+        <view class="vip-title">{{item.title}}</view>
+      </view>
+      <view class="content-vip-list-two">{{item.content}}</view>
+    </view>
+  </view>
+</view>
+<view class="content-vip-two">
+ <view class="content-vip-container">
+    <view class="content-vip-list" wx:for="{{vipListAgain}}" wx:key="*this">
+      <view class="content-vip-list-one">
+        <view class="vip-math">{{item.math}}</view>
+        <view class="vip-title">{{item.title}}</view>
+      </view>
+      <view class="content-vip-list-two">{{item.content}}</view>
+    </view>
+  </view>
+  <image class="vip-img-two" src="{{vipTwo}}"/>
+</view>
+<!-- <view class="content-process" wx:for="{{contentList}}" wx:key="{{item.index}}">
+    <image class="content-process-img" src="{{item.img}}"></image>
+    <view class="content-process-title"><text class="index-distance">{{item.index}}</text>{{item.title}}</view>
+    <view class="content-process-describe">{{item.describe}}</view>
+    <view class="content-process-describe">{{item.last}}</view>
+ </view>-->
+<navigator url="/pages/normalquestion/normalquestion" on-type="navigate" class="click-question">有疑问？点击查看常见问题</navigator>
+<view class="cloth-distance">
+ <view class="content-title">{{titleTwo}}</view>
+ <view class="content-line">They Like Us</view>
+ <view class="content-describe">左右滑动查看</view>
+</view>
+<swiper style="height: 1100rpx;" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{lunbotuList}}" wx:key="*this">
+   <swiper-item>
+<view class="lunbotu">
+   <image class="lunbotu-img" src="{{item.img}}"/>
+   <view class="lunbotu-content">
+     <view class="lunbotu-content-header">
+       <image class="lunbotu-photo" src="{{item.photo}}"/>
+       <view class="lunbotu-content-header-info">
+          <view class="lunbotu-content-header-info-name">{{item.name}}</view>
+          <view class="lunbotu-content-header-info-job">{{item.company}}<text style="padding-left: 10px;">{{item.job}}</text></view>
+       </view>
+     </view>
+     <view class="lunbotu-content-article">“{{item.detail}}”</view>
+     <view class="lunbotu-content-footer">
+         <view class="lunbotu-content-footer-like">{{item.like}}</view>
+         <view class="lunbotu-content-footer-set">{{item.set}}</view>
+         <view class="lunbotu-content-footer-add">{{item.add}}</view>
+     </view>
+   </view>
+</view>
+   </swiper-item>
+  </block>
+</swiper>
 <view class="question-distance">
  <view class="content-title">{{titleFour}}</view>
- <view class="content-line"></view>
+ <view class="content-line">Vip Privilege</view>
 </view>
-<view class="question" wx:for="{{questionList}}" wx:key="{{item.index}}">
+<view class="vip-privilege">
+  <view class="vip-privilege-detail" wx:for="{{vipPrivilege}}" wx:key="*this">
+    <image class="vip-privilege-img" src="{{item.img}}"/>
+    <view class="vip-privilege-title">{{item.title}}</view>
+  </view>
+</view>
+<view style="position: relative;">
+<image class="vip-bd" src="{{vipGrey}}"/>
+<view class="vip-card-new">
+  <view class="vip-card-left">
+    <view class="vip-card-title">新人体验</view>
+    <view class="vip-card-intro">注册即享</view>
+    <view class="vip-card-detail">购买商品抵扣1元</view>
+  </view>
+  <view class="vip-card-right">
+    <view class="vip-card-price">
+       <view class="vip-card-icon">￥</view>
+       <view class="vip-card-money">1</view>
+    </view>
+    <view class="vip-card-click">注册</view>
+  </view>
+</view>
+</view>
+<view style="position: relative;">
+<image class="vip-bd" src="{{vipYellow}}"/>
+<view class="vip-card-year">
+  <view class="vip-card-left">
+    <view class="vip-card-title">年度订阅</view>
+    <view class="vip-card-intro">12月内不限次数<text style="padding-left: 10rpx;">适合4-6岁</text></view>
+    <view class="vip-card-detail">购买商品抵扣99元</view>
+  </view>
+  <view class="vip-card-right">
+    <view class="vip-card-price">
+       <view class="vip-card-icon">￥</view>
+       <view class="vip-card-money">99</view>
+    </view>
+    <view class="vip-card-click" style="background-color: #c4a060;margin-left: 20rpx;">购买</view>
+  </view>
+</view>
+</view>
+<view style="position: relative;">
+<image class="vip-bd" src="{{vipGreen}}"/>
+<view class="vip-card-continue">
+  <view class="vip-card-left">
+    <view class="vip-card-title">连续订阅<text style="font-size: 24rpx;padding-left: 20rpx;">[限782/999]</text></view>
+    <view class="vip-card-intro">0-7岁内不限次数<text style="padding-left: 10rpx;">适合新生儿</text></view>
+    <view class="vip-card-detail">购买商品抵扣199元</view>
+  </view>
+  <view class="vip-card-right">
+    <view class="vip-card-price" style="margin-top:20rpx;">
+       <view class="vip-card-icon">￥</view>
+       <view class="vip-card-money">199</view>
+    </view>
+    <view class="vip-old">599</view>
+    <view class="vip-card-click" style="background-color:#019c88;margin-bottom: 20rpx; margin-left: 40rpx;">抢购</view>
+  </view>
+</view>
+</view>
+<!--<view class="question" wx:for="{{questionList}}" wx:key="{{item.index}}">
   <view class="describe-four-title">{{item.title}}</view>
   <view class='describe-distance' style="">
    <view class="describe-four-content-one">{{item.one}}</view>
    <view class="describe-four-content-one">{{item.two}}</view>
   </view>
-</view>
+</view>-->
 <view class="footer">
-  <view class="footer-question">更多常见问题 ></view>
-  <view class="footer-contact">还有疑问？欢迎联系我们</view>
-  <image class="footer-img" src="{{contactImg}}"></image>
-  <view class="footer-love">关爱，从第一次到每一次</view>
+  <image class="footer-img" src="{{contactImg}}" />
+  <view class="footer-love">给孩子一个穿搭礼，从出生开始</view>
   <view class="footer-book">请关注迷你王国微信公众号（搜索“迷你王国”）
 通过对话框直接咨询</view>
   <view class="footer-phone">或直接垂询：400-108-2028</view>
 </view>
-<view class="button" bindtap="clickIndex">开启风格</view>
+<!--<view class="button" bindtap="clickIndex">开启风格</view>-->
 </view>
+<import src="../../tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />

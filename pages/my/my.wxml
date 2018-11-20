@@ -113,5 +113,7 @@
       </view>
     </view>
   </view>
-  <view style="height:60rpx; width: 100%;background-color: #f6f8f7; "></view>
+  <view style="height:100rpx; width: 100%;background-color: #f6f8f7; "></view>
 </view>
+<import src="../../tabbar.wxml" />
+<template is="tabBar" data="{{tabBar}}" />
