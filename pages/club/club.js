@@ -2,10 +2,6 @@ var util = require("../../utils/util.js")
 var viplev = require("../../utils/viplev.js")
 import { $wuxDialog } from '../../components/wux'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     conList:[
       { img: "/images/vip-one.png", text: "免服务费"},
@@ -14,11 +10,11 @@ Page({
       { img: "/images/vip-four.png", text: "199免/季" },
       { img: "/images/vip-five.png", text: "全账号通行" },
     ],
-    hiddenYEAR: false,
     choose:'FIRST',
     scrollTop: '50',
     toView: 'red',
-    vipprice:"199.00"
+    vipprice:"199.00",
+    upgrade:false
   },
   chooseFirst:function(){
     this.setData({
@@ -32,7 +28,6 @@ Page({
       vipprice: "99.00"
     })
   },
-
   onLoad: function (options) {
     this.findUser()
     this.findBalance()
@@ -41,15 +36,15 @@ Page({
         inter: options.inter
       })
     }
-    var level = wx.getStorageSync('level')
-    if (level == '40') {
-      this.setData({
-        hiddenYEAR: true
-      })
-    }
     if (options.up) {
       this.setData({
         up: true
+      })
+    }
+    if (options.upgrade) {
+      this.setData({
+        upgrade: true,
+        vipprice: 100
       })
     }
   },
@@ -154,6 +149,7 @@ Page({
       })
     } else {
       var choose = that.data.choose
+      var upgrade = that.data.upgrade
       var item = new Object()
       item.openId = wx.getStorageSync('openId')
       item.amount = that.data.vipprice
@@ -162,15 +158,19 @@ Page({
       var vipOrder = new Object()
       var levTime
       if (choose == 'FIRST') {
+        if (upgrade) {
+          vipOrder.upgrade = upgrade
+        }
         vipOrder.level = viplev.FIRST
-        levTime = '12'
       } else if (choose == 'YEAR') {
+        levTime = '12'
         vipOrder.level = viplev.YEAR
         vipOrder.brand = that.data.brandType
       } else {
         vipOrder.level = viplev.EXP
       }
       item.vipOrder = vipOrder
+      console.log(item)
       wx.showLoading({
         title: '',
         mask: true
@@ -209,6 +209,9 @@ Page({
     var vipOrder = new Object()
     var levTime
     if (choose == 'FIRST') {
+      if (upgrade) {
+        vipOrder.upgrade = upgrade
+      }
       vipOrder.level = viplev.FIRST
     } else if (choose == 'YEAR') {
       vipOrder.level = viplev.YEAR
@@ -255,8 +258,7 @@ Page({
         level: level
       });
       wx.navigateBack({})
-    }
-    else {
+    } else {
       wx.showToast({
         title: '支付成功',
         icon: 'success',

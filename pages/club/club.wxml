@@ -55,7 +55,7 @@
             </view>
          </view>
       </view>
-      <view class="card cardTwo" hidden="{{hiddenYEAR}}">
+      <view class="card cardTwo" hidden="{{level=='40'}}">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>年卡会员（一年）</view>
@@ -78,8 +78,9 @@
       <text>使用兑换码兑换会员</text>
       <text class="iconfont icon-arrow-right-copy"></text>
    </view>
-   <view class="butBox" hidden="{{!btnedit}}" bindtap='confirmInfo'>
-      立即支付￥{{vipprice}}
+   <view class="butBox" hidden="{{!btnedit}}" bindtap='confirmInfo' >
+      <view wx:if="{{!upgrade}}">立即支付￥{{vipprice}}</view>
+      <view wx:if="{{upgrade}}">立即升级￥{{vipprice}}</view>
    </view>
   <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{payStatus}}"></view>
