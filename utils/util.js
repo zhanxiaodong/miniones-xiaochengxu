@@ -437,10 +437,17 @@ function radioGroupChange(group, value) {
   return group
 }
 // const requestUrl = 'https://minianys.bananayc.com/merchant/'
+<<<<<<< HEAD
 // const requestUrl = 'https://interface.miniones.cn/merchant/'
    const requestUrl = 'https://interface.miniones.cn/merchant_new/'
  // const requestUrl = 'http://192.168.0.2:8080/merchant/'
 //const requestUrl = 'http://localhost:8080/merchant/'
+=======
+// const requestUrl = 'http://interface.miniones.cn/merchant/'
+  //  const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+ const requestUrl = 'http://192.168.0.2:8080/merchant/'
+// const requestUrl = 'http://localhost:8080/merchant/'
+>>>>>>> 25eaea36d1d4be1d90ccd6d1937d956b94031cd2
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
   var originalWidth = e.detail.width;//图片原始宽  
@@ -461,6 +468,10 @@ function imageUtil(e, windowWidth, windowHeight) {
 }
 function getOpenId() {
   var openId = wx.getStorageSync('openId')
+  wx.showLoading({
+    title: '',
+    mask: true
+  })
     if (!openId) {
       wx.login({
         success: function (res) {
@@ -487,6 +498,7 @@ function getOpenId() {
                     wx.request({
                       url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
                       success: function (res) {
+                        wx.hideLoading()
                         var result = res.data.data
                         var level = "0"
                         if (result) {
@@ -525,6 +537,7 @@ function getOpenId() {
                                           iv: res_user.iv
                                         },
                                         success: function (res) {
+                                          wx.hideLoading()
                                           var openId = data.data.data.openid
                                           wx.setStorageSync('openId', openId);
                                           getUserInfo(openId)
@@ -537,7 +550,7 @@ function getOpenId() {
                             });
                           }
                         }, fail: function (res) {
-
+                          wx.hideLoading()
                         }
                       })
 

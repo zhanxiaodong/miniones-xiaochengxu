@@ -79,6 +79,9 @@ Page({
     var forward = this.data.forward
     if (forward != 'forward') {
       this.shareActivity()
+      this.setData({
+        forward:'forward'
+      })
     }
     return {
       title: '这是一个有红包的问卷哦（限宝妈参与）',

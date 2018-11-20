@@ -1,57 +1,58 @@
 <!--pages/vip/vip.wxml-->
 <view>
-     <view class="title-all">
-        <view class="title-first">会员等级</view>
-        <view class="title-second">我的幸运徽章</view>
-     </view>
-      <view class="card" wx:if="{{level > 40}}">
-         <view class="cardLeft">
-            <view class="leftTitle">
-              <view >终生会员（无限）</view>
-              <view class="leftBot">INFINITY</view>
-            </view>
-            <view class="cardBot">
-               <view class="card-one">.终生无限制免费配送</view>
-               <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
-            </view>
-         </view>
-         <view class="cardRight">
-            <view class="money">￥199.00</view>
-            <view class="radioBox">
-               <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
-            </view>
-         </view>
+  <view class="title-all">
+    <view class="title-first">会员等级</view>
+  </view>
+  <view class="card" wx:if="{{level > 40}}">
+    <view class="cardLeft">
+      <view class="leftTitle">
+        <view>终生会员（无限）</view>
+        <view class="leftBot">INFINITY</view>
       </view>
-      <view class="card cardTwo" wx:if="{{level == 40}}">
-         <view class="cardLeft">
-            <view class="leftTitle">
-              <view>年卡会员（一年）</view>
-              <view class="leftBot">YEAR</view>
-            </view>
-            <view class="cardBot">
-               <view class="card-one">.年度免费配送</view>
-               <view class="card-two">立赠99无门槛低扣券，预计可省￥1312</view>
-            </view>
-         </view>
-         <view class="cardRight">
-            <view class="money">￥99.00</view>
-            
-               <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white"/>
-            
-         </view>
+      <view class="cardBot">
+        <view class="card-one">.终生无限制免费配送</view>
+        <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
       </view>
-      <view>
-        
+    </view>
+    <view class="cardRight">
+      <view class="money">￥199.00</view>
+      <view class="radioBox">
+        <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white" />
       </view>
-        <view class="vip-container">
-         <view class="vip-title">
-           <view class="vip-title-one">迷礼会员</view>
-           <view class="vip-title-two">该等级可享7项权益</view>
-         </view>
-         <view class="vip-detail" wx:for="{{vipDetail}}" wx:key="{{item.describe}}">
-           <image class='vip-icon' src="{{vipIcon}}"></image>
-           <view class='vip-describe'>{{item.describe}}</view>
-         </view>
-        </view>
-     
+    </view>
+  </view>
+  <view class="card cardTwo" wx:if="{{level == 40}}">
+    <view class="cardLeft">
+      <view class="leftTitle">
+        <view>年卡会员（一年）</view>
+        <view class="leftBot">YEAR</view>
+      </view>
+      <view class="cardBot">
+        <view class="card-one">.年度免费配送</view>
+        <view class="card-two">立赠99无门槛低扣券，预计可省￥1312</view>
+      </view>
+    </view>
+    <view class="cardRight">
+      <view class="money">￥99.00</view>
+
+      <icon style="position: relative;top: 80rpx;left: 110rpx;" type="success" size="24" color="white" />
+
+    </view>
+  </view>
+  <view>
+
+  </view>
+  <view class="vip-container">
+    <view class="vip-title">
+      <view class="vip-title-one">迷礼会员</view>
+      <view class="vip-title-two">该等级可享7项权益</view>
+    </view>
+    <view class="vip-detail" wx:for="{{vipDetail}}" wx:key="{{item.describe}}">
+      <image class='vip-icon' src="{{vipIcon}}"></image>
+      <view class='vip-describe'>{{item.describe}}</view>
+    </view>
+  </view>
+  <view wx:if="{{level == 40}}">
+    <button bindtap='upgrade'>升级终身</button>
+  </view>
 </view>

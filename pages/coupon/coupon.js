@@ -6,6 +6,7 @@ Page({
     index: 0,
     coupons: [],
     expiredCoupons: [],
+    disableCoupons: [],
     sliderOffset: 0,
     sliderLeft: 0,
     pick: false,
@@ -32,6 +33,7 @@ Page({
     }
     this.findCoupon()
     this.findExpiredCoupon()
+    this.findDisableCoupon()
   },
 
   radioChange: function(e) {
@@ -88,7 +90,21 @@ Page({
       }
     })
   },
-
+  findDisableCoupon: function() {
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/findDisableCoupon?openId=' + wx.getStorageSync('openId'),
+      success: function(res) {
+        var result = res.data.data
+        if (result) {
+          that.setData({
+            tabs: ['可使用', '已过期', '不可用'],
+            disableCoupons: result
+          })
+        } 
+      }
+    })
+  },
   findExpiredCoupon: function() {
     var that = this
     wx.request({

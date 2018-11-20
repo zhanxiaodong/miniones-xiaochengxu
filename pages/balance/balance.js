@@ -200,7 +200,7 @@ Page({
     var that = this
     var detail = that.data.detail
     var level = wx.getStorageSync('level')
-    if (!level && level < 20) {
+    if (level && level < 20) {
       $wuxDialog.alert({
         content: '提现需先完成注册，成为体验会员！'
       })

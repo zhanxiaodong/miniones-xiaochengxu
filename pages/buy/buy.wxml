@@ -60,7 +60,7 @@
    <view style="height: 20rpx; background-color: #f6f8f7;"></view>
    <view class="conPro">
        <view class="vip vipPro" bindtap='choseCoupo' hidden='{{reBuy}}'>
-           <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员立减券）</text></view>
+           <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">抵扣</text><text style="font-size: 28rpx; color: #999999;">（会员优惠券）</text></view>
            <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
            <text class='icon-arrow-right-copy iconfont'></text>
            </view>
