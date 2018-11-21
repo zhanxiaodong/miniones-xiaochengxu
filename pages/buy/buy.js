@@ -314,7 +314,9 @@ Page({
             totalPrice = totalPrice - voucher.amount
             subPrice = subPrice + voucher.amount
           }
-          userCoupon = true
+          if(vouCondition>0) {
+            userCoupon = true
+          }
         } else {
           this.setData({
             voucher: null
@@ -333,36 +335,6 @@ Page({
           }
         }
       }
-      // var badge = this.data.badge
-      // if (badge && totalPrice > 0) {
-      //   var baType = badge.type
-      //   badgeAmount = badge.amount
-      //   if (baType != 'MONEY') {
-      //     badgeAmount = parseFloat((totalPrice * (10 - badge.discount) / 10).toFixed(2))
-      //   }
-      //   if (totalPrice > badgeAmount) {
-      //     totalPrice = totalPrice - badgeAmount
-      //     subPrice = subPrice + badgeAmount
-      //   } else {
-      //     totalPrice = 0
-      //     subPrice = subPrice + totalPrice
-      //   }
-      // } else {
-      //   badgeAmount = (totalPrice / 10).toFixed(2)
-      // }
-
-      // var cash = this.data.cash
-      // if (cash) {
-      //   if (totalPrice >= cash.condition) {
-      //     totalPrice = totalPrice - cash.amount
-      //     subPrice = subPrice + cash.amount
-      //   } else {
-      //     this.setData({
-      //       cashuse: false
-      //     })
-      //   }
-      // }
-
       var vipo = this.data.vipo
       if (vipo && totalPrice > 0) {
         discountPrice = totalPrice * vipo.discount
@@ -390,7 +362,7 @@ Page({
       vipoprice: vipoprice.toFixed(2),
       otherAmount: otherAmount.toFixed(2),
       badgeAmount: badgeAmount,
-      goodsTotal: goodsTotal,
+      goodsTotal: goodsTotal.toFixed(2),
       totalPrice: totalPrice.toFixed(2),
       avgPrice: avgPrice,
       subPrice: subPrice.toFixed(2),
