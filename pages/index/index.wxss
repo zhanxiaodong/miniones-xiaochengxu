@@ -19,9 +19,9 @@
 .usermotto {
   margin-top: 200px;
 } */
-page, .page, .page__bd {
+/*page, .page, .page__bd {
     height: 100%;
-  }
+  }*/
   
   .page {
     background: #fff;
@@ -61,35 +61,35 @@ page, .page, .page__bd {
   }
 /*修改*/
  .repair-one {
-    background-color: #04B8A0;
     color: #FFFFFF;
-    line-height: 80rpx;
-    width: 400rpx;
+    line-height: 90rpx;
+    width: 300rpx;
     font-size: 28rpx;
-    font-weight: Regular;
+    font-weight: 600;
     border-radius: 60rpx;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
   }
   
   #repair_bd {
     display: flex;
     justify-content:center;
     align-items:center;
+    background-color:#f6f8f7;
   }
   
   #repair-two {
+    background-color:#fff;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:space-around;
     width: 90%;
-    height: 85%;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0px 0px 15px 6px rgba(128,128,128,0.08);
-    margin-top: 60rpx;
   }
   
   .button-bottom {
-    padding-bottom: 60rpx;
+    padding-bottom: 90rpx;
     text-align: center;
   }
 
@@ -98,12 +98,26 @@ page, .page, .page__bd {
   } 
 
   .allow {
-    height: 300rpx;
-    width: 300rpx;
+    height: 240rpx;
+    width: 240rpx;
   }
 
   .infoView {
-      text-align: center;
+      text-align: left;
+      width: 100%;
+      padding: 50rpx 0 92rpx 40rpx;
+  }
+ 
+  .infoView-one {
+    font-size: 32rpx;
+    color: #999999;
+    padding-bottom:10rpx;
+  }
+
+  .infoView-two {
+    font-size: 44rpx;
+    font-weight: 600;
+    color: #666666;
   }
 
   .message {
@@ -152,4 +166,123 @@ page, .page, .page__bd {
 #sb {
   background:rgba(0, 0, 0, 0.5); 
   opacity: 1;
+}
+
+page {
+  background-color: #f6f8f7;
+}
+/*头部*/
+.header {
+  padding: 37.5rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+/*左边*/
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-info {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-bottom: 10rpx;
+}
+
+.header-place {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.header-icon {
+  height: 40rpx;
+  width: 40rpx;
+  padding: 0 20rpx;
+}
+
+.header-tem {
+  font-size: 32rpx;
+  color: #666666;
+}
+
+.header-warn {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #04B8A0;
+}
+
+/*右边*/
+.header-right {
+  margin-top: 20rpx;
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 40rpx;
+  background-color: #f6f8f7;
+}
+
+/*主题*/
+.theme {
+  width: 675rpx;
+  margin: 40rpx 0 0 37.5rpx;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow:0px 0px 15px 6px rgba(128,128,128,0.08);
+}
+
+.theme-container {
+  padding: 60rpx 40rpx; 
+}
+
+.theme-title {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 600;
+}
+
+.theme-detail {
+  font-size: 24rpx;
+  color: #999999;
+  margin: 40rpx 0 60rpx;
+}
+
+.theme-intro {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.theme-intro-item-icon {
+  width: 48rpx;
+  height: 48rpx;
+  padding: 0 0 20rpx 20rpx;
+}
+
+.theme-intro-item-title {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.content-repair {
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  padding-top: 60rpx;
+}
+
+.footer {
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+  padding: 60rpx 0 160rpx;
+}
+
+.theme-intro-item-title-img {
+  height: 44rpx;
+  width: 44rpx;
+}
+
+.theme-intro-item-container {
+  display: flex;
+  flex-flow: row nowrap;
 }

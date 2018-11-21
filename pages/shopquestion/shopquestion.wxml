@@ -1,0 +1,22 @@
+<view class="top-title">商品问题</view>
+<wux-accordion-group  accordion default-current="{{ ['0'] }}">
+            <wux-accordion title="1.迷你王国的衣服是正品吗? 质量有保证吗?">
+            <view class="detail">1) 妈妈请放心, 迷你王国所以的服饰均为正品.</view>
+            <view class="detail">2) 每件衣物都是经过搭配师精心挑选过的, 确保材质全棉、领口不磨宝宝、面料舒适. </view>
+            </wux-accordion>
+            <wux-accordion title="2.收到的衣服有质量问题, 怎么处理?"><view class="detail">请您在签收后第一时间进行检查, 发现问题请于签收后24小时内拍照并反馈给客服, 我们将会妥善处理. </view> </wux-accordion>
+            <wux-accordion title="3.每个衣盒里有几件单品?"><view class="detail">衣盒里的单品会根据宝宝的需求搭配, 常见搭配单品数量为6-10件.</view></wux-accordion>
+        </wux-accordion-group> 
+      <view class="click-right">  
+       <navigator url="/pages/payquestion/question" class="next" hover-class="none">下一篇:支付及优惠券使用</navigator>
+       <image class="next-icon" src='/images/direction.png'/>
+      </view>
+      <view class="content-line"></view>
+       <view class="footer">
+ <view clas="contact">联系我们</view>
+ <view class="footer-content">拨打客服电话:<text style="color: #ff3300; padding-left: 10rpx;">400-108-2028</text></view>
+ <view class="footer-content">客服服务时间:<text style="color: #ff3300;padding-left: 10rpx;">8:00-22:00</text></view>
+ <view class="footer-content">在官方微信中留言:<text style="color: #ff3300;padding-left: 10rpx;">微信搜索“迷你王国”</text></view>
+ <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+ <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+</view>

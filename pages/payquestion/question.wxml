@@ -1,0 +1,40 @@
+<view class="top-title">支付及优惠券使用</view>
+<wux-accordion-group  accordion default-current="{{ ['0'] }}">
+            <wux-accordion title="1.会员费是多少呢?">
+            <view class="detail">迷你王国的年度会员为¥99元, 连续会员为¥199元.</view>
+            </wux-accordion>
+            <wux-accordion title="2.会员费可以作为抵扣金吗?"><view class="detail">1)可以, 在成为会员后您的全部会员费可成为购买衣物的抵扣券.</view>
+            <view class="detail">2)例如: 如果您支付了¥99元的会员费, 在您支付留下的衣物时能直接抵扣支付金额. </view> </wux-accordion>
+            <wux-accordion title="3.不是会员, 需要支付多才能享受单次订阅服务?"><view class="detail">1)非会员需要支付¥49元的单次订阅费.</view>
+            <view class="detail">2)(包含搭配费及预约盒子的邮费)</view>
+            </wux-accordion>
+            <wux-accordion title="4.新人首次体验需要支付多少?">
+              <view class="detail">1)作为迷你王国首次体验用户, 我们将会在您的账户内自动提供¥48元的新人体验券. </view>
+              <view class="detail">2)在使用新人体验券后, 可¥1元体验我们的服务.</view>
+              <view class="detail">3)(包含搭配费及预约盒子的邮费)</view>
+            </wux-accordion>
+            <wux-accordion title="5.怎么对喜欢的衣物支付?">
+              <view class="detail">妈妈决定要留下盒子后可以在小程序里支付.</view>
+            </wux-accordion>
+            <wux-accordion title="6.不喜欢的衣物需要支付吗?">
+            <view class="detail">1)妈妈觉得不喜欢的衣物不需要支付, 可在小程序内一键退回.</view>
+             <view class="detail">2)特别提示: 请确保退回衣物的完整性 (商标完好、衣物干净、为受损坏). </view>
+             <view class="detail">3)若退回的衣物无法进行二次销售将视为不完整, 您需要为无法二次销售的衣物购买.</view>
+            </wux-accordion>
+            <wux-accordion title="7.有不同的优惠券, 为什么付费的时候只能使用一张?"><view class="detail">1)优惠卷和优惠券不能叠加使用, 每次仅能使用一张.</view> 
+            <view class="detail">2)特别提示: 每张优惠券有不同的使用期限, 请在有效期内使用, 过期不予补偿.</view>
+            </wux-accordion>
+        </wux-accordion-group> 
+      <view class="click-right">  
+       <navigator url="/pages/otherquestion/otherquestion" class="next" hover-class="none">下一篇:其他问题</navigator>
+       <image class="next-icon" src='/images/direction.png'/>
+      </view>
+      <view class="content-line"></view>
+       <view class="footer">
+ <view clas="contact">联系我们</view>
+ <view class="footer-content">拨打客服电话:<text style="color: #ff3300; padding-left: 10rpx;">400-108-2028</text></view>
+ <view class="footer-content">客服服务时间:<text style="color: #ff3300;padding-left: 10rpx;">8:00-22:00</text></view>
+ <view class="footer-content">在官方微信中留言:<text style="color: #ff3300;padding-left: 10rpx;">微信搜索“迷你王国”</text></view>
+ <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+ <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+</view>

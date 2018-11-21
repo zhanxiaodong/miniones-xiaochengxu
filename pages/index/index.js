@@ -1,8 +1,33 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
-var util = require("../../utils/util.js")
-var viplev = require('../../utils/viplev.js')
+var util = require("../../utils/util.js");
+var viplev = require('../../utils/viplev.js');
+let wechat = require("../../utils/wechat");
+let amap = require("../../utils/gdmap/amap");
+const app = getApp();
 Page({
   data: {
+    themList: [{
+        title: '圣诞季'
+      },
+      {
+        title: '保暖季'
+      },
+      {
+        title: '换洗季'
+      }
+    ],
+    recordList: [{
+        math: '98cm',
+        icon: '/images/shangsheng.png'
+      }, {
+        math: '18kg',
+        icon: '/images/shangsheng.png'
+      },
+      {
+        math: '15cm',
+        icon: '/images/chiping.png'
+      }
+    ],
     showModalStatus: false,
     needAuth: false,
     gift: '/images/showa.png',
@@ -14,8 +39,9 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0
   },
+
   /* 右上角转发*/
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     var that = this;
     return {
       title: '给你孩子免费寄去搭配衣盒，全球品牌先试后买',
@@ -175,8 +201,20 @@ Page({
     }
   },
   onLoad: function(options) {
+    app.editTabBar();
     var that = this
     that.checkAuth()
+    amap.getWeather().then(res => {
+      that.setData({
+        weather:res
+      })
+    })
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      })
+    }
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
@@ -362,6 +400,7 @@ Page({
             withCredentials: true,
             success: function(resU) {
               wx.setStorageSync('userInfo', resU.userInfo);
+
               wx.request({
                 url: util.requestUrl + 'wechat/decodeUserInfo',
                 method: 'POST',

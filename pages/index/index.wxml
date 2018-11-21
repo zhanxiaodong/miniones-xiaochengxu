@@ -1,6 +1,19 @@
+
+<import src="../../tabbar.wxml" />
 <view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 1;'>
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
 </view>
+<view class="header">
+      <view clsaa="header-left">
+         <view class="header-info">
+            <view class="header-place">{{weather.city.data}}</view><!--<input class='m-bbt' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled></input>-->
+            <image class="header-icon" src="{{}}"/>
+            <view class="header-tem">{{weather.temperature.data}}°C</view>
+         </view>
+         <view class="header-warn">{{weather.weather.data}}</view>
+      </view>
+      <image class="header-right" src="{{userInfo.avatarUrl}}"/>
+    </view>
 <view class="page" id="repair-page" style="z-index: 2;">
   <view class="page__bd" id="repair_bd">
     <!--<view class="weui-navbar">
@@ -10,17 +23,14 @@
         </view>
       </block>
     </view>-->
-    <view bindtap="goAward" class="award" style="position:absolute;top:10rpx;background-color:#f2f2f2;width:672rpx;line-height:54rpx;text-align:center;border-radius:60rpx;font-size:28rpx;color:#999999;">
+    <!--<view bindtap="goAward" class="award" style="position:absolute;top:10rpx;background-color:#f2f2f2;width:672rpx;line-height:54rpx;text-align:center;border-radius:60rpx;font-size:28rpx;color:#999999;">
      点击参与，有奖调研征集正在进行中...
-    </view>
+    </view>-->
+    
     <view class="weui-tab__panel" id="repair-two">
       <view class='infoView'>
-        <view style='width:100%;height:120px'>
-          <view style='position: relative;width: 100%;height: 100px;opacity: 0.9;z-index: 3;display: flex;flex-direction: column;justify-content: center;color: #333333;'>
-            <view style="margin-top: -20px;color: #333333;font-weight: bold; font-size: 32rpx;"> 穿搭衣盒 </view>
-            <view style="margin-top:20rpx; color: #cccccc;font-size: 24rpx; font-weight:bold;">免支付，先收货</view>
-          </view>
-        </view>
+            <view class="infoView-one">订阅美好童年</view>
+            <view class="infoView-two">开启第一个穿搭惊喜</view>
       </view>
       <view class="picture">
         <image src='{{gift}}' class='allow'></image>
@@ -37,6 +47,40 @@
     </view>
   </view>
 </view>
+<view class="theme">
+   <view class="theme-container">
+     <view class="theme-title">本次推荐主题</view>
+     <view class="theme-detail">根据孩子的年龄段、季节以及地域综合推荐，确保每一个盒子都不同！</view>
+     <view class="theme-intro">
+       <block wx:for="{{themList}}" wx:key="*this">
+        <view class="theme-intro-item">
+          <image class="theme-intro-item-icon" src="{{}}"/>
+          <view class="theme-intro-item-title">{{item.title}}</view>
+        </view>
+      </block>
+     </view>
+   </view>
+</view>
+<view class="theme">
+   <view class="theme-container">
+     <view class="theme-title">自动更新档案</view>
+     <view class="theme-detail">从第一个盒子到现在，孩子已进一步成长，迷你王国会自动为孩子更新档案，您也可以重新测量一下孩子的成长概况，进一步修正孩子的个性档案。</view>
+     <view class="theme-intro">
+       <block wx:for="{{recordList}}" wx:key="*this">
+        <view class="theme-intro-item">
+          <image class="theme-intro-item-icon" src="{{}}"/>
+          <view class="theme-intro-item-container">
+            <view class="theme-intro-item-title">{{item.math}}</view>
+            <image src="{{item.icon}}" class="theme-intro-item-title-img"/>
+          </view>  
+       </view>
+      </block>
+     </view>
+     <view class="content-repair">我要修正</view>
+   </view>
+</view>
+<view class="footer">-让优秀的孩子更优秀-</view>
+<template is="tabBar" data="{{tabBar}}" />
 <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" id="sb"  bindtap="hideModal" wx:if="{{showModalStatus}}" style="z-index: 5;">
 <view style="padding: 300rpx 27rpx 0 27rpx; position: relative; z-index: 10;" wx:if="{{showModalStatus}}">

@@ -38,20 +38,28 @@
 
 /*111*/
 .content-distance {
-  padding: 100rpx 0 28rpx 0;
+  padding: 160rpx 0 28rpx 0;
 }
 .content-title {
-  color: #04B8A0;
   font-size: 40rpx;
-  font-weight: bold;
+  font-weight: 600;
+  color: #333333;
   text-align: center;
 }
 
 .content-line {
-  height: 2rpx;
-  width:146rpx;
-  background-color: #04B8A0; 
-  margin: 40rpx 0 0 290rpx;
+  font-size:32rpx;
+  font-weight:400;
+  color:#cccccc;
+  text-align:center;
+  margin: 20rpx;
+}
+
+.content-vip {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #D6BC8A;
+  text-align: center;
 }
 /*开启档案部分*/
 .content-process {
@@ -85,31 +93,83 @@
 }
 
 /*衣盒里都有什么*/
+.section-one {
+  padding: 0 20rpx;
+}
 .cloth-distance {
-  padding: 140rpx 0 40rpx 0;
+  padding: 160rpx 0 100rpx 0;
 }
 
 .box-img {
   width: 100%;
-  height: 500rpx;
-  padding: 60rpx 0 56rpx 0;
+  height: 430rpx;
+  padding:0 0 56rpx 0;
 }
 
 .describe-two {
-  font-size: 28rpx;
+  font-size: 48rpx;
+  font-weight: 600;
   color: #333333;
   text-align: center;
   line-height: 48rpx;
 }
+
+.describe-five {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  text-align: center;
+}
+
+.describe-six {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #333333;
+  text-align: center;
+  padding: 0 24rpx;
+  line-height: 48rpx;
+}
+
+.describe-seven {
+   display: flex;
+   flex-flow: row nowrap;
+   padding: 100rpx 50rpx 0 32rpx;
+   justify-content:space-between;
+}
+
+.describe-seven-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.describe-seven-item-math {
+  color: #04B8A0;
+  font-size: 40rpx;
+  margin-bottom: 48rpx;
+  font-weight: 500;
+}
+
+.describe-seven-item-title {
+  color: #333333;
+  font-size: 24rpx;
+}
+
+.describe-seven-item-math-add {
+  color: #04B8A0;
+  font-size: 24rpx;
+  position: absolute;
+  margin-left: 5rpx;
+}
 /*为什么选择迷你王国*/
 .choose-distance {
- padding-top: 120rpx;
+ padding-top: 160rpx;
 }
 
 .cloth-content {
   display: flex;
   flex-flow: row nowrap;
-  padding-top: 100rpx;
+  padding-top: 80rpx;
 }
 
 .describe-three {
@@ -118,31 +178,27 @@
 }
 
 .cloth-icon {
-  width: 120rpx;
-  height: 120rpx;
-  margin:0 27px;
-  padding-top: 30rpx;
+  width: 76rpx;
+  height: 76rpx;
+  margin:0 90rpx;
 }
 
 .describe-three-title {
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: bold;
   color: #333333;
-}
-
-.describe-three-content {
-  padding-top: 20rpx;
+  padding-bottom: 15rpx;
 }
 
 .describe-three-content-one {
   font-size: 28rpx;
-  color: #666666;
+  color: #999999;
   line-height: 32rpx;
 }
 
-/*常见问题*/
+/*订阅会员*/
 .question-distance {
-  padding: 120rpx 0 100rpx 0;
+  padding: 120rpx 0 60rpx 0;
 }
 
 .question {
@@ -165,11 +221,10 @@
 /*底部*/
 .footer {
    width: 600rpx;
-   margin-left: 75rpx;
+   margin: 100rpx 0 150rpx 75rpx;
    display: flex;
    flex-direction: column;
    align-items: center;
-   padding:100rpx 0 200rpx 0;
 }
 
 .footer-question {
@@ -215,4 +270,302 @@
   left:235rpx;
   text-align:center;
   z-index: 33333;
+}
+
+/*修改*/
+.content-vip-one {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 60rpx 0 60rpx 40rpx;
+}
+
+.content-vip-two {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 20rpx;
+}
+
+.vip-img {
+  width: 200rpx;
+  height: 200rpx;
+  padding-top: 40rpx;
+  padding-left: 20rpx;
+}
+
+.vip-img-two {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 180rpx;
+  margin-left: 60rpx;
+}
+
+.content-vip-container {
+  padding-left: 56rpx;
+}
+
+.content-vip-list {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 60rpx;
+}
+
+.content-vip-list-one {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.vip-math {
+  color: #04B8A0;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 50rpx;
+}
+
+.vip-title {
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: 600;
+  padding-left: 20rpx;
+}
+
+.content-vip-list-two {
+  font-size: 28rpx;
+  color: #999999;
+  padding: 16rpx 0 0 56rpx;
+  width: 360rpx;
+}
+
+.click-question {
+  text-align:center;
+  font-size:24rpx;
+  color:#d5bc8a;
+  width:490rpx;
+  line-height:36px;
+  margin-left:135rpx;
+  border:1px solid #d5bc8a;
+  margin-top: 60rpx;
+}
+
+.vip-privilege {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding-bottom: 80rpx;
+}
+
+.vip-privilege-detail {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.vip-privilege-img {
+  width: 80rpx;
+  height: 80rpx;
+  padding-bottom: 30rpx;
+}
+
+.vip-privilege-title {
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: 400;
+}
+
+.vip-bd {
+  width:710rpx;
+  height:200rpx;
+  padding-left:20rpx;
+  margin-bottom: 20rpx;
+}
+
+.vip-card-new {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 20rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 0;
+  width: 710rpx;
+}
+
+.vip-card-year {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 20rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 0;
+  width: 710rpx;
+}
+
+.vip-card-continue {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 0 20rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 0;
+  width: 710rpx;
+}
+
+.vip-card-left {
+  display: flex;
+  flex-direction: column;
+  padding-left:25px;
+  justify-content:center;
+}
+
+.vip-card-title {
+  font-size: 36rpx;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.vip-card-intro {
+  font-size: 24rpx;
+  color: #ffffff;
+  padding-bottom: 20rpx;
+}
+
+.vip-card-detail {
+  font-size: 24rpx;
+  color: #ffffff; 
+}
+
+.vip-card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  padding-right: 50rpx;
+}
+
+.vip-card-price {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.vip-card-icon {
+  font-size: 24rpx;
+  color: #ffffff;
+  padding-left: 20rpx;
+  line-height:48rpx;
+
+}
+
+.vip-card-money {
+  color: #ffffff;
+  font-size: 48rpx;
+  padding-left: 10rpx;
+  font-weight: 600;
+}
+
+.vip-card-click {
+  font-size: 20rpx;
+  color: #ffffff;
+  width: 100rpx;
+  line-height: 50rpx;
+  background-color: #adadad;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom:10rpx;
+}
+
+.vip-old {
+  font-size: 24rpx;
+  color:#ffffff;
+  text-align:right;
+  text-decoration:line-through;
+  margin-top: -20rpx;
+  margin-right: 20rpx;
+}
+
+/*轮播图*/
+.lunbotu {
+  position: relative;
+  height: 1080rpx;
+}
+.lunbotu-img {
+  height: 444rpx;
+  width: 710rpx;
+  padding-left: 20rpx;
+}
+
+.lunbotu-photo {
+  height: 84rpx;
+  width: 84rpx;
+  margin: 0 60rpx 0 40rpx;
+  border-radius:42rpx;
+  background-color: #f2f2f2;
+}
+
+.lunbotu-content {
+  height: 720rpx;
+  width: 630rpx;
+  margin-left: 60rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:absolute;
+  top:315rpx;
+  border-radius:15rpx;
+  box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.1);
+}
+
+.lunbotu-content-header {
+  width: 486rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 56rpx 0;
+}
+
+.lunbotu-content-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lunbotu-content-header-info-name {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 600;
+}
+
+.lunbotu-content-header-info-job {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 600;
+}
+
+
+.lunbotu-content-article {
+  width: 486rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.lunbotu-content-footer {
+  width: 486rpx;
+  font-size: 28rpx;
+  color: #666666;
+  padding-top: 80rpx;
+}
+
+.lunbotu-content-footer-like {
+  width: 600rpx;
+}
+
+.lunbotu-content-footer-set {
+   padding: 10rpx 0;
+}
+
+.content-describe {
+   color: #d6bc8a;
+   font-size: 24rpx;
+   text-align:center;
 }

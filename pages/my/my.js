@@ -1,4 +1,5 @@
-var util = require("../../utils/util.js")
+var util = require("../../utils/util.js");
+const app = getApp();
 Page({
   data: {
     user: {
@@ -11,6 +12,11 @@ Page({
     userInfo: {},
     vipImg: '/images/icons/h-gray.png'
   },
+  
+  onLoad: function (options) {
+    app.editTabBar();
+  },
+
   onShow: function(options) {
     this.findInfo()
   },
