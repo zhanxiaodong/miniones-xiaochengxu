@@ -53,6 +53,7 @@
     </view>
   </view>
   <view wx:if="{{level == 40}}">
-    <button bindtap='upgrade'>升级终身</button>
+    <button bindtap='upgrade' class="level-add">升级终身</button>
+    <view style="height: 40rpx;"></view>
   </view>
 </view>

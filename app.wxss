@@ -64,7 +64,7 @@ visibility: hidden ;
 .icon-wenhao:before { content: "\e645"; }
 
 
-/*add*/
+/*底部菜单栏*/
 .container {
   width: 100%rpx;
   height: 100%rpx;
@@ -78,12 +78,7 @@ visibility: hidden ;
   text-align: center;
   padding: 26rpx 0;
 }
-
-/*.menu-item:link {color: red!important}
-.menu-item:visited {color:red!important}
-.menu-item:hover {color: red!important}
-.menu-item:active {color:red!important}*/       
-
+  
 .img {
   width: 23px;
   height: 23px;
@@ -101,3 +96,4 @@ visibility: hidden ;
   width: 100%;
   z-index: 1000;
 }
+

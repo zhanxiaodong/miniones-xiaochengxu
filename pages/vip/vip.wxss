@@ -130,3 +130,13 @@ font-weight: bold;
   color: #666666;
   padding-left: 20rpx;
 }
+
+.level-add {
+    color: #FFFFFF;
+    line-height: 90rpx;
+    width: 300rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    border-radius: 60rpx;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  }

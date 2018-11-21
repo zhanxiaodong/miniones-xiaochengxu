@@ -1,0 +1,4 @@
+<view class="wrap">
+  <image src="/images/show2.gif" class="photo"></image>
+  <view class="describe">让孩子从小与众不同</view>
+</view>

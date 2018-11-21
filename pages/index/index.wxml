@@ -1,5 +1,6 @@
 
 <import src="../../tabbar.wxml" />
+<!--下面正文-->
 <view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 1;'>
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
 </view>
@@ -7,12 +8,12 @@
       <view clsaa="header-left">
          <view class="header-info">
             <view class="header-place">{{weather.city.data}}</view><!--<input class='m-bbt' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled></input>-->
-            <image class="header-icon" src="{{}}"/>
+            <view class="header-wea">{{weather.weather.data}}</view>
             <view class="header-tem">{{weather.temperature.data}}°C</view>
          </view>
-         <view class="header-warn">{{weather.weather.data}}</view>
+         <view class="header-warn">即将冷空气</view>
       </view>
-      <image class="header-right" src="{{userInfo.avatarUrl}}"/>
+       <!--<image class="header-right" src="{{userInfo.avatarUrl}}"/>-->
     </view>
 <view class="page" id="repair-page" style="z-index: 2;">
   <view class="page__bd" id="repair_bd">
@@ -54,7 +55,7 @@
      <view class="theme-intro">
        <block wx:for="{{themList}}" wx:key="*this">
         <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="{{}}"/>
+          <image class="theme-intro-item-icon" src="{{item.img}}"/>
           <view class="theme-intro-item-title">{{item.title}}</view>
         </view>
       </block>
@@ -66,15 +67,27 @@
      <view class="theme-title">自动更新档案</view>
      <view class="theme-detail">从第一个盒子到现在，孩子已进一步成长，迷你王国会自动为孩子更新档案，您也可以重新测量一下孩子的成长概况，进一步修正孩子的个性档案。</view>
      <view class="theme-intro">
-       <block wx:for="{{recordList}}" wx:key="*this">
         <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="{{}}"/>
+          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengao.png"/>
           <view class="theme-intro-item-container">
-            <view class="theme-intro-item-title">{{item.math}}</view>
-            <image src="{{item.icon}}" class="theme-intro-item-title-img"/>
+            <view class="theme-intro-item-title">{{baby.height}}cm</view>
+            <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
           </view>  
        </view>
-      </block>
+       <view class="theme-intro-item">
+          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong.png"/>
+          <view class="theme-intro-item-container">
+            <view class="theme-intro-item-title">{{baby.weight}}kg</view>
+            <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
+          </view>  
+       </view>
+       <view class="theme-intro-item">
+          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong0.png"/>
+          <view class="theme-intro-item-container">
+            <view class="theme-intro-item-title">{{baby.size}}sz</view>
+            <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
+          </view>  
+       </view>
      </view>
      <view class="content-repair">我要修正</view>
    </view>

@@ -7,25 +7,16 @@ const app = getApp();
 Page({
   data: {
     themList: [{
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengdanlu.png',
         title: '圣诞季'
       },
       {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoutao.png',
         title: '保暖季'
       },
       {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/mianbao.png',
         title: '换洗季'
-      }
-    ],
-    recordList: [{
-        math: '98cm',
-        icon: '/images/shangsheng.png'
-      }, {
-        math: '18kg',
-        icon: '/images/shangsheng.png'
-      },
-      {
-        math: '15cm',
-        icon: '/images/chiping.png'
       }
     ],
     showModalStatus: false,
@@ -215,6 +206,14 @@ Page({
         userInfo: userInfo
       })
     }
+
+    var baby = wx.getStorageSync('baby.data')
+    if (baby) {
+      that.setData({
+        baby: baby
+      })
+    }
+
     wx.getSystemInfo({
       success: function(res) {
         that.setData({
