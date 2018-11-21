@@ -21,7 +21,7 @@
              <view class="detail">2)特别提示: 请确保退回衣物的完整性 (商标完好、衣物干净、为受损坏). </view>
              <view class="detail">3)若退回的衣物无法进行二次销售将视为不完整, 您需要为无法二次销售的衣物购买.</view>
             </wux-accordion>
-            <wux-accordion title="7.我有不同的优惠券, 为什么付费的时候只能使用一张?"><view class="detail">1)优惠卷和优惠券不能叠加使用, 每次仅能使用一张.</view> 
+            <wux-accordion title="7.有不同的优惠券, 为什么付费的时候只能使用一张?"><view class="detail">1)优惠卷和优惠券不能叠加使用, 每次仅能使用一张.</view> 
             <view class="detail">2)特别提示: 每张优惠券有不同的使用期限, 请在有效期内使用, 过期不予补偿.</view>
             </wux-accordion>
         </wux-accordion-group> 

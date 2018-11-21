@@ -1,3 +1,4 @@
+
 <import src="../../tabbar.wxml" />
 <view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 1;'>
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
@@ -5,9 +6,9 @@
 <view class="header">
       <view clsaa="header-left">
          <view class="header-info">
-            <view class="header-place">{{}}city</view>
+            <view class="header-place">{{}}city</view><!--<input class='m-bbt' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled></input>-->
             <image class="header-icon" src="{{}}"/>
-            <view class="header-tem">{{}}17</view>
+            <view class="header-tem">{{}}</view>
          </view>
          <view class="header-warn">即将冷空气</view>
       </view>
