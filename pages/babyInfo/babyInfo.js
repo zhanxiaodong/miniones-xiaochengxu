@@ -4,7 +4,7 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
-    defaultAva: '../../images/ava.png',
+    defaultAva: '/images/ava.png',
     babyList: [],
     edit: false
   },

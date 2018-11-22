@@ -234,6 +234,21 @@ Page({
     app.editTabBar();
     this.checkAuth()
   },
+
+  previewImage: function (e) {
+    wx.previewImage({
+      //current: this.data.contactImg, // 当前显示图片的http链接   
+      urls: this.data.contactImg.split(',') // 需要预览的图片http链接列表   
+    })
+    //wx.getImageInfo({// 获取图片信息（此处可不要）
+     // src: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg',
+     // success: function (res) {
+       // console.log(res.width)
+       // console.log(res.height)
+     // }
+   // })
+  },
+
   onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
       util.getOpenId()

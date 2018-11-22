@@ -61,12 +61,12 @@
   }
 /*修改*/
  .repair-one {
-    color: #FFFFFF;
     line-height: 90rpx;
-    width: 300rpx;
     font-size: 28rpx;
     font-weight: 600;
+    width: 300rpx;
     border-radius: 60rpx;
+    color: #FFFFFF;
     background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
   }
   

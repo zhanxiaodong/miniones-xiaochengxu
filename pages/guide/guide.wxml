@@ -185,7 +185,7 @@
   </view>
 </view>-->
 <view class="footer">
-  <image class="footer-img" src="{{contactImg}}" />
+  <image class="footer-img" src="{{contactImg}}" bindtap="previewImage" />
   <view class="footer-love">给孩子一个穿搭礼，从出生开始</view>
   <view class="footer-book">请关注迷你王国微信公众号（搜索“迷你王国”）
 通过对话框直接咨询</view>

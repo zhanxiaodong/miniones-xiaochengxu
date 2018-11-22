@@ -1,4 +1,8 @@
 <!--pages/my/my.wxml-->
+<!--跳到公众号-->
+<official-account style="position:fixed;bottom:140rpx;width:100%;height:100rpx;"></official-account>
+
+<!--正文-->
 <view class='xz-component'>
   <view class='xz-top'>
     <view class='xz-my-info'>
@@ -115,5 +119,7 @@
   </view>
   <view style="height:100rpx; width: 100%;background-color: #f6f8f7; "></view>
 </view>
+
+  
 <import src="../../tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

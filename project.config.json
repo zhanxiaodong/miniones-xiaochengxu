@@ -25,13 +25,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "测试公众号跳转",
+					"pathName": "pages/my/my",
+					"scene": "1001"
+				}
+			]
 		}
 	}
 }
