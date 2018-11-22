@@ -90,8 +90,7 @@ Page({
     var boxId = this.data.boxId
     var that = this
     wx.request({
-      // url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
-      url: util.requestUrl + 'box/findBoxPay?id=5bee6e22e4b028e9e1e46b5a&openId=oUbB_4u1a8ueUs-qOr04LDNNV01I',
+      url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
       success: function(res) {
         var result = res.data.data
         var actTime = result.actTime ? result.actTime : 0
