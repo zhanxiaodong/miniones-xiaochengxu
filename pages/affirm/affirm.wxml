@@ -41,16 +41,15 @@
       <view class="conLeft">
         <image class="conLeft-img" src="/images/get-two.png" />
       </view>
-      <view class="conRight rightTop" id="repair-two">
-        <view class="conText">配送时间
-          <text style="font-weight:400;color: #04B8A0; padding-left: 10rpx;">预计</text>
-        </view>
+      <view class="rightTop" id="repair-two">
+        <view class="peisong">配送时间</view>
         <view class="show-time">
+          <text style="font-weight:400;color: #04B8A0; width: 60rpx; font-size: 28rpx; padding-top: 5rpx;">预计</text>
           <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
-            <input class="weui-input size-15" value='{{date}}' disabled="true" placeholder="请选择时间" />
+            <input class="nimeide" value='{{date}}' disabled="true" placeholder="请选择时间" />
           </picker>
         </view>
-       <image class="conleft-direction" id="distance" src="/images/direction.png" />
+       <image class="conleft-direction" style="padding-left: 45rpx;" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix" bindtap="more">

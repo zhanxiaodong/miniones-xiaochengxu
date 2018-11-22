@@ -16,7 +16,7 @@
   color:#cccccc;
 }
 .headText{
-  font-size:24rpx;
+  font-size:28rpx;
   color:#999999;
   line-height: 60rpx;
 }
@@ -51,9 +51,19 @@
   border-bottom:solid 1px #f3f3f3;
 }
 .conText{
-  font-size:32rpx;
+  font-size:36rpx;
   font-weight: 600;
 }
+.peisong {
+  font-size:36rpx;
+  font-weight: 600;
+  height: 60rpx;
+  width: 165rpx;
+}
+.nimeide {
+  font-size: 28rpx;
+}
+
 .conText text{
   font-size:28rpx;
   font-weight: 500;
@@ -137,10 +147,10 @@ color: #666666;
 }
 .show-time {
   font-size: 28rpx;
+  display: flex;
+  flex-flow: row nowrap;
 }
-#distance {
-  padding-left:66rpx;
-}
+
 .payTop{
   width:100%;
   height:120rpx;
@@ -209,6 +219,11 @@ color: #666666;
 #repair-two {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
+  padding-bottom:41rpx;
+  padding-right: 30rpx;
+  border-bottom:solid 1px #f3f3f3;
+
 }
 
 #repair-three {
@@ -266,10 +281,9 @@ color: #666666;
 .address-line {
   display: flex;
   flex-flow: row nowrap;
-  margin-bottom: 10rpx;
 }
 .address {
-  font-size: 32rpx;
+  font-size: 36rpx;
   color: #333333;
   font-weight: 600;
   text-overflow:ellipsis;

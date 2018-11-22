@@ -27,10 +27,15 @@
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
          
           <view class='checklabel'>
-            <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
-            <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+            <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
+             <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
+              <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
+              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
+            </view>
+            <view style="font-size: 36rpx; color: #cccccc; padding: 0 20rpx;">{{index + 1}}</view>
+            <view class="weui-cell__bd flex" style='align-items: center;padding-left:10rpx;'>
               <view class='flex_auto green1-color'>
-                <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
+                <view style="font-size: 28rpx;color: #000000; font-weight: bold;"><text style="padding-right: 6rpx;">{{item.brand}}</text>/<text style="padding: 0 6rpx;">{{item.name}}</text>({{item.type}})</view>
                 <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
               </view>
               <view style="display: flex; flex-direction: column;padding-right:40rpx;">
@@ -39,11 +44,7 @@
               </view>
             </view>
 
-            <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
-             <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
-              <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
-              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
-            </view>
+          
           </view>
         </label>
       </checkbox-group>

@@ -17,7 +17,7 @@
   color:#c3c3c3;
 }
 .headText{
-  font-size:24rpx;
+  font-size:28rpx;
   color:#999999;
   line-height: 60rpx;
   margin-top: 10rpx;
@@ -212,7 +212,7 @@ textRight radio,.textRight text{
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 40rpx 30rpx;
+  padding: 40rpx 0 40rpx 40rpx;
   border-bottom:1px solid #f2f2f2;
 }
 
@@ -331,6 +331,8 @@ border: none;
 .content-price-left {
   font-size: 28rpx;
   color: #333333;
+  margin-left: 360rpx;
+  line-height: 60rpx;
 }
 
 .content-price-right {
