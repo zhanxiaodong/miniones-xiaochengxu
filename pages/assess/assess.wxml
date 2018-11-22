@@ -79,7 +79,7 @@
       </radio-group>
     </view>
   </view>
-  
+   <view style="height:500rpx;"></view> 
 </view>
 <view class="butBox">
     <button class="but" bindtap="saveEva">提交评价</button>
