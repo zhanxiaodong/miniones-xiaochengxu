@@ -29,8 +29,7 @@ function saveFormId(openId, formId) {
  * 配件定义
  */
 function getParts() {
-  var parts = [
-    {
+  var parts = [{
       id: '1',
       value: '帽子'
     },
@@ -61,8 +60,7 @@ function getParts() {
   ]
   return parts
 }
-var occasions = [
-  {
+var occasions = [{
     id: '1',
     url: '/images/img14.png',
     value: '居家生活'
@@ -93,8 +91,7 @@ var occasions = [
     value: '日常换洗'
   }
 ]
-var alltype = [
-  {
+var alltype = [{
     value: 'T恤'
   },
   {
@@ -128,8 +125,7 @@ var alltype = [
 /**
  * 上装
  */
-var jackets = [
-  {
+var jackets = [{
     id: '1',
     value: '圆领T恤'
   },
@@ -159,8 +155,7 @@ var jackets = [
  */
 function getDowns() {
 
-  var down = [
-    {
+  var down = [{
       id: '1',
       value: '休闲裤'
     },
@@ -190,10 +185,12 @@ function getToday(date) {
   var day = date.getDate()
   return [year, month, day].map(formatNumber).join('-')
 }
+
 function getMonth(date) {
   var month = date.getMonth() + 1
   return month
 }
+
 function formatDate(date) {
   var date = new Date(date)
   var year = date.getFullYear()
@@ -234,8 +231,7 @@ function randomString(len) {
  * 获取月份
  */
 function getMonths() {
-  var months = [
-    {
+  var months = [{
       name: '1',
       value: '1'
     },
@@ -371,7 +367,7 @@ function changeMsg(status, type) {
       case 'LINK_UP':
         result = '请您耐心等待衣盒配送'
         break;
-      case 'NOTIFY_EXPRESS': 
+      case 'NOTIFY_EXPRESS':
         result = '请您耐心等待衣盒送达'
         break;
       case 'DISPATCHING':
@@ -438,131 +434,133 @@ function radioGroupChange(group, value) {
 }
 
 // const requestUrl = 'http://interface.miniones.cn/merchant/'
-   const requestUrl = 'https://interface.miniones.cn/merchant_new/'
-  //const requestUrl = 'http://192.168.0.2:8080/merchant/'
+const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+//  const requestUrl = 'http://192.168.0.2:8080/merchant/'
 // const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
-  var originalWidth = e.detail.width;//图片原始宽  
-  var originalHeight = e.detail.height;//图片原始高  
-  var originalScale = originalHeight / originalWidth;//图片高宽比  
-  var windowscale = windowHeight / windowWidth;//屏幕高宽比
-  if (originalScale < windowscale) {//图片高宽比小于屏幕高宽比  
+  var originalWidth = e.detail.width; //图片原始宽  
+  var originalHeight = e.detail.height; //图片原始高  
+  var originalScale = originalHeight / originalWidth; //图片高宽比  
+  var windowscale = windowHeight / windowWidth; //屏幕高宽比
+  if (originalScale < windowscale) { //图片高宽比小于屏幕高宽比  
     //图片缩放后的宽为屏幕宽  
     imageSize.imageWidth = windowWidth;
     imageSize.imageHeight = (windowWidth * originalHeight) / originalWidth;
-  } else {//图片高宽比大于屏幕高宽比  
+  } else { //图片高宽比大于屏幕高宽比  
     //图片缩放后的高为屏幕高  
     imageSize.imageHeight = windowHeight;
     imageSize.imageWidth = (windowHeight * originalWidth) / originalHeight;
   }
-  
   return imageSize;
 }
+
 function getOpenId() {
   var openId = wx.getStorageSync('openId')
-  wx.showLoading({
-    title: '',
-    mask: true
-  })
-    if (!openId) {
-      wx.login({
-        success: function (res) {
-          var code = res.code
-          if (code) {
-            wx.getUserInfo({
-              withCredentials: true,
-              success: function (resU) {
-                wx.setStorageSync('userInfo', resU.userInfo);
-                wx.request({
-                  url: requestUrl + 'wechat/decodeUserInfo',
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  data: {
-                    encryptedData: resU.encryptedData,
-                    iv: resU.iv,
-                    code: code
-                  },
-                  success: function (data) {
-                    var openId = data.data.data.openid
-                    wx.setStorageSync('openId', openId)
-                    wx.request({
-                      url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
-                      success: function (res) {
-                        wx.hideLoading()
-                        var result = res.data.data
-                        var level = "0"
-                        if (result) {
-                          level = result.level
+  if (!openId) {
+    wx.showLoading({
+      title: '',
+      mask: true
+    })
+    wx.login({
+      success: function(res) {
+        var code = res.code
+        if (code) {
+          wx.getUserInfo({
+            withCredentials: true,
+            success: function(resU) {
+              wx.setStorageSync('userInfo', resU.userInfo);
+              wx.request({
+                url: requestUrl + 'wechat/decodeUserInfo',
+                method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                data: {
+                  encryptedData: resU.encryptedData,
+                  iv: resU.iv,
+                  code: code
+                },
+                success: function(data) {
+                  var openId = data.data.data.openid
+                  wx.setStorageSync('openId', openId)
+                  wx.request({
+                    url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
+                    success: function(res) {
+                      wx.hideLoading()
+                      var result = res.data.data
+                      var level = "0"
+                      if (result) {
+                        level = result.level
+                      }
+                      wx.setStorageSync('level', level)
+                    }
+                  })
+                }
+              })
+            },
+            fail: function() {
+              wx.showModal({
+                title: '警告通知',
+                content: '您点击了拒绝授权,将无法正常显示个人信息,点击确定重新获取授权。',
+                success: function(res) {
+                  if (res.confirm) {
+                    wx.openSetting({
+                      success: (res) => {
+                        if (res.authSetting["scope.userInfo"]) { ////如果用户重新同意了授权登录
+                          wx.login({
+                            success: function(res_login) {
+                              if (res_login.code) {
+                                wx.getUserInfo({
+                                  withCredentials: true,
+                                  success: function(res_user) {
+                                    wx.request({
+                                      url: requestUrl + 'wechat/decodeUserInfo',
+                                      method: 'POST',
+                                      header: {
+                                        'content-type': 'application/x-www-form-urlencoded'
+                                      },
+                                      data: {
+                                        code: res_login.code,
+                                        encryptedData: res_user.encryptedData,
+                                        iv: res_user.iv
+                                      },
+                                      success: function(res) {
+                                        wx.hideLoading()
+                                        var openId = data.data.data.openid
+                                        wx.setStorageSync('openId', openId);
+                                        getUserInfo(openId)
+                                      }
+                                    })
+                                  }
+                                })
+                              }
+                            }
+                          });
                         }
-                        wx.setStorageSync('level', level)
+                      },
+                      fail: function(res) {
+                        wx.hideLoading()
                       }
                     })
-                  }
-                })
-              },
-              fail: function () {
-                wx.showModal({
-                  title: '警告通知',
-                  content: '您点击了拒绝授权,将无法正常显示个人信息,点击确定重新获取授权。',
-                  success: function (res) {
-                    if (res.confirm) {
-                      wx.openSetting({
-                        success: (res) => {
-                          if (res.authSetting["scope.userInfo"]) {////如果用户重新同意了授权登录
-                            wx.login({
-                              success: function (res_login) {
-                                if (res_login.code) {
-                                  wx.getUserInfo({
-                                    withCredentials: true,
-                                    success: function (res_user) {
-                                      wx.request({
-                                        url: requestUrl + 'wechat/decodeUserInfo',
-                                        method: 'POST',
-                                        header: {
-                                          'content-type': 'application/x-www-form-urlencoded'
-                                        },
-                                        data: {
-                                          code: res_login.code,
-                                          encryptedData: res_user.encryptedData,
-                                          iv: res_user.iv
-                                        },
-                                        success: function (res) {
-                                          wx.hideLoading()
-                                          var openId = data.data.data.openid
-                                          wx.setStorageSync('openId', openId);
-                                          getUserInfo(openId)
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              }
-                            });
-                          }
-                        }, fail: function (res) {
-                          wx.hideLoading()
-                        }
-                      })
 
-                    }
                   }
-                })
-              }
-            })
-          }
+                }
+              })
+            }
+          })
         }
-      })
-    }
+      }
+    })
+  }
   return openId
 }
+
 function getUserInfo(openId) {
   if (openId) {
     wx.request({
       url: requestUrl + 'user/findUserByOpenId?openId=' + openId,
-      success: function (res) {
+      success: function(res) {
         var result = res.data.data
         var level = 0
         if (result) {
@@ -577,7 +575,7 @@ function getUserInfo(openId) {
 
 }
 
-function updateStep (step) {
+function updateStep(step) {
   var item = new Object()
   item.wechatOpenId = wx.getStorageSync('openId')
   item.step = step
@@ -588,7 +586,7 @@ function updateStep (step) {
   })
 }
 
-function saveShareRecord (item) {
+function saveShareRecord(item) {
   wx.request({
     url: requestUrl + 'user/saveShareRecord',
     method: 'POST',
@@ -605,7 +603,7 @@ function checkOldUser(item) {
     url: requestUrl + 'user/checkOldUser',
     method: 'POST',
     data: item,
-    success: function (res) {
+    success: function(res) {
       result = res.data.data
     }
   })
@@ -619,7 +617,7 @@ function getPhoneNum(e) {
     mask: true
   })
   wx.login({
-    success: function (res) {
+    success: function(res) {
       console.log(res)
       var code = res.code
       if (code) {
@@ -634,7 +632,7 @@ function getPhoneNum(e) {
             iv: e.detail.iv,
             code: code
           },
-          success: function (resD) {
+          success: function(resD) {
             var result = resD.data.data
             if (result) {
               var tel = result.userInfo.phoneNumber
@@ -648,7 +646,7 @@ function getPhoneNum(e) {
                   icon: 'success',
                   duration: 2000
                 })
-                setTimeout(function () {
+                setTimeout(function() {
                   wx.switchTab({
                     url: '../index/index'
                   })
