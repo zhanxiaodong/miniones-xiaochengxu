@@ -270,23 +270,24 @@ Page({
     box.address = this.data.address
     box.remarks = that.data.remarks
     box.formId = e.detail.formId
-    wx.request({
-      url: util.requestUrl + 'box/saveBox',
-      method: 'POST',
-      data: box,
-      success: function(res) {
-        var code = res.data.code
-        if (code == "0") {
-          $wuxDialog.alert({
-            content: res.data.message
-          })
-        } else {
-          wx.reLaunch({
-            url: '../giftBox/giftBox',
-          })
-        }
-      }
-    })
+     wx.request({
+       url: util.requestUrl + 'box/saveBox',
+       method: 'POST',
+       data: box,
+       success: function(res) {
+         var code = res.data.code
+         if (code == "0") {
+           $wuxDialog.alert({
+             content: res.data.message
+           })
+         } else {
+           wx.reLaunch({
+             url: '../giftBox/giftBox',
+           })
+         }
+       }
+     })
+    console.log(box)
   },
   inMark: function() {
     this.setData({

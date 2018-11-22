@@ -191,7 +191,7 @@ page {
 }
 
 .header-place {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #666666;
 }
 
@@ -199,6 +199,11 @@ page {
   height: 40rpx;
   width: 40rpx;
   padding: 0 20rpx;
+}
+.header-wea {
+  font-size: 32rpx;
+  color: #666666;
+  padding: 0 10rpx;
 }
 
 .header-tem {

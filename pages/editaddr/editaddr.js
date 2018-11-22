@@ -66,7 +66,7 @@ Page({
         }
         form.name = res.userName
         form.tel = res.telNumber
-        form.address = res.provinceName + res.cityName + res.countyName 
+        form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
         form.addressDetail = res.detailInfo
         form.status = 'ENABLE'
         form.province = res.provinceName

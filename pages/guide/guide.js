@@ -3,7 +3,7 @@ const app = getApp();
 Page({
   data: {
     titleOne: '迷你王国的全新购物体验',
-    titleTwo: '超过200000名高知妈妈的托付',
+    titleTwo: '超过10,000名高知妈妈的托付',
     titleThree: '为什么要选择迷你王国',
     titleFour: '订阅会员专享特权',
     vipGrey: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-grey.png',
@@ -86,7 +86,7 @@ Page({
      
     indicatorDots: false,
     autoplay: true,
-    interval: 5000,
+    interval: 8000,
     duration: 1000,
     circular: true,
 
@@ -97,7 +97,7 @@ Page({
       company: '华为',
       job: '高级经理',
       detail: '14年在美国出差就听说过miniones，很感兴趣。今年年初miniones在国内上线的时候，我立即要了一个盒子，说实话第一个盒子并没有十分惊艳，但我还是买了会员，因为我需要一个可靠的服务帮我节省时间。',
-      like: '品牌偏好：next (UK) ｜jacadi (FR)',
+      like: '品牌偏好：Next (UK) ｜Jacadi (FR)',
       set: '消费预设：500+/套',
       add: '累计盒子：6个'
     },
@@ -107,7 +107,7 @@ Page({
         name: '@幸胡麻麻',
         company: '自媒体人',
         job: '全职妈妈',
-        detail: '们家小可的很多衣服都在微商上买的。微商的衣服好看是好看，就是质量实在是...收了几次minibox后最大的感受是衣服摸起来都很软糯，质量真的很棒！',
+        detail: '我们家小可的很多衣服都在微商上买的。微商的衣服好看是好看，就是质量实在是...收了几次minibox后最大的感受是衣服摸起来都很软糯，质量真的很棒！',
         like: '品牌偏好：马克珍妮(CN) ｜巴布豆(CN)',
         set: '消费预设：100 - 300 / 套',
         add: '累计盒子：3个'
@@ -119,7 +119,7 @@ Page({
         company: '私企',
         job: '主管',
         detail: '为什么选择你们？方便啊，自己花时间去筛选还是花点钱让可靠的人帮你准备，我选择后者。别问，问就是懒。',
-        like: '品牌偏好：马克珍妮(CN) ｜bebeby(CN)',
+        like: '品牌偏好：马克珍妮(CN) ｜Bebeby(CN)',
         set: '消费预设：100 - 300 / 套',
         add: '累计盒子：3个'
       },
@@ -130,7 +130,7 @@ Page({
         company: '网易',
         job: '平面设计',
         detail: '衣服都很舒适，之前收到防晒服和遮阳帽正好旅游用上，刚收到的这个盒子里给我放了一个全棉时代的纱布浴巾，我想知道搭配师是怎么知道我正好想买这个的～',
-        like: '品牌偏好：zara(ES) ｜carter(US)',
+        like: '品牌偏好：Zara(ES) ｜Carter(US)',
         set: '消费预设：100 - 300 / 套',
         add: '累计盒子：4个'
       },
@@ -141,7 +141,7 @@ Page({
         company: '艺人',
         job: '演员模特',
         detail: '非常有趣的购物体验， 补充了我在工作忙碌时的疏忽，迷你王国会主动提醒我并配送一个丰富的搭配盒子，有些之前没见过的牌子，但看到衣服会十分惊喜。',
-        like: '品牌偏好：bopoint(FR) ｜nonas(ES)',
+        like: '品牌偏好：Bopoint(FR) ｜Nonas(ES)',
         set: '消费预设：500 + /套',
         add: '累计盒子：8个'
       }],

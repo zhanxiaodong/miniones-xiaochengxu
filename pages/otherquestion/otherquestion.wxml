@@ -1,13 +1,13 @@
 <view class="top-title">其他问题</view>
 <wux-accordion-group  accordion default-current="{{ ['0'] }}">
             <wux-accordion title="1.如何将迷你王国推荐给我的好友?">
-            <view class="detail">1) 非常感谢您对我们的信任与支持! 如果您是有效会员, 进入迷你王国小程序, 点击“我的”页面, 即可邀请好友注册. </view>
-            <view class="detail">2) 在好友首次支付后, 您及您的朋友可获得¥50的现金使用券. </view>
+            <view class="detail">1) 非常感谢您对我们的信任与支持! 如果您是有效会员, 进入迷你王国小程序, 点击“我的”页面, 即可邀请好友注册。 </view>
+            <view class="detail">2) 在好友首次支付后, 您及您的朋友可获得¥50的现金使用券。 </view>
             </wux-accordion>
             <wux-accordion title="2.如何获得邀请好友¥50元红包?">
-              <view class="detail">1)好友通过您分享的链接下载迷你王国小程序, 首次完成注册并付费成为会员, 您的好友会获得¥50元好友邀请现金使用券. </view>
-              <view class="detail">2)您的好友成功下单7天后, ¥50元现金券将放入您的账号.</view>
-              <view class="detail">3)特别提示: 若被邀请人不满足以上条件, 双方无法获得相应奖励. </view>
+              <view class="detail">1)好友通过您分享的链接下载迷你王国小程序, 首次完成注册并付费成为会员, 您的好友会获得¥50元好友邀请现金使用券。 </view>
+              <view class="detail">2)您的好友成功下单7天后, ¥50元现金券将放入您的账号。</view>
+              <view class="detail">3)特别提示: 若被邀请人不满足以上条件, 双方无法获得相应奖励。 </view>
             </wux-accordion>
         </wux-accordion-group> 
       <!--<view class="click-right">  
