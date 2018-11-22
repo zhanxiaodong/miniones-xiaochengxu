@@ -90,7 +90,8 @@ Page({
     var boxId = this.data.boxId
     var that = this
     wx.request({
-      url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
+      // url: util.requestUrl + 'box/findBoxPay?id=' + boxId + '&openId=' + wx.getStorageSync('openId'),
+      url: util.requestUrl + 'box/findBoxPay?id=5bee6e22e4b028e9e1e46b5a&openId=oUbB_4u1a8ueUs-qOr04LDNNV01I',
       success: function(res) {
         var result = res.data.data
         var actTime = result.actTime ? result.actTime : 0
@@ -209,12 +210,9 @@ Page({
     return checks
   },
   choseCoupo: function() {
-    var condition = this.data.totalAllPrice
-    if (!condition) {
-      condition = 0
-    }
+    var goodsTotal = this.data.goodsTotal
     wx.navigateTo({
-      url: '/pages/coupon/coupon?pick=true&vouType=VOUCHER&condition=' + condition,
+      url: '/pages/coupon/coupon?pick=true&vouType=VOUCHER&condition=' + goodsTotal,
     })
   },
   /**
@@ -297,10 +295,9 @@ Page({
     var otherAmount = 0.00
     var vipoprice = 0.00
     var avgPrice = 0.00
+    goodsTotal = Number(goodsTotal)
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
-      console.log(totalPrice)
-      var userCoupon = false
       var voucher = this.data.voucher
       var reBuy = this.data.reBuy
       if (voucher && totalPrice != 0 && !reBuy) {
@@ -313,9 +310,6 @@ Page({
           } else {
             totalPrice = totalPrice - voucher.amount
             subPrice = subPrice + voucher.amount
-          }
-          if(vouCondition>0) {
-            userCoupon = true
           }
         } else {
           this.setData({
@@ -343,12 +337,14 @@ Page({
       } else {
         vipoprice = totalPrice * 0.15
       }
-      if (this.data.other && totalPrice > 0 && !userCoupon) {
-        otherAmount = totalPrice * this.data.otherDic
-        totalPrice = totalPrice - otherAmount
-        subPrice = subPrice + otherAmount
+      if (this.data.other && totalPrice > 0 ) {
+        var voucher = this.data.voucher
+        if (!voucher || (voucher && !voucher.condition)) {
+          otherAmount = totalPrice * this.data.otherDic
+          totalPrice = totalPrice - otherAmount
+          subPrice = subPrice + otherAmount
+        }
       }
-
       var chooseCount = this.data.chooseCount
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
