@@ -591,7 +591,7 @@
 }
 
 .wrap-info-img {
-  height: 400rpx;
+  height: 430rpx;
   width: 730rpx;
   padding:0 10rpx;
 }
@@ -639,7 +639,7 @@
   display: flex;
   flex-flow: row nowrap;
   text-align:center;
-  margin-top: 36rpx;
+  margin-top: 70rpx;
 }
 
 .wrap-info-detail-footer-get {
@@ -669,7 +669,7 @@
   flex-flow: row nowrap;
   position: absolute;
   right: 80rpx;
-  top: 40rpx;
+  top: 50rpx;
 }
 
 .wrap-info-detail-header-right-icon {
