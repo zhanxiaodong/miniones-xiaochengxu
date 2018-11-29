@@ -79,8 +79,6 @@
          </view>
         </label>
       </radio-group>
-   
-  
  <!-- <view class="section">
       <textarea placeholder="填写评价" placeholder-style="color:#cccccc; font-size: 24rpx;" />
   </view>
@@ -88,4 +86,4 @@
 </view>
 <view class="butBox">
     <button class="but" bindtap="saveEva">提交评价</button>
-  </view>
+</view>

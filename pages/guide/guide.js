@@ -297,6 +297,23 @@ Page({
       })
     }
   },
+
+  tabClick: function (e) {
+    var that = this;
+    if (this.data.activeIndex === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
+  tabClick: function (e) {
+    var activeId = e.currentTarget.id
+    this.setData({
+      activeIndex: e.currentTarget.id
+    })
+},
   clickIndex: function() {
     var level = wx.getStorageSync('level')
     if (!level || level == 0) {
