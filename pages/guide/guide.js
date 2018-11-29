@@ -240,6 +240,7 @@ Page({
         two: '我们将更多的可能性放进盒子里，直接送到您家里，可能孩子没有尝试过的风格，但试穿的时候却非常棒！轻松享受品质生活吧。'
       },
     ],
+    level:0
   },
   onLoad: function(options) {
     app.editTabBar();
@@ -285,9 +286,18 @@ Page({
         needAuth: false
       })
       var openId = wx.getStorageSync('openId')
-      wx.request({
-        url: util.requestUrl + 'user/updateGuide?openId=' + openId,
-      })
+      var times = wx.getStorageSync('times')
+      if (!times) {
+        wx.request({
+          url: util.requestUrl + 'user/updateGuide?openId=' + openId,
+        })
+      }
+      var level = wx.getStorageSync('level')
+      if (level) {
+        that.setData({
+          level: level
+        })
+      }
       wx.request({
         url: util.requestUrl + 'baby/findBabyByOpenId?openId=' + openId,
         success: function (res) {
