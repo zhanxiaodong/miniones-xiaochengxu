@@ -221,7 +221,7 @@ Page({
           that.setData({
             /*isShowText: true,*/
             payStatus: true,
-            realPayAmount: realPayAmount,
+            realPayAmount: realPayAmount.toFixed(1),
             markIndex: true,
             hidIndex: true,
             useExpCoupon: useExpCoupon

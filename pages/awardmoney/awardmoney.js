@@ -90,7 +90,7 @@ Page({
     }
   },
   returnIndex: function() {
-    wx.switchTab({
+    wx.reLaunch({
       url: '../index/index',
     })
   }
