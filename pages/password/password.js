@@ -49,7 +49,7 @@ Page({
                 duration: 2000
               })
               setTimeout(function () {
-                wx.switchTab({
+                wx.reLaunch({
                   url: '../index/index'
                 })
               }, 2000)

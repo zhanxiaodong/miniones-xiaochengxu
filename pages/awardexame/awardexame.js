@@ -142,7 +142,7 @@ Page({
   },
 
   goIndex: function() {
-    wx.switchTab({
+    wx.reLaunch({
       url: '../index/index',
     })
   }

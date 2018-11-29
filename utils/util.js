@@ -434,8 +434,8 @@ function radioGroupChange(group, value) {
 }
 
 // const requestUrl = 'http://interface.miniones.cn/merchant/'
-const requestUrl = 'https://interface.miniones.cn/merchant_new/'
-//  const requestUrl = 'http://192.168.0.2:8080/merchant/'
+// const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+ const requestUrl = 'http://192.168.0.2:8080/merchant/'
 // const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
@@ -647,7 +647,7 @@ function getPhoneNum(e) {
                   duration: 2000
                 })
                 setTimeout(function() {
-                  wx.switchTab({
+                  wx.reLaunch({
                     url: '../index/index'
                   })
                 }, 2000)

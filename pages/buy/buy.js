@@ -618,7 +618,7 @@ Page({
     })
   },
   refuse: function() {
-    wx.switchTab({
+    wx.reLaunch({
       url: "../index/index",
     })
   }

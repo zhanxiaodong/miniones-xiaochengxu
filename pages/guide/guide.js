@@ -319,7 +319,7 @@ Page({
     if (!level || level == 0) {
       util.updateStep(1)
     }
-    wx.switchTab({
+    wx.reLaunch({
       url: '../index/index',
     })
   }, 

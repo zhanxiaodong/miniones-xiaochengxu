@@ -85,7 +85,7 @@ Page({
   },
   go: function (e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
-    wx.switchTab({
+    wx.reLaunch({
       url: '../index/index',
     })
   },
