@@ -223,20 +223,20 @@
         <view class="wrap-plan-intro-detail">根据孩子的成长阶段需求，已为你推荐合适的订阅计划，现在开始每月收取衣盒，建立孩子的穿搭风格。</view>
       </view>
       <view class="tab">
-         <view class="weui-navbar">
+       <view class="weui-navbar">
         <block wx:for="{{tabs}}" wx:key="*this">
           <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
             <view class="weui-navbar__title" wx:if="{{item}}">{{item}}</view>
           </view>
         </block>
-        </view>
+       </view>
       </view>
       <block wx:for="{{babyInfo}}" wx:key="{{item.order}}">
-      <view class="tab-info">
-        <view class="tab-info-one">{{item.order}}<text style="padding-left: 10rpx;">{{item.date}}</text></view>
-        <view class="tab-info-two">{{item.character}}</view>
+       <view class="tab-info">
+         <view class="tab-info-one">{{item.order}}<text style="padding-left: 10rpx;">{{item.date}}</text></view>
+         <view class="tab-info-two">{{item.character}}</view>
          <icon type="success" size="23" color="#04B8A0" style="position:absolute;right:40rpx;top:40rpx;"/>
-      </view>
+       </view>
       </block>
       <view class="wrap-plan-asset">不满意？<text style="text-decoration: underline;">调整计划</text></view>
    </view>

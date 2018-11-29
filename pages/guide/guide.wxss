@@ -572,16 +572,17 @@
 }
 
 /*会员页面样式*/
-/*.wraps {
+.wraps {
   background-color: #f6f8f7;
-}*/
+}
 
 .wrap-design,.wrap-plan,.wrap-choose,.wrap-claim {
   width: 710rpx;
   margin-left: 20rpx;
   border-radius:15rpx;
-  box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.1);
+  /*box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.1);*/
   margin-bottom: 50rpx;
+  background-color: #fff;
 }
 
 .wrap-info {
@@ -590,7 +591,7 @@
 }
 
 .wrap-info-img {
-  height: 380rpx;
+  height: 430rpx;
   width: 730rpx;
   padding:0 10rpx;
 }
@@ -638,7 +639,7 @@
   display: flex;
   flex-flow: row nowrap;
   text-align:center;
-  margin-top: 36rpx;
+  margin-top: 70rpx;
 }
 
 .wrap-info-detail-footer-get {
@@ -666,8 +667,9 @@
 .wrap-info-detail-header-right {
   display: flex;
   flex-flow: row nowrap;
-  padding-left: 140rpx;
-  padding-top: 32rpx;
+  position: absolute;
+  right: 80rpx;
+  top: 50rpx;
 }
 
 .wrap-info-detail-header-right-icon {
