@@ -1,23 +1,7 @@
 <view wx:if="{{needAuth}}" style='position: fixed;width: 100%;height: 100%;z-index: 100001;'>
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
 </view>
-<view>
-  <!--<view class="section">
-    <image class="section-bg" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/guide.jpg"></image>
-    <view class="section-body">
-      <view class="section-title">
-         <view class="section-title-list">让孩子</view>
-         <view class="section-title-list">从小</view>
-         <view class="section-title-list">与众不同</view>
-      </view>
-      <view class="section-chinese">
-         <view class="section-chinese-list">全球品牌先试后买</view>
-         <view class="section-chinese-list">每月免费配送满满一盒子</view>
-         <view class="section-chinese-list">的时尚搭配</view>
-      </view>
-      <image class="section-icon" style="height: 48rpx;width: 48rpx;margin: 420rpx 0 0 314rpx;" src="/images/xiala2.png"></image>
-    </view>
-  </view>-->
+<view class="nimeide" hidden="true">
   <view class="section-one">
    <image class="box-img" src="{{boxImg}}"></image>
    <view class="describe-two">孩童成长服饰订阅</view>
@@ -78,12 +62,6 @@
   </view>
   <image class="vip-img-two" src="{{vipTwo}}"/>
 </view>
-<!-- <view class="content-process" wx:for="{{contentList}}" wx:key="{{item.index}}">
-    <image class="content-process-img" src="{{item.img}}"></image>
-    <view class="content-process-title"><text class="index-distance">{{item.index}}</text>{{item.title}}</view>
-    <view class="content-process-describe">{{item.describe}}</view>
-    <view class="content-process-describe">{{item.last}}</view>
- </view>-->
 <navigator url="/pages/normalquestion/normalquestion" on-type="navigate" class="click-question">有疑问？点击查看常见问题</navigator>
 <view class="cloth-distance">
  <view class="content-title">{{titleTwo}}</view>
@@ -136,9 +114,9 @@
   <view class="vip-card-right">
     <view class="vip-card-price">
        <view class="vip-card-icon">￥</view>
-       <view class="vip-card-money">1</view>
+       <view class="vip-card-money">9.9</view>
     </view>
-    <view class="vip-card-click">注册</view>
+    <view class="vip-card-click" style="margin-left: 26rpx;">注册</view>
   </view>
 </view>
 </view>
@@ -177,13 +155,6 @@
   </view>
 </view>
 </view>
-<!--<view class="question" wx:for="{{questionList}}" wx:key="{{item.index}}">
-  <view class="describe-four-title">{{item.title}}</view>
-  <view class='describe-distance' style="">
-   <view class="describe-four-content-one">{{item.one}}</view>
-   <view class="describe-four-content-one">{{item.two}}</view>
-  </view>
-</view>-->
 <view class="footer">
   <image class="footer-img" src="{{contactImg}}" bindtap="previewImage" />
   <view class="footer-love">给孩子一个穿搭礼，从出生开始</view>
@@ -192,7 +163,98 @@
   <view class="footer-phone">或直接垂询：400-108-2028</view>
 </view>
 <view style="height: 65rpx"></view>
-<!--<view class="button" bindtap="clickIndex">开启风格</view>-->
+</view>
+<!--会员页面-->
+<view class="wraps">
+   <view class="wrap-info">
+     <image src="{{vipbd}}" class="wrap-info-img"/>
+     <view class="wrap-info-detail">
+       <view class="wrap-info-detail-header">
+          <image src="{{baby.photo}}" class="wrap-info-detail-header-photo"/>
+          <view class="wrap-info-detail-header-data">
+             <view class="wrap-info-detail-header-data-name">name</view>
+             <view class="wrap-info-detail-header-data-date">2022-12-20到期</view>
+          </view>
+          <view class="wrap-info-detail-header-right">
+             <image src="{{vipicon}}" class="wrap-info-detail-header-right-icon"/>
+             <view class="wrap-info-detail-header-right-show">SVIP</view>
+          </view>
+       </view>
+       <view class="wrap-info-detail-footer">
+          <view class="wrap-info-detail-footer-get">
+            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-status">已收到</view>  
+          </view>
+          <view class="wrap-info-detail-footer-buy">
+            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-status">已购买</view>  
+          </view>
+          <view class="wrap-info-detail-footer-save">
+            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-status">已节省</view>  
+          </view>
+       </view>
+     </view>
+   </view>
+   <view class="wrap-design">
+     <button  open-type="contact" class="button-click"></button>
+     <view class="wrap-design-header">
+       <view class="wrap-design-header-title">专属搭配</view>
+       <view class="wrap-header-omit">...</view>
+     </view>
+     <view class="wrap-design-footer">
+       <image src="" class="wrap-design-footer-img"/>
+       <view class="wrap-design-footer-info">
+          <view class="wrap-design-footer-info-name">sara<text style="font-weight: 400; padding-left:20rpx;">小龙女</text></view>
+          <view class="wrap-design-footer-info-work">3岁孩子到妈妈/打得动/对的 </view>
+       </view>
+     </view>
+   </view>
+   <view class="wrap-plan">
+      <view class="wrap-plan-header">
+         <view class="wrap-plan-header-title">订阅计划</view>
+         <view class="wrap-header-omit">...</view>
+      </view>
+      <image src="{{planphoto}}" class="wrap-plan-img"/>
+      <view class="wrap-plan-intro">
+        <view class="wrap-plan-intro-title">
+          每月一盒孩子需要的穿搭精选<text class="vip-free">会员免费</text>
+        </view>
+        <view class="wrap-plan-intro-detail">根据孩子的成长阶段需求，已为你推荐合适的订阅计划，现在开始每月收取衣盒，建立孩子的穿搭风格。</view>
+      </view>
+      <view class="tab">
+         <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title" wx:if="{{item}}">{{item}}</view>
+          </view>
+        </block>
+        </view>
+      </view>
+      <block wx:for="{{babyInfo}}">
+      <view class="tab-info">
+        <view class="tab-info-one">{{item.order}}<text style="padding-left: 10rpx;">{{item.date}}</text></view>
+        <view class="tab-info-two">{{item.character}}</view>
+         <icon type="success" size="23" color="#04B8A0" style="position:absolute;right:40rpx;top:40rpx;"/>
+      </view>
+      </block>
+      <view class="wrap-plan-asset">不满意？<text style="text-decoration: underline;">调整计划</text></view>
+   </view>
+   <view class="wrap-choose">
+     <view class="wrap-choose-title">会员精选</view>
+     <!--<image src="{{}}" class="wrap-choose-img"/>-->
+     <view style="height: 256rpx; width: 670rpx;background-color: #f2f2f2;margin-left: 20rpx; border-radius: 20rpx;"></view>
+   </view>
+   <view class="wrap-claim">
+      <view class="wrap-claim-title">会员特权</view>
+      <view class="vip-privilege">
+        <view class="vip-privilege-detail" wx:for="{{vipPrivilege}}" wx:key="*this">
+          <image class="vip-privilege-img" src="{{item.img}}"/>
+          <view class="vip-privilege-title">{{item.title}}</view>
+        </view>
+      </view>
+   </view>
+   <view class="wrap-footer">-关爱，从不迟到-</view>
 </view>
 <import src="../../tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

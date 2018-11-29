@@ -68,6 +68,7 @@
   bottom: 50rpx;
   position: fixed;
   margin-left: 80rpx;
+  z-index: 10;
 }
 
 view.active {

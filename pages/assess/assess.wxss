@@ -41,10 +41,6 @@
 
 }
 
-.choice{
-  height:120rpx;
-
-}
 .choiceLeft{
   width:70%;
   float:left;
@@ -143,4 +139,9 @@
 
 .choice {
   padding-top: 60rpx;
+   height:133rpx;
+}
+
+.section {
+  margin-top: 80rpx;
 }

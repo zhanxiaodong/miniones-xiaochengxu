@@ -82,5 +82,11 @@ Page({
     wx.navigateTo({
       url: '../servedetail/servedetail?boxId=' + boxId
     })
+  },
+  next: function (e) {
+    var boxId = e.currentTarget.dataset.id
+    wx.reLaunch({
+      url: '../index/index'
+    })
   }
 })

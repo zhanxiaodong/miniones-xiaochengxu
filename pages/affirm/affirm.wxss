@@ -36,7 +36,7 @@
   float:left;
   height:100%;
   text-align: center; 
-  line-height: 195rpx;
+  line-height: 175rpx;
   color:#cccccc;
   padding-left: 30rpx;
 }
@@ -47,7 +47,7 @@
   float:left;
 }
 .rightTop{
-  padding:70rpx 0 0 30rpx;
+  padding:60rpx 0 0 30rpx;
   border-bottom:solid 1px #f3f3f3;
 }
 .conText{
@@ -58,10 +58,11 @@
   font-size:36rpx;
   font-weight: 600;
   height: 60rpx;
-  width: 165rpx;
+  line-height: 48rpx;
 }
 .nimeide {
   font-size: 28rpx;
+  width: 100px;
 }
 
 .conText text{
@@ -82,7 +83,7 @@
   width: 400rpx;
 }
 .conRight .action{
-  padding: 70rpx 0 0 30rpx;
+  padding: 60rpx 0 0 30rpx;
 }
 .conRight .iconfont{
 position:absolute;
@@ -219,9 +220,8 @@ color: #666666;
 #repair-two {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  width: 90%;
   padding-bottom:41rpx;
-  padding-right: 30rpx;
   border-bottom:solid 1px #f3f3f3;
 
 }
@@ -267,7 +267,7 @@ color: #666666;
 .type {
   font-size: 28rpx;
   color: #999999;
-  
+  padding-left: 10rpx;
   line-height: 52rpx;
 }
 
@@ -275,7 +275,8 @@ color: #666666;
   line-height: 52rpx;
 }
 .phone {
-  padding-left:40rpx
+  padding-left:40rpx;
+  width: 100px;
 } 
 
 .address-line {

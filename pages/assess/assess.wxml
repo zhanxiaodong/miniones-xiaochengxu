@@ -64,10 +64,11 @@
       </view>
     </view>
   </view>
-  <view class="footer">
-    <view class="choice">
+  
+
       <radio-group bindchange="feedbackChange">
         <label class="checkbox" wx:for="{{feedbacks}}" wx:key="id">
+        <view class="choice">
           <view class="choiceLeft">
             <view>{{item.value}}</view>
             <view class="leftBot">{{item.desc}}</view>
@@ -75,11 +76,15 @@
           <view class="choiceRight">
             <radio class="choice-box" value="{{item.value}}" checked="{{item.checked}}" />
           </view>
+         </view>
         </label>
       </radio-group>
-    </view>
+   
+  
+ <!-- <view class="section">
+      <textarea placeholder="填写评价" placeholder-style="color:#cccccc; font-size: 24rpx;" />
   </view>
-   <view style="height:500rpx;"></view> 
+   <view style="height:500rpx;"></view> -->
 </view>
 <view class="butBox">
     <button class="but" bindtap="saveEva">提交评价</button>
