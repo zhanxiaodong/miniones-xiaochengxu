@@ -240,7 +240,7 @@ Page({
         two: '我们将更多的可能性放进盒子里，直接送到您家里，可能孩子没有尝试过的风格，但试穿的时候却非常棒！轻松享受品质生活吧。'
       },
     ],
-    level:0
+    level: wx.getStorageSync('level') ? wx.getStorageSync('level'):0
   },
   onLoad: function(options) {
     app.editTabBar();
@@ -268,12 +268,55 @@ Page({
       urls: this.data.contactImg.split(',') // 需要预览的图片http链接列表   
     })
   },
-
   onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
-      util.getOpenId()
-      this.checkAuth()
+      this.getOpenId()
     }
+  },
+  getOpenId: function () {
+    var that = this
+    wx.login({
+      success: function (res) {
+        var code = res.code
+        if (code) {
+          wx.getUserInfo({
+            withCredentials: true,
+            success: function (resU) {
+              wx.setStorageSync('userInfo', resU.userInfo);
+
+              wx.request({
+                url: util.requestUrl + 'wechat/decodeUserInfo',
+                method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                data: {
+                  encryptedData: resU.encryptedData,
+                  iv: resU.iv,
+                  code: code
+                },
+                success: function (data) {
+                  var openId = data.data.data.openid
+                  wx.setStorageSync('openId', openId)
+                  wx.request({
+                    url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+                    success: function (res) {
+                      var result = res.data.data
+                      var level = "0"
+                      if (result) {
+                        level = result.level
+                      }
+                      wx.setStorageSync('level', level)
+                      that.checkAuth()
+                    }
+                  })
+                }
+              })
+            }
+          })
+        }
+      }
+    })
   },
   checkAuth: function() {
     var that = this
@@ -297,7 +340,7 @@ Page({
         that.setData({
           level: level
         })
-      }
+      } 
       wx.request({
         url: util.requestUrl + 'baby/findBabyByOpenId?openId=' + openId,
         success: function (res) {

@@ -115,9 +115,17 @@ Page({
    * 没有流程中的
    */
   boxNone: function() {
-    wx.navigateTo({
-      url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
-    })
+    var babyCount = this.data.babyCount
+    if (babyCount != 1){
+      wx.navigateTo({
+        url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
+      })
+    }else{
+      wx.navigateTo({
+        url: "../affirm/affirm?babyId=" + this.data.baby.id + '&stylistId=' + this.data.stylist.id
+      })
+    }
+    
   },
   /**
    * 查看盒子
@@ -286,6 +294,7 @@ Page({
         var boxStatus = result.boxStatus
         var boxId = result.boxId ? result.boxId : null
         var nextBoxTime = result.nextBoxTime ? result.nextBoxTime : null
+        var babyCount = result.babyCount ? result.babyCount : 0
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
         if (nextBoxTime) {
@@ -304,6 +313,7 @@ Page({
         that.setData({
           user: user,
           stylist: stylist,
+          babyCount:babyCount,
           baby: baby,
           boxId: boxId,
           boxStatus: boxStatus,
