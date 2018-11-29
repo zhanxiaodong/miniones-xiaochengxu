@@ -355,6 +355,23 @@ Page({
       })
     }
   },
+  newNext: function () {
+    wx.navigateTo({
+      url: "/pages/index/index",
+    })
+  },
+  
+  yearNext: function () {
+    wx.navigateTo({
+      url: "/pages/club/club",
+    })
+  },
+
+  continueNext: function () {
+    wx.navigateTo({
+      url: "/pages/club/club",
+    })
+  },
 
   tabClick: function (e) {
     var that = this;

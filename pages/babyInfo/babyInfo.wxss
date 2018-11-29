@@ -91,6 +91,7 @@ page {
 .flexcs {
   display: flex;
   padding-bottom: 25rpx;
+  position:relative;
 }
 
 .avatarcs {
@@ -148,7 +149,12 @@ button {
 
 .btnedit {
   font-size: 10px;
-  background-color: #04B8A0;
+  opacity: 0;
   border-radius: 16px;
   color: #ffffff;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
 }

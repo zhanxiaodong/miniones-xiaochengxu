@@ -607,6 +607,7 @@
 .wrap-info-detail-header {
   display: flex;
   flex-flow: row nowrap;
+  padding-top: 20rpx;
 }
 
 .wrap-info-detail-header-photo {
@@ -621,6 +622,7 @@
 .wrap-info-detail-header-data {
   display: flex;
   flex-direction: column;
+  padding-top: 10rpx;
 }
 
 .wrap-info-detail-header-data-name {
@@ -638,25 +640,27 @@
 .wrap-info-detail-footer {     
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-around;
   text-align:center;
   margin-top: 70rpx;
 }
 
 .wrap-info-detail-footer-get {
-  padding-left: 96rpx;
+  
 }
 
 .wrap-info-detail-footer-buy {
-  padding-left: 160rpx;
+  
 }
 
 .wrap-info-detail-footer-save {
-  padding-left: 160rpx;
+ 
 }
 
 .wrap-info-math {
   font-size: 36rpx;
   color: #f6f8f7;
+  font-weight: 600;
 }
 
 .wrap-info-status {

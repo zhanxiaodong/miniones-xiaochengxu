@@ -53,12 +53,14 @@
 .conText{
   font-size:36rpx;
   font-weight: 600;
+  color: #333;
 }
 .peisong {
   font-size:36rpx;
   font-weight: 600;
   height: 60rpx;
   line-height: 48rpx;
+  color:#333;
 }
 .nimeide {
   font-size: 28rpx;
@@ -267,7 +269,6 @@ color: #666666;
 .type {
   font-size: 28rpx;
   color: #999999;
-  padding-left: 10rpx;
   line-height: 52rpx;
 }
 
@@ -276,7 +277,7 @@ color: #666666;
 }
 .phone {
   padding-left:40rpx;
-  width: 100px;
+  width: 300rpx;
 } 
 
 .address-line {
