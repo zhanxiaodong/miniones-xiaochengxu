@@ -208,6 +208,7 @@ Page({
     item.formId = e.detail.formId
     var vipOrder = new Object()
     var levTime
+    var upgrade = this.data.upgrade
     if (choose == 'FIRST') {
       if (upgrade) {
         vipOrder.upgrade = upgrade
