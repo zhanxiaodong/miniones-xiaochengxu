@@ -308,7 +308,7 @@ function changeMsg(status, type) {
         result = '购买与退件'
         break;
       case 'PAY_COMPLETE':
-        result = '免费要个盒子'
+        result = '预约衣盒'
         break;
       case 'PAY_PART':
         result = '免费召回'
@@ -317,10 +317,10 @@ function changeMsg(status, type) {
         result = '等待取件'
         break;
       case 'END':
-        result = '免费要个盒子'
+        result = '预约衣盒'
         break;
       default:
-        result = '免费要个盒子'
+        result = '预约衣盒'
         break;
     }
   } else if (type == 'img') {

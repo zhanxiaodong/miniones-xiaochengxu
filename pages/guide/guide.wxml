@@ -170,10 +170,10 @@
      <image src="{{vipbd}}" class="wrap-info-img"/>
      <view class="wrap-info-detail">
        <view class="wrap-info-detail-header">
-          <image src="{{baby.photo}}" class="wrap-info-detail-header-photo"/>
+          <image src="{{result.baby.bodyPic}}" class="wrap-info-detail-header-photo"/>
           <view class="wrap-info-detail-header-data">
-             <view class="wrap-info-detail-header-data-name">name</view>
-             <view class="wrap-info-detail-header-data-date">2022-12-20到期</view>
+             <view class="wrap-info-detail-header-data-name">{{result.baby.call}}</view>
+             <view class="wrap-info-detail-header-data-date">{{result.expireTime}}</view>
           </view>
           <view class="wrap-info-detail-header-right">
              <image src="{{vipicon}}" class="wrap-info-detail-header-right-icon"/>
@@ -182,15 +182,15 @@
        </view>
        <view class="wrap-info-detail-footer">
           <view class="wrap-info-detail-footer-get">
-            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-math">{{result.boxNum}}</view>
             <view class="wrap-info-status">已收到</view>  
           </view>
           <view class="wrap-info-detail-footer-buy">
-            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-math">{{result.buyClothCount}}</view>
             <view class="wrap-info-status">已购买</view>  
           </view>
           <view class="wrap-info-detail-footer-save">
-            <view class="wrap-info-math">32</view>
+            <view class="wrap-info-math">{{result.subAmount}}</view>
             <view class="wrap-info-status">已节省</view>  
           </view>
        </view>
@@ -203,10 +203,10 @@
        <view class="wrap-header-omit">...</view>
      </view>
      <view class="wrap-design-footer">
-       <image src="" class="wrap-design-footer-img"/>
+       <image src="{{result.stylist.avatar}}" class="wrap-design-footer-img"/>
        <view class="wrap-design-footer-info">
-          <view class="wrap-design-footer-info-name">sara<text style="font-weight: 400; padding-left:20rpx;">小龙女</text></view>
-          <view class="wrap-design-footer-info-work">3岁孩子到妈妈/打得动/对的 </view>
+          <view class="wrap-design-footer-info-name">{{result.stylist.name}}<text style="font-weight: 400; padding-left:20rpx;">小姑姑</text></view>
+          <view class="wrap-design-footer-info-work">{{result.stylist.special}} </view>
        </view>
      </view>
    </view>
@@ -231,7 +231,7 @@
         </block>
         </view>
       </view>
-      <block wx:for="{{babyInfo}}">
+      <block wx:for="{{babyInfo}}" wx:key="{{item.order}}">
       <view class="tab-info">
         <view class="tab-info-one">{{item.order}}<text style="padding-left: 10rpx;">{{item.date}}</text></view>
         <view class="tab-info-two">{{item.character}}</view>

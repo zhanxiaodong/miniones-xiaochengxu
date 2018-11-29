@@ -264,16 +264,8 @@ Page({
   
   previewImage: function (e) {
     wx.previewImage({
-      //current: this.data.contactImg, // 当前显示图片的http链接   
       urls: this.data.contactImg.split(',') // 需要预览的图片http链接列表   
     })
-    //wx.getImageInfo({// 获取图片信息（此处可不要）
-     // src: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg',
-     // success: function (res) {
-       // console.log(res.width)
-       // console.log(res.height)
-     // }
-   // })
   },
 
   onGotUserInfo: function(e) {
@@ -283,17 +275,30 @@ Page({
     }
   },
   checkAuth: function() {
+    var that = this
     if (!wx.getStorageSync('openId')) {
-      this.setData({
+      that.setData({
         needAuth: true
       })
     } else {
-      this.setData({
+      that.setData({
         needAuth: false
       })
       var openId = wx.getStorageSync('openId')
       wx.request({
         url: util.requestUrl + 'user/updateGuide?openId=' + openId,
+      })
+      wx.request({
+        url: util.requestUrl + 'baby/findBabyByOpenId?openId=' + openId,
+        success: function (res) {
+          var result = res.data.data
+          console.log(result)
+          if (result){
+            that.setData({
+              result: result
+            })
+          }
+        }
       })
     }
   },

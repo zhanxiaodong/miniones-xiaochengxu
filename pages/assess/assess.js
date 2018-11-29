@@ -6,6 +6,7 @@ Page({
     iconGreen: '/images/star-green.png',
     starFlag: null,
     selectedFavorites: [],
+    desc:null,
     feedbacks: [
       { id: 1, value: "我非常乐意继续体验衣盒服务", desc: "我们将为您提供更佳服务", checked: 'true'  },
       { id: 2, value: "我会考虑继续体验衣盒服务", desc: "我们将尝试再次为您提供服务"},
@@ -104,7 +105,14 @@ Page({
   onSelect(e) {
     var index = e.target.dataset.index
     this.setData({
-      starFlag: Number(index)
+      starFlag: Number(index),
+      selectedFavorites:[]
+    })
+  },
+  bindRemarks: function (e) {
+    var desc = e.detail.value
+    this.setData({
+      desc: desc
     })
   },
   /**
@@ -117,6 +125,7 @@ Page({
     evaluate.evalLabel = this.data.selectedFavorites
     evaluate.feedback = this.data.feedback 
     evaluate.rec = this.data.starFlag
+    evaluate.desc = this.data.desc
     wx.request({
       url: util.requestUrl + 'box/saveBoxEva',
       method: 'POST',

@@ -285,9 +285,14 @@ Page({
         var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
         var boxStatus = result.boxStatus
         var boxId = result.boxId ? result.boxId : null
+        var nextBoxTime = result.nextBoxTime ? result.nextBoxTime : null
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
-        message = that.updateNext(boxStatus, user, message)
+        if (nextBoxTime) {
+          if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
+            message = message + nextBoxTime
+          } 
+        }
         if (!that.setStep(res.data.data)) {
           btnMsg = '完善信息'
         }
@@ -309,48 +314,6 @@ Page({
         })
       }
     })
-  },
-  updateNext: function(boxStatus, user, message) {
-    var planAuto = user.planAuto
-    var plan = user.plan
-    if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
-      message = this.updateMonth(plan, message)
-    } else if (planAuto) {
-      this.updateAMonth(planAuto, message)
-    } else {
-      this.updateMonth(plan, '')
-    }
-    return message
-  },
-  updateAMonth: function(planAuto, message) {
-    var nowM = util.getMonth(new Date())
-    if (planAuto === 3) {
-      nowM = nowM + 2
-    } else if (planAuto === 2) {
-      nowM = nowM + 1
-    } else {
-      return '下一次节日'
-    }
-    message = message + nowM + "月15日"
-    return message
-  },
-  updateMonth: function(plan, message) {
-    var nowM = util.getMonth(new Date())
-    var hasN = false
-    if (plan) {
-      for (var i = 0; i < plan.length; ++i) {
-        if (plan[i] > nowM) {
-          nowM = Number(plan[i])
-          hasN = true
-          break;
-        }
-      }
-    }
-    if (!hasN) {
-      nowM = nowM + 1
-    }
-    message = message + nowM + "月15日"
-    return message
   },
   hideModal: function(e) {
     this.setData({

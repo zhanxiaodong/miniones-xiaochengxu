@@ -25,34 +25,6 @@
         </image>
       </view>
       <view class="star-content" style="display:flex;flex-direction:row;">
-        <!-- <view hidden="{{starFlag !== 1}}" class="starsHas" bindtap="changeOne">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='1'>热爱111</checkbox>
-        <checkbox value='2'>一般111</checkbox>
-        <checkbox value='3'>特别111</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 2}}" class="starsHas  {{starFlag === 2? '': 'starNo'}}" bindtap="changeTwo">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='4'>热爱222</checkbox>
-        <checkbox value='5'>一般222</checkbox>
-        <checkbox value='6'>特别222</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 3}}" class="starsHas  {{starFlag === 3? '': 'starNo'}}" bindtap="changeThree">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='7'>热爱333</checkbox>
-        <checkbox value='8'>一般333</checkbox>
-        <checkbox value='9'>特别333</checkbox>
-      </checkbox-group>
-    </view>
-    <view hidden="{{starFlag !== 4}}" class="starsHas  {{starFlag === 4? '': 'starNo'}}" bindtap="changeFour">
-      <checkbox-group bindchange="onSelectFavorites">
-        <checkbox value='7'>热爱444</checkbox>
-        <checkbox value='8'>一般444</checkbox>
-        <checkbox value='9'>特别444</checkbox>
-      </checkbox-group>
-    </view> -->
         <view hidden='{{ starFlag != (startIndex + 1) }}' wx:for-index='startIndex' wx:for="{{ starList }}" wx:key="startIndex" wx:for-item="starItem" class="starsHas">
           <checkbox-group data-index1="{{ startIndex }}" class="checkbox-group" bindchange="onSelectFavorites">
             <label class="{{ favorite.checked ? 'checked': '' }}" wx:for-index="favorIndex" wx:key="favorIndex" wx:for="{{ starItem.favorites }}" wx:for-item="favorite">
@@ -79,10 +51,10 @@
          </view>
         </label>
       </radio-group>
- <!-- <view class="section">
-      <textarea placeholder="填写评价" placeholder-style="color:#cccccc; font-size: 24rpx;" />
+ <view class="section">
+      <textarea placeholder="填写评价" bindinput='bindRemarks' placeholder-style="color:#cccccc; font-size: 24rpx;" />
   </view>
-   <view style="height:500rpx;"></view> -->
+   <view style="height:500rpx;"></view>
 </view>
 <view class="butBox">
     <button class="but" bindtap="saveEva">提交评价</button>
