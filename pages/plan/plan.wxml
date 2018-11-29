@@ -18,5 +18,6 @@
         </label>
       </radio-group>
 </view>
+<view style="height: 150rpx;"></view>
 <button  bindtap='next'  class='repair-button' >{{btnMsg}}</button>
 </view>

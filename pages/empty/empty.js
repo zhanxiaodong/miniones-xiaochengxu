@@ -9,7 +9,7 @@ Page({
   },
   
   next: function () {
-    wx.switchTab({
+    wx.reLaunch({
       url: '/pages/index/index',
     })
   }

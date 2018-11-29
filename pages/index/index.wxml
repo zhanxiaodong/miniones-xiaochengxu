@@ -68,21 +68,21 @@
      <view class="theme-detail">从第一个盒子到现在，孩子已进一步成长，迷你王国会自动为孩子更新档案，您也可以重新测量一下孩子的成长概况，进一步修正孩子的个性档案。</view>
      <view class="theme-intro">
         <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengao.png"/>
+          <image class="theme-intro-item-icon" style="padding: 0 0 20rpx 30rpx;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengao.png"/>
           <view class="theme-intro-item-container">
             <view class="theme-intro-item-title">{{baby.height}}cm</view>
             <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
           </view>  
        </view>
        <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong.png"/>
+          <image class="theme-intro-item-icon" style="padding: 0 0 20rpx 30rpx;"src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong.png"/>
           <view class="theme-intro-item-container">
             <view class="theme-intro-item-title">{{baby.weight}}kg</view>
             <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
           </view>  
        </view>
        <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong0.png"/>
+          <image class="theme-intro-item-icon" style="padding: 0 0 20rpx 30rpx;"src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong0.png"/>
           <view class="theme-intro-item-container">
             <view class="theme-intro-item-title">{{baby.size}}sz</view>
             <image src="/images/chiping.png" class="theme-intro-item-title-img"/>

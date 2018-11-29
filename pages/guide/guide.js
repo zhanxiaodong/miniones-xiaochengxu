@@ -2,10 +2,15 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
   data: {
+    activeIndex: 0,
+    tabs: ["0-1岁", "1-2岁", "2-3岁", "3-4岁", "4-5岁", "5-6岁"],
     titleOne: '迷你王国的全新购物体验',
     titleTwo: '超过10,000名高知妈妈的托付',
     titleThree: '为什么要选择迷你王国',
     titleFour: '订阅会员专享特权',
+    vipicon: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vip-icon-one.png',
+    vipbd: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipinfo.png',
+    planphoto: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dingyue375.png',
     vipGrey: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-grey.png',
     vipYellow: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-yellow.png',
     vipGreen: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-green.png',
@@ -13,6 +18,12 @@ Page({
     vipTwo: '/images/2.png',
     boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbg.png',
     contactImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg',
+    babyInfo: [{
+      order: '第一盒', date: '11月11日', character: '保暖|换洗|换季'
+    },
+    {
+      order: '第二盒', date: '12月12日', character: '圣诞|保暖|换洗'
+    }],
     sectionOne: [{
       math: '1',
       title: '每月可要一盒'
@@ -235,6 +246,22 @@ Page({
     this.checkAuth()
   },
 
+  /* 右上角转发*/
+  onShareAppMessage: function (res) {
+    var that = this;
+    return {
+      title: '给你孩子免费寄去搭配衣盒，全球品牌先试后买',
+      path: '/pages/guide/guide',
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-guide.jpg",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
+  },
+  
   previewImage: function (e) {
     wx.previewImage({
       //current: this.data.contactImg, // 当前显示图片的http链接   
