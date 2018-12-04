@@ -34,21 +34,22 @@
             <input placeholder='请选择您的收货地址' placeholder-style="margin-left: -40rpx;" value="{{address.tel}}" class="phone" />
           </view>
         </view>
-        <image class="conleft-direction" src="/images/direction.png" />
+        <image class="conleft-direction" style="position:absolute; right:28rpx;" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix">
-      <view class="conLeft">
+      <view class="conLeft" style="line-height: 185rpx;">
         <image class="conLeft-img" src="/images/get-two.png" />
       </view>
       <view class="rightTop" id="repair-two">
-        <text class="peisong">配送时间</text>
-        <text style="font-weight:400;color: #04B8A0; font-size: 28rpx; padding-top: 5rpx; padding-left: 20rpx;line-height: 40rpx;">预计</text>
+        <text class="peisong">发货时间</text>
+        <text style="font-weight:400;color: #04B8A0; font-size: 28rpx;  padding-left: 20rpx;height: 60rpx; line-height: 60rpx;">预计</text>
        <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
-            <input class="nimeide" value='{{date}}' disabled="true" placeholder="请选择时间" />
-        </picker>
        
-       <image class="conleft-direction" style="position:absolute; right:28rpx;" src="/images/direction.png" />
+         <input class="nimeide" value='{{date}}' disabled="true" placeholder="请选择时间" />
+            
+        </picker>
+       <image class="conleft-direction" style="padding-left: 0; position:absolute; right:28rpx;" src="/images/direction.png" />
       </view>
     </view>
     <view class="con clearfix" bindtap="more">

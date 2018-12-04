@@ -36,7 +36,7 @@
   float:left;
   height:100%;
   text-align: center; 
-  line-height: 175rpx;
+  line-height: 180rpx;
   color:#cccccc;
   padding-left: 30rpx;
 }
@@ -58,13 +58,16 @@
 .peisong {
   font-size:36rpx;
   font-weight: 600;
-  height: 60rpx;
-  line-height: 48rpx;
   color:#333;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 .nimeide {
   font-size: 28rpx;
-  width: 100px;
+  width: 340rpx;
+  min-height: none;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 
 .conText text{
@@ -223,13 +226,13 @@ color: #666666;
   display: flex;
   flex-flow: row nowrap;
   width: 90%;
-  padding-bottom:41rpx;
+  padding-bottom:48rpx;
   border-bottom:solid 1px #f3f3f3;
 
 }
 
 #repair-three {
-  line-height: 135rpx;
+  line-height: 144rpx;
 }
 
 .conLeft-img {
@@ -240,20 +243,19 @@ color: #666666;
 .conleft-direction {
   width: 54rpx;
   height: 54rpx;
-  padding-left: 40rpx;
 }
 
 .conleft-direction-last {
   width: 54rpx;
   height: 54rpx;
   float: right;
-  padding-right: 24rpx;
+  padding-right: 28rpx;
 }
 
 .address-left {
   display: flex;
   flex-direction: column;
-  width: 524rpx;
+  width: 570rpx;
 }
 
 .information {
@@ -264,7 +266,6 @@ color: #666666;
 .name,.phone,.address-detail,.type {
   font-size: 28rpx;
   color: #999999;
-  letter-spacing: 1px;
 }
 .type {
   font-size: 28rpx;
@@ -277,7 +278,7 @@ color: #666666;
 }
 .phone {
   padding-left:40rpx;
-  width: 300rpx;
+  width: 280rpx;
 } 
 
 .address-line {

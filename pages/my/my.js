@@ -108,10 +108,17 @@ Page({
       url: '../empty/empty',
     })
   },
+
+  goQuestion: function() {
+    wx.navigateTo({
+      url: '/pages/normalquestion/normalquestion',
+    })
+  },
   
   goGuide: function() {
+    let about = 'false'
     wx.navigateTo({
-      url: '../guide/guide',
+      url: '../guide/guide?about=about',
     })
   }
 })

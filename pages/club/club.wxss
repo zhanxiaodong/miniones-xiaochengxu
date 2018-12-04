@@ -19,7 +19,6 @@ line-height: 80rpx;
   color:#fff;
   width:100%;
   padding:40rpx;
-  height:458rpx;
   background: #04b8a0;
 }
 .expla{

@@ -46,7 +46,7 @@
             <view class="leftBot">{{item.desc}}</view>
           </view>
           <view class="choiceRight">
-            <radio class="choice-box" value="{{item.value}}" checked="{{item.checked}}" />
+            <radio class="choice-box" value="{{item.value}}" checked="{{item.checked}}" color="#04B8A0" />
           </view>
          </view>
         </label>
@@ -54,7 +54,7 @@
  <view class="section">
       <textarea placeholder="填写评价" bindinput='bindRemarks' placeholder-style="color:#cccccc; font-size: 24rpx;" />
   </view>
-   <view style="height:500rpx;"></view>
+   <view style="height:120rpx;"></view>
 </view>
 <view class="butBox">
     <button class="but" bindtap="saveEva">提交评价</button>

@@ -7,7 +7,7 @@ Page({
       { img: "/images/vip-one.png", text: "免服务费"},
       { img: "/images/vip-two.png", text: "会员折上折" },
       { img: "/images/vip-three.png", text: "专属搭配师" },
-      { img: "/images/vip-four.png", text: "199免/季" },
+      { img: "/images/vip-four.png", text: "￥199免/季" },
       { img: "/images/vip-five.png", text: "全账号通行" },
     ],
     choose:'FIRST',
@@ -113,6 +113,12 @@ Page({
     this.setData({
       btnedit: btnedit
     })
+  },
+
+  vipNext: function () {
+     wx.navigateTo({
+       url: '/pages/vipquestion/vipquestion',
+     })
   },
 
   /*click: function () {

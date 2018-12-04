@@ -21,7 +21,9 @@
       <view bindtap="orderDetail" data-id="{{box.boxId}}">
         <view class='card-section-one'>
           <view class='section-left'>
-            <view class='status-icon'></view>
+            <!--<view class='status-icon'></view>-->
+            <image src="/images/tishi.png" style="width: 36rpx;height: 36rpx;" wx:if="{{}}"/>
+            <image src="/images/queren.png" style="width: 36rpx;height: 36rpx;"/>
             <view class='status-txt'>{{box.status == 'CLOSE'?'服务已取消':'服务已完成'}}</view>
           </view>
         </view>

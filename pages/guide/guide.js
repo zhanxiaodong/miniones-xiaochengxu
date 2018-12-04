@@ -2,12 +2,27 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
   data: {
+    about: '',
     activeIndex: 0,
     tabs: ["0-1岁", "1-2岁", "2-3岁", "3-4岁", "4-5岁", "5-6岁"],
     titleOne: '迷你王国的全新购物体验',
     titleTwo: '超过10,000名高知妈妈的托付',
     titleThree: '为什么要选择迷你王国',
     titleFour: '订阅会员专享特权',
+    titleFive: '盒子里面都有什么',
+    imgUrls: [
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu7.png',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu8.png',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu9.png',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu10.png'
+    ],
+    whatBox: [
+      { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/clo.png', title: '3-5件衣服' },
+      { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/ote.png', title: '1-2配饰' },
+      { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sho.png', title: '1-2鞋履' },
+      { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/flw.png', title: '1-2洗护香氛' }
+    ],
     vipicon: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vip-icon-one.png',
     vipbd: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipinfo.png',
     planphoto: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dingyue375.png',
@@ -26,20 +41,20 @@ Page({
     }],
     sectionOne: [{
       math: '1',
-      title: '每月可要一盒'
+      title: '一次一盒'
     },
     {
       math: '3',
-      title: '严选2-3套搭配'
+      title: '2-3套专业搭配'
     },
     {
       math: '50%',
-      title: '不高于5折'
+      title: '售价不高于5折'
     }
     ],
     sectionTwo: [{
         math: '60',
-        title: '全球童装品牌'
+        title: '全球精选品牌'
       },
       {
         math: '22,000',
@@ -58,7 +73,7 @@ Page({
       {
         math: '02.',
         title: '要个盒子',
-        content: '随时随地，一键下单，精美搭配顺丰到家。'
+        content: '随时随地，一键下单，2-3套精美搭配顺丰到家。'
       },
     ],
     vipListAgain: [{
@@ -107,7 +122,7 @@ Page({
       name: 'sara',
       company: '华为',
       job: '高级经理',
-      detail: '14年在美国出差就听说过miniones，很感兴趣。今年年初miniones在国内上线的时候，我立即要了一个盒子，说实话第一个盒子并没有十分惊艳，但我还是买了会员，因为我需要一个可靠的服务帮我节省时间。',
+      detail: '14年在美国出差就听说过这种购物方式，很感兴趣，觉得很棒。今年年初miniones在国内上线的时候，我立即要了一个盒子，说实话第一个盒子并没有十分惊艳，但我还是买了会员，因为我需要一个可靠的服务帮我节省时间。',
       like: '品牌偏好：Next (UK) ｜Jacadi (FR)',
       set: '消费预设：500+/套',
       add: '累计盒子：6个'
@@ -118,7 +133,7 @@ Page({
         name: '@幸胡麻麻',
         company: '自媒体人',
         job: '全职妈妈',
-        detail: '我们家小可的很多衣服都在微商上买的。微商的衣服好看是好看，就是质量实在是...收了几次minibox后最大的感受是衣服摸起来都很软糯，质量真的很棒！',
+        detail: '我们家小可的很多衣服都在微商上买的。微商的衣服好看是好看，就是质量实在是...收了几次亲盒后最大的感受是衣服摸起来都很软糯，质量真的很棒！',
         like: '品牌偏好：马克珍妮(CN) ｜巴布豆(CN)',
         set: '消费预设：100 - 300 / 套',
         add: '累计盒子：3个'
@@ -243,8 +258,16 @@ Page({
     level: wx.getStorageSync('level') ? wx.getStorageSync('level'):0
   },
   onLoad: function(options) {
+    console.log(options);
     app.editTabBar();
     this.checkAuth()
+    var about = options.about;
+    var that = this;
+    if (about) {
+      that.setData({
+        about: about
+      })
+    }
   },
 
   /* 右上角转发*/

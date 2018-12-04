@@ -30,7 +30,7 @@
     <view class='goods-list-info' style="background-color: #ffffff;">
       <checkbox-group bindchange="goodsChange">
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
-          <view class='checklabel'>
+          <view class='checklabel' style="border-top: 1px solid #f2f2f2;">
             <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
             <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
               <view class='flex_auto green1-color'>
@@ -43,6 +43,7 @@
               </view>
             </view>
           </view>
+
         </label>
       </checkbox-group>
     </view>
@@ -79,6 +80,59 @@
         <text class="botActive">（平均{{payBoxInfo.avgPrice}}元一件）</text>为您节省￥{{payBoxInfo.subPrice}}</view>
     </view>
   </view>
+  <view style="height: 20rpx;"></view>
+  <view class="content">
+    <view class="con clearfix">
+      <view class="error-header">
+        <image src="/images/tishi.png" class="error-img"/>
+        <view class="conText">召回异常</view>
+      </view>
+    </view>
+    <view class='goods-list-info' style="background-color: #ffffff;">
+      <checkbox-group bindchange="goodsChange">
+        <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
+          <view class='checklabel'>
+            <view class="warn-title">{{shop.state}}未退回</view>
+            <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
+            <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+              <view class='flex_auto green1-color'>
+                <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
+                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
+              </view>
+              <view style="display: flex; flex-direction: column;padding-right:40rpx;">
+                <view class='fontWeight'>￥ {{item.realAmount}}</view>
+                <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
+              </view>
+            </view>
+          </view>
+          <view style="width:100%;height:1px;background-color:#f2f2f2; margin-left: 164rpx;"></view>
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+   <view class="vipTwo clearfix" style="background-color:#fff;">
+      <view class="vipPro" >
+        <view class="twoPro">商品价格差异</view>
+        <view class="proActive">-￥{{payBoxInfo.orderPay}}</view>
+      </view>
+      <view class="vipPro">
+        <view class="twoPro">优惠结算差异</view>
+        <view class="proActive">-￥{{payBoxInfo.discountPrice}}</view>
+      </view>
+      <!--<view class="vipPro" hidden='{{!payBoxInfo.otherAmount}}'>
+        <view class="twoPro">递增优惠</view>
+        <view class="proActive">-￥{{payBoxInfo.otherAmount}}</view>
+      </view>-->
+    </view>
+    <view style="height: 1px; background-color: #F6F8F7; margin-left: 40rpx;"></view>
+    <view class="vipBot"  style="background-color:#fff;">
+      <view class="botTop"><text class="botActive">￥</text>{{payAmount}}</view>
+      <view class="botFoot">您需要额外支付差异价格</view>
+    </view>
+    <view style="background-color: #fff; padding: 40rpx 0;">
+      <view class="error-buy">追加支付</view>
+    </view>
+  <!--<view style="height: 20rpx;"></view>-->
   <button class="server" open-type='contact'>
     <image style="height: 36rpx; width: 36rpx;padding-right: 22rpx;" src="{{src}}"></image>
     <view class="server-detail">迷你王国客服中心</view>

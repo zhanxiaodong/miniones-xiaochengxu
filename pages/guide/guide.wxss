@@ -134,12 +134,12 @@
 .describe-seven {
    display: flex;
    flex-flow: row nowrap;
-   padding: 100rpx 50rpx 0 32rpx;
-   justify-content:space-between;
+   padding-top: 100rpx;
 }
 
 .describe-seven-item {
   display: flex;
+  flex: 1;
   flex-direction: column;
   text-align: center;
 }
@@ -578,7 +578,6 @@
 
 .wrap-design,.wrap-plan,.wrap-choose,.wrap-claim {
   width: 710rpx;
-  margin-left: 20rpx;
   border-radius:15rpx;
   /*box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.1);*/
   margin-bottom: 50rpx;
@@ -643,18 +642,19 @@
   justify-content: space-around;
   text-align:center;
   margin-top: 70rpx;
+  padding: 0 20rpx;
 }
 
 .wrap-info-detail-footer-get {
-  
+  flex: 1;
 }
 
 .wrap-info-detail-footer-buy {
-  
+  flex: 1;
 }
 
 .wrap-info-detail-footer-save {
- 
+   flex: 1;
 }
 
 .wrap-info-math {
@@ -666,6 +666,7 @@
 .wrap-info-status {
   font-size: 28rpx;
   color: #f6f8f7;
+  align-self:flex-end;
 }
 
 .wrap-info-detail-header-right {
@@ -909,4 +910,16 @@
   position:absolute;
   width:375px;
   opacity:0;
+}
+
+.box-item-img {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 40rpx;
+}
+
+.box-item-title {
+  font-weight: bold;
+  color: #666666;
+  font-size: 24rpx;
 }

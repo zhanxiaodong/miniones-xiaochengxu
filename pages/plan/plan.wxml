@@ -10,7 +10,7 @@
           <view style="padding: 60rpx; text-align: center;" class="{{item.checked? 'active':'unactive'}}">
             <view class="content-title">{{item.title}}</view>
             <view class="content-explain">{{item.name}}{{item.checked==true}}
-              <view wx:if="{{item.checked}}" style="position: fixed;margin: -160rpx 500rpx;">
+              <view wx:if="{{item.checked}}" style="position: absolute; top: 40rpx; right: 40rpx;">
                 <icon type="success_no_circle" color="#ffffff" size="14"></icon>
               </view>
             </view>
@@ -18,6 +18,6 @@
         </label>
       </radio-group>
 </view>
-<view style="height: 150rpx;"></view>
+<view style="height: 170rpx;"></view>
 <button  bindtap='next'  class='repair-button' >{{btnMsg}}</button>
 </view>

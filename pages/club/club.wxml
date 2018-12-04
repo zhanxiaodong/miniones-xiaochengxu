@@ -4,17 +4,17 @@
    <view class="header">
       <view class="vip">
          <text style="color: #333333; font-weight: bold; font-size: 32rpx;">会员等级</text>
-         <text class="action">我的幸运徽章</text>
+         <!--<text class="action">我的幸运徽章</text>-->
       </view>
       <view class="explainBox">
          <view class="expla">快来加入迷你俱乐部</view>
          <view class="expla">我们为您准备了特权礼包</view>
          <view class="explain expla" style='font-size: 28rpx; color: #ffffff;'>
-            每季度送199无门槛立减券
+            每季度送￥199无门槛立减券
          </view>
-         <scroll-view class="explainBut" scroll-y='true' scroll-into-view="{{toView}}">
+        <!--<scroll-view class="explainBut" scroll-y='true' scroll-into-view="{{toView}}">
             <button class="butOne" bindtap="click">开启惊喜之旅</button>
-         </scroll-view>
+         </scroll-view>-->
       </view>
    </view>
    <view class="content">
@@ -22,9 +22,9 @@
         <view class="titleLeft" style='color: #333333; font-size: 28rpx;'>送礼会员5大特权:
         
         </view>
-            <view class="titleRight">特权详情
+           <view class="titleRight" bindtap="vipNext">特权详情
             <text class="iconfont icon-arrow-right-copy" style="font-size: 22rpx;padding-top: 5rpx;"></text>
-            </view>
+          </view>
         </view>
       <view class="listBox clearfix">
          <view class="list" wx:for="{{conList}}" wx:key="{{item.text}}">
@@ -40,18 +40,19 @@
       <view class="card">
          <view class="cardLeft">
             <view class="leftTitle">
-              <view>终生会员（无限）</view>
+              <view>终身会员（无限）</view>
               <view class="left Bot">INFINITY</view>
             </view>
             <view class="cardBot">
-               <view class="card-one">.终生无限制免费配送</view>
-               <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
+               <view class="card-one">终身无限制免费配送</view>
+               <view class="card-two">立赠￥199无门槛低扣券，预计可省￥1968</view>
             </view>
          </view>
          <view class="cardRight">
             <view class="money">￥199.00</view>
-            <view class="radioBox">
-               <radio bindtap="chooseFirst" checked = "{{choose=='FIRST'}}"></radio>
+            <view class="radioBox" style="text-align: right;">
+               <text style="text-decoration:line-through;font-size: 24rpx; text-align:right;">￥599.00</text>
+               <radio bindtap="chooseFirst" color="#04b8a0" checked = "{{choose=='FIRST'}}"></radio>
             </view>
          </view>
       </view>
@@ -62,14 +63,14 @@
               <view class="leftBot">YEAR</view>
             </view>
             <view class="cardBot">
-               <view>.年度免费配送</view>
-               <view>立赠99无门槛低扣券，预计可省￥1312</view>
+               <view>年度免费配送</view>
+               <view>立赠￥99无门槛低扣券，预计可省￥1312</view>
             </view>
          </view>
          <view class="cardRight">
             <view class="money">￥99.00</view>
             <view class="radioBox">
-               <radio bindtap="chooseYear" checked = "{{choose=='YEAR'}}"></radio>
+               <radio bindtap="chooseYear"  color="#04b8a0" checked = "{{choose=='YEAR'}}"></radio>
             </view>
          </view>
       </view>

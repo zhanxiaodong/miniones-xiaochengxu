@@ -185,6 +185,9 @@
     line-height: 100rpx;
     background-color: #fff;
     margin-left:4rpx;
+    width:500rpx;
+    text-align:left;
+    padding-left: 24rpx;
   }
 
   .member-more {

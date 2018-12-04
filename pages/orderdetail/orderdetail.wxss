@@ -43,7 +43,6 @@ page {
 .con{
   width:100%;
   background: #fff;
-  height:180rpx;
 }
 .conLeft{
   width:15%;
@@ -68,7 +67,7 @@ page {
   position:relative;
   width:85%;
   padding-left:15rpx;
-  height:180rpx;
+  /*height:180rpx;*/
   /*border-top:solid 1px #f3f3f3;*/
   float:left;
 }
@@ -153,15 +152,17 @@ textRight radio,.textRight text{
   line-height: 100rpx;
   color:#fff;
 }
+
 .upper{
   width:100% !important;
-  padding-left:40rpx;
+  padding-left:40rpx; 
 }
 .upper .conText{
   font-weight: 600;
   color:#333333;
   font-size: 36rpx;
 }
+
 .upperRadio{
   float:right!important;
 }
@@ -228,8 +229,7 @@ textRight radio,.textRight text{
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 40rpx 30rpx;
-  border-bottom:1px solid #f2f2f2;
+  padding: 40rpx;
   text-align: center;
 }
 
@@ -248,4 +248,40 @@ textRight radio,.textRight text{
   font-size: 28rpx;
   color: #000000;
   padding-left: 22rpx;
+}
+
+.warn-title {
+  font-size: 16rpx;
+  color:#333333;
+  width: 84rpx;
+  line-height: 42rpx;
+  background-color: #eee6d7; 
+  border-radius: 20rpx;
+  margin-right: 30rpx;
+}
+
+.error-buy {
+  background-color: #FF7B7B;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 100rpx;
+  font-weight: 600;
+  text-align: center;
+  width: 670rpx;
+  margin-left: 40rpx;
+  border-radius: 50px;
+}
+
+.error-header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 40rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.error-img {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
 }

@@ -46,7 +46,12 @@ Page({
       }
     }
   },
-
+   /* 修改孩子信息*/
+  babyNext: function () {
+    wx.navigateTo({
+      url: '/pages/babyInfo/babyInfo?edit=edit'
+    })
+  },
   /* 参与抽奖路由*/
   goAward: function() {
     wx.navigateTo({

@@ -254,13 +254,24 @@ page {
 .theme-intro {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  text-align:center;
+}
+
+.theme-intro-item {
+  flex: 1;
+  position: relative;
+}
+
+.theme-intro-item-title-img {
+ position: absolute;
+ bottom: 0;
+ right: 0;
 }
 
 .theme-intro-item-icon {
   width: 48rpx;
   height: 48rpx;
-  padding: 0 0 20rpx 20rpx;
+  padding-bottom: 20rpx;
 }
 
 .theme-intro-item-title {

@@ -6,12 +6,12 @@
   <view class="card" wx:if="{{level > 40}}">
     <view class="cardLeft">
       <view class="leftTitle">
-        <view>终生会员（无限）</view>
+        <view>终身会员（无限）</view>
         <view class="leftBot">INFINITY</view>
       </view>
       <view class="cardBot">
-        <view class="card-one">.终生无限制免费配送</view>
-        <view class="card-two">立赠199无门槛低扣券，预计可省￥1968</view>
+        <view class="card-one">终身无限制免费配送</view>
+        <view class="card-two">立赠￥199无门槛低扣券，预计可省￥1968</view>
       </view>
     </view>
     <view class="cardRight">
@@ -28,8 +28,8 @@
         <view class="leftBot">YEAR</view>
       </view>
       <view class="cardBot">
-        <view class="card-one">.年度免费配送</view>
-        <view class="card-two">立赠99无门槛低扣券，预计可省￥1312</view>
+        <view class="card-one">年度免费配送</view>
+        <view class="card-two">立赠￥99无门槛低扣券，预计可省￥1312</view>
       </view>
     </view>
     <view class="cardRight">
