@@ -1,21 +1,21 @@
 <view class="wrap" style="background-color: #F6F8F7;">
   <view class="header">
-  <view class="left">
-    <view>
-      <text class="title">本次订阅服务已完成</text>
-      <!--<text class="iconfont icon-wenhao"></text>-->
-    </view>
-    <view class="headText">感谢您对迷你王国的信任，期待下次订阅 继续为您服务。
-    </view>
-    <view class="headButton">
-      <view class="detail" bindtap='serveDetail'>订单跟踪</view>
-      <view wx:if="{{evaluateStatus == '已评价'}}" class="evaluate">已评价</view>
-            <view wx:if="{{evaluateStatus == '去评价'}}" class="evaluate" bindtap='goassess'>去评价</view>
-            <view wx:if="{{evaluateStatus == '未评价'}}" class="evaluate">未评价</view>
-    </view>
+    <view class="left">
+      <view>
+        <text class="title">本次订阅服务已完成</text>
+        <!--<text class="iconfont icon-wenhao"></text>-->
+      </view>
+      <view class="headText">感谢您对迷你王国的信任，期待下次订阅 继续为您服务。
+      </view>
+      <view class="headButton">
+        <view class="detail" bindtap='serveDetail'>订单跟踪</view>
+        <view wx:if="{{evaluateStatus == '已评价'}}" class="evaluate">已评价</view>
+        <view wx:if="{{evaluateStatus == '去评价'}}" class="evaluate" bindtap='goassess'>去评价</view>
+        <view wx:if="{{evaluateStatus == '未评价'}}" class="evaluate">未评价</view>
+      </view>
     </view>
     <view class="right">
-      <image style="width: 74rpx;height: 162rpx;" src="/images/half.jpg"/>
+      <image style="width: 74rpx;height: 162rpx;" src="/images/half.jpg" />
     </view>
   </view>
   <view style="height: 20rpx;"></view>
@@ -81,43 +81,68 @@
     </view>
   </view>
   <view style="height: 20rpx;"></view>
-  <view class="content">
-    <view class="con clearfix">
-      <view class="error-header">
-        <image src="/images/tishi.png" class="error-img"/>
-        <view class="conText">召回异常</view>
+  <view wx:if='{{returnException}}'>
+    <view class="content">
+      <view class="con clearfix">
+        <view class="error-header">
+          <image src="/images/tishi.png" class="error-img" />
+          <view class="conText">召回异常</view>
+        </view>
       </view>
-    </view>
-    <view class='goods-list-info' style="background-color: #ffffff;">
-      <checkbox-group bindchange="goodsChange">
-        <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
-          <view class='checklabel'>
-            <view class="warn-title">{{shop.state}}未退回</view>
-            <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
-            <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
-              <view class='flex_auto green1-color'>
-                <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
-                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
-              </view>
-              <view style="display: flex; flex-direction: column;padding-right:40rpx;">
-                <view class='fontWeight'>￥ {{item.realAmount}}</view>
-                <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
+      <view class='goods-list-info' wx:if="{{payGoodsList}}" style="background-color: #ffffff;">
+        <checkbox-group bindchange="goodsChange">
+          <label style="font-size:14px;" wx:for="{{payGoodsList}}" wx:key="value" wx:for-index="index">
+            <view class='checklabel'>
+              <view class="warn-title">{{shop.state}}未退回</view>
+              <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
+              <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+                <view class='flex_auto green1-color'>
+                  <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
+                  <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
+                </view>
+                <view style="display: flex; flex-direction: column;padding-right:40rpx;">
+                  <view class='fontWeight'>￥ {{item.realAmount}}</view>
+                  <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
+                </view>
               </view>
             </view>
-          </view>
-          <view style="width:100%;height:1px;background-color:#f2f2f2; margin-left: 164rpx;"></view>
-        </label>
-      </checkbox-group>
+            <view style="width:100%;height:1px;background-color:#f2f2f2; margin-left: 164rpx;"></view>
+          </label>
+        </checkbox-group>
+      </view>
+
+      <view class='goods-list-info' wx:if="{{noPayGoodsList}}" style="background-color: #ffffff;">
+        <checkbox-group bindchange="goodsChange">
+          <label style="font-size:14px;" wx:for="{{noPayGoodsList}}" wx:key="value" wx:for-index="index">
+            <view class='checklabel'>
+              <view class="warn-title">{{shop.state}}多退回</view>
+              <view style="font-size: 36rpx; color: #cccccc;">{{index + 1}}</view>
+              <view class="weui-cell__bd flex" style='align-items: center;padding-left:20rpx;'>
+                <view class='flex_auto green1-color'>
+                  <view style="font-size: 28rpx;color: #000000;">{{item.brand}}/{{item.name}}</view>
+                  <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
+                </view>
+                <view style="display: flex; flex-direction: column;padding-right:40rpx;">
+                  <view class='fontWeight'>￥ {{item.realAmount}}</view>
+                  <view style="color: #cccccc;font-size: 24rpx;text-decoration:line-through;display: flex;justify-content: flex-end;">￥ {{item.initAmount}}</view>
+                </view>
+              </view>
+            </view>
+            <view style="width:100%;height:1px;background-color:#f2f2f2; margin-left: 164rpx;"></view>
+          </label>
+        </checkbox-group>
+      </view>
     </view>
-  </view>
-   <view class="vipTwo clearfix" style="background-color:#fff;">
-      <view class="vipPro" >
+    <view class="vipTwo clearfix" style="background-color:#fff;">
+      <view class="vipPro">
         <view class="twoPro">商品价格差异</view>
-        <view class="proActive">-￥{{payBoxInfo.orderPay}}</view>
+        <view class="proActive" wx:if="{{returnException.difPrice>0}}">-￥{{returnException.difPrice}}</view>
+        <view class="proActive" wx:if="{{returnException.difPrice<0}}">￥{{0-returnException.difPrice}}</view>
       </view>
       <view class="vipPro">
         <view class="twoPro">优惠结算差异</view>
-        <view class="proActive">-￥{{payBoxInfo.discountPrice}}</view>
+        <view class="proActive" wx:if="{{returnException.needBackPayAmount>0}}">-￥{{returnException.needBackPayAmount}}</view>
+        <view class="proActive" wx:if="{{returnException.needBackPayAmount<0}}">￥{{0-returnException.needBackPayAmount}}</view>
       </view>
       <!--<view class="vipPro" hidden='{{!payBoxInfo.otherAmount}}'>
         <view class="twoPro">递增优惠</view>
@@ -125,16 +150,30 @@
       </view>-->
     </view>
     <view style="height: 1px; background-color: #F6F8F7; margin-left: 40rpx;"></view>
-    <view class="vipBot"  style="background-color:#fff;">
-      <view class="botTop"><text class="botActive">￥</text>{{payAmount}}</view>
-      <view class="botFoot">您需要额外支付差异价格</view>
+    <view class="vipBot" style="background-color:#fff;">
+      <view wx:if="{{returnException.needBackPayAmount>0}}">
+        <view class=" botTop ">
+          <text class="botActive ">￥</text>{{returnException.needBackPayAmount}}</view>
+        <view class="botFoot ">您需要额外支付差异价格</view>
+      </view>
+      <view wx:if="{{returnException.needBackPayAmount<0}}">
+        <view class="botTop ">
+          <text class="botActive ">￥</text>{{0-returnException.needBackPayAmount}}</view>
+        <view class="botFoot ">差价已自动退还到余额</view>
+      </view>
     </view>
-    <view style="background-color: #fff; padding: 40rpx 0;">
-      <view class="error-buy">追加支付</view>
+    <view wx:if="{{returnException.needBackPayAmount>0}}" style='background-color: #fff; padding: 40rpx 0;'>
+      <form bindsubmit='wepay' report-submit='true'wx:if="{{boxStatus=='RETURN_EXCEPTION'}}">
+        <button class='error-buy' form-type='submit'>追加支付</button>
+      </form>
+      <form wx:if="{{boxStatus!='RETURN_EXCEPTION'}}">
+        <button class='error-buy' >已支付差价</button>
+      </form>
     </view>
-  <!--<view style="height: 20rpx;"></view>-->
-  <button class="server" open-type='contact'>
-    <image style="height: 36rpx; width: 36rpx;padding-right: 22rpx;" src="{{src}}"></image>
-    <view class="server-detail">迷你王国客服中心</view>
+  </view>
+  <!--<view style="height: 20rpx; "></view>-->
+  <button class="server " open-type='contact'>
+    <image style="height: 36rpx; width: 36rpx;padding-right: 22rpx; " src="{{src}} "></image>
+    <view class="server-detail ">迷你王国客服中心</view>
   </button>
 </view>
