@@ -201,9 +201,11 @@ Page({
   hideModal: function () {
     var that = this
     that.setData({
-      payStatus: false
+      payStatus: false,
+      redeemStatus: false
     })
   },
+
   wepay: function (e) {
     var that = this
     var choose = that.data.choose
@@ -242,7 +244,8 @@ Page({
           success: function (event) {
             that.updateTitle(vipOrder.level, levTime, choose)
             that.hideModal('pay')
-            that.goLast(vipOrder.level)
+            that.goLast
+            (vipOrder.level)
             that.confirm()
           },
           fail: function (error) {
@@ -286,4 +289,26 @@ Page({
     })
   },
   
+  redeem: function () {
+    var that = this
+    var level = that.data.level
+    console.log(level)
+    if (level == '40' || level == '50') {
+      wx.showToast({
+        title: '您已经是会员～',
+      })
+      that.setData({
+        redeemStatus: false
+      })
+    } else {
+    that.setData({
+      redeemStatus: true
+    })
+   }
+  },
+
+  weexchange: function (e) {
+     console.log(e.detail.value)
+  }
+
 })

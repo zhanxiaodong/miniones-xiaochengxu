@@ -38,6 +38,6 @@
  <view class="footer-content">拨打客服电话:<text style="color: #ff3300; padding-left: 10rpx;">400-108-2028</text></view>
  <view class="footer-content">客服服务时间:<text style="color: #ff3300;padding-left: 10rpx;">8:00-22:00</text></view>
  <view class="footer-content">在官方微信中留言:<text style="color: #ff3300;padding-left: 10rpx;">微信搜索“迷你王国”</text></view>
- <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones。cn</text></view>
- <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones。cn</text></view>
+ <view class="footer-content">媒体与商务合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
+ <view class="footer-content">服装品牌合作:<text style="color: #ff3300;padding-left: 10rpx;">panda@miniones.cn</text></view>
 </view>

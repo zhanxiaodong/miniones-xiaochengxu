@@ -120,5 +120,42 @@ Page({
     wx.navigateTo({
       url: '../guide/guide?about=about',
     })
+  },
+
+  hideModal: function () {
+    var that = this
+    that.setData({
+      payStatus: false,
+      redeemStatus: false
+    })
+  },
+
+  goExchange: function () {
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = res.data.data.user.level
+          console.log(level)
+        if (level == '40' || level == '50') {
+         wx.showToast({
+           title: '您已经是会员～',
+         })
+         that.setData({
+         redeemStatus: false
+        })
+      } else {
+      that.setData({
+        redeemStatus: true
+        })
+       }
+     }
+    }) 
+  },
+
+  weexchange: function (e) {
+    console.log(e.detail.value)
   }
 })

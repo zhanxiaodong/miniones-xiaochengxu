@@ -127,7 +127,16 @@
   </view>
   <view style="height:250rpx; width: 100%;background-color: #f6f8f7; "></view>
 </view>
-
   
 <import src="../../tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />
+<!--兑换弹窗-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{payStatus || redeemStatus}}"></view>
+ <view class="containers" wx:if="{{redeemStatus}}">
+ <image bindtap="hideModal" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx; position: absolute; right: 20rpx; top: 20rpx;"></image>
+     <view class="container-title">请输入会员兑换码</view>
+     <form bindsubmit='weexchange'>
+      <input name="input" class="container-code"/>
+      <button class="container-submit" form-type="submit">确认兑换</button>
+     </form>
+ </view>
