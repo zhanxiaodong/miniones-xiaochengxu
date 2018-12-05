@@ -20,11 +20,13 @@
     <view class='xz-order-card'  wx:if='{{!edit}}' wx:for="{{item.boxList}}" wx:for-item="box" wx:key="boxId" hidden="{{activeIndex == 1}}">
       <view bindtap="orderDetail" data-id="{{box.boxId}}">
         <view class='card-section-one'>
-          <view class='section-left'>
-            <!--<view class='status-icon'></view>-->
-            <image src="/images/tishi.png" style="width: 36rpx;height: 36rpx;" wx:if="{{}}"/>
+          <view class='section-left' wx:if="{{box.status!='RETURN_EXCEPTION'}}">
             <image src="/images/queren.png" style="width: 36rpx;height: 36rpx;"/>
             <view class='status-txt'>{{box.status == 'CLOSE'?'服务已取消':'服务已完成'}}</view>
+          </view>
+          <view class='section-left' wx:if="{{box.status=='RETURN_EXCEPTION'}}">
+            <image src="/images/tishi.png" style="width: 36rpx;height: 36rpx;" />
+            <view class='status-txt'>订单异常</view>
           </view>
         </view>
         <view class='card-section-two'>
