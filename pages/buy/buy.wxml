@@ -12,7 +12,7 @@
       <view class="con clearfix">
           <view class="conRight rightTop upper">
              <view class="explain">
-                <view class="conText">全选（整盒留下6折叠加折扣）</view>
+                <view class="conText">全选（整盒留下7折叠加折扣）</view>
     <view style="color: #999999; font-size: 24rpx; padding-top: 8rpx;">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
               </view>
               <view class="weui-cell__hd weui-check__hd_in-checkbox flex" style="float: right; padding-right: 40rpx;" bindtap="bindAllSelect">
