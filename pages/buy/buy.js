@@ -5,7 +5,7 @@ import {
 } from '../../components/wux'
 Page({
   data: {
-    otherdesc: '3件及以上8折，整盒6折',
+    otherdesc: '3件及以上8折，整盒7折',
     other: false,
     otherAmount: 0,
     showModalStatus: false,
@@ -255,8 +255,8 @@ Page({
     if (!currentAllSelect) {
       this.setData({
         other: true,
-        otherdesc: '整盒6折',
-        otherDic: 0.4
+        otherdesc: '整盒7折',
+        otherDic: 0.3
       })
     } else if (valusLen >= 3) {
       this.setData({
@@ -267,15 +267,15 @@ Page({
     } else {
       this.setData({
         other: false,
-        otherdesc: '整盒6折',
-        otherDic: 0.4
+        otherdesc: '整盒7折',
+        otherDic: 0.3
       })
     }
     if (currentAllSelect) {
       this.setData({
         other: true,
-        otherdesc: '整盒6折',
-        otherDic: 0.4
+        otherdesc: '整盒7折',
+        otherDic: 0.3
       })
     }
     this.setData({
@@ -397,8 +397,8 @@ Page({
     if (goodsList.length == valusLen) {
       this.setData({
         other: true,
-        otherdesc: '整盒6折',
-        otherDic: 0.4
+        otherdesc: '整盒7折',
+        otherDic: 0.3
       })
     } else if (valusLen >= 3) {
       this.setData({
@@ -409,8 +409,8 @@ Page({
     } else {
       this.setData({
         other: false,
-        otherdesc: '整盒6折',
-        otherDic: 0.4
+        otherdesc: '整盒7折',
+        otherDic: 0.3
       })
     }
     this.setData({
