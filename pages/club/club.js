@@ -291,20 +291,9 @@ Page({
   
   redeem: function () {
     var that = this
-    var level = that.data.level
-    console.log(level)
-    if (level == '40' || level == '50') {
-      wx.showToast({
-        title: '您已经是会员～',
-      })
-      that.setData({
-        redeemStatus: false
-      })
-    } else {
     that.setData({
       redeemStatus: true
     })
-   }
   },
 
   weexchange: function (e) {

@@ -1,5 +1,9 @@
 /* pages/guide/guide.wxss */
 
+.nimeide {
+ background: #f6f8f7;
+}
+
 .section {
   position: relative;
   height: 1204rpx;
