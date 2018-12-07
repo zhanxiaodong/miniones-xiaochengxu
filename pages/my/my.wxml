@@ -1,7 +1,8 @@
 <!--pages/my/my.wxml-->
 <!--跳到公众号-->
 <official-account style="position:fixed;bottom:110rpx;width:100%;height:140rpx;z-index: 20;"></official-account>
-
+<import src="../../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
 <!--正文-->
 <view class='xz-component'>
   <view class='xz-top'>

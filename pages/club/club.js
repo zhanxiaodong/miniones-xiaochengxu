@@ -297,7 +297,27 @@ Page({
   },
 
   weexchange: function (e) {
-     console.log(e.detail.value)
+    console.log(e.detail.value)
+    var openId = wx.getStorageSync('openId')
+    var code = e.detail.value.input
+
+    wx.request({
+      url: util.requestUrl + 'user/ExchangeByCode?openId=' + openId + '&code' + code,
+      success: function (res) {
+        var result = res.data
+        var code = res.data.code
+        if (code == '0') {
+          var message = res.data.message
+          $wuxDialog.alert({
+            content: '兑换失败!' + message
+          })
+        } else {
+          $wuxDialog.alert({
+            content: "兑换成功！"
+          })
+        }
+      }
+    })
   }
 
 })

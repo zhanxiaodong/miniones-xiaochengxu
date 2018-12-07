@@ -1,4 +1,5 @@
 var util = require("../../utils/util.js");
+import { $wuxDialog } from '../../components/wux'
 const app = getApp();
 Page({
   data: {
@@ -139,12 +140,13 @@ Page({
         var result = res.data.data
         var level = res.data.data.user.level
           console.log(level)
+        wx.setStorageSync("level", level)
         if (level == '40' || level == '50') {
          wx.showToast({
            title: '您已经是会员～',
          })
          that.setData({
-         redeemStatus: false
+           redeemStatus: false
         })
       } else {
       that.setData({
@@ -157,5 +159,25 @@ Page({
 
   weexchange: function (e) {
     console.log(e.detail.value)
+    var openId = wx.getStorageSync('openId')
+    var code = e.detail.value.input
+    
+    wx.request({
+      url: util.requestUrl + 'user/ExchangeByCode?openId=' + openId + '&code' + code,
+      success: function (res) {
+        var result = res.data
+        var code = res.data.code
+        if(code=='0'){
+          var message = res.data.message
+          $wuxDialog.alert({
+            content: '兑换失败!'+message
+          })
+        }else{
+          $wuxDialog.alert({
+            content: "兑换成功！"
+          })
+        }
+      }
+    })
   }
 })
