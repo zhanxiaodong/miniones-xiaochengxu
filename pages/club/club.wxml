@@ -10,7 +10,7 @@
          <view class="expla">快来加入迷你俱乐部</view>
          <view class="expla">我们为您准备了特权礼包</view>
          <view class="explain expla" style='font-size: 28rpx; color: #ffffff;'>
-            每季度送￥199无门槛立减券
+            每季度送￥600抵扣券
          </view>
         <!--<scroll-view class="explainBut" scroll-y='true' scroll-into-view="{{toView}}">
             <button class="butOne" bindtap="click">开启惊喜之旅</button>
@@ -41,11 +41,11 @@
          <view class="cardLeft">
             <view class="leftTitle">
               <view>终身会员（无限）</view>
-              <view class="left Bot">INFINITY</view>
+              <view class="leftBot">INFINITY</view>
             </view>
             <view class="cardBot">
                <view class="card-one">终身无限制免费配送</view>
-               <view class="card-two">立赠￥199无门槛低扣券，预计可省￥1968</view>
+               <view class="card-two">购买商品抵扣￥199，预计可省￥1968/年</view>
             </view>
          </view>
          <view class="cardRight">
@@ -56,7 +56,7 @@
             </view>
          </view>
       </view>
-      <view class="card cardTwo" hidden="{{level=='40'}}">
+      <view class="card cardTwo">
          <view class="cardLeft">
             <view class="leftTitle">
               <view>年卡会员（一年）</view>
@@ -64,7 +64,7 @@
             </view>
             <view class="cardBot">
                <view>年度免费配送</view>
-               <view>立赠￥99无门槛低扣券，预计可省￥1312</view>
+               <view>购买商品抵扣￥99，预计可省￥1312/年</view>
             </view>
          </view>
          <view class="cardRight">
@@ -76,7 +76,7 @@
       </view>
    </view>
    <view class="footer" bindtap="redeem"> <!--wx:if="{{level < 40}}"-->
-      <text>使用兑换码兑换会员</text>
+      <text style="line-height:88rpx;">使用兑换码兑换会员</text>
       <text class="iconfont icon-arrow-right-copy"></text>
    </view>
    <view class="butBox" hidden="{{!btnedit}}" bindtap='confirmInfo' >

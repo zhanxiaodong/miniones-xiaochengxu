@@ -130,6 +130,7 @@ line-height: 80rpx;
 .cardBot view{
   height:50%;
   line-height: 100%;
+  width:520rpx; 
 }
 .cardLeft{
   width:75%;
