@@ -297,12 +297,12 @@ Page({
   },
 
   weexchange: function (e) {
-    console.log(e.detail.value)
+    var that = this
     var openId = wx.getStorageSync('openId')
     var code = e.detail.value.input
 
     wx.request({
-      url: util.requestUrl + 'user/ExchangeByCode?openId=' + openId + '&code' + code,
+      url: util.requestUrl + 'user/ExchangeByCode?openId=' + openId + '&code=' + code,
       success: function (res) {
         var result = res.data
         var code = res.data.code
@@ -315,6 +315,7 @@ Page({
           $wuxDialog.alert({
             content: "兑换成功！"
           })
+          that.hideModal()
         }
       }
     })
