@@ -352,12 +352,9 @@ Page({
         needAuth: false
       })
       var openId = wx.getStorageSync('openId')
-      var times = wx.getStorageSync('times')
-      if (!times) {
-        wx.request({
-          url: util.requestUrl + 'user/updateGuide?openId=' + openId,
-        })
-      }
+      wx.request({
+        url: util.requestUrl + 'user/updateGuide?openId=' + openId,
+      })
       var level = wx.getStorageSync('level')
       if (level) {
         that.setData({
