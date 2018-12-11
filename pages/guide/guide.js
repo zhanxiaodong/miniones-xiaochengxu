@@ -382,17 +382,49 @@ Page({
   },
   
   yearNext: function () {
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = res.data.data.user.level
+        console.log(level)
+        wx.setStorageSync("level", level)
+        if (level == '40' || level == '50') {
+          wx.showToast({
+            title: '您已经是会员～',
+          })
+        } else
     wx.navigateTo({
       url: "/pages/club/club",
     })
+    }
+   })
   },
 
   continueNext: function () {
-    wx.navigateTo({
-      url: "/pages/club/club",
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+        var result = res.data.data
+        var level = res.data.data.user.level
+        console.log(level)
+        wx.setStorageSync("level", level)
+        if (level == '40' || level == '50') {
+          wx.showToast({
+            title: '您已经是会员～',
+          })
+        } else
+          wx.navigateTo({
+            url: "/pages/club/club",
+          })
+      }
     })
   },
-
+  
   tabClick: function (e) {
     var that = this;
     if (this.data.activeIndex === e.target.dataset.current) {

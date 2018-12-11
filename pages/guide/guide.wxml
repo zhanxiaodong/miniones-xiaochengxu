@@ -6,8 +6,8 @@
   <view class="section-one">
    <image class="box-img" src="{{boxImg}}"></image>
    <view class="describe-two">孩童成长服饰订阅</view>
-   <view class="describe-five" style="padding: 20rpx 0 40rpx;">从出生到入学，每月一盒精美穿搭先试后买</view>
-   <view class="describe-six">MINIONES（迷你王国）为订阅会员提供愉悦可靠的购物体验。通过每个月寄送一个专属盒子，将全球有趣的儿童品牌商品送到孩子面前，留下喜欢的付款，剩下的免费一键退回。</view>
+   <view class="describe-five" style="padding: 20rpx 0 40rpx;">定期一盒惊喜穿搭先试后买，穿出自信童年</view>
+   <view class="describe-six">MINIONES（迷你王国）为订阅会员提供愉悦可靠的购物体验。精选全球好看不贵的儿童服饰，定期为孩子配送一个舒适实用的穿搭衣盒，留下喜欢的付款，剩下的免费一键退回。</view>
    <view class="describe-seven">
      <view class="describe-seven-item" wx:for="{{sectionOne}}" wx:key="*this">
        <view class="describe-seven-item-math">{{item.math}}</view>
@@ -130,12 +130,12 @@
   <view class="vip-card-left">
     <view class="vip-card-title">新人体验</view>
     <view class="vip-card-intro">新注册专享单次配送</view>
-    <view class="vip-card-detail">购买商品抵扣￥9.9</view>
+    <view class="vip-card-detail">购买商品抵扣￥29</view>
   </view>
   <view class="vip-card-right">
     <view class="vip-card-price">
        <view class="vip-card-icon">￥</view>
-       <view class="vip-card-money">9.9</view>
+       <view class="vip-card-money">29</view>
     </view>
     <view class="vip-card-click" style="margin-left: 26rpx;">注册</view>
   </view>
@@ -162,8 +162,8 @@
 <image class="vip-bd" src="{{vipGreen}}"/>
 <view class="vip-card-continue" bindtap="continueNext">
   <view class="vip-card-left">
-    <view class="vip-card-title">终身订阅<text style="font-size: 24rpx;padding-left: 20rpx;">[限782/999]</text></view>
-    <view class="vip-card-intro">不限次免费配送<text style="padding-left: 10rpx;">适合新生儿</text></view>
+    <view class="vip-card-title">童年订阅<text style="font-size: 24rpx;padding-left: 20rpx;">[限782/999]</text></view>
+    <view class="vip-card-intro">0-10岁不限次免费配送<text style="padding-left: 10rpx;">适合新生儿</text></view>
     <view class="vip-card-detail">购买商品抵扣￥199</view>
   </view>
   <view class="vip-card-right">
