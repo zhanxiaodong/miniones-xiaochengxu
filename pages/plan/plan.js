@@ -63,7 +63,7 @@ Page({
       url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
       success: function(res) {
         var result = res.data.data
-        var planAuto = result.planAuto
+        var planAuto = result.planAuto ? result.planAuto:3
         var intel = that.data.intel
         if (planAuto) {
           intel = true
