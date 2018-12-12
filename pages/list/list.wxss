@@ -1,4 +1,30 @@
 /* pages/list/list.wxss */
+/*定时器*/
+.all {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.gift-img {
+  text-align: center;
+  margin: 140rpx 0 40rpx;
+}
+
+.gift-text {
+  text-align: center;
+}
+
+.img {
+  height: 230px;
+  width: 250px;
+}
+
+.gift-text text {
+  color: #cccccc;
+  font-size: 28rpx;
+}
+/*订单*/
 .wrap{
   background: #04b8a0;
   padding:25rpx;

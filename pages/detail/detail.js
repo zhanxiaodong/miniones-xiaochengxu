@@ -32,6 +32,7 @@ Page({
     skinColors: ['不确定', '白皙', '正常', '偏黑'],
   },
   onLoad: function (options) {
+    console.log(options)
     this.initValidate()
     var inter = options.inter
     var id = options.id

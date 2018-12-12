@@ -1,5 +1,13 @@
 <!--pages/list/list.wxml<-->
-   <view class="wrap">
+<view class="all" hidden="{{condition}}">
+ <view class="gift-img">
+  <image src="{{giftImage}}" class="img" />
+ </view>
+ <view class="gift-text">
+  <text>正在准备</text>
+ </view>
+</view>
+   <view class="wrap" wx:if="{{condition}}">
       <view class="listBox">
          <view class="header">
             <view class="imgBox">

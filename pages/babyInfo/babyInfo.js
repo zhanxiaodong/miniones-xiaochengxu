@@ -85,9 +85,21 @@ Page({
   },
   add: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    var level = wx.getStorageSync('level')
+    if (level < 10) {
+      wx.showToast({
+        title: '请您先注册～',
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '../log/log'
+        })
+      }, 2000)
+    } else {
     wx.navigateTo({
       url: '../detail/detail?inter=add'
     })
+   }
   },
   edit: function(event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)

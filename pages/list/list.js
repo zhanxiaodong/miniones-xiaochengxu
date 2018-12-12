@@ -1,13 +1,26 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-  
+    giftImage: "/images/giftBox.gif",
+    condition: ''
   },
   onUnload: function () {
     wx.reLaunch({
       url: '../index/index'
     })
   },
+  
+  onShow: function () {
+    var that = this
+    var condition = condition
+    setTimeout(function () {
+      that.setData({
+        condition: true
+      })
+    }, 2000)
+  console.log(condition)
+  },
+
   onShareAppMessage: function (res) {
     var shareOpenId = wx.getStorageSync('openId')
     var shareUserInfo = wx.getStorageSync('userInfo').nickName

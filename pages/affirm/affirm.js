@@ -112,8 +112,8 @@ Page({
               method: 'POST',
               data: item,
               success: function(res) {
-                wx.reLaunch({
-                  url: '../giftBox/giftBox',
+                wx.navigateTo({
+                  url: '../list/list',
                 })
               }
             })
@@ -281,8 +281,8 @@ Page({
              content: res.data.message
            })
          } else {
-           wx.reLaunch({
-             url: '../giftBox/giftBox',
+           wx.navigateTo({
+             url: '../list/list',
            })
          }
        }
