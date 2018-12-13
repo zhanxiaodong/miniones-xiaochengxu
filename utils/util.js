@@ -434,12 +434,8 @@ function radioGroupChange(group, value) {
 }
 
 // const requestUrl = 'http://interface.miniones.cn/merchant/'
-const requestUrl = 'https://interface.miniones.cn/merchant_new/'
-<<<<<<< HEAD
- //const requestUrl = 'http://192.168.0.22:8080/merchant/'
-=======
-// const requestUrl = 'http://192.168.0.22:8080/merchant/'
->>>>>>> 2e09824d8dcbea64662c0cbdb62190fd00b9a40c
+ const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+//const requestUrl = 'http://192.168.0.22:8080/merchant/'
 // const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};

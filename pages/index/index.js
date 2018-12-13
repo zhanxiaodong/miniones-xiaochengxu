@@ -250,11 +250,11 @@ Page({
       var planAuto = data.user.planAuto
       var plan = data.user.plan
       var guide = data.user.guide
-      if (!guide) {
-        wx.navigateTo({
-          url: '../guide/guide'
-        })
-      }
+      // if (!guide) {
+      //   wx.navigateTo({
+      //     url: '../guide/guide'
+      //   })
+      // }
       if ((planAuto > 0 && stylist) || (plan && stylist)) {
         finshedInfo = true
       } else if (!user.style) {

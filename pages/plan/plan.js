@@ -71,7 +71,8 @@ Page({
           console.log(radioItems)
           that.setData({
             intel: intel,
-            radioItems: radioItems
+            radioItems: radioItems,
+            planAuto: planAuto
           })
         }
       }
