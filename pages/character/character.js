@@ -2,7 +2,7 @@ var util = require("../../utils/util.js")
 Page({
   data: {
     inter: null,
-    frontType: 'style',
+    frontType: 'character',
     gender: true,
     checkboxItems: [
       { value: '活泼', show: true },
@@ -16,41 +16,40 @@ Page({
     ]
   },
   onLoad: function (options) {
+    var that = this
+    var id = options.id ? options.id :"5c135a77696e062770f97a07"
     var inter = options.inter
-    
-    // this.updateInfo()
-    // if (inter) {
-    //   this.setData({
-    //     inter: inter
-    //   })
-    // }
-    var frontType = options.frontType
-    if (frontType) {
-      this.setData({
-        frontType: frontType
+    if (inter) {
+      that.setData({
+        inter: inter
+      })
+    }
+    if (id) {
+      that.updateInfo(id)
+      that.setData({
+        id: id
       })
     }
   },
-  updateInfo: function () {
-    var openId = wx.getStorageSync('openId')
+  updateInfo: function (id) {
     var that = this
     wx.request({
-      url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+      url: util.requestUrl + 'baby/findBabyById?id=' + id,
       success: function (res) {
         var result = res.data.data
-        var oldStyle = result.style
-        if (oldStyle) {
-          that.initStyle(oldStyle)
+        var oldCharacter = result.character
+        if (oldCharacter) {
+          that.initCharacter(oldCharacter)
         }
       }
     })
   },
-  initStyle: function (oldStyle) {
-    console.log(oldStyle)
+  initCharacter: function (oldCharacter) {
+    console.log(oldCharacter)
     var checkboxItems = this.data.checkboxItems
     var cusArr = new Array()
-    for (var i = 0; i < oldStyle.length; ++i) {
-      var value = oldStyle[i]
+    for (var i = 0; i < oldCharacter.length; ++i) {
+      var value = oldCharacter[i]
       var hasV = false
       for (var j = 0; j < checkboxItems.length; ++j) {
         if (checkboxItems[j].value == value) {
@@ -70,7 +69,7 @@ Page({
     }
     this.setData({
       checkboxItems: checkboxItems,
-      oldStyle: oldStyle
+      oldCharacter: oldCharacter
     })
   },
   checkboxChange: function (e) {
@@ -87,53 +86,26 @@ Page({
     }
     this.setData({
       checkboxItems: checkboxItems,
-      oldStyle: values
+      oldCharacter: values
     });
   },
-  /**
-   * 添加自定义风格
-   */
-  // addStyle: function (e) {
-  //   var checkboxItems = this.data.checkboxItems
-  //   var value = e.detail.value
-  //   if (!value.trim()) {
-  //     return
-  //   }
-  //   var cusO = new Object()
-  //   cusO.value = e.detail.value
-  //   cusO.show = true
-  //   cusO.checked = true
-  //   checkboxItems.push(cusO)
-  //   var oldStyle = this.data.oldStyle
-  //   if (!oldStyle) {
-  //     oldStyle = new Array()
-  //   }
-  //   oldStyle.push(e.detail.value)
-  //   this.setData({
-  //     tempvalue: null,
-  //     checkboxItems: checkboxItems,
-  //     oldStyle: oldStyle
-  //   })
-  // },
   next: function () {
-    this.updateUser()
-    util.updateStep(3)
+    this.updateBaby()
     wx.navigateTo({
       url: '/pages/style/style'
     })
   },
-  updateUser: function () {
-    var item = new Object();
-    item.wechatOpenId = wx.getStorageSync('openId')
-    var style = this.data.oldStyle
-    if (style) {
-      item.style = style
+  updateBaby: function () {
+    var oldCharacter = this.data.oldCharacter
+    if (oldCharacter) {
+      var item = new Object()
+      item.id = this.data.id
+      item.character = oldCharacter
+      wx.request({
+        url: util.requestUrl + 'baby/updateBaby',
+        method: 'POST',
+        data: item
+      })
     }
-    wx.request({
-      url: util.requestUrl + 'user/updateUser',
-      method: 'POST',
-      data: item
-    })
-    wx.setStorageSync('pagen', 'color')
   }
 })

@@ -44,7 +44,7 @@ Page({
     }
     //id不为空,需要获取到宝贝的详情
     var that = this
-    if (id) {
+    if (id) { 
       wx.request({
         url: util.requestUrl + 'baby/findBabyById?id=' + id,
         success: function (res) {
