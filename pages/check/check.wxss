@@ -4,21 +4,20 @@ page {
   }
   
   .page {
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 35px;
-    border-top: 1px solid #f2f2f2;
+    padding-top: 60rpx;
+    padding-left: 40rpx;
+    padding-right: 70rpx;
   }
   
   .btnn {
     color: #ffffff;
-    font-size: 14px;
-    border-radius: 30px;
-    padding: 5px 10px;
+    font-size: 28rpx;
+    border-radius: 60rpx;
+    padding: 10rpx 20rpx;
   }
   
   .active {
-    background-color: #04B8A0;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
   }
   
   .unactive {
@@ -27,7 +26,20 @@ page {
   
   .inputcs {
     border: 1px solid #f2f2f2;
-    border-radius: 32px;
-    padding-left: 20px;
-    height: 40px;
+    border-radius: 64rpx;
+    padding-left: 40rpx;
+    height: 80rpx;
+  }
+
+  .repair-one {
+    position: fixed;
+    bottom: 50rpx;
+    left: 70rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    width: 600rpx;
+    border-radius: 60rpx;
+    color: #FFFFFF;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
   }

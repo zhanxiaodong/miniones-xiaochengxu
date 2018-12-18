@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="height">
+    <view class="title">
+        <text class="title-first">孩子是属于什么性格？</text>
+        <view class="title-intro">穿搭风格会直接影响性格塑造哦</view>
+    </view>
+    <view class="content">
+        <checkbox-group class="check-first" bindchange="checkboxChange" >
+          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
+            <view class="{{item.checked?'active':'unactive'}}">
+             <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
+             <view class="name">{{item.value}}</view>
+            </view> 
+          </label>   
+        </checkbox-group>
+    </view>   
+  </view>
+</view>
+
+    <button class="fixed-button" bindtap="next">下一步</button>

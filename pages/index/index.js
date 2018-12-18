@@ -53,11 +53,11 @@ Page({
     })
   },
   /* 参与抽奖路由*/
-  goAward: function() {
-    wx.navigateTo({
-      url: '../awardexame/awardexame'
-    })
-  },
+  //goAward: function() {
+   // wx.navigateTo({
+     // url: '../awardexame/awardexame'
+    //})
+  //},
 
   onGotUserInfo: function(e) {
     if (e.detail.userInfo) {

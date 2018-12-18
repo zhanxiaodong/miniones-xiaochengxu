@@ -1,0 +1,92 @@
+.title {
+    padding: 80rpx 60rpx;
+}
+
+.title-intro {
+    font-size:28rpx;
+    color:#999999;
+    font-weight:regular;
+    margin-top:26rpx;
+}
+
+.title-first {
+    font-size:50rpx;
+    color:#323232;
+    font-weight: bold;
+}
+
+.title-last {
+    height:76rpx;
+    background-color:#F2F2F2;
+    border-radius:40rpx;
+    margin-top:50rpx;
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    padding-left: 40rpx;
+}
+
+.content {
+  padding: 70rpx 105rpx;
+  text-align: center;
+}
+
+.every {
+    float:left;
+    width:50%;
+    box-sizing:border-box;
+    color:#999;
+    margin-bottom:50rpx;
+
+}
+
+.check-first view.active {
+    width:240rpx;
+    height:82rpx;
+    background-color:#04B8A0;
+    border-radius:40rpx;
+    color:#FFFFFF;
+    text-align:center;
+    line-height:80rpx;
+}
+
+view.active view {
+    background-color:#04B8A0;
+    color:#FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.check-first view.unactive {
+    width:240rpx;
+    height:82rpx;
+    background-color:#04B8A0;
+    border-radius:40rpx;
+    color:#FFFFFF;
+    text-align:center;
+    line-height:80rpx;
+}
+
+.name {
+  width:240rpx;
+  height:82rpx;
+  font-size: 28rpx;
+  color:#666666;
+  background-color:#ffffff;
+  border-radius:40rpx;
+  border:1px solid #e4e4e4;
+}
+
+.fixed-button {
+    border-radius: 60rpx;
+    background-color: #04B8A0;
+    width: 590rpx;
+    line-height: 100rpx;
+    color: #FFFFFF;
+    letter-spacing: 6rpx;
+    position:fixed;
+    bottom:60rpx;
+    margin-left:80rpx;
+    z-index: 222;
+}

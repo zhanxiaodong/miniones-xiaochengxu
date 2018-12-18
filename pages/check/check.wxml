@@ -1,23 +1,25 @@
   <view class="page">
-    <view style='font-size:25px;font-weight:bold;padding-bottom:15px;'>您的电话号码是什么？</view>
-    <view style='color:#666666;font-size:16px;font-weight:regular;'>我们不会将手机号码公开显示。</view>
-    <view style='padding-top:25px;padding-bottom:35px;'>
+    <view style='font-size:50rpx;font-weight:bold;padding-bottom:30rpx;'>您的电话号码是什么？</view>
+    <view style='color:#666666;font-size:32rpx;font-weight:regular;'>我们不会将手机号码公开显示。</view>
+    <view style='padding-top:50rpx;padding-bottom:40rpx;'>
       <input type='number' name="mobile" value='{{mobile}}' bindinput='mobileInput'  placeholder='手机号码' placeholder-style='font-size:14px; color:#CCCCCC;' class='inputcs'></input>
     </view>
     <view style='padding-bottom:25px;text-align:left;'>
-      <view class='w100'>
+      <view class='style' style="display: flex;">
+        <input type='number' bindinput='codeInput' placeholder='输入验证码' placeholder-style='font-size:14px; color:#CCCCCC;' class='inputcs' style="width: 350rpx; margin-right: 50rpx;"></input>
         <form bindsubmit='next' wx:if="{{!smsCodeDisabled}}" report-submit='true'>
-          <button class='btnn active' style="width:200rpx; margin-left: 6rpx;" form-type='submit'>下一步</button>
+          <button class='btnn' disabled = "{{codeDis}}"     style="width:240rpx; margin-left: 6rpx; background:linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%); " form-type='submit'>{{phoneCode}}<text hidden="{{phoneCode == '获取验证码'}}">S</text></button>
         </form>
-        <button class='btnn unactive' style="width: 200rpx; margin-left: 6rpx;" wx:if="{{smsCodeDisabled}}">下一步</button>
+        <button class='btnn unactive' style="width: 200rpx; margin-left: 6rpx;" wx:if="{{smsCodeDisabled}}">获取验证码</button>
       </view>
     </view>
-    <view style='width:180px;'>
-      <view>
-        <button class='btnn active' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
-          <image src='/images/wechat.png' style='margin-bottom: -5px;padding-right: 5px;height:40rpx;width:40rpx;' ></image>
+    <view style='width:600rpx;position: fixed; left: 70rpx; bottom: 160rpx;'>
+        <button style="color: #333; background-color: white;" class='btnn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <image src='/images/wechat.png' style='margin-bottom: -16rpx;padding-right: 10rpx;height:40rpx;width:40rpx;' ></image>
           微信快捷登录
         </button>
-      </view>
     </view>
+     <view class=''>
+        <button class='repair-one' bindtap='codeCheck'>下一步</button>
+      </view>
   </view>
