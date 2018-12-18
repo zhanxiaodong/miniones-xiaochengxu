@@ -2,16 +2,19 @@ import WxValidate from '../../utils/WxValidate'
 var util = require("../../utils/util.js")
 const uploadImage = require('../../utils/uploadoss.js');
 Page({
-  confirmNo: '',
+  confirmNo: false,
   inter: null,
   imgshow: false,
   data: {
     heightNum: 0,
     date: "yyyy-mm-dd",
     uploadImgTemp: '/images/photo.png',
-    sexItems: [
-      { value: '男孩' },
-      { value: '女孩' }
+    sexItems: [{
+      value: '男孩'
+    },
+    {
+      value: '女孩'
+    }
     ],
     form: {
       call: '',
@@ -37,6 +40,12 @@ Page({
     this.initValidate()
     var inter = options.inter
     var id = options.id
+    if (inter != 'add' && !id) {
+      this.setData({
+        confirmNo: true
+      })
+    }
+
     if (inter) {
       this.setData({
         inter: inter
@@ -44,7 +53,7 @@ Page({
     }
     //id不为空,需要获取到宝贝的详情
     var that = this
-    if (id) { 
+    if (id) {
       wx.request({
         url: util.requestUrl + 'baby/findBabyById?id=' + id,
         success: function (res) {
@@ -216,11 +225,35 @@ Page({
     // 创建实例对象
     this.WxValidate = new WxValidate(rules, messages)
   },
-// 取消弹窗
+  // 取消弹窗
   hideComfirm: function (e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     this.setData({
       confirmNo: false
     })
   },
+  createDefault: function() {
+    var openId = wx.getStorageSync('openId')
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'baby/createBabyDefault?openId=' + openId,
+      success: function (res) {
+        var result = res.data
+        var code = res.data.code
+        if (code == '0') {
+          var message = res.data.message
+          wx.showToast({
+            title: message,
+          })
+          that.setData({
+            confirmNo: false
+          })
+        } else {
+          wx.redirectTo({
+            url: '../create/create',
+          })
+        }
+      }
+    })
+  }
 })

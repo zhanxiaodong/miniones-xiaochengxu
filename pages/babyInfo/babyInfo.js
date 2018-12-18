@@ -60,16 +60,19 @@ Page({
       months = -1
       days = 30 + days
     }
-    months = nowD.getMonth() - timeA[1]
+    months = nowD.getMonth()+1 - timeA[1]
     if (months < 0) {
       years = -1
       months = 12 + months
     }
     years = years + (nowD.getFullYear() - timeA[0])
+    if(years < 0) {
+      return ""
+    }
 
     var yearString = years > 0 ? years + "岁" : "";
     var mnthString = months > 0 ? months + "月" : "";
-    var dayString = days > 0 ? days + "天" : "";
+    var dayString = days >= 0 ? days + "天" : "";
     if (years >= 1) {
       result = yearString + mnthString;
     } else {

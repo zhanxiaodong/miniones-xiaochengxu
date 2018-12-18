@@ -91,9 +91,19 @@ Page({
   },
   next: function () {
     this.updateBaby()
-    wx.navigateTo({
-      url: '/pages/style/style'
-    })
+    var inter = this.data.inter
+    if (inter == 'add') {
+      let pages = getCurrentPages(); //当前页面
+      let prevPage = pages[pages.length - 2]; //上一页面
+      wx.navigateBack({
+        delta: 3
+      })
+    } else {
+      util.updateStep(2)
+      wx.navigateTo({
+        url: '/pages/style/style'
+      })
+    }
   },
   updateBaby: function () {
     var oldCharacter = this.data.oldCharacter
