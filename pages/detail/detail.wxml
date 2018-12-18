@@ -5,16 +5,16 @@
     </view>
     <form bindsubmit='submitForm'>
       <view class='rowcs'>
-        <view class="font20 gray1-color" id='name-repair'>姓名</view>
+        <view class="font20 gray1-color" id='name-repair'>称呼</view>
         <view class="rowui">
           <view>
-            <input class="w150" id="name-repair" placeholder="name" name="call" value="{{form.call}}" type="call"></input>
+            <input class="w150" id="name-repair" placeholder="name" placeholder-style="color: #cccccc; font-size: 30rpx;" name="call" value="{{form.call}}" type="call"></input>
           </view>
-          <view class="rowcontentcs" style='justify-content:center;'>
-            <radio-group bindchange="radioChange" style="display: flex" name="gender" value="{{form.gender}}">
+          <view class="rowcontentcs">
+            <radio-group bindchange="radioChange" name="gender" value="{{form.gender}}">
               <view class="radiocs">
                 <label wx:for="{{sexItems}}" wx:key="value" class="{{item.checked?'active':''}}">
-                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' />{{item.value}}
+                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' /><text>{{item.value}}</text>
                 </label>
               </view>
             </radio-group>
@@ -30,7 +30,7 @@
         <view class="rowcontentcs pt10">
           <picker mode="date" start="1890-01-01" end="2033-09-01" bindchange="bindDateChange" name="date" value="{{ date }}" data-filed="birth">
             <!--<text> {{date}}</text>-->
-            <input id='name-repair' placeholder="dd-mm-yyyy" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="dd-mm-yyyy" placeholder-style="color: #cccccc; font-size: 30rpx;" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
           </picker>
         </view>
       </view>
@@ -40,7 +40,7 @@
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{heights}}' value="{{ heightNum }}" data-filed="height">
-            <input  id='name-repair' placeholder="cm" name="height" value="{{ form.height }}" type="text" disabled='true' />
+            <input  id='name-repair' placeholder="cm" placeholder-style="color: #cccccc; font-size: 30rpx;" name="height" value="{{ form.height }}" type="text" disabled='true' />
           </picker>
 
         </view>
@@ -51,7 +51,7 @@
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{weights}}' value="{{ form.weight }}" data-filed="weight">
-            <input id='name-repair' placeholder="kg" name="weight" value="{{ form.weight }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="kg" placeholder-style="color: #cccccc; font-size: 30rpx;" name="weight" value="{{ form.weight }}" type="text" disabled='true' />
           </picker>
 
         </view>
@@ -62,7 +62,7 @@
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{sizes}}' value="{{ form.size }}" data-filed="size">
-            <input id='name-repair' placeholder="size" name="size" value="{{ form.size }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="size" placeholder-style="color: #cccccc; font-size: 30rpx;" name="size" value="{{ form.size }}" type="text" disabled='true' />
           </picker>
         </view>
       </view>
@@ -72,7 +72,7 @@
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{skinColors}}' value="{{ form.skinColor }}" data-filed="skinColor">
-            <input id='name-repair' placeholder="color" name="skinColor" value="{{ form.skinColor }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="color" placeholder-style="color: #cccccc; font-size: 30rpx;" name="skinColor" value="{{ form.skinColor }}" type="text" disabled='true' />
           </picker>
         </view>
       </view>
@@ -81,4 +81,25 @@
           <button class='repair-button' formType="submit" >下一步</button>
     </view>
     </form>
+</view>
+<!-- 弹窗屏幕变绿-->
+<view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
+<!--弹窗-->
+<view class="commodity_attr_box"  wx:if="{{confirmNo}}">
+  <view style="text-align: center;">
+    <view class='fontweight' style='font-size: 36rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>建立档案</view>
+    <view style="color: #666666; font-size: 28rpx">你希望以哪种方式建立孩子的档案？</view>
+    <view style='padding: 60rpx 30rpx 0px;'>
+      <view style="padding-bottom: 30rpx;">
+        <form bindsubmit='hideComfirm' report-submit='true'>
+          <button class='button-choice' form-type='submit'>自主填写(大约50秒)</button>
+        </form>
+      </view>
+      <view>
+        <form bindsubmit='showComfirm' report-submit='true'>
+          <button class='button-choice' form-type='submit' bindtap='next'>让搭配师与我电话沟通建立</button>
+        </form>
+      </view>
+    </view>
+  </view>
 </view>

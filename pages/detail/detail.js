@@ -2,6 +2,7 @@ import WxValidate from '../../utils/WxValidate'
 var util = require("../../utils/util.js")
 const uploadImage = require('../../utils/uploadoss.js');
 Page({
+  confirmNo: '',
   inter: null,
   imgshow: false,
   data: {
@@ -214,5 +215,12 @@ Page({
 
     // 创建实例对象
     this.WxValidate = new WxValidate(rules, messages)
+  },
+// 取消弹窗
+  hideComfirm: function (e) {
+    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    this.setData({
+      confirmNo: false
+    })
   },
 })
