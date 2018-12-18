@@ -78,6 +78,7 @@ Page({
               uploadImg: result.bodyPic
             })
           }
+          wx.setStorageSync('editBaby', result)
         }
       })
     }
@@ -169,6 +170,7 @@ Page({
         wx.navigateTo({
           url: '/pages/photo/photo?uploadImgTemp=' + that.data.uploadImgTemp + '&id=' + that.data.form.id + '&inter=' + inter
         })
+        wx.setStorageSync('editBaby', params)
       }
     })
   },
