@@ -6,14 +6,12 @@ Page({
     frontType: 'style',
     gender: true,
     checkboxItems: [
-      { value: '时尚', show: true },
-      { value: '休闲', show: true },
-      { value: '卡通', show: true },
-      { value: '运动', show: true },
-      { value: '民族', show: true },
-      { value: '优雅', show: true },
-      { value: '其它', show: true },
-      { value: '暂无', show: true },
+      { value: '时尚', img: '/images/phone-2.png', show: true },
+      { value: '休闲', img: '/images/phone-2.png', show: true },
+      { value: '卡通', img: '/images/phone-2.png', show: true },
+      { value: '运动', img: '/images/phone-2.png', show: true },
+      { value: '民族', img: '/images/phone-2.png', show: true },
+      { value: '优雅', img: '/images/phone-2.png',show: true },
     ]
   },
   onLoad: function (options) {
@@ -87,34 +85,10 @@ Page({
     }
     this.setData({
       checkboxItems: checkboxItems,
-      oldStyle: values
+      oldStyle: values,
     });
   },
-  /**
-   * 添加自定义风格
-   */
-  addStyle: function (e) {
-    var checkboxItems = this.data.checkboxItems
-    var value = e.detail.value
-    if (!value.trim()) {
-      return
-    }
-    var cusO = new Object()
-    cusO.value = e.detail.value
-    cusO.show = true
-    cusO.checked = true
-    checkboxItems.push(cusO)
-    var oldStyle = this.data.oldStyle
-    if (!oldStyle) {
-      oldStyle = new Array()
-    }
-    oldStyle.push(e.detail.value)
-    this.setData({
-      tempvalue: null,
-      checkboxItems: checkboxItems,
-      oldStyle: oldStyle
-    })
-  },
+  
   next: function () {
     this.updateUser()
     util.updateStep(3)

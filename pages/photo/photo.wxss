@@ -162,4 +162,5 @@
     position:fixed;
     bottom:60rpx;
     margin-left:80rpx; 
+    z-index: 100;
 }

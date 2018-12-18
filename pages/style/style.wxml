@@ -1,22 +1,25 @@
 <view class="page">
-  <view class="height">
     <view class="title">
-        <text class="title-first">你喜欢孩子穿着哪种感觉？</text>
-        <view class="title-last">
-            <input class="text" placeholder="添加自定义搭配风格"  placeholder-style="font-size: 32rpx; color: #666666; font-weight:regular; padding-left: 50rpx;"  bindblur='addStyle' value='{{tempvalue}}'></input>
-        </view>
+        <text class="title-first">希望孩子穿着什么风格？</text>
+        <view class="title-intro">选择您或孩子偏爱的穿搭风格</view>
     </view>
     <view class="content">
         <checkbox-group class="check-first" bindchange="checkboxChange" >
           <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
             <view class="{{item.checked?'active':'unactive'}}">
              <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
+             <view class="parent">
+               <image src="{{item.img}}" class="img"/>
+               <view class="green" wx:if="{{item.checked}}">
+                 <image src="/images/xihuan-3.png" class="parent-img" />
+               </view>
+             </view>
              <view class="name">{{item.value}}</view>
             </view> 
-          </label>   
+          </label>  
         </checkbox-group>
-    </view>   
-  </view>
+    </view>
+    <button class="fixed-button" bindtap="next">下一步</button>
 </view>
 
-    <button class="fixed-button" bindtap="next">下一步</button>
+  

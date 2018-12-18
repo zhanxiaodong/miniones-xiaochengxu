@@ -51,12 +51,15 @@
 
 .fixed-button {
     border-radius: 60rpx;
-    background-color: #04B8A0;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+    box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
     width: 590rpx;
+    height: 100rpx;
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
     position:fixed;
     bottom:60rpx;
-    margin-left:80rpx;
+    margin-left:80rpx; 
+    z-index: 100;
 }
