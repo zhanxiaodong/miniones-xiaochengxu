@@ -44,7 +44,7 @@
       <view class="rightTop" id="repair-two">
         <text class="peisong">发货时间</text>
         <text style="font-weight:400;color: #04B8A0; font-size: 28rpx;  padding-left: 20rpx;height: 60rpx; line-height: 60rpx;">预计</text>
-       <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="2018-10-1" bindchange="bindDateChange">
+       <picker mode="date" style="color: #26AEA8;" value="{{date}}" start="{{chooseDate}}" bindchange="bindDateChange">
        
          <input class="nimeide" value='{{date}}' disabled="true" placeholder="请选择时间" />
             

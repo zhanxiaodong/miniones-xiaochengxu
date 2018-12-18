@@ -64,7 +64,7 @@ Page({
       util.updateStep(6)
       wx.setStorageSync('pagen', 'plan')
       wx.navigateTo({
-          url: '/pages/plan/plan'
+          url: '/pages/create/create'
       })
     }
 })

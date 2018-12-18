@@ -9,7 +9,6 @@ Page({
     onFocus: false, //textarea焦点是否选中
     isShowText: false, //控制显示 textarea 还是 text
     remark: '', //用于存储textarea输入内容
-
     payAmount: 0,
     realPayAmount: 0,
     expCouponAmount: 0,
@@ -53,14 +52,16 @@ Page({
   onLoad: function(options) {
     var babyId = options.babyId
     var stylistId = options.stylistId
-    var today = dateUtils.formatDate2
-    (
-       dateUtils.plusDay(new Date(), 0)
-     )
+    var chooseDate = dateUtils.formatDate(dateUtils.plusDay(new Date(), 3))
+    var today = dateUtils.formatDate2(dateUtils.plusDay(new Date(), 3))
+    // (
+    //    dateUtils.plusDay(new Date(), 0)
+    //  )
     this.setData({
       date: today,
       babyId: babyId,
-      stylistId: stylistId
+      stylistId: stylistId,
+      chooseDate: chooseDate
     })
     var level = wx.getStorageSync('level')
     if (level < 40) {
@@ -68,6 +69,7 @@ Page({
     }
     this.findExpCoupon()
     this.findLastBox()
+    console.log()
   },
   updatePayAmount: function() {
     var that = this
