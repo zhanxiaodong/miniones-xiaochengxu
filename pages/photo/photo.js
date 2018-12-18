@@ -3,6 +3,7 @@ const uploadImage = require('../../utils/uploadoss.js');
 Page({
   data: {
     id: '',
+    inter:'',
     isUpload: false
   },
   onLoad: function(options) {
@@ -54,18 +55,10 @@ Page({
       })
     }
     var inter = this.data.inter
-    if (inter == 'add') {
-      let pages = getCurrentPages(); //当前页面
-      let prevPage = pages[pages.length - 2]; //上一页面
-      wx.navigateBack({
-        delta:2
-      })
-    } else {
-      util.updateStep(2)
-      wx.navigateTo({
-        url: '/pages/character/character',
-      })
-    }
+    var id = this.data.id
+    wx.navigateTo({
+      url: '/pages/character/character?id=' + id + '&inter=' + inter,
+    })
   },
   getImage: function() {
     var that = this

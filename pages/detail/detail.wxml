@@ -96,8 +96,8 @@
         </form>
       </view>
       <view>
-        <form bindsubmit='showComfirm' report-submit='true'>
-          <button class='button-choice' form-type='submit' bindtap='next'>让搭配师与我电话沟通建立</button>
+        <form bindsubmit='createDefault' report-submit='true'>
+          <button class='button-choice' form-type='submit'>让搭配师与我电话沟通建立</button>
         </form>
       </view>
     </view>
