@@ -53,9 +53,10 @@ Page({
   onLoad: function(options) {
     var babyId = options.babyId
     var stylistId = options.stylistId
-    var today = dateUtils.formatDate2(
-      dateUtils.plusDay(new Date(), 2)
-    )
+    var today = dateUtils.formatDate2
+    (
+       dateUtils.plusDay(new Date(), 0)
+     )
     this.setData({
       date: today,
       babyId: babyId,
@@ -186,7 +187,7 @@ Page({
   bindDateChange: function(e) {
     console.log(e)
     var dataRes = e.detail.value
-    var newDate = dateUtils.plusDay(dateUtils.parseDate(dataRes), 2)
+    var newDate = dateUtils.plusDay(dateUtils.parseDate(dataRes), 0)
     this.setData({
       date: dateUtils.formatDate2(newDate)
     })
