@@ -48,37 +48,134 @@ Page({
     }
   },
   chooseAddr: function (e) {
-    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var that = this
-    wx.chooseAddress({
+    wx.getSetting({
       success: function (res) {
-        console.log(res)
-        var form = that.data.form
-        var labelItems = that.data.labelItems
-        var roleItems = that.data.roleItems
-        if (!form.type) {
-          form.type = '先生'
-          roleItems[0].checked = true
+        var authse = res.authSetting
+        var auth = authse['scope.address']
+        console.log(authse['scope.address'])
+        if (!auth && auth != false) {
+          wx.authorize({
+            scope: 'scope.address',
+            success: function (res) {
+              if (res.errMsg == "authorize:ok") {
+                wx.chooseAddress({
+                  success: function (res) {
+                    var form = that.data.form
+                    var labelItems = that.data.labelItems
+                    var roleItems = that.data.roleItems
+                    if (!form.type) {
+                      form.type = '先生'
+                      roleItems[0].checked = true
+                    }
+                    if (!form.label) {
+                      form.label = '家'
+                      labelItems[0].checked = true
+                    }
+                    form.name = res.userName
+                    form.tel = res.telNumber
+                    form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
+                    form.addressDetail = res.detailInfo
+                    form.status = 'ENABLE'
+                    form.province = res.provinceName
+                    form.city = res.cityName
+                    form.district = res.countyName
+                    form.adCode = res.postalCode
+                    form.cityCode = res.nationalCode
+                    that.setData({
+                      form: form,
+                      labelItems: labelItems,
+                      roleItems: roleItems
+                    })
+                  },
+                })
+              } else {
+                $wuxDialog.alert({
+                  content: '您未授权使用地址功能！'
+                })
+              }
+            },
+            fail(res) {
+              $wuxDialog.alert({
+                content: '您未授权使用地址功能！'
+              })
+            }
+          })
+        } else if (!authse['scope.address']) {
+          console.log(11)
+          wx.openSetting({
+            success: function (data) {
+              console.log(data)
+              if (data.authSetting['scope.address']) {
+                wx.chooseAddress({
+                  success: function (res) {
+                    var form = that.data.form
+                    var labelItems = that.data.labelItems
+                    var roleItems = that.data.roleItems
+                    if (!form.type) {
+                      form.type = '先生'
+                      roleItems[0].checked = true
+                    }
+                    if (!form.label) {
+                      form.label = '家'
+                      labelItems[0].checked = true
+                    }
+                    form.name = res.userName
+                    form.tel = res.telNumber
+                    form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
+                    form.addressDetail = res.detailInfo
+                    form.status = 'ENABLE'
+                    form.province = res.provinceName
+                    form.city = res.cityName
+                    form.district = res.countyName
+                    form.adCode = res.postalCode
+                    form.cityCode = res.nationalCode
+                    that.setData({
+                      form: form,
+                      labelItems: labelItems,
+                      roleItems: roleItems
+                    })
+                  },
+                })
+              } else {
+                $wuxDialog.alert({
+                  content: '您未授权使用地址功能！'
+                })
+              }
+            }
+          })
+        } else {
+          wx.chooseAddress({
+            success: function (res) {
+              var form = that.data.form
+              var labelItems = that.data.labelItems
+              var roleItems = that.data.roleItems
+              if (!form.type) {
+                form.type = '先生'
+                roleItems[0].checked = true
+              }
+              if (!form.label) {
+                form.label = '家'
+                labelItems[0].checked = true
+              }
+              form.name = res.userName
+              form.tel = res.telNumber
+              form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
+              form.addressDetail = res.detailInfo
+              form.status = 'ENABLE'
+              form.province = res.provinceName
+              form.city = res.cityName
+              form.district = res.countyName
+              form.adCode = res.postalCode
+              form.cityCode = res.nationalCode
+              that.setData({
+                form: form,
+                labelItems: labelItems,
+                roleItems: roleItems
+              })
+            },
+          })
         }
-        if (!form.label) {
-          form.label = '家'
-          labelItems[0].checked = true
-        }
-        form.name = res.userName
-        form.tel = res.telNumber
-        form.address = res.provinceName + res.cityName + res.countyName + res.detailInfo
-        form.addressDetail = res.detailInfo
-        form.status = 'ENABLE'
-        form.province = res.provinceName
-        form.city = res.cityName
-        form.district = res.countyName
-        form.adCode = res.postalCode
-        form.cityCode = res.nationalCode
-        that.setData({
-          form: form,
-          labelItems: labelItems,
-          roleItems: roleItems
-        })
       }
     })
   },

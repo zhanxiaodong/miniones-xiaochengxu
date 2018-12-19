@@ -64,8 +64,8 @@
       <button class="btncs" formType="submit">保存</button>
     </view>
     <view style='padding: 5px 20px;'>
-      <form bindsubmit='chooseAddr' wx:if="{{!form.id}}" report-submit='true'>
-        <button class='btncs' form-type='submit'>使用微信地址</button>
+      <form bindsubmit='' wx:if="{{!form.id}}" report-submit='true'>
+        <button class='btncs' bindtap='chooseAddr'>使用微信地址</button>
       </form>
     </view>
     <view style='padding: 5px 20px;'>
