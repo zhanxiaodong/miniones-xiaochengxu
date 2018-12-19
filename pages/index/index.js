@@ -216,7 +216,7 @@ Page({
   },
   onShow: function() {
     var needAuth = this.data.needAuth
-    if (!needAuth) {
+    if (needAuth) {
       this.fillInfo()
     }
   },
@@ -228,12 +228,16 @@ Page({
    */
   fillInfo: function() {
     console.log('fillInfo')
+    wx.showLoading({
+      title: '',
+    })
     var that = this
     var level = wx.getStorageSync('level')
     var openId = wx.getStorageSync('openId')
     wx.request({
       url: util.requestUrl + 'user/findInfoByOpenId?openId=' + openId,
       success: function(res) {
+        wx.hideLoading()
         var result = res.data.data
         var user = res.data.data.user
         var stylist = result.stylist ? result.stylist : null
@@ -317,7 +321,6 @@ Page({
             withCredentials: true,
             success: function(resU) {
               wx.setStorageSync('userInfo', resU.userInfo);
-
               wx.request({
                 url: util.requestUrl + 'wechat/decodeUserInfo',
                 method: 'POST',
