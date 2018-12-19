@@ -51,7 +51,7 @@
         </view>
         <view class="weui-cell__ft">
           <cover-view>
-            <cover-image src="{{icon}}" style="width:30px; height: 30px;" data-object-item="{{item}}" bindtap='edit'></cover-image>
+            <cover-image src="{{icon}}" style="width:30px; height: 30px;" data-object-item="{{item}}" catchtap='edit'></cover-image>
           </cover-view>
         </view>
       </label>
