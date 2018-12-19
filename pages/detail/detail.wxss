@@ -164,7 +164,9 @@ page {
     line-height: 100rpx;
     color: #FFFFFF;
     letter-spacing: 6rpx;
-    margin-bottom: 50rpx;
+    margin-bottom: 50rpx; 
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+    box-shadow: 0px 5px 25px -7px rgba(76,150,132,0.14);
   }
 
   /*使屏幕变暗  */

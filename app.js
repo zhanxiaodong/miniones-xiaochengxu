@@ -84,23 +84,23 @@ App({
       borderStyle: "white",
       list: [
         {
-          "selectedIconPath": "/images/bangdan-4.png",
-          "iconPath": "/images/bangdan-3.png",
+          "selectedIconPath": "/images/select-one.jpeg",
+          "iconPath": "/images/one.jpeg",
           "pagePath": "/pages/guide/guide",
           "clas": "menu-item",
           "selected": false
         },
 
         {
-          "selectedIconPath": "/images/yuedu-2.png",
-          "iconPath": "/images/yuedu.png",
+          "selectedIconPath": "/images/select-two.jpeg",
+          "iconPath": "/images/two.jpeg",
           "pagePath": "/pages/index/index",
           "clas": "menu-item",
           "selected": false
         },
         {
-          "selectedIconPath": "/images/iconlineuser--3.png",
-          "iconPath": "/images/iconlineuser--2.png",
+          "selectedIconPath": "/images/select-three.jpeg",
+          "iconPath": "/images/three.jpeg",
           "pagePath": "/pages/my/my",
           "clas": "menu-item menu-item2",
           "selected": false
