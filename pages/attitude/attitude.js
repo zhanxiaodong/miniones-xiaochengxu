@@ -11,26 +11,14 @@ Page({
         ]
   },
   onLoad: function (options) {
-    console.log(options)
-    var inter = options.inter
-    this.updateInfo()
-    if (inter) {
-      this.setData({
-        inter: inter
-      })
-    }
-    var frontType = options.frontType
-    if (frontType) {
-      this.setData({
-        frontType: frontType
-      })
-    }
-  },
-  updateInfo: function () {
-    var openId = wx.getStorageSync('openId')
     var that = this
+    var editBaby = wx.getStorageSync('editBaby')
+    var id = editBaby.id
+    that.setData({
+      id: id
+    })
     wx.request({
-      url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+      url: util.requestUrl + 'baby/findBabyById?id=' + id,
       success: function (res) {
         var result = res.data.data
         var attitude = result.attitude
@@ -88,24 +76,22 @@ Page({
   },
   
   next:function(){
-    this.updateUser()
-    util.updateStep(5)
+    this.updateBaby()
     wx.navigateTo({
         url: '/pages/paste/paste'
     })
   },
-  updateUser: function () {
-    var item = new Object();
-    item.wechatOpenId = wx.getStorageSync('openId')
+  updateBaby: function () {
     var attitude = this.data.attitude
     if (attitude) {
+      var item = new Object()
+      item.id = this.data.id
       item.attitude = attitude
+      wx.request({
+        url: util.requestUrl + 'baby/updateBaby',
+        method: 'POST',
+        data: item
+      })
     }
-    wx.request({
-      url: util.requestUrl + 'user/updateUser',
-      method: 'POST',
-      data: item
-    })
-    wx.setStorageSync('pagen', 'paste')
   }
 })

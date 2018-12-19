@@ -12,7 +12,7 @@
    <view class="color">轻奢<text class="style">￥500+/套</text></view>-->
    <radio-group bindchange="pasteAllChange" data-index="{{index}}">
           <label class="weui-cell weui-check__label" style="border-bottom:1px solid #f6f8f7;" wx:for="{{pasteAllItems}}" wx:key="value" wx:for-item="item">
-            <view >
+            <view class="{{item.checked?'active':'unactive'}}">
               <view class="color">{{item.value}}
                  <text class="style">￥{{item.math}}</text>
               </view>

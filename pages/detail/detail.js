@@ -36,7 +36,6 @@ Page({
     skinColors: ['不确定', '白皙', '正常', '偏黑'],
   },
   onLoad: function (options) {
-    console.log(options)
     this.initValidate()
     var inter = options.inter
     var id = options.id
@@ -45,7 +44,6 @@ Page({
         confirmNo: true
       })
     }
-
     if (inter) {
       this.setData({
         inter: inter
@@ -78,7 +76,6 @@ Page({
               uploadImg: result.bodyPic
             })
           }
-          wx.setStorageSync('editBaby', result)
         }
       })
     }
@@ -151,7 +148,6 @@ Page({
       url = util.requestUrl + 'baby/updateBaby'
       params.id = this.data.form.id
     }
-
     params.gender = this.data.form.gender
     var that = this
     params.openId = wx.getStorageSync('openId')
@@ -162,15 +158,16 @@ Page({
       data: params,
       success: function (res) {
         if (!that.data.form.id) {
-          var form = res.data.data
           that.setData({
-            form: form
+            form: res.data.data
           })
         }
+        var form = that.data.form
+        form.inter = inter
+        wx.setStorageSync('editBaby', form)
         wx.navigateTo({
-          url: '/pages/photo/photo?uploadImgTemp=' + that.data.uploadImgTemp + '&id=' + that.data.form.id + '&inter=' + inter
+          url: '/pages/photo/photo'
         })
-        wx.setStorageSync('editBaby', params)
       }
     })
   },

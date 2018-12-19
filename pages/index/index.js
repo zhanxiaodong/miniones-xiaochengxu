@@ -86,29 +86,7 @@ Page({
         url: '../log/log'
       })
     } else {
-      var planAuto = this.data.user.planAuto
-      var plan = this.data.user.plan
-      var stylist = this.data.stylist
-      var pagen = wx.getStorageSync('pagen')
-      if ((planAuto > 0 && stylist) || (plan && stylist)) {
-        this.getBox()
-      } else {
-        var url = '../style/style'
-        if (pagen) {
-          if (pagen == 'color') {
-            url = '../color/color'
-          } else if (pagen == 'attitude') {
-            url = '../attitude/attitude'
-          } else if (pagen == 'paste') {
-            url = '../paste/paste'
-          } else if (pagen == 'plan') {
-            url = '../plan/plan'
-          }
-        }
-        wx.navigateTo({
-          url: url
-        })
-      }
+      this.getBox()
     }
   },
   userReg: function() {
@@ -242,41 +220,6 @@ Page({
       this.fillInfo()
     }
   },
-  setStep: function(data) {
-    var user = data.user
-    var stylist = data.stylist
-    var finshedInfo = false
-    if (user) {
-      var planAuto = data.user.planAuto
-      var plan = data.user.plan
-      var guide = data.user.guide
-      // if (!guide) {
-      //   wx.navigateTo({
-      //     url: '../guide/guide'
-      //   })
-      // }
-      if ((planAuto > 0 && stylist) || (plan && stylist)) {
-        finshedInfo = true
-      } else if (!user.style) {
-        wx.setStorageSync('pagen', '')
-      } else if (!user.colorType) {
-        wx.setStorageSync('pagen', 'color')
-      } else if (!user.attitude) {
-        wx.setStorageSync('pagen', 'attitude')
-      } else if (!user.consumDesc) {
-        wx.setStorageSync('pagen', 'paste')
-      } else if (!user.planAuto || !stylist) {
-        wx.setStorageSync('pagen', 'plan')
-      } else {
-        wx.setStorageSync('pagen', '')
-        finshedInfo = true
-      }
-    } else {
-      wx.setStorageSync('level', 0)
-    }
-    console.log(wx.getStorageSync('pagen'))
-    return finshedInfo
-  },
   /**
    * 填充信息
    * 未登录已注册 -》跳转登录界面
@@ -306,9 +249,6 @@ Page({
           if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
             message = message + nextBoxTime
           } 
-        }
-        if (!that.setStep(res.data.data)) {
-          btnMsg = '完善信息'
         }
         if (!level || level == viplev.LOOK) {
           btnMsg = '开启服务'

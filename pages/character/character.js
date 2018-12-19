@@ -1,7 +1,6 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-    inter: null,
     frontType: 'character',
     gender: true,
     checkboxItems: [
@@ -17,22 +16,11 @@ Page({
   },
   onLoad: function (options) {
     var that = this
-    var id = options.id ? options.id :"5c135a77696e062770f97a07"
-    var inter = options.inter
-    if (inter) {
-      that.setData({
-        inter: inter
-      })
-    }
-    if (id) {
-      that.updateInfo(id)
-      that.setData({
-        id: id
-      })
-    }
-  },
-  updateInfo: function (id) {
-    var that = this
+    var editBaby = wx.getStorageSync('editBaby')
+    var id = editBaby.id
+    that.setData({
+      id: id
+    })
     wx.request({
       url: util.requestUrl + 'baby/findBabyById?id=' + id,
       success: function (res) {
@@ -45,7 +33,6 @@ Page({
     })
   },
   initCharacter: function (oldCharacter) {
-    console.log(oldCharacter)
     var checkboxItems = this.data.checkboxItems
     var cusArr = new Array()
     for (var i = 0; i < oldCharacter.length; ++i) {
@@ -91,19 +78,9 @@ Page({
   },
   next: function () {
     this.updateBaby()
-    var inter = this.data.inter
-    if (inter == 'add') {
-      let pages = getCurrentPages(); //当前页面
-      let prevPage = pages[pages.length - 2]; //上一页面
-      wx.navigateBack({
-        delta: 3
-      })
-    } else {
-      util.updateStep(2)
-      wx.navigateTo({
-        url: '/pages/style/style'
-      })
-    }
+    wx.navigateTo({
+      url: '/pages/style/style'
+    })
   },
   updateBaby: function () {
     var oldCharacter = this.data.oldCharacter

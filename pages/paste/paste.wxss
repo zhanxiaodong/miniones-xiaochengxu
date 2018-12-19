@@ -62,3 +62,15 @@
 .weui-cell {
   padding: 20rpx 0!important;
 }
+
+.active {
+  background-color: #EEFAF7; 
+}
+
+.unactive .line {
+  height: 1px; background-color: #f6f8f7;
+}
+
+.active .line {
+  height: 1px; background-color:#ffffff;
+}

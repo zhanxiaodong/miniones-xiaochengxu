@@ -8,19 +8,14 @@ Page({
     ],
   },
   onLoad: function (options) {
-    var inter = options.inter
-    this.updateInfo()
-    if (inter) {
-      this.setData({
-        inter: inter
-      })
-    }
-  },
-  updateInfo: function () {
-    var openId = wx.getStorageSync('openId')
     var that = this
+    var editBaby = wx.getStorageSync('editBaby')
+    var id = editBaby.id
+    that.setData({
+      id: id
+    })
     wx.request({
-      url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
+      url: util.requestUrl + 'baby/findBabyById?id=' + id,
       success: function (res) {
         var result = res.data.data
         var oldColorType = result.colorType
@@ -54,24 +49,22 @@ Page({
     })
   },
   next: function () {
-    this.updateUser()
-    util.updateStep(4)
+    this.updateBaby()
     wx.navigateTo({
       url: "/pages/attitude/attitude"
       })
-  }, 
-  updateUser: function () {
-    var item = new Object();
-    item.wechatOpenId = wx.getStorageSync('openId')
+  },
+  updateBaby: function () {
     var colorType = this.data.oldColorType
     if (colorType) {
+      var item = new Object()
+      item.id = this.data.id
       item.colorType = colorType
+      wx.request({
+        url: util.requestUrl + 'baby/updateBaby',
+        method: 'POST',
+        data: item
+      })
     }
-    wx.request({
-      url: util.requestUrl + 'user/updateUser',
-      method: 'POST',
-      data: item
-    })
-    wx.setStorageSync('pagen', 'attitude')
   }
 })

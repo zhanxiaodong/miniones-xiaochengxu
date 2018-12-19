@@ -3,26 +3,20 @@ const uploadImage = require('../../utils/uploadoss.js');
 Page({
   data: {
     id: '',
-    inter:'',
+    uploadImgTemp: '/images/photo.png',
     isUpload: false
   },
   onLoad: function(options) {
     var that = this
-    var uploadImgTemp = options.uploadImgTemp
-    var id = options.id
-    var inter = options.inter
-    if (inter) {
-      that.setData({
-        inter: inter
-      })
-    }
-    if (options.uploadImgTemp && id) {
+    var editBaby = wx.getStorageSync('editBaby')
+    var uploadImgTemp = editBaby.bodyPic ? editBaby.bodyPic : '/images/photo.png'
+    var id = editBaby.id
+    if (uploadImgTemp && id) {
       that.setData({
         uploadImgTemp: uploadImgTemp,
         uploadImg: uploadImgTemp,
         id: id
       })
-      // that.imageLoad(result.bodyPic,120,120)
     }
   },
   uploadImg: function() {
@@ -54,10 +48,9 @@ Page({
         data: item
       })
     }
-    var inter = this.data.inter
     var id = this.data.id
     wx.navigateTo({
-      url: '/pages/character/character?id=' + id + '&inter=' + inter,
+      url: '/pages/character/character' ,
     })
   },
   getImage: function() {
