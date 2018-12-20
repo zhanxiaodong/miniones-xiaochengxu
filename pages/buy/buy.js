@@ -27,6 +27,7 @@ Page({
     chooseCount: 0,
     avgPrice: 0.00,
     backCount: 0,
+    vipoprice: 99,
     checkboxItems: [
       { value: '太小了', },
       { value: '太大了', },
@@ -334,7 +335,7 @@ Page({
         totalPrice = totalPrice - discountPrice
         subPrice = subPrice + discountPrice
       } else {
-        vipoprice = totalPrice * 0.15
+        vipoprice = totalPrice * 0.1 + 99
       }
       if (this.data.other && totalPrice > 0 ) {
         var voucher = this.data.voucher

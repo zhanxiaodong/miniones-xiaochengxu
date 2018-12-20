@@ -53,7 +53,7 @@
      <view class="theme-title">本次推荐主题</view>
      <view class="theme-detail">根据孩子的年龄段、季节以及地域综合推荐，确保每一个盒子都不同！</view>
      <view class="theme-intro">
-       <block wx:for="{{themList}}" wx:key="*this">
+       <block wx:for="{{themList}}" wx:key="item.title">
         <view class="theme-intro-item">
           <image class="theme-intro-item-icon" src="{{item.img}}"/>
           <view class="theme-intro-item-title">{{item.title}}</view>

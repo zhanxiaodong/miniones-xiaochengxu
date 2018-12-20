@@ -28,7 +28,7 @@
         </view>
 
         <view class="rowcontentcs pt10">
-          <picker mode="date" start="1890-01-01" end="2033-09-01" bindchange="bindDateChange" name="date" value="{{ date }}" data-filed="birth">
+          <picker mode="date" start="1890-01-01" end="{{endTime}}" bindchange="bindDateChange" name="date" value="{{ date }}" data-filed="birth">
             <!--<text> {{date}}</text>-->
             <input id='name-repair' placeholder="dd-mm-yyyy" placeholder-style="color: #cccccc; font-size: 30rpx;" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
           </picker>
