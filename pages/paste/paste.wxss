@@ -23,7 +23,7 @@
 .color {
     font-size:36rpx;
     color:#333333;
-    line-height: 100rpx;
+    line-height: 146rpx;
     padding-left:60rpx;
 }
 
@@ -53,6 +53,7 @@
 
 .weui-check__label:active {
     background-color:#EEFAF7;
+    
 }
 
 .weui-check__label:hover {
@@ -60,11 +61,18 @@
 }
 
 .weui-cell {
-  padding: 20rpx 0!important;
+  padding: 0!important;
 }
 
 .active {
   background-color: #EEFAF7; 
+  width: 100%;
+  height: 146rpx;
+}
+
+.unactive {
+  width: 100%;
+  height: 146rpx;
 }
 
 .unactive .line {

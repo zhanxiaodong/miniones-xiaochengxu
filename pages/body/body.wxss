@@ -57,7 +57,8 @@
 
 .but{
   width:670rpx;
-  background:#04b8a0!important;
+  background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
   border-radius: 50rpx;
   line-height: 100rpx;
   color:#fff;

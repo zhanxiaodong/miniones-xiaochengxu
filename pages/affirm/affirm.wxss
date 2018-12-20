@@ -115,7 +115,8 @@ color: #666666;
 }
 .but{
   width:670rpx;
-  background:#04b8a0!important;
+  background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
   border-radius: 50rpx;
   line-height: 100rpx;
   color:#fff;
@@ -195,13 +196,20 @@ color: #666666;
   margin-top:30rpx;
 }
 .butBoxPro .butPro{
+  background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
   width:670rpx;
-  background:#04b8a0!important;
   border-radius: 50rpx;
   line-height: 100rpx;
   color:#fff;
   font-weight: bold;
   font-size: 36rpx;
+}
+
+.butPro {
+  position: absolute;
+  bottom: 50rpx;
+  margin-left: 10rpx;
 }
 
 .left {
