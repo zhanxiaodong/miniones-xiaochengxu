@@ -164,7 +164,8 @@ page {
 }
 
 .btncs {
-  background-color: rgb(38, 174, 168);
+  background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
   color: #fff;
   border-radius: 32px;
   width: 50%;
