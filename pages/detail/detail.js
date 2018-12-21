@@ -5,6 +5,7 @@ Page({
   confirmNo: false,
   inter: null,
   imgshow: false,
+  endTime:null,
   data: {
     heightNum: 0,
     date: "yyyy-mm-dd",
@@ -37,6 +38,11 @@ Page({
   },
   onLoad: function (options) {
     this.initValidate()
+    var now = new Date()
+    var endTime = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()
+    this.setData({
+      endTime: endTime
+    })
     var inter = options.inter
     var id = options.id
     if (inter != 'add' && !id) {

@@ -284,9 +284,21 @@ Page({
 
   confirmInfo: function () {
     var that = this
-    that.setData({
-      payStatus: true
-    })
+    var level = wx.getStorageSync('level')
+    if (level < 10) {
+      wx.showToast({
+        title: '请您先注册～',
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '../log/log'
+        })
+      }, 2000)
+    } else {
+      that.setData({
+        payStatus: true
+      })
+    }
   },
   
   redeem: function () {
