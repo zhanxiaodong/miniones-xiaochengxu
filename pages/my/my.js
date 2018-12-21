@@ -36,6 +36,7 @@ Page({
         var result = res.data.data
         var level = res.data.data.user.level
         var vipImg = that.data.vipImg
+        wx.setStorageSync('level', level)
         if (level >= 40){
           vipImg = '/images/icons/h-yellow.png'
         }

@@ -72,6 +72,7 @@ Page({
     })
   },
   next: function() {
+    this.updateStep()
     var consumDesc = this.data.consumDesc
     var item = new Object()
     item.id = this.data.id
@@ -85,7 +86,6 @@ Page({
         delta: 7
       })
     } else {
-      this.updateStep()
       wx.navigateTo({
         url: '/pages/create/create'
       })
