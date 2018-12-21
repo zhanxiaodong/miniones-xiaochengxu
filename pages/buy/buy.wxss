@@ -123,17 +123,38 @@ textRight radio,.textRight text{
 }
 .butBox{
   width:100%;
-  position:fixed;bottom:0;
-  padding:50rpx 40rpx;
+  position:fixed;
+  bottom:0;
+  display: flex;
+  flex-flow: row nowrap;
   z-index: 222;
 }
+
+.button-left {
+  width: 436rpx;
+  background: #ffffff;
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 90rpx;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.button-left-one {
+  margin-left: 40rpx;
+}
+.button-left-two {
+  text-align: center;
+  margin-left: 80rpx;
+}
+
 .but{
-  width:100%;
-  height:100rpx;
+  width: 314rpx;
+  height:90rpx;
   background:#04b8a0!important;
-  border-radius: 50rpx;
-  line-height: 100rpx;
+  line-height: 90rpx;
   color:#fff;
+  text-align:center;
 }
 .upper{
   width:100% !important;
@@ -147,7 +168,6 @@ textRight radio,.textRight text{
   float:right!important;
 }
 .conPro{
-  margin-top:20rpx;
   width:100%;
   background: #fff;
 }
@@ -199,21 +219,20 @@ textRight radio,.textRight text{
   padding-right: 20rpx;
 }
 .botFoot{
-  font-size:26rpx;
+  font-size:24rpx;
   padding-right: 20rpx;
-  color: #666666;
+  color: #333333;
 }
 .botActive{
-  font-size:22rpx;
-  color:#c3c3c3;
+  font-size:24rpx;
+  color:#333333;
 }
 
 .checklabel {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
-  padding: 40rpx 0 40rpx 40rpx;
-  border-bottom:1px solid #f2f2f2;
+  padding: 40rpx;
+  position: relative;
 }
 
 /* 遮罩层 */
@@ -325,13 +344,13 @@ border: none;
   display: flex;
   flex-flow: row nowrap;
   justify-content:space-between;
-  padding:60rpx 40rpx 40rpx 60rpx;
+  padding:50rpx 40rpx 50rpx 50rpx;
 }
 
 .content-price-left {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #333333;
-  margin-left: 360rpx;
+  font-weight: 600;
   line-height: 60rpx;
 }
 
@@ -342,7 +361,7 @@ border: none;
 
 .content-price-icon {
   font-size: 20rpx;
-  color: #999999;
+  color: #333333;
   padding-right: 10rpx;
 }
 
@@ -352,3 +371,68 @@ border: none;
   color: #333333;
 }
 
+.qone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.discount {
+  color: #d6bc8a;
+  font-size: 24rpx;
+  background: #f6f8f7;
+  width: 100rpx;
+  line-height: 38rpx;
+  text-align:center;
+  border-radius: 30px;
+}
+
+.left-one {
+  position: relative;
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.left-one-img {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.left-one-index {
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #04B8A0;
+  color: #ffffff;
+  font-size: 24rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 8rpx;
+}
+
+.vip-intro {
+  text-align:center;
+  line-height: 60rpx;
+  width: 550rpx;
+  opacity: 0.6;
+  background: #333333;
+  color: #ffffff;
+  font-size: 24rpx;
+  border-radius: 30px;
+  position: fixed;
+  bottom: 100rpx;
+  left: 100rpx;
+}
+.anjian {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 40rpx;
+}
+.checkd {
+  position: absolute;
+  right: 40rpx;
+  top: 115rpx;
+}

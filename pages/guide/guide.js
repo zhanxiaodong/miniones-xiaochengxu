@@ -381,17 +381,32 @@ Page({
     }
   },
   newNext: function () {
-    wx.navigateTo({
-      url: "/pages/index/index",
+    var that = this
+    var openId = wx.getStorageSync('openId')
+    wx.showLoading({
+      title: '',
     })
+    wx.request({
+      url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
+      success: function (res) {
+      wx.hideLoading()
+      wx.navigateTo({
+      url: "/pages/index/index",
+        })
+       }
+      }) 
   },
   
   yearNext: function () {
     var that = this
     var openId = wx.getStorageSync('openId')
+    wx.showLoading({
+      title: '',
+    })
     wx.request({
       url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
       success: function (res) {
+        wx.hideLoading()
         var result = res.data.data
         var level = res.data.data.user.level
         console.log(level)
@@ -411,9 +426,13 @@ Page({
   continueNext: function () {
     var that = this
     var openId = wx.getStorageSync('openId')
+    wx.showLoading({
+      title: '',
+    })
     wx.request({
       url: util.requestUrl + 'user/findUserInfo?openId=' + openId,
       success: function (res) {
+        wx.hideLoading()
         var result = res.data.data
         var level = res.data.data.user.level
         console.log(level)
