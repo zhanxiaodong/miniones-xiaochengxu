@@ -49,6 +49,12 @@
     </view>
    </view>
    <view style="height: 20rpx; background-color: #f6f8f7;"></view>
+    <scroll-view
+    scroll-with-animation='true'
+    scroll-y="true"
+    style="height: 500px;"
+    bindscrolltolower="sb"
+    bindscrolltoupper="ok">
    <view class="content-price">
       <view class="content-price-left">合计:</view>
       <view class="content-price-right">
@@ -84,7 +90,7 @@
        </view>
    </view>
    <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
-   <view class="footer-buy" wx:if="{{level < 40 }}" bindtap="goCulb">
+   <view class="footer-buy" wx:if="{{level < 40}}" bindtap="goCulb">
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">199元买会员本单立减199起</view>
@@ -100,7 +106,8 @@
                 </view>
               </view>
    </view>
-    <view class="vip-intro" wx:if="{{ level < 40 }}">
+     </scroll-view>
+    <view class="vip-intro" wx:if="{{level < 40 && show}}">
       ￥199买会员,本单立减￥199起
       <image src='/images/anjian.png' class="anjian"/>
     </view>

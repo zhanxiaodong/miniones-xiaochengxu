@@ -5,6 +5,7 @@ import {
 } from '../../components/wux'
 Page({
   data: {
+    show: true,
     otherdesc: '3件及以上8折，整盒7折',
     other: false,
     otherAmount: 0,
@@ -545,7 +546,6 @@ Page({
     item.type = 'PAY'
     item.checkList = this.rmPostfix()
     item.boxNo = this.data.boxNo
-
     var badge = this.data.badge
     var voucher = this.data.voucher
     var cash = this.data.cash
@@ -622,6 +622,17 @@ Page({
     wx.reLaunch({
       url: "../index/index",
     })
+  },
+  sb: function () {
+    var that = this
+    that.setData({
+      show: false
+    })
+  },
+  ok: function () {
+    var that = this
+    that.setData({
+      show: true
+    })
   }
-
 })
