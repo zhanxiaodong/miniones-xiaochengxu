@@ -12,7 +12,7 @@
     </view>
   </view>
   <view style='padding: 0px 20px;'>
-    <button class='btngreen' style='font-size: 15px;line-height:42px;' open-type='share' >赠送好友新用户体验券</button>
+    <button class='btngreen' style='font-size: 15px;line-height:42px;background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);' open-type='share' >赠送好友新用户体验券</button>
   </view>
 </view>
 <view class="bottom-box" style='justify-content: center;align-items: center;font-size: 14px;'>

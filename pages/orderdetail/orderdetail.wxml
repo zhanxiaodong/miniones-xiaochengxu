@@ -152,14 +152,14 @@
     <view style="height: 1px; background-color: #F6F8F7; margin-left: 40rpx;"></view>
     <view class="vipBot" style="background-color:#fff;">
       <view wx:if="{{returnException.needBackPayAmount>0}}">
-        <view class=" botTop ">
-          <text class="botActive ">￥</text>{{returnException.needBackPayAmount}}</view>
+        <view class="botTop">
+          <text class="botActive">￥</text>{{returnException.needBackPayAmount}}</view>
         <view class="botFoot ">您需要额外支付差异价格</view>
       </view>
       <view wx:if="{{returnException.needBackPayAmount<0}}">
-        <view class="botTop ">
+        <view class="botTop">
           <text class="botActive ">￥</text>{{0-returnException.needBackPayAmount}}</view>
-        <view class="botFoot ">差价已自动退还到余额</view>
+        <view class="botFoot">差价已自动退还到余额</view>
       </view>
     </view>
     <view wx:if="{{returnException.needBackPayAmount>0}}" style='background-color: #fff; padding: 40rpx 0;'>
