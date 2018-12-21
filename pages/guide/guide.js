@@ -255,12 +255,7 @@ Page({
         two: '我们将更多的可能性放进盒子里，直接送到您家里，可能孩子没有尝试过的风格，但试穿的时候却非常棒！轻松享受品质生活吧。'
       },
     ],
-    level:0
-  },
-  onShow: function(){
-    this.setData({
-      level: wx.getStorageSync('level') ? wx.getStorageSync('level') : 0
-    })
+    level: wx.getStorageSync('level') ? wx.getStorageSync('level') : 0
   },
   onLoad: function(options) {
     console.log(options);
