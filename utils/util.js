@@ -316,6 +316,9 @@ function changeMsg(status, type) {
       case 'RETURN_EXPRESS':
         result = '等待取件'
         break;
+      case 'RETURN_EXCEPTION':
+        result = '召回异常'
+        break;
       case 'END':
         result = '要个盒子'
         break;
@@ -388,6 +391,9 @@ function changeMsg(status, type) {
       case 'RETURN_EXPRESS':
         result = '请耐心等待快递员上门取件'
         break;
+      case 'RETURN_EXCEPTION':
+        result = '当前订单存在召回异常'
+        break;
       case 'END':
         result = '下一次盒子: '
         break;
@@ -434,8 +440,8 @@ function radioGroupChange(group, value) {
 }
 
 // const requestUrl = 'http://interface.miniones.cn/merchant/'
-// const requestUrl = 'https://interface.miniones.cn/merchant_new/'
- const requestUrl = 'http://192.168.0.22:8080/merchant/'
+const requestUrl = 'https://interface.miniones.cn/merchant_new/'
+//  const requestUrl = 'http://192.168.0.22:8080/merchant/'
 // const requestUrl = 'http://localhost:8080/merchant/'
 function imageUtil(e, windowWidth, windowHeight) {
   var imageSize = {};
