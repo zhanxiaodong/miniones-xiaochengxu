@@ -6,6 +6,7 @@ let amap = require("../../utils/gdmap/amap");
 const app = getApp();
 Page({
   data: {
+    boxCount:'',
     themList: [{
       img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengdanlu.png',
         title: '圣诞季'
@@ -205,7 +206,13 @@ Page({
         userInfo: userInfo
       })
     }
-
+    // var boxCount = wx.getStorageSync('box.count')
+    // if (boxCount) {
+    //   that.setData({
+    //     boxCount: boxCount
+    //   })
+    // }
+    //console.log(boxCount)
     var baby = wx.getStorageSync('baby.data')
     if (baby) {
       that.setData({
@@ -251,6 +258,7 @@ Page({
         var stylist = result.stylist ? result.stylist : null
         var baby = result.baby ? result.baby : null
         var tryOnDays = result.tryOnDays ? result.tryOnDays : 0
+        var boxCount = result.boxCount
         var boxStatus = result.boxStatus
         var boxId = result.boxId ? result.boxId : null
         var nextBoxTime = result.nextBoxTime ? result.nextBoxTime : null
@@ -268,6 +276,7 @@ Page({
         var gift = util.changeMsg(boxStatus, 'img')
         that.showModal(boxStatus, user)
         that.setData({
+          boxCount: boxCount,
           user: user,
           stylist: stylist,
           babyCount:babyCount,

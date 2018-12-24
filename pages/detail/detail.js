@@ -240,9 +240,13 @@ Page({
   createDefault: function() {
     var openId = wx.getStorageSync('openId')
     var that = this
+    wx.showLoading({
+      title: '',
+    })
     wx.request({
       url: util.requestUrl + 'baby/createBabyDefault?openId=' + openId,
       success: function (res) {
+        wx.hideLoading()
         var result = res.data
         var code = res.data.code
         if (code == '0') {

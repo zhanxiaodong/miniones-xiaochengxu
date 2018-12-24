@@ -4,7 +4,7 @@
 }
 .header{
   width:100%;
-  padding:40rpx;
+  padding:40rpx 40rpx 0 40rpx;
   background: #fff;
 }
 .header .title{
@@ -51,7 +51,7 @@
   width:85%;
   padding-left:15rpx;
   height:180rpx;
-  border-top:solid 1px #f3f3f3;
+  border-top:solid 1px #f2f2f2;
   float:left;
 }
 .rightTop{
@@ -195,7 +195,7 @@ textRight radio,.textRight text{
 }
 .vipTwo{
   padding:50rpx 30rpx;
-  border-bottom:solid 1px #f3f3f3;
+  border-bottom:solid 1px #f2f2f2;
 }
 .twoPro{
   width:70%!important;
@@ -217,6 +217,7 @@ textRight radio,.textRight text{
 .botTop{
   font-weight: 600;
   padding-right: 20rpx;
+  font-size: 44rpx;
 }
 .botFoot{
   font-size:24rpx;
@@ -360,9 +361,11 @@ border: none;
 }
 
 .content-price-icon {
+  font-weight: 600;
   font-size: 20rpx;
   color: #333333;
   padding-right: 10rpx;
+  padding-top:10rpx;
 }
 
 .content-price-show {
@@ -375,6 +378,7 @@ border: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 20rpx;
 }
 
 .discount {

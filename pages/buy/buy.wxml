@@ -1,6 +1,23 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
+ <!-- <import module="filters" src="../addmul.wxs"/> -->
+<!-- <import src="../addmul.wxs" /> -->
+<wxs module="filters">
+var filters = {
+  toFix: function (value) {
+    return value.toFixed(2)//此处2为保留两位小数
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}
+</wxs>
 <view class="wrap">
+<!-- <scroll-view
+    scroll-y="true"
+    style="height: 700px;"
+    bindscrolltolower="sb"
+    > -->
    <view class="header">
       <view>
          <text class="title">购买支付</text>
@@ -10,12 +27,12 @@
    </view>
    <view class="content">
       <view class="con clearfix">
-          <view class="conRight rightTop upper">
+          <view class="conRight rightTop" style="width: 100%!important; margin-left: 40rpx;">
              <view class="explain">
                 <view class="conText">全选（整盒留下7折叠加折扣）</view>
     <view style="color: #999999; font-size: 24rpx; padding-top: 8rpx;">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
               </view>
-              <view class="weui-cell__hd weui-check__hd_in-checkbox flex" style="float: right; padding-right: 40rpx;" bindtap="bindAllSelect">
+              <view class="weui-cell__hd weui-check__hd_in-checkbox flex" style="float: right; padding-right: 80rpx;" bindtap="bindAllSelect">
                 <icon type="circle" size="25" wx:if="{{!allSelect}}"></icon>
                 <icon type="success" size="25" color="#04B8A0"  wx:if="{{allSelect}}"></icon>
             </view>
@@ -26,17 +43,17 @@
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
           <view class='checklabel'>
             <view class="left-one">
-               <image src="{{}}" class="left-one-img"/>
+               <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100" class="left-one-img"/>
                <view class="left-one-index">#{{index + 1}}</view>
             </view>   
-            <view class="qone" style=''>
-                <view style="font-size: 28rpx;color: #000000; font-weight: bold;"><text style="padding-right: 6rpx;">{{item.brand}}</text>/<text style="padding: 0 6rpx;">{{item.name}}</text>({{item.type}})</view>
-                <view class="click" style="font-size: 24rpx;color: #cccccc;">{{item.code}}/{{item.color}}/{{item.size}}</view>
+            <view class="qone">
+                <view style="sfont-size: 28rpx;color: #666666;"><text style="padding-right:6rpx;">{{item.name}}</text>{{item.type}}</view>
+                <view class="click" style="font-size: 24rpx;color: #666666;"><text style="padding-right: 6rpx;">{{item.brand}}</text><text style="padding-right: 6rpx;">{{item.color}}</text>{{item.size}}</view>
               <view style="display: flex; flex-flow: row nowrap;line-height: 40rpx;">
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{item.realAmount}}</view>
-                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{item.initAmount}}</view>
+                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
               </view>
-              <view class="discount">{{item.discount}}折</view>
+              <view class="discount">{{item.discount * 10}}折</view>
             </view>
             <view class="checkd">
              <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
@@ -49,12 +66,6 @@
     </view>
    </view>
    <view style="height: 20rpx; background-color: #f6f8f7;"></view>
-    <scroll-view
-    scroll-with-animation='true'
-    scroll-y="true"
-    style="height: 500px;"
-    bindscrolltolower="sb"
-    bindscrolltoupper="ok">
    <view class="content-price">
       <view class="content-price-left">合计:</view>
       <view class="content-price-right">
@@ -66,22 +77,22 @@
    <view class="conPro">
        <view class="vip vipPro" bindtap='choseCoupo' hidden='{{reBuy}}'>
            <view class="twoPro"><text style="font-size: 32rpx;color: #333333; font-weight: bold;">优惠</text></view>
-           <view class="proActive">-￥{{voucher ? voucher.amount : 0}}
+           <view class="proActive" style="padding-right: 12rpx;">-￥{{voucher ? voucher.amount : 0}}
            <text class='icon-arrow-right-copy iconfont'></text>
            </view>
        </view>
        <view class="vipTwo clearfix">
           <view class="vipPro " hidden='{{reBuy}}'>
              <view class="twoPro">预约支付抵扣</view>
-             <view  class="proActive">-￥{{orderPay}}</view>
+             <view  class="proActive" style="font-size: 24rpx;">-￥{{orderPay}}</view>
           </view>
           <view class="vipPro ">
              <view class="twoPro">会员折扣</view>
-             <view  class="proActive">-￥{{discountPrice}}</view>
+             <view  class="proActive" style="font-size: 24rpx;">-￥{{discountPrice}}</view>
           </view>
           <view class="vipPro ">
              <view class="twoPro">递增优惠（{{otherdesc}}）</view>
-             <view  class="proActive">-￥{{otherAmount}}</view>
+             <view  class="proActive" style="font-size: 24rpx;">-￥{{otherAmount}}</view>
           </view>
        </view>
        <view class="vipBot">
@@ -90,6 +101,7 @@
        </view>
    </view>
    <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
+   
    <view class="footer-buy" wx:if="{{level < 40}}" bindtap="goCulb">
             <view class="textBox clearfix">
                 <view class="textLeft">
@@ -106,18 +118,19 @@
                 </view>
               </view>
    </view>
-     </scroll-view>
+    
     <view class="vip-intro" wx:if="{{level < 40 && show}}">
       ￥199买会员,本单立减￥199起
       <image src='/images/anjian.png' class="anjian"/>
     </view>
     <view class="butBox">
        <view class="button-left">
-         <view class="button-left-one">实付:￥{{totalPrice}}</view>
+         <view class="button-left-one">实付:<text style="color: #04B8A0;font-size: 32rpx;">￥{{totalPrice}}</text></view>
          <view class="button-left-two">{{chooseCount}}件</view>
        </view>
         <view bindtap="toPayOrder" class="but"><text style="font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text></view>
     </view>
+   <!-- </scroll-view> -->
 <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <!--弹出框  -->
@@ -159,9 +172,9 @@
     </view>
   </view>
   <view style="display: flex; flex-direction: column; align-items: center;z-index: 20000;">
-    <view style="width: 48rpx; height: 88rpx;z-index: 2000; position: absolute; margin-top: 44rpx;">
+    <view style="width: 48rpx; height: 88rpx;z-index: 2000; position: absolute;margin-top:52rpx; ">
       <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
-      <image bindtap="hideModal" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
+      <image bindtap="hideImg" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
     </view>
   </view>
 </view>

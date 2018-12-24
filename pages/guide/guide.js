@@ -11,11 +11,11 @@ Page({
     titleFour: '订阅会员专享特权',
     titleFive: '盒子里面都有什么',
     imgUrls: [
-      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png',
-      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu7.png',
-      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu8.png',
-      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu9.png',
-      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu10.png'
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png?x-oss-process=image/resize,h_222,w_355',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu7.png?x-oss-process=image/resize,h_222,w_355',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu8.png?x-oss-process=image/resize,h_222,w_355',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu9.png?x-oss-process=image/resize,h_222,w_355',
+      'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/lunbotu10.png?x-oss-process=image/resize,h_222,w_355'
     ],
     whatBox: [
       { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/clo.png', title: '3-5件衣服' },
@@ -24,15 +24,15 @@ Page({
       { img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/flw.png', title: '1-2洗护香氛' }
     ],
     vipicon: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vip-icon-one.png',
-    vipbd: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipinfo.png',
-    planphoto: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dingyue375.png',
-    vipGrey: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-grey.png',
-    vipYellow: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-yellow.png',
-    vipGreen: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-green.png',
+    vipbd: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipinfo.png?x-oss-process=image/resize,h_215,w_355',
+    planphoto: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dingyue375.png?x-oss-process=image/resize,h_120,w_355',
+    vipGrey: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-grey.png?x-oss-process=image/resize,h_100,w_355',
+    vipYellow: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-yellow.png?x-oss-process=image/resize,h_100,w_355',
+    vipGreen: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/vipbg-green.png?x-oss-process=image/resize,h_100,w_355',
     vipOne: '/images/1.png',
     vipTwo: '/images/2.png',
-    boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbg.png',
-    contactImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg',
+    boxImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbg.png?x-oss-process=image/resize,h_222,w_355',
+    contactImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/erweima.jpg?x-oss-process=image/resize,h_150,w_150',
     babyInfo: [{
       order: '第一盒', date: '11月11日', character: '保暖|换洗|换季'
     },
@@ -117,7 +117,7 @@ Page({
     circular: true,
 
     lunbotuList: [{
-      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sara.png',
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sara.png?x-oss-process=image/resize,h_222,w_355',
       photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sara1.png',
       name: 'sara',
       company: '华为',
@@ -128,7 +128,7 @@ Page({
       add: '累计盒子：6个'
     },
       {
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xinghumama.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xinghumama.png?x-oss-process=image/resize,h_222,w_355',
         photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xinghumama1.png',
         name: '@幸胡麻麻',
         company: '自媒体人',
@@ -139,7 +139,7 @@ Page({
         add: '累计盒子：3个'
       },
       { 
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dajiaoban.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dajiaoban.png?x-oss-process=image/resize,h_222,w_355',
         photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dajiaoban1.png',
         name: '@大脚板',
         company: '私企',
@@ -150,7 +150,7 @@ Page({
         add: '累计盒子：3个'
       },
       { 
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/baibaibai.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/baibaibai.png?x-oss-process=image/resize,h_222,w_355',
         photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/baibaibai1.png',
         name: '@白白白',
         company: '网易',
@@ -161,7 +161,7 @@ Page({
         add: '累计盒子：4个'
       },
       { 
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/jiangyiyi.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/jiangyiyi.png?x-oss-process=image/resize,h_222,w_355',
         photo: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/jiangyiyi1.png',
         name: '@江一一',
         company: '艺人',
