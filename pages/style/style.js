@@ -8,23 +8,23 @@ Page({
   onShow:function(){
     var checkboxItems = [
       {
-        value: '时尚', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/fashionnv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/fashionnan.png', show: true
+        value: '时尚', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/fashionnv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/fashionnan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
       {
-        value: '卡通', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/katongnv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/katongnan.png', show: true
+        value: '卡通', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/katongnv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/katongnan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
       {
-        value: '运动', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sportnv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/yundongnan.png', show: true
+        value: '运动', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/sportnv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/yundongnan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
       {
-        value: '休闲', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiuxiannv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiuxiannan.png', show: true
+        value: '休闲', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiuxiannv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/xiuxiannan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
 
       {
-        value: '文艺', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/wenyinv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/wenyinan.png', show: true
+        value: '文艺', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/wenyinv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/wenyinan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
       {
-        value: wx.getStorageSync('editBaby').gender == '女孩' ? '淑女' : '绅士', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shunv.png' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shenshinan.png', show: true
+        value: wx.getStorageSync('editBaby').gender == '女孩' ? '淑女' : '绅士', img: wx.getStorageSync('editBaby').gender == '女孩' ? 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shunv.png?x-oss-process=image/resize,h_160,w_130' : 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shenshinan.png?x-oss-process=image/resize,h_160,w_130', show: true
       },
     ]
     this.setData({

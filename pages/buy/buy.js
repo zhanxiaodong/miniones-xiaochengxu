@@ -3,6 +3,7 @@ var viplev = require('../../utils/viplev.js')
 import {
   $wuxDialog
 } from '../../components/wux'
+import { toFix } from '../addmul.wxs'
 Page({
   data: {
     show: true,
@@ -40,6 +41,7 @@ Page({
   },
   onLoad: function(options) {
     var that = this
+    var initAmount = Math.floor(initAmount * 100) / 100
     if (options.reBuy) {
       that.setData({
         reBuy: options.reBuy == 'true' ? true : false,
@@ -433,6 +435,12 @@ Page({
       showModalStatus: false
     })
   },
+  hideImg: function() {
+    this.setData({
+      confirmNo: false,
+
+    })
+  },
   showMsg: function(msg) {
     wx.showToast({
       title: msg,
@@ -629,10 +637,10 @@ Page({
       show: false
     })
   },
-  ok: function () {
-    var that = this
-    that.setData({
-      show: true
-    })
-  }
+  // ok: function () {
+  //   var that = this
+  //   that.setData({
+  //     show: true
+  //   })
+  // }
 })

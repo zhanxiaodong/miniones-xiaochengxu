@@ -34,7 +34,7 @@
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox flex">
                 <icon type="circle" size="23" wx:if="{{!item.checked}}"></icon>
-                <icon type="success" size="23" wx:if="{{item.checked}}"></icon>
+                <icon type="success" color="#04b8a0" size="23" wx:if="{{item.checked}}"></icon>
               </view>
             </view>
           </label>

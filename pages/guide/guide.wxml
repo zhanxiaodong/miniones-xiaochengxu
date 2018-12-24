@@ -265,7 +265,7 @@
    <view class="wrap-choose">
      <view class="wrap-choose-title">会员精选</view>
      <!--<image src="{{}}" class="wrap-choose-img"/>-->
-     <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png" style="height: 256rpx; width: 670rpx;background-color: #f2f2f2;margin-left: 20rpx; border-radius: 20rpx;"/>
+     <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png?x-oss-process=image/resize,h_115,w_295" style="height: 256rpx; width: 670rpx;background-color: #f2f2f2;margin-left: 20rpx; border-radius: 20rpx;"/>
    </view>
    <view class="wrap-claim">
       <view class="wrap-claim-title">会员特权</view>
