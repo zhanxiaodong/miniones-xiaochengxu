@@ -3,10 +3,6 @@ var viplev = require('../../utils/viplev.js')
 import {
   $wuxDialog
 } from '../../components/wux'
-<<<<<<< HEAD
-=======
-// import { toFix } from '../addmul.wxs'
->>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
 Page({
   data: {
     height: '',

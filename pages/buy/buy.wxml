@@ -1,20 +1,8 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
-<<<<<<< HEAD
-<!-- <wxs module="filters" src="../addmul.wxs"></wxs> -->
- <!-- <import module="filters" src="../addmul.wxs"/> -->
- <!-- <import src="../addmul.wxs" />  -->
-=======
+
 <wxs module="filters" src="buy.wxs" />
 <view class="wrap">
->>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
-<!-- <scroll-view
-    scroll-y="true"
-    style="height:{{height}}"
-    bindscrolltolower="sb" 
-    > -->
-<view class="wrap">
-
    <view class="header">
       <view>
          <text class="title">购买支付</text>
@@ -47,13 +35,8 @@
                 <view style="sfont-size: 28rpx;color: #666666;"><text style="padding-right:6rpx;">{{item.name}}</text>{{item.type}}</view>
                 <view class="click" style="font-size: 24rpx;color: #666666;"><text style="padding-right: 6rpx;">{{item.brand}}</text><text style="padding-right: 6rpx;">{{item.color}}</text>{{item.size}}</view>
               <view style="display: flex; flex-flow: row nowrap;line-height: 40rpx;">
-<<<<<<< HEAD
-                   <view class='fontWeight' style="font-size: 32rpx;">￥ {{item.realAmount}}</view>
-                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{(item.initAmount)}}</view>
-=======
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{filters.toFix(item.realAmount)}} </view>
                    <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
->>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
               </view>
               <view class="discount">{{item.discount * 10}}折</view>
             </view>
@@ -120,7 +103,7 @@
                 </view>
               </view>
    </view>
-    <view class="vip-intro" wx:if="{{level < 40 && show}}"> <!--wx:if="{{level < 40 && show}}"-->
+    <view class="vip-intro" wx:if="{{level < 40 && show}}"> 
       ￥199买会员,本单立减￥199起
       <image src='/images/anjian.png' class="anjian"/>
     </view>
