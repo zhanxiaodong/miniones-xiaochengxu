@@ -134,6 +134,11 @@ Page({
       url: '../back/back?boxId=' + this.data.boxId + '&hasBack=' + hasBack
     })
   },
+  excepBox: function() {
+    wx.navigateTo({
+      url: '../orderdetail/orderdetail?boxId=' + this.data.boxId
+    })
+  },
   /**
    * 要一个盒子操作按钮
    */
@@ -179,6 +184,9 @@ Page({
           break;
         case 'PAY_PART':
           this.backBox(false)
+          break;
+        case 'RETURN_EXCEPTION':
+          this.excepBox()
           break;
       }
     }
