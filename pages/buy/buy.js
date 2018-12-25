@@ -368,9 +368,7 @@ Page({
         discountPrice = totalPrice * vipo.discount
         totalPrice = totalPrice - discountPrice
         subPrice = subPrice + discountPrice
-      } else {
-        vipoprice = totalPrice * 0.1 + 99
-      }
+      } 
       if (this.data.other && totalPrice > 0 ) {
         var voucher = this.data.voucher
         if (!voucher || (voucher && !voucher.condition)) {
@@ -382,6 +380,9 @@ Page({
       var chooseCount = this.data.chooseCount
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
+      }
+      if (!vipo) {
+        vipoprice = totalPrice - (199 + totalPrice * 0.1) < 0 ? 0 : totalPrice - (199 + goodsTotal * 0.9)
       }
     } else {
       this.setData({
