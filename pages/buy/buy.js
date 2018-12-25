@@ -3,6 +3,10 @@ var viplev = require('../../utils/viplev.js')
 import {
   $wuxDialog
 } from '../../components/wux'
+<<<<<<< HEAD
+=======
+// import { toFix } from '../addmul.wxs'
+>>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
 Page({
   data: {
     height: '',
@@ -19,6 +23,8 @@ Page({
     subPrice: 0.00,
     badgeAmount: 0.00,
     mgic: '/images/mg.png',
+    defaultImg:'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100',
+    imgSize:'?x-oss-process=image/resize,h_100,w_100',
     totalScoreToPay: 0.00,
     allSelect: false,
     badgenum: 0.0,

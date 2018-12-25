@@ -1,8 +1,13 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
+<<<<<<< HEAD
 <!-- <wxs module="filters" src="../addmul.wxs"></wxs> -->
  <!-- <import module="filters" src="../addmul.wxs"/> -->
  <!-- <import src="../addmul.wxs" />  -->
+=======
+<wxs module="filters" src="buy.wxs" />
+<view class="wrap">
+>>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
 <!-- <scroll-view
     scroll-y="true"
     style="height:{{height}}"
@@ -35,15 +40,20 @@
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
           <view class='checklabel'>
             <view class="left-one">
-               <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100" class="left-one-img"/>
+               <image src="{{item.imgUrl && item.imgUrl.length>0 ? item.imgUrl[0]+imgSize : defaultImg}}" class="left-one-img"/>
                <view class="left-one-index">#{{index + 1}}</view>
             </view>   
             <view class="qone">
                 <view style="sfont-size: 28rpx;color: #666666;"><text style="padding-right:6rpx;">{{item.name}}</text>{{item.type}}</view>
                 <view class="click" style="font-size: 24rpx;color: #666666;"><text style="padding-right: 6rpx;">{{item.brand}}</text><text style="padding-right: 6rpx;">{{item.color}}</text>{{item.size}}</view>
               <view style="display: flex; flex-flow: row nowrap;line-height: 40rpx;">
+<<<<<<< HEAD
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{item.realAmount}}</view>
                    <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{(item.initAmount)}}</view>
+=======
+                   <view class='fontWeight' style="font-size: 32rpx;">￥ {{filters.toFix(item.realAmount)}} </view>
+                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
+>>>>>>> 7be3465f2aa314139cd7b9066ba2a1df2dd178aa
               </view>
               <view class="discount">{{item.discount * 10}}折</view>
             </view>
