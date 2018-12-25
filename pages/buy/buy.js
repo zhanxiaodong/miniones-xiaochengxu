@@ -3,7 +3,7 @@ var viplev = require('../../utils/viplev.js')
 import {
   $wuxDialog
 } from '../../components/wux'
-import { toFix } from '../addmul.wxs'
+// import { toFix } from '../addmul.wxs'
 Page({
   data: {
     show: true,
@@ -19,6 +19,8 @@ Page({
     subPrice: 0.00,
     badgeAmount: 0.00,
     mgic: '/images/mg.png',
+    defaultImg:'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100',
+    imgSize:'?x-oss-process=image/resize,h_100,w_100',
     totalScoreToPay: 0.00,
     allSelect: false,
     badgenum: 0.0,

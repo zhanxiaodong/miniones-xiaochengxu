@@ -1,17 +1,6 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
- <!-- <import module="filters" src="../addmul.wxs"/> -->
-<!-- <import src="../addmul.wxs" /> -->
-<wxs module="filters">
-var filters = {
-  toFix: function (value) {
-    return value.toFixed(2)//此处2为保留两位小数
-  }
-}
-module.exports = {
-  toFix: filters.toFix
-}
-</wxs>
+<wxs module="filters" src="buy.wxs" />
 <view class="wrap">
 <!-- <scroll-view
     scroll-y="true"
@@ -43,14 +32,14 @@ module.exports = {
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
           <view class='checklabel'>
             <view class="left-one">
-               <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100" class="left-one-img"/>
+               <image src="{{item.imgUrl && item.imgUrl.length>0 ? item.imgUrl[0]+imgSize : defaultImg}}" class="left-one-img"/>
                <view class="left-one-index">#{{index + 1}}</view>
             </view>   
             <view class="qone">
                 <view style="sfont-size: 28rpx;color: #666666;"><text style="padding-right:6rpx;">{{item.name}}</text>{{item.type}}</view>
                 <view class="click" style="font-size: 24rpx;color: #666666;"><text style="padding-right: 6rpx;">{{item.brand}}</text><text style="padding-right: 6rpx;">{{item.color}}</text>{{item.size}}</view>
               <view style="display: flex; flex-flow: row nowrap;line-height: 40rpx;">
-                   <view class='fontWeight' style="font-size: 32rpx;">￥ {{item.realAmount}}</view>
+                   <view class='fontWeight' style="font-size: 32rpx;">￥ {{filters.toFix(item.realAmount)}} </view>
                    <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
               </view>
               <view class="discount">{{item.discount * 10}}折</view>
