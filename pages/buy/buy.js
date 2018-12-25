@@ -42,37 +42,8 @@ Page({
     ]
   },
   
-  // var query = wx.createSelectorQuery();
-  // //选择id
-  // var that = this;
-  // query.select('.content').boundingClientRect(function (rect) {
-  //   console.log(rect.height)
-  //   that.setData({
-  //     height: rect.height
-  //   })
-  // }).exec();
   
   onLoad: function(options) {
-    //创建节点选择器
-    var query = wx.createSelectorQuery();
-    //选择id
-    var that = this;
-    query.select('.wrap').boundingClientRect(function (rect) {
-       console.log(rect.height)
-      that.setData({
-        pageHeight: rect.height + 'px'
-      })
-    }).exec();
-    
-    wx.getSystemInfo({
-      success: function (res) {
-        console.log(res.windowHeight)
-        that.setData({
-          windowHeight: res.windowHeight + "px"
-        })
-      }
-    });
-
     var that = this
     var initAmount = Math.floor(initAmount * 100) / 100
     if (options.reBuy) {
@@ -136,7 +107,6 @@ Page({
     var diff = 0 ;
     var scrollTop = res.scrollTop;
     query.select('.wrap').boundingClientRect()
-    // query.select('.goods-list-info').boundingClientRect()
     query.exec((res) => {
       var pageHeight = res[0].height; 
       diff = pageHeight - windowHeight
