@@ -3,7 +3,6 @@ var viplev = require('../../utils/viplev.js')
 import {
   $wuxDialog
 } from '../../components/wux'
-import { toFix } from '../addmul.wxs'
 Page({
   data: {
     show: true,
@@ -39,7 +38,25 @@ Page({
       { value: '颜色问题' },
     ]
   },
+  onPageScroll: function (res) {
+    if (res.scrollTop > 0) {
+      this.setData({
+        show: false
+      })
+    }
+  },
   onLoad: function(options) {
+    //创建节点选择器
+    var query = wx.createSelectorQuery();
+    //选择id
+    var that = this;
+    query.select('.content').boundingClientRect(function (rect) {
+       console.log(rect.height)
+      that.setData({
+        height: rect.height + 'px'
+      })
+    }).exec();
+   
     var that = this
     var initAmount = Math.floor(initAmount * 100) / 100
     if (options.reBuy) {
@@ -631,16 +648,4 @@ Page({
       url: "../index/index",
     })
   },
-  sb: function () {
-    var that = this
-    that.setData({
-      show: false
-    })
-  },
-  // ok: function () {
-  //   var that = this
-  //   that.setData({
-  //     show: true
-  //   })
-  // }
 })

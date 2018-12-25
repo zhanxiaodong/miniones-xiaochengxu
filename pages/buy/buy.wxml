@@ -1,23 +1,16 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
+<!-- <wxs module="filters" src="../addmul.wxs"></wxs> -->
  <!-- <import module="filters" src="../addmul.wxs"/> -->
-<!-- <import src="../addmul.wxs" /> -->
-<wxs module="filters">
-var filters = {
-  toFix: function (value) {
-    return value.toFixed(2)//此处2为保留两位小数
-  }
-}
-module.exports = {
-  toFix: filters.toFix
-}
-</wxs>
-<view class="wrap">
+ <!-- <import src="../addmul.wxs" />  -->
+
 <!-- <scroll-view
     scroll-y="true"
-    style="height: 700px;"
-    bindscrolltolower="sb"
+    style="height:{{height}}"
+    bindscrolltolower="sb" 
     > -->
+<view class="wrap">
+
    <view class="header">
       <view>
          <text class="title">购买支付</text>
@@ -51,7 +44,7 @@ module.exports = {
                 <view class="click" style="font-size: 24rpx;color: #666666;"><text style="padding-right: 6rpx;">{{item.brand}}</text><text style="padding-right: 6rpx;">{{item.color}}</text>{{item.size}}</view>
               <view style="display: flex; flex-flow: row nowrap;line-height: 40rpx;">
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{item.realAmount}}</view>
-                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
+                   <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{(item.initAmount)}}</view>
               </view>
               <view class="discount">{{item.discount * 10}}折</view>
             </view>
@@ -102,7 +95,7 @@ module.exports = {
    </view>
    <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
    
-   <view class="footer-buy" wx:if="{{level < 40}}" bindtap="goCulb">
+   <view class="footer-buy"  bindtap="goCulb"><!--wx:if="{{level < 40}}-->
             <view class="textBox clearfix">
                 <view class="textLeft">
                     <view class="textActive">199元买会员本单立减199起</view>
@@ -118,8 +111,7 @@ module.exports = {
                 </view>
               </view>
    </view>
-    
-    <view class="vip-intro" wx:if="{{level < 40 && show}}">
+    <view class="vip-intro" wx:if="{{show}}"> <!--wx:if="{{level < 40 && show}}"-->
       ￥199买会员,本单立减￥199起
       <image src='/images/anjian.png' class="anjian"/>
     </view>
@@ -130,7 +122,7 @@ module.exports = {
        </view>
         <view bindtap="toPayOrder" class="but"><text style="font-weight: bold; font-size: 36rpx;">确认订单（{{chooseCount}}）</text></view>
     </view>
-   <!-- </scroll-view> -->
+  
 <!--屏幕背景变暗的背景  -->
 <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <!--弹出框  -->
@@ -220,3 +212,4 @@ module.exports = {
   </view>
 </view>
 </view>
+<!-- </scroll-view>  -->
