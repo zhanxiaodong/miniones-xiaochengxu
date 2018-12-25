@@ -76,35 +76,38 @@
              <view  class="proActive" style="font-size: 24rpx;">-￥{{discountPrice}}</view>
           </view>
           <view class="vipPro ">
-             <view class="twoPro">递增优惠（{{otherdesc}}）</view>
+             <view class="twoPro">
+              <view style="font-size:24rpx;color:#999999;">递增优惠({{otherdesc}})</view>
+              <view class="vipicon">vip</view>
+             </view>
              <view  class="proActive" style="font-size: 24rpx;">-￥{{otherAmount}}</view>
           </view>
        </view>
        <view class="vipBot">
-           <view class="botTop"><text class="botActive">￥</text>{{totalPrice}}</view>
+           <view class="botTop">
+             <view class="content-price-icon">￥</view>
+             <view class="content-price-show">{{totalPrice}}</view>
+           </view>
            <view class="botFoot"><text class="botActive">（平均{{avgPrice}}元一件）</text>为您节省￥{{subPrice}}</view>
        </view>
    </view>
-   <view style="width: 100%;height: 20rpx; background:hsl(0, 0%, 95%);"></view>
+   <view style="width: 100%;height: 20rpx; background:#f6f8f7;"></view>
    
    <view class="footer-buy"  bindtap="goCulb" wx:if="{{level < 40}}"><!---->
             <view class="textBox clearfix">
                 <view class="textLeft">
-                    <view class="textActive">199元买会员本单立减199起</view>
-                    <view style="font-size: 20rpx; color: #cccccc;">无限免费配送衣盒，会员多重专享折扣叠加，更享受每季度600元抵扣券</view>
+                    <view class="textActive">199元成为会员本单仅需支付:</view>
+                    <view style="font-size: 20rpx;width: 380rpx; color: #cccccc;">无限免费配送衣盒，会员多重专享折扣叠加，<text style="color:#D6BC8A;">点击成为会员》</text></view>
                 </view>
                 <view class="textRight">
-                    <text style="font-size:28rpx;color: #cccccc;font-weight: bold;padding: 0 15rpx; ">-￥{{vipoprice}}</text>
-                    <radio></radio>
-                    <!--<view>
-                     <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
-              <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
-            </view> -->
+                  <view class="content-price-icon">￥</view>
+                  <view class="content-price-show">{{vipoprice}}</view>
+                    <radio style="display: none;"></radio>
                 </view>
               </view>
    </view>
     <view class="vip-intro" wx:if="{{level < 40 && show}}"> 
-      ￥199买会员,本单立减￥199起
+      ￥199买会员,本单再减￥199起
       <image src='/images/anjian.png' class="anjian"/>
     </view>
     <view class="butBox">

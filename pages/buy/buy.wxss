@@ -6,6 +6,7 @@
   width:100%;
   padding:40rpx 40rpx 0 40rpx;
   background: #fff;
+  padding-bottom:40rpx;
 }
 .header .title{
   margin-right:20rpx;
@@ -60,6 +61,7 @@
 .conText{
   font-size:32rpx;
   font-weight: 600;
+  color: #04B8A0;
 }
 .conText text{
   font-size:28rpx;
@@ -90,10 +92,10 @@
 }
 
 .footer-buy{
-  margin-top:20rpx;
   padding:20rpx 20rpx;
   font-size:28rpx;
   background: #fff;
+  border-left: solid 10rpx #D6BC8A;
 }
 .textLeft{
   width:65%;
@@ -110,8 +112,10 @@
 .textRight{
   width:35%;
   float:left;
-  height: 160rpx;
-  line-height: 90rpx;
+  display: inline-flex;
+  justify-content: flex-end;
+  padding-right: 30rpx;
+  margin-top: 30rpx;
 }
 textRight radio,.textRight text{
   margin-left:15rpx;
@@ -218,6 +222,7 @@ textRight radio,.textRight text{
   font-weight: 600;
   padding-right: 20rpx;
   font-size: 44rpx;
+  display: inline-flex;
 }
 .botFoot{
   font-size:24rpx;
@@ -314,7 +319,6 @@ border: none;
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top: 40rpx;
 }
 .unactive {
   font-size: 28rpx;
@@ -346,6 +350,7 @@ border: none;
   flex-flow: row nowrap;
   justify-content:space-between;
   padding:50rpx 40rpx 50rpx 50rpx;
+  background:#fff;
 }
 
 .content-price-left {
@@ -439,4 +444,14 @@ border: none;
   position: absolute;
   right: 40rpx;
   top: 115rpx;
+}
+
+.vipicon {
+ font-size: 24rpx;
+ color: #d5bc8a;
+ background: #f6f8f7;
+ width: 78rpx!important;
+ height: 38rpx;
+ text-align:center;
+ border-radius: 10px;
 }
