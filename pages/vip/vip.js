@@ -12,7 +12,7 @@ Page({
         describe: '迷你王国所有消费专享9折'
       },
       {
-        describe: '优惠递增（3件8折，整盒6折）'
+        describe: '优惠递增（3件8折，整盒7折）'
       },
       {
         describe: '成长徽章'

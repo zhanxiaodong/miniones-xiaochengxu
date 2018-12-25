@@ -5,6 +5,7 @@ import {
 } from '../../components/wux'
 Page({
   data: {
+    height: '',
     show: true,
     otherdesc: '3件及以上8折，整盒7折',
     other: false,
@@ -38,25 +39,38 @@ Page({
       { value: '颜色问题' },
     ]
   },
-  onPageScroll: function (res) {
-    if (res.scrollTop > 0) {
-      this.setData({
-        show: false
-      })
-    }
-  },
+  
+  // var query = wx.createSelectorQuery();
+  // //选择id
+  // var that = this;
+  // query.select('.content').boundingClientRect(function (rect) {
+  //   console.log(rect.height)
+  //   that.setData({
+  //     height: rect.height
+  //   })
+  // }).exec();
+  
   onLoad: function(options) {
     //创建节点选择器
     var query = wx.createSelectorQuery();
     //选择id
     var that = this;
-    query.select('.content').boundingClientRect(function (rect) {
+    query.select('.wrap').boundingClientRect(function (rect) {
        console.log(rect.height)
       that.setData({
-        height: rect.height + 'px'
+        pageHeight: rect.height + 'px'
       })
     }).exec();
-   
+    
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight)
+        that.setData({
+          windowHeight: res.windowHeight + "px"
+        })
+      }
+    });
+
     var that = this
     var initAmount = Math.floor(initAmount * 100) / 100
     if (options.reBuy) {
@@ -107,6 +121,34 @@ Page({
       actEndTime: actEndTime
     })
   },
+  // query.select('.wrap').boundingClientRect(function (rect) {
+  //   console.log(rect.height)
+  //   that.setData({
+  //     pageHeight: rect.height + 'px'
+  //   })
+  // }).exec();
+  
+  onPageScroll: function (res) {
+    var windowHeight = wx.getSystemInfoSync().windowHeight
+    var query = wx.createSelectorQuery();
+    var diff = 0 ;
+    var scrollTop = res.scrollTop;
+    query.select('.wrap').boundingClientRect()
+    // query.select('.goods-list-info').boundingClientRect()
+    query.exec((res) => {
+      var pageHeight = res[0].height; 
+      diff = pageHeight - windowHeight
+      console.log(diff)
+      console.log(scrollTop)
+      if (scrollTop == diff) {
+        this.setData({
+          show: false
+        })
+      }
+    })
+    
+  },
+
   updateInfo: function(goods) {
     var boxId = this.data.boxId
     var that = this

@@ -67,6 +67,7 @@ font-weight: bold;
 
 .card-two {
    font-size: 24rpx;
+   width: 500rpx;
 }
 
 /*修改*/
