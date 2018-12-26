@@ -327,15 +327,18 @@ Page({
     var discountPrice = 0.00
     var badgeAmount = 0.00
     var otherAmount = 0.00
-    var vipoprice = 0.00
+    var vipoprice = 0.00 //购买会员折扣
     var avgPrice = 0.00
+    var vouAmount = 0.00
     goodsTotal = Number(goodsTotal)
     if (goodsTotal > 0) {
       totalPrice = goodsTotal
+      vipoprice = goodsTotal
       var voucher = this.data.voucher
       var reBuy = this.data.reBuy
+      //优惠券折扣
       if (voucher && totalPrice != 0 && !reBuy) {
-        var vouAmount = voucher.amount
+        vouAmount = voucher.amount
         var vouCondition = voucher.condition ? voucher.condition : 0
         if (totalPrice >= vouCondition) {
           if (vouAmount > totalPrice) {
@@ -351,9 +354,11 @@ Page({
           })
         }
       }
+      //预约支付抵扣
       var orderPay = this.data.orderPay
       if (orderPay) {
         if (orderPay > 0 && !reBuy) {
+          vipoprice = vipoprice - orderPay < 0 ? 0 : vipoprice - orderPay
           if (orderPay > totalPrice) {
             subPrice = totalPrice
             totalPrice = 0
@@ -363,26 +368,35 @@ Page({
           }
         }
       }
+      if (!voucher) {
+        vipoprice = vipoprice - 199 < 0 ? 0 : vipoprice - 199
+      } else {
+        vipoprice = totalPrice
+      }
+      // 会员折扣
       var vipo = this.data.vipo
       if (vipo && totalPrice > 0) {
         discountPrice = totalPrice * vipo.discount
         totalPrice = totalPrice - discountPrice
         subPrice = subPrice + discountPrice
-      } 
+        vipoprice = 0
+      } else {
+        vipoprice = vipoprice - vipoprice * 0.1
+      }
+      //满减折扣(不可跟满减优惠券同事使用)
       if (this.data.other && totalPrice > 0 ) {
         var voucher = this.data.voucher
         if (!voucher || (voucher && !voucher.condition)) {
           otherAmount = totalPrice * this.data.otherDic
           totalPrice = totalPrice - otherAmount
           subPrice = subPrice + otherAmount
-        }
+          vipoprice = vipoprice - vipoprice * this.data.otherDic 
+        } 
       }
+      //平均价
       var chooseCount = this.data.chooseCount
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
-      }
-      if (!vipo) {
-        vipoprice = totalPrice - (199 + totalPrice * 0.1) < 0 ? 0 : totalPrice - (199 + goodsTotal * 0.9)
       }
     } else {
       this.setData({
