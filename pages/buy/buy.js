@@ -381,8 +381,10 @@ Page({
       if (chooseCount && totalPrice > 0) {
         avgPrice = (totalPrice / chooseCount).toFixed(2)
       }
+      debugger
       if (!vipo) {
-        vipoprice = totalPrice - (199 + totalPrice * 0.1) < 0 ? 0 : totalPrice - (199 + goodsTotal * 0.9)
+        
+        vipoprice = totalPrice - (199 + totalPrice * 0.1) < 0 ? 0 : totalPrice - (199 + totalPrice * 0.1)
       }
     } else {
       this.setData({

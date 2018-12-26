@@ -1,6 +1,7 @@
 /* pages/affirm/affirm.wxss */
 .wrap{
   padding-bottom:150rpx;
+  background: #f6f8f7;
 }
 .header{
   width:100%;
