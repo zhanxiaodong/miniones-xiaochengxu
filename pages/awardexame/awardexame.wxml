@@ -4,29 +4,53 @@
 <view class="wrap">
  <image class="award-img" src="{{awardImg}}"></image>
  <view wx:for="{{result.awards}}" class="award-list" wx:key="index" wx:index="index">
-   <view class="award-index">奖项{{index+1}}</view>
-   <view class="award-detail">{{item}}</view>
+   <view class="award-index">{{item.title}}</view>
+   <view class="award-detail">{{item.content}}</view>
  </view>
 <view class="award-rule">
    <view class="award-rule-title">规则：</view>
    <view class="award-rule-describe"><text>{{result.rules}}</text></view>
 </view>
-<view class="award-time">{{result.deadlineStr}}</view>
+<view class="award-time">{{result.explain}}</view>
 <view class="line"></view>
 <view class="line-qzone">
-  <view class="award-circle" bindtap="clickTab">
-    <view style="z-index=2;color: #fff; font-weight: bold;position: relative;top:130rpx;left:52rpx;">参与问卷</view>
+  <view class="award-circle" bindtap="clickTab" wx:if="{{show}}">
+    <view style="color: #fff; font-weight: bold;position: relative;top:130rpx;left:52rpx;">参与福利</view>
     
      <!--<view style="height: 180rpx; width: 180rpx; background-color: #04B8A0;border-radius: 50%; top: 20rpx; left: 20rpx;position: relative;"></view>-->
-     <image style="height: 220rpx;width: 220rpx;"src="{{image}}"></image>
+     <image style="z-index: 1000;height: 220rpx;width: 220rpx;"src="{{image}}" ></image>
+  </view>
+  <view class="award-circle"  hidden="{{show}}">
+    <view style="color: #fff; font-weight: bold;position: relative;top:130rpx;left:52rpx;">您已参与</view>
+     <image style="z-index: 1000;height: 220rpx;width: 220rpx;"src="{{image}}" ></image>
   </view>
   <view class="award-count">
    <view class="award-count-math">共{{result.joinNum}}人参与,</view>
    <view class="award-count-look" >查看全部></view>
   </view>
 </view>
+<view style="height:30rpx;background: #f6f8f7;"> </view>
+<view class="footer-one">
+   <view class="footer-title">现场童装品牌展示</view>
+   <view>
+      <image src="" class="footer-img"/>
+      <image src="" class="footer-img"/>
+   </view>
 </view>
-<view class="award-share">
+<view style="height:30rpx;background: #f6f8f7;"> </view>
+<view class="footer-two">
+  <view class="footer-title">本次活动说明</view>
+  <view class="footer-content">大华股份为给旗下的父母职员提供安全可靠的童装购买渠道，联合儿童时尚电商迷你王国进行一次童装特惠大促，全场4折封顶，并提供了丰厚福利。</view>
+</view>
+</view>
+<!-- 弹窗屏幕变绿-->
+<view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
+<!--弹窗-->
+<view class="commodity_attr_box"  wx:if="{{confirmNo}}">
+    <view class='fontweight' style='font-size: 36rpx; font-weight: bold; color: #333333; margin: 120rpx 0 60rpx 30rpx;'>活动时间：{{result.time}}</view>
+    <view style='font-size: 36rpx; font-weight: bold; color: #333333; margin: 60rpx 0 60rpx 30rpx;'>活动地点：{{result.place}}</view>
+  </view>
+<!-- <view class="award-share">
   <view class="award-share-button" bindtap="goIndex">迷你王国</view>
-  <button class="award-share-button espacial" open-type='share'>分享给妈宝群</button>
-</view>
+  <button class="award-share-button espacial" open-type='share'>分享给妈宝群         </button>
+</view> -->

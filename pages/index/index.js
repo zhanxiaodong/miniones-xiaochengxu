@@ -36,9 +36,9 @@ Page({
   onShareAppMessage: function(res) {
     var that = this;
     return {
-      title: '给你孩子免费寄去搭配衣盒，全球品牌先试后买',
-      path: '/pages/guide/guide',
-      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-guide.jpg",
+      title: '现场抽大华锦鲤，2019孩子穿搭全免费',
+      path: '/pages/awardexame/awardexame',
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahuafenxiang.jpg",
       success: (res) => {
         console.log("转发成功", res);
       },

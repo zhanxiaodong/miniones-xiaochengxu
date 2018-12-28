@@ -5,7 +5,7 @@
     </view>
     <form bindsubmit='submitForm'>
       <view class='rowcs'>
-        <view class="font20 gray1-color" id='name-repair'>称呼</view>
+        <view class="font20 gray1-color" id='name-repair'>孩子称呼</view>
         <view class="rowui">
           <view>
             <input class="w150" id="name-repair" placeholder="name" placeholder-style="color: #cccccc; font-size: 30rpx;" name="call" value="{{form.call}}" type="call"></input>
@@ -24,7 +24,7 @@
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>生日</view>
+          <view id='name-repair'>出生日期</view>
         </view>
 
         <view class="rowcontentcs pt10">
@@ -36,7 +36,7 @@
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>身高</view>
+          <view id='name-repair'>当前身高</view>
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{heights}}' value="{{ heightNum }}" data-filed="height">
@@ -47,7 +47,7 @@
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>体重</view>
+          <view id='name-repair'>当前体重</view>
         </view>
         <view class='pt10'>
           <picker bindchange="bindDateChange" range='{{weights}}' value="{{ form.weight }}" data-filed="weight">

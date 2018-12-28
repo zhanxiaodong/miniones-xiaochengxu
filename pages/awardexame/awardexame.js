@@ -1,7 +1,9 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-    awardImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/bd1.png',
+    show: true,
+    confirmNo: false,
+    awardImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua.png',
     image: 'http://miniany.oss-cn-beijing.aliyuncs.com/minianys/question-green.png',
     result: {
       awards: ['仔细答题结束可以获得随机现金红包', '每满1000份回答，现金红包翻倍一次'],
@@ -130,20 +132,31 @@ Page({
     })
   },
   clickTab: function() {
-    wx.navigateTo({
-      url: '../awardone/awardone?activityId=' + this.data.result.id + '&shareOpenId=' + this.data.shareOpenId,
+    // wx.navigateTo({
+    //   url: '../awardone/awardone?activityId=' + this.data.result.id + '&shareOpenId=' + this.data.shareOpenId,
+    // })
+    this.setData({
+      show: false,
+      confirmNo: true
     })
   },
 
-  goPeople: function() {
-    wx.navigateTo({
-      url: '../awardPeople/awardPeople',
+  // goPeople: function() {
+  //   wx.navigateTo({
+  //     url: '../awardPeople/awardPeople',
+  //   })
+  // },
+
+  // goIndex: function() {
+  //   wx.reLaunch({
+  //     url: '../index/index',
+  //   })
+  // },
+  // 取消弹窗
+  hideComfirm: function (e) {
+    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    this.setData({
+      confirmNo: false
     })
   },
-
-  goIndex: function() {
-    wx.reLaunch({
-      url: '../index/index',
-    })
-  }
 })
