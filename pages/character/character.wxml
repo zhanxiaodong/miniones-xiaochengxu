@@ -9,7 +9,7 @@
             <view class='status-icon'></view>
             <view class='status-txt'>孩子肤色</view>
           </view>
-        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+        <radio-group bindchange="skinColorsAllChange" data-index="{{index}}">
           <label  class="everythree" wx:for="{{skinColors}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
               <view class="skin">{{item.value}}</view>
@@ -23,8 +23,8 @@
             <view class='status-icon'></view>
             <view class='status-txt'>孩子身型</view>
           </view>
-        <radio-group bindchange="colorAllChange" data-index="{{index}}">
-          <label  class="everythree" wx:for="{{bodyTypes}}" wx:key="value" wx:for-item="item">
+        <radio-group bindchange="shapeAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{shapeAllItems}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
               <view class="body">{{item.value}}</view>
                <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />    

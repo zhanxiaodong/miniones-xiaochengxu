@@ -9,7 +9,7 @@ Page({
       { value: '麦色' },
       { value: '黝黑' }
     ],
-    bodyTypes: [
+    shapeAllItems: [
       { value: '纤瘦' },
       { value: '正常' },
       { value: '偏胖' },
@@ -29,7 +29,7 @@ Page({
   onLoad: function (options) {
     var that = this
     var editBaby = wx.getStorageSync('editBaby')
-    var id = editBaby.id
+    var id = editBaby.id ? editBaby.id : "5c1c5dc2696ed90e70a8766a"
     that.setData({
       id: id
     })
@@ -38,12 +38,67 @@ Page({
       success: function (res) {
         var result = res.data.data
         var oldCharacter = result.character
+        var skinColor = result.skinColor
+        var shape = result.shape
         if (oldCharacter) {
           that.initCharacter(oldCharacter)
+        }
+        if (skinColor) {
+          that.updateSkinColorAll(skinColor)
+        }
+        if (shape) {
+          that.updateShapeAll(shape)
         }
       }
     })
   },
+
+  skinColorsAllChange: function (e) {
+    var value = e.detail.value
+    this.updateSkinColorAll(value)
+    var index
+    var skinColors = this.data.skinColors
+    for (var i = 0; i < skinColors.length; ++i) {
+      if (value == skinColors[i].value) {
+        index = i
+        break;
+      }
+    }
+    this.setData({
+      skinColors: skinColors
+    })
+  },
+
+  updateSkinColorAll: function (value) {
+    var skinColors = util.radioGroupChange(this.data.skinColors, value)
+    this.setData({
+      skinColors: skinColors,
+      skinColor: value
+    })
+  },
+  shapeAllChange: function (e) {
+    var value = e.detail.value
+    this.updateShapeAll(value)
+    var index
+    var shapeAllItems = this.data.shapeAllItems
+    for (var i = 0; i < shapeAllItems.length; ++i) {
+      if (value == shapeAllItems[i].value) {
+        index = i
+        break;
+      }
+    }
+    this.setData({
+      shapeAllItems: shapeAllItems
+    })
+  },
+  updateShapeAll: function (value) {
+    var shapeAllItems = util.radioGroupChange(this.data.shapeAllItems, value)
+    this.setData({
+      shapeAllItems: shapeAllItems,
+      shape: value
+    })
+  },
+
   initCharacter: function (oldCharacter) {
     var checkboxItems = this.data.checkboxItems
     var cusArr = new Array()
@@ -75,7 +130,6 @@ Page({
     var checkboxItems = this.data.checkboxItems, values = e.detail.value;
     for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
       checkboxItems[i].checked = false;
-
       for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
         if (checkboxItems[i].value == values[j]) {
           checkboxItems[i].checked = true;
@@ -88,6 +142,7 @@ Page({
       oldCharacter: values
     });
   },
+
   next: function () {
     this.updateBaby()
     wx.navigateTo({
@@ -96,15 +151,18 @@ Page({
   },
   updateBaby: function () {
     var oldCharacter = this.data.oldCharacter
-    if (oldCharacter) {
-      var item = new Object()
-      item.id = this.data.id
-      item.character = oldCharacter
-      wx.request({
-        url: util.requestUrl + 'baby/updateBaby',
-        method: 'POST',
-        data: item
-      })
-    }
+    var skinColor = this.data.skinColor
+    var shape = this.data.shape
+    var item = new Object()
+    item.id = this.data.id
+    item.character = oldCharacter
+    item.skinColor = this.data.skinColor
+    item.shape = this.data.shape
+    wx.request({
+      url: util.requestUrl + 'baby/updateBaby',
+      method: 'POST',
+      data: item
+    })
   }
+  
 })
