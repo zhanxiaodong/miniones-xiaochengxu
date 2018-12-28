@@ -12,7 +12,7 @@ Page({
       joinNum: 0,
     },
     needAuth: false,
-    shareOpenId:''
+    shareOpenId: ''
   },
   onLoad: function(options) {
     console.log(options)
@@ -30,7 +30,7 @@ Page({
     that.checkAuth()
     this.findActivity();
   },
-  checkAuth: function () {
+  checkAuth: function() {
     if (!wx.getStorageSync('openId')) {
       this.setData({
         needAuth: true
@@ -42,12 +42,12 @@ Page({
       this.saveShareRecord(wx.getStorageSync('openId'))
     }
   },
-  onGotUserInfo: function (e) {
+  onGotUserInfo: function(e) {
     if (e.detail.userInfo) {
       this.getOpenId()
     }
   },
-  saveShareRecord: function (openId) {
+  saveShareRecord: function(openId) {
     var that = this
     var item = new Object()
     item.openId = openId
@@ -61,15 +61,15 @@ Page({
     }
     util.saveShareRecord(item)
   },
-  getOpenId: function () {
+  getOpenId: function() {
     var that = this
     wx.login({
-      success: function (res) {
+      success: function(res) {
         var code = res.code
         if (code) {
           wx.getUserInfo({
             withCredentials: true,
-            success: function (resU) {
+            success: function(resU) {
               wx.setStorageSync('userInfo', resU.userInfo);
               wx.request({
                 url: util.requestUrl + 'wechat/decodeUserInfo',
@@ -82,12 +82,12 @@ Page({
                   iv: resU.iv,
                   code: code
                 },
-                success: function (data) {
+                success: function(data) {
                   var openId = data.data.data.openid
                   wx.setStorageSync('openId', openId)
                   wx.request({
                     url: util.requestUrl + 'user/findUserByOpenId?openId=' + openId,
-                    success: function (res) {
+                    success: function(res) {
                       var result = res.data.data
                       var level = "0"
                       if (result) {
@@ -118,13 +118,12 @@ Page({
           })
           var surveyRecord = result.surveyRecord
           if (surveyRecord) {
-            var totalBonus = surveyRecord.bonus + surveyRecord.shareBonus
-            var url = '../awardmoney/awardmoney?bonus=' + totalBonus + '&forward=forward&activityId=' + surveyRecord.activityId
-            if (surveyRecord.shareBonus == 0) {
-              url = '../awardmoney/awardmoney?bonus=' + totalBonus + '&activityId=' + surveyRecord.activityId
-            }
-            wx.redirectTo({
-              url: url,
+            that.setData({
+              show: false
+            })
+          } else {
+            that.setData({
+              show: true
             })
           }
         }
@@ -132,15 +131,24 @@ Page({
     })
   },
   clickTab: function() {
-    // wx.navigateTo({
-    //   url: '../awardone/awardone?activityId=' + this.data.result.id + '&shareOpenId=' + this.data.shareOpenId,
-    // })
-    this.setData({
-      show: false,
+    var that = this
+    if (that.data.show) {
+      var item = new Object()
+      item.openId = wx.getStorageSync('openId')
+      item.activityId = this.data.result.id
+      wx.request({
+        url: util.requestUrl + 'survey/joinActivity',
+        method: 'POST',
+        data: item,
+        success: function(res) {
+          that.findActivity()
+        }
+      })
+    }
+    that.setData({
       confirmNo: true
     })
   },
-
   // goPeople: function() {
   //   wx.navigateTo({
   //     url: '../awardPeople/awardPeople',
@@ -153,7 +161,7 @@ Page({
   //   })
   // },
   // 取消弹窗
-  hideComfirm: function (e) {
+  hideComfirm: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     this.setData({
       confirmNo: false
