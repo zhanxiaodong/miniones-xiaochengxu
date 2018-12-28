@@ -39,7 +39,7 @@ Page({
       endTime: endTime
     })
     var inter = options.inter
-    var id = options.id
+    var id = options.id ? options.id : "5c1c5dc2696ed90e70a8766a"
     if (inter != 'add' && !id) {
       this.setData({
         confirmNo: true
@@ -167,7 +167,7 @@ Page({
         form.inter = inter
         wx.setStorageSync('editBaby', form)
         wx.navigateTo({
-          url: '/pages/photo/photo'
+          url: '/pages/style/style'
         })
       }
     })

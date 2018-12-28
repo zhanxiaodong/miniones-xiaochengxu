@@ -89,7 +89,7 @@ Page({
   next: function () {
     this.updateBaby()
     wx.navigateTo({
-      url: '/pages/color/color'
+      url: '/pages/character/character'
     })
   },
   updateBaby: function () {

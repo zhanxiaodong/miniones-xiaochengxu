@@ -146,7 +146,7 @@ Page({
   next: function () {
     this.updateBaby()
     wx.navigateTo({
-      url: '/pages/style/style'
+      url: '/pages/color/color'
     })
   },
   updateBaby: function () {

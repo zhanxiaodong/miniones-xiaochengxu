@@ -192,7 +192,7 @@ Page({
   next: function () {
     this.updateBaby()
     wx.navigateTo({
-      url: "/pages/attitude/attitude"
+      url: "/pages/photo/photo"
       })
   },
   updateBaby: function () {

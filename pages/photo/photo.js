@@ -9,13 +9,16 @@ Page({
   onLoad: function(options) {
     var that = this
     var editBaby = wx.getStorageSync('editBaby')
+    
     var uploadImgTemp = editBaby.bodyPic ? editBaby.bodyPic : '/images/photo.png'
     var id = editBaby.id
+    var inter = editBaby.inter
     if (uploadImgTemp && id) {
       that.setData({
         uploadImgTemp: uploadImgTemp,
         uploadImg: uploadImgTemp,
-        id: id
+        id: id,
+        inter: inter
       })
     }
   },
@@ -48,10 +51,16 @@ Page({
         data: item
       })
     }
-    var id = this.data.id
-    wx.navigateTo({
-      url: '/pages/character/character' ,
-    })
+    var inter = this.data.inter
+    if (inter == 'add') {
+      wx.navigateTo({
+        url: '/pages/babyInfo/babyInfo'
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/create/create'
+      })
+    }
   },
   getImage: function() {
     var that = this
