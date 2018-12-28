@@ -113,6 +113,9 @@ Page({
       success: function(res) {
         var result = res.data.data
         if (result) {
+          wx.setNavigationBarTitle({
+            title: result.content,
+          })
           that.setData({
             result: result
           })
