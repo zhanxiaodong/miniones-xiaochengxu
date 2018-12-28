@@ -53,8 +53,8 @@
             <view class='status-icon'></view>
             <view class='status-txt'>消费频率(孩子买衣服)</view>
           </view>
-        <radio-group bindchange="colorAllChange" data-index="{{index}}">
-          <label  class="everytwo" wx:for="{{radioItems}}" wx:key="value" wx:for-item="item">
+        <radio-group bindchange="frequencyAllChange" data-index="{{index}}">
+          <label  class="everytwo" wx:for="{{frequencyAllItems}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
               <view class="plan">{{item.value}}</view>
                <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />    
