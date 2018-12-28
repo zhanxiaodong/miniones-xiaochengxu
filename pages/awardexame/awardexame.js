@@ -170,4 +170,19 @@ Page({
       confirmNo: false
     })
   },
+  /* 右上角转发*/
+  onShareAppMessage: function (res) {
+    var that = this;
+    return {
+      title: '现场抽大华锦鲤，2019孩子穿搭全免费',
+      path: '/pages/awardexame/awardexame',
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahuafenxiang.jpg",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
+  },
 })

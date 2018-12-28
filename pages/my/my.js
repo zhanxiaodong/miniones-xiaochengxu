@@ -72,6 +72,11 @@ Page({
       url: '../invitation/invitation',
     })
   },
+  activity: function() {
+    wx.navigateTo({
+      url: '../awardexame/awardexame',
+    })
+  },
   goVip: function() {
     var that = this
     var openId = wx.getStorageSync('openId')
