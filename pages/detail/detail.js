@@ -21,20 +21,15 @@ Page({
       call: '',
       birth: '',
       height: '',
-      weight: '',
-      size: '',
-      skinColor: ''
+      weight: ''
+      
     },
     heights: [
       '不确定', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140'
     ],
     weights: [
       '不确定', '10', '12', '14', '16', '18', '20', '22', '24', '26', '28', '30', '32', '34', '36', '38', '40', '40+'
-    ],
-    sizes: [
-      '不确定', '16', '18', '20', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '35+'
-    ],
-    skinColors: ['不确定', '白皙', '正常', '偏黑'],
+    ]
   },
   onLoad: function (options) {
     this.initValidate()
@@ -126,12 +121,12 @@ Page({
         case 'weight':
           value = this.data.weights[value]
           break;
-        case 'size':
-          value = this.data.sizes[value]
-          break;
-        case 'skinColor':
-          value = this.data.skinColors[value]
-          break;
+        // case 'size':
+        //   value = this.data.sizes[value]
+        //   break;
+        // case 'skinColor':
+        //   value = this.data.skinColors[value]
+        //   break;
       }
     }
     this.setData({
@@ -191,12 +186,12 @@ Page({
       weight: {
         required: true
       },
-      size: {
-        required: true
-      },
-      skinColor: {
-        required: true
-      }
+      // size: {
+      //   required: true
+      // },
+      // skinColor: {
+      //   required: true
+      // }
       /**,
       feature: {
         required: true
@@ -219,12 +214,12 @@ Page({
       weight: {
         required: '体重不能为空'
       },
-      size: {
-        required: '鞋码不能为空'
-      },
-      skinColor: {
-        required: '肤色不能为空'
-      }
+      // size: {
+      //   required: '鞋码不能为空'
+      // },
+      // skinColor: {
+      //   required: '肤色不能为空'
+      // }
     }
 
     // 创建实例对象

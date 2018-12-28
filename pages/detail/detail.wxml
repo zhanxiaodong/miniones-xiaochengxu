@@ -1,4 +1,4 @@
- <view style="width: 20%; height: 4px; background: #04B8A0;"></view>
+ <view style="position: fixed;width: 20%; height: 4px; background: #04B8A0;"></view>
  <view class='common-pad' id="repair-one" wx:if="{{!second && !imgshow}}">
     <view class='pb20 font30 fontWeight' id='repair-two'>
       <text style='font-size:25px;color:#323232;'>关于您的孩子</text>
@@ -57,7 +57,7 @@
 
         </view>
       </view>
-      <view class='rowcs'>
+      <!-- <view class='rowcs'>
         <view class='font20 gray1-color'>
           <view id='name-repair'>鞋码</view>
         </view>
@@ -76,7 +76,7 @@
             <input id='name-repair' placeholder="color" placeholder-style="color: #cccccc; font-size: 30rpx;" name="skinColor" value="{{ form.skinColor }}" type="text" disabled='true' />
           </picker>
         </view>
-      </view>
+      </view> -->
       <view style="height: 140rpx;"></view>
        <view class="bottom-box-next">
           <button class='repair-button' formType="submit" >下一步</button>
