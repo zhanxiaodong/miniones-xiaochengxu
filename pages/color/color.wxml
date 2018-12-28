@@ -1,7 +1,6 @@
 <view class="page">
  <view class="title">
    <text class="title-first">选择消费标签</text>
-   
    <view class="title-intro">根据偏好进行匹配筛选，可随时更改</view>
  </view>
  <view class="content" style="height: 300px;">

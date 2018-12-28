@@ -3,6 +3,18 @@ Page({
   data: {
     frontType: 'character',
     gender: true,
+    skinColors: [
+      { value: '白皙' },
+      { value: '正常' },
+      { value: '麦色' },
+      { value: '黝黑' }
+    ],
+    bodyTypes: [
+      { value: '纤瘦' },
+      { value: '正常' },
+      { value: '偏胖' },
+      { value: '肥胖' }
+    ],
     checkboxItems: [
       { value: '活泼', show: true },
       { value: '腼腆', show: true },

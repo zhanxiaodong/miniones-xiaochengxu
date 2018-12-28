@@ -1,3 +1,4 @@
+ <view style="width: 20%; height: 4px; background: #04B8A0;"></view>
  <view class='common-pad' id="repair-one" wx:if="{{!second && !imgshow}}">
     <view class='pb20 font30 fontWeight' id='repair-two'>
       <text style='font-size:25px;color:#323232;'>关于您的孩子</text>

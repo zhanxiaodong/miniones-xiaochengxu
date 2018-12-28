@@ -1,20 +1,51 @@
 <view class="page">
-  <view class="height">
+   <view style="width: 60%; height: 4px; background: #04B8A0;"></view>
     <view class="title">
         <text class="title-first">孩子是属于什么性格？</text>
         <view class="title-intro">穿搭风格会直接影响性格塑造哦</view>
     </view>
-    <view class="content">
-        <checkbox-group class="check-first" bindchange="checkboxChange" >
-          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
+    <view class="content" style="height: 300px;">
+          <view class='section-left'>
+            <view class='status-icon'></view>
+            <view class='status-txt'>孩子肤色</view>
+          </view>
+        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{skinColors}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}">
+              <view class="skin">{{item.value}}</view>
+               <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />    
+            </view>
+          </label>
+        </radio-group>
+ </view>
+ <view class="content" style="height: 300px;">
+          <view class='section-left'>
+            <view class='status-icon'></view>
+            <view class='status-txt'>孩子身型</view>
+          </view>
+        <radio-group bindchange="colorAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{bodyTypes}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}">
+              <view class="body">{{item.value}}</view>
+               <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />    
+            </view>
+          </label>
+        </radio-group>
+ </view>
+    <view class="content" style="height: 400px;">
+          <view class='section-left'>
+            <view class='status-icon'></view>
+            <view class='status-txt'>孩子性格</view>
+          </view>
+        <checkbox-group  bindchange="checkboxChange" >
+          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="everythree">
             <view class="{{item.checked?'active':'unactive'}}">
              <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden='true'/>
-             <view class="name">{{item.value}}</view>
+             <view class="character">{{item.value}}</view>
             </view> 
           </label>   
         </checkbox-group>
     </view>   
-  </view>
 </view>
 
     <button class="fixed-button" bindtap="next">下一步</button>
