@@ -63,6 +63,11 @@
       border: none;
   }
   
+  .everyone {
+    float:left;
+    width:50%;
+    color:#666666;
+  }
   .bottom {
     position:fixed;
     bottom:50rpx;

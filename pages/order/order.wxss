@@ -49,7 +49,6 @@
   height: 30rpx;
   border-radius: 50%;
   background-color: #04B8A0;
-  margin-top: 15rpx;
 }
 .status-txt {
   font-size: 32rpx;

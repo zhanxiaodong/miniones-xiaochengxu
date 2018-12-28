@@ -2,9 +2,40 @@ var util = require("../../utils/util.js")
 Page({
   data: {
     colorAllItems: [
-      { value: '接受合理搭配的所有颜色' },
-      { value: '不喜欢灰暗色系' },
-      { value: '不喜欢鲜艳色系' }
+      { value: '素雅灰色系' },
+      { value: '活跃亮色系' },
+      { value: '接受合理搭配的任何色系' }
+    ],
+    checkboxItems: [
+      { value: '安全', show: true },
+      { value: '舒适', show: true },
+      { value: '个性', show: true },
+      { value: '实惠', show: true },
+      { value: '品牌', show: true },
+      { value: '好看', show: true },
+    ],
+    pasteAllItems: [{
+      value: '节制',
+      math: '99-199/套'
+    },
+    {
+      value: '正常',
+      math: '199-399/套'
+    },
+    {
+      value: '小资',
+      math: '299-499/套'
+    },
+    {
+      value: '轻奢',
+      math: '800+/套'
+    },
+    ],
+    radioItems: [
+      { value: '每月' },
+      { value: '每两月' },
+      { value: '每季度' },
+      { value: '其他' }
     ],
   },
   onLoad: function (options) {

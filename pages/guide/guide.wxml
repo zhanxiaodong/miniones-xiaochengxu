@@ -130,12 +130,12 @@
   <view class="vip-card-left">
     <view class="vip-card-title">新人体验</view>
     <view class="vip-card-intro">新注册专享单次配送</view>
-    <view class="vip-card-detail">购买商品抵扣￥29</view>
+    <view class="vip-card-detail">购买商品抵扣￥49</view>
   </view>
   <view class="vip-card-right">
     <view class="vip-card-price">
        <view class="vip-card-icon">￥</view>
-       <view class="vip-card-money">29</view>
+       <view class="vip-card-money">49</view>
     </view>
     <view class="vip-card-click" style="margin-left: 26rpx;">注册</view>
   </view>

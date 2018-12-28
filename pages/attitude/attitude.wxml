@@ -1,13 +1,17 @@
 <view class="page">
- <view class="title">
-   <text class="title-first">您为孩子穿搭时更注重什么</text>
-   
-   <view class="title-intro">点击您认为最关注的的选项(最多选择2项)</view>
- </view>
-
  <view class="content">
         <checkbox-group class="check-first" bindchange="checkboxChange" >
           <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="every">
+            <view class="{{item.checked?'active':'unactive'}}">
+             <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="true"/>
+             <view class="name">{{item.value}}</view>
+            </view> 
+          </label>   
+        </checkbox-group>
+    </view>   
+    <view class="content">
+        <checkbox-group  bindchange="checkboxChange" >
+          <label wx:for="{{checkboxItems}}" wx:key="value" wx:for-item="item" class="everyone">
             <view class="{{item.checked?'active':'unactive'}}">
              <checkbox value="{{item.value}}" checked="{{item.checked}}" hidden="true"/>
              <view class="name">{{item.value}}</view>
