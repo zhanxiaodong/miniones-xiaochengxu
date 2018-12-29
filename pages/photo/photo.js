@@ -53,8 +53,10 @@ Page({
     }
     var inter = this.data.inter
     if (inter == 'add') {
-      wx.navigateTo({
-        url: '/pages/babyInfo/babyInfo'
+      let pages = getCurrentPages(); //当前页面
+      let prevPage = pages[pages.length - 2]; //上一页面
+      wx.navigateBack({
+        delta: 5
       })
     } else {
       wx.navigateTo({
