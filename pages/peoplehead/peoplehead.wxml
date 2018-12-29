@@ -1,5 +1,5 @@
 <view class="content" style='padding: 60rpx 40rpx 0;'>
-  <label class="" wx:for="{{imgs}}" wx:key="*this">
-   <image class="head-img" style="width: 20%; height: 60px;" src="{{item}}"/>
+  <label class="" wx:for="{{result}}" wx:key="item.avatarUrl">
+   <image class="head-img" style="width: 20%; height: 60px;" src="{{item.avatarUrl}}"/>
   </label>
 </view>
