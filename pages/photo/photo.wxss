@@ -171,6 +171,5 @@
   text-align: center;
   position: fixed;
   bottom: 180rpx;
-  left: 45%;
-  width: 10%;
+  width: 100%;
 }

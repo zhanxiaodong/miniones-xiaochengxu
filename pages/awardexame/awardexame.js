@@ -152,11 +152,11 @@ Page({
       confirmNo: true
     })
   },
-  // goPeople: function() {
-  //   wx.navigateTo({
-  //     url: '../awardPeople/awardPeople',
-  //   })
-  // },
+  clickWechat: function() {
+    wx.navigateTo({
+      url: '../peoplehead/peoplehead',
+    })
+  },
 
   // goIndex: function() {
   //   wx.reLaunch({

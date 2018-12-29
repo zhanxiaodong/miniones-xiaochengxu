@@ -7,10 +7,7 @@ page {
     border-top: 1px solid  #04B8A0;
   }
   
-  .rowui {
-    display: flex;
-    margin-top: 30rpx;
-  }
+ 
   
   .rowlabelcs {
     width: 50px;
@@ -43,9 +40,12 @@ page {
   }
   
   .rowcs {
-    padding-top: 40rpx;
+    padding-top: 80rpx;
     padding-bottom: 40rpx;
     border-bottom: 0.5px solid #f2f2f2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-between;
   }
   
   .rowcs.hover {
@@ -129,10 +129,13 @@ page {
   }
   #name-repair {
     font-size: 18px;
-    color: #333333;
+    color: #999999;
+    text-align: right;
   }
-  .pt10 {
-    padding-top: 30rpx!important;
+  .name-repair {
+    font-size: 18px;
+    color: #999999;
+    width :200rpx;
   }
   
   #repair-five {
@@ -233,4 +236,18 @@ border: none;
 .butBoxs button{
   height:100rpx;
 
+}
+
+.everytwo {
+    float:left;
+    width:50%;
+    color:#666666;
+    margin-bottom: 20px;
+  }
+
+.name {
+  text-align: center;
+  color: #999999;
+  font-size: 24rpx;
+  margin-top: 20rpx;
 }

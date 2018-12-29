@@ -1,7 +1,7 @@
 var util = require("../../utils/util.js")
 Page({
   data: {
-    giftImage: "/images/giftBox.gif",
+    giftImage: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/giftBox.gif",
     condition: ''
   },
   onUnload: function () {

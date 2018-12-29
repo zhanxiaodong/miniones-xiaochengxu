@@ -4,7 +4,7 @@ Page({
     colorAllItems: [
       { value: '素雅灰色系' },
       { value: '活跃亮色系' },
-      { value: '接受合理搭配的任何色系' }
+      { value: '接受全色系' }
     ],
     checkboxItems: [
       { value: '安全', show: true },
@@ -16,19 +16,19 @@ Page({
     ],
     pasteAllItems: [{
       value: '节制',
-      math: '99-199/套'
+      math: '99-199'
     },
     {
       value: '正常',
-      math: '199-399/套'
+      math: '199-399'
     },
     {
       value: '小资',
-      math: '299-499/套'
+      math: '299-499'
     },
     {
       value: '轻奢',
-      math: '800+/套'
+      math: '800+'
     },
     ],
     frequencyAllItems: [

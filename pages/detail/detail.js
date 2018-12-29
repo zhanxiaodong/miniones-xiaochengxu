@@ -11,10 +11,14 @@ Page({
     date: "yyyy-mm-dd",
     uploadImgTemp: '/images/photo.png',
     sexItems: [{
-      value: '男孩'
+      value: '男孩', 
+      img1: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/x1.png', 
+      img2: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/x4.png'
     },
     {
-      value: '女孩'
+      value: '女孩', 
+      img1: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/x2.png', 
+      img2: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/x3.png'
     }
     ],
     form: {
