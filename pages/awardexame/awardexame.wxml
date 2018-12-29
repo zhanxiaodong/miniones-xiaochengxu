@@ -33,8 +33,11 @@
 <view class="footer-one">
    <view class="footer-title">现场童装品牌展示</view>
    <view>
-      <image src="" class="footer-img"/>
-      <image src="" class="footer-img"/>
+      <image src="http://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua1.png?x-oss-process=image/resize,h_200,w_200" class="footer-img"/>
+      <image src="http://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua2.png?x-oss-process=image/resize,h_200,w_200" class="footer-img"/>
+      <image src="http://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua4.png?x-oss-process=image/resize,h_200,w_200" class="footer-img"/>
+      <image src="http://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua3.png?x-oss-process=image/resize,h_200,w_200" class="footer-img"/>
+      <image src="http://miniany.oss-cn-beijing.aliyuncs.com/minianys/dahua5.png?x-oss-process=image/resize,h_200,w_200" class="footer-img"/>
    </view>
 </view>
 <view style="height:30rpx;background: #f6f8f7;"> </view>

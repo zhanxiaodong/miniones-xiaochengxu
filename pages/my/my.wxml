@@ -5,6 +5,7 @@
 <template is="dialog" data="{{ ...$wux.dialog }}" />
 <!--正文-->
 <view class='xz-component'>
+   <view wx:if="{{user.user.addWay == 'DAHUA'}}" class='dahua-activity' bindtap='activity'>大华锦鲤</view>
   <view class='xz-top'>
     <view class='xz-my-info'>
       <view class='my-info-left'>
@@ -50,7 +51,7 @@
       <view class='share-desc'>每邀请一位好友成为会员可立即提现50元现金</view>
    </view>
   </view>
-  <view wx:if="{{user.user.addWay == 'DAHUA'}}" class='xz-share' bindtap='activity'>
+  <!-- <view wx:if="{{user.user.addWay == 'DAHUA'}}" class='xz-share' bindtap='activity'>
    <view class='left'>
       <image class='left-img' src='http://miniany.oss-cn-beijing.aliyuncs.com/minianys/photo3.jpeg'></image>
    </view>
@@ -61,7 +62,7 @@
       </view>
       <view class='share-desc'>每邀请一位好友成为会员可立即提现50元现金</view>
    </view>
-  </view>
+  </view> -->
   <view class='xz-list'>
     <view class='xz-member' bindtap='goVip'>
       <image class='member-icon' src='/images/crown-2.png'></image>

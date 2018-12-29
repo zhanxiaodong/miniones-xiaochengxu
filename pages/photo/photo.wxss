@@ -141,7 +141,7 @@
 
 #repair-five {
   color: #999999;
-  font-size: 28rpx;
+  font-size: 32rpx;
 }
 
 #repair-six {
@@ -163,4 +163,14 @@
     bottom:60rpx;
     margin-left:80rpx; 
     z-index: 100;
+}
+
+.jump {
+  color: #999999;
+  font-size: 32rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 180rpx;
+  left: 45%;
+  width: 10%;
 }

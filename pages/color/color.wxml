@@ -1,9 +1,10 @@
 <view class="page">
+<view style="position: fixed; width: 80%; height: 4px; background: #04B8A0;"></view>
  <view class="title">
    <text class="title-first">选择消费标签</text>
    <view class="title-intro">根据偏好进行匹配筛选，可随时更改</view>
  </view>
- <view class="content" style="height: 300px;">
+ <view class="content" style="height: 530rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>颜色偏好</view>
@@ -17,7 +18,7 @@
           </label>
         </radio-group>
  </view>
- <view class="content" style="height: 300px;" >
+ <view class="content" style="height: 400rpx;" >
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>消费观念</view>
@@ -31,7 +32,7 @@
           </label>   
         </checkbox-group>
  </view>
- <view class="content" style="height: 300px;">
+ <view class="content" style="height: 400rpx;">
     <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>消费预算(次)</view>
@@ -47,7 +48,7 @@
           </label>
    </radio-group>
  </view>
- <view class="content" style="height: 300px;">
+ <view class="content" style="height: 600rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>消费频率(孩子买衣服)</view>

@@ -142,8 +142,8 @@ page {
 }
 
 .footer-img {
-  width: 200rpx;
-  height: 120rpx;
+  width: 33.3%;
+  height: 200rpx;
 }
 
  /*使屏幕变暗  */

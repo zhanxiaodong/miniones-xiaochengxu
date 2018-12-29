@@ -120,11 +120,11 @@ view.active view {
 
   view.active .skin {
       width:180rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+      background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .skin{
@@ -132,22 +132,23 @@ view.active view {
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid #e5eae8;
       line-height:80rpx;
   }
   
   .skin {
     font-size: 28rpx;
     border-radius:40rpx;
+    color: #000000;
   }
 
 view.active .body {
       width:180rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+     background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .body{
@@ -155,22 +156,23 @@ view.active .body {
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid #e5eae8;
       line-height:80rpx;
   }
   
   .body {
     font-size: 28rpx;
     border-radius:40rpx;
+    color: #000000;
   }
 
 view.active .character {
       width:180rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+      background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .character{
@@ -178,11 +180,12 @@ view.active .character {
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid #e5eae8;
       line-height:80rpx;
   }
   
   .character {
     font-size: 28rpx;
     border-radius:40rpx;
+    color: #000000;
   }

@@ -9,7 +9,7 @@
 }
 
 .title-intro {
-    font-size:28rpx;
+    font-size:32rpx;
     color:#999999;
     font-weight:regular;
     margin-top:26rpx;
@@ -67,7 +67,7 @@ view.active view {
 
 .name {
   width:260rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
   color:#666666;
   background-color:#ffffff;
 }

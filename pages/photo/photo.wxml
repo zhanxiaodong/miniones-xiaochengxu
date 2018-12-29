@@ -20,7 +20,7 @@
             </text>
         </view>
     </view>
-
+<view class="jump" bindtap='next'>跳过</view>
 <view class="bottom-next-button" >
     <button class='repair-button' bindtap='next'>下一步</button>
 </view>

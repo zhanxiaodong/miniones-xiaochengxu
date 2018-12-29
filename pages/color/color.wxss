@@ -22,10 +22,6 @@
 }
 
 
-
-
-
-
 .fixed-button {
     border-radius: 60rpx;
     background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
@@ -63,33 +59,35 @@
 /*一行一个*/
 .everyone {
     float:left;
-    width:80%;
+    width:100%;
     color:#666666;
     margin-bottom: 20px;
   }
 
 
   view.active .name {
-      width:400rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+      width:80%;
+      background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .name{
-      width:400rpx;
+      width:80%;
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid #e5eae8;
       line-height:80rpx;
   }
   
   .name {
     font-size: 28rpx;
     border-radius:40rpx;
+    color: #000000;
+    margin-left: 10%;
   }
 
 /*一行两个*/
@@ -102,11 +100,11 @@
 
   view.active .attitude {
       width:300rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+       background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .attitude{
@@ -114,22 +112,23 @@
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid  #e5eae8;
       line-height:80rpx;
   }
   
   .attitude {
     font-size: 28rpx;
     border-radius:40rpx;
+     color: #000000;
   }
 
    view.active .plan {
       width:300rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+       background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .plan{
@@ -137,13 +136,14 @@
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid  #e5eae8;
       line-height:80rpx;
   }
 
   .plan {
     font-size: 28rpx;
     border-radius:40rpx;
+     color: #000000;
   }
 
 /*一行三个*/
@@ -156,11 +156,11 @@
 
   view.active .waste {
       width:180rpx;
-      background-color:#04B8A0;
-      color:#FFFFFF;
+       background-color:#e5eae8;
+      color:#04B8A0;
+      border:1px solid #e5eae8;
       text-align:center;
       line-height:80rpx;
-      border: none;
   }
 
   view.unactive .waste{
@@ -168,11 +168,12 @@
       background-color:#ffffff;
       color: #666666;
       text-align:center;
-      border:1px solid #e4e4e4;
+      border:1px solid  #e5eae8;
       line-height:80rpx;
   }
   
   .waste {
     font-size: 28rpx;
     border-radius:40rpx;
+     color: #000000;
   }

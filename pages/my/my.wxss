@@ -1,4 +1,16 @@
 /* pages/my/my.wxss */
+.dahua-activity {
+  position: fixed; 
+  top: 40rpx;
+  width:160rpx;
+  line-height: 60rpx;
+  background: #ff7b7b;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius:20px;
+  right: -26rpx;
+  text-align:center;
+}
 .xz-component {
     height: 100%;
     background-color:#f6f8f7;

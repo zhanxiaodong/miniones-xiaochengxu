@@ -1,8 +1,8 @@
 <view class="page">
-<view style="width: 40%; height: 4px; background: #04B8A0;"></view>
+<view style="position: fixed;width: 40%; height: 4px; background: #04B8A0;"></view>
     <view class="title">
-        <text class="title-first">希望孩子穿着什么风格？</text>
-        <view class="title-intro">选择您或孩子偏爱的穿搭风格</view>
+        <text class="title-first">选择感兴趣的风格</text>
+        <view class="title-intro">定制孩子的穿搭风格,可随时更改</view>
     </view>
     <view class="content">
         <checkbox-group class="check-first" bindchange="checkboxChange" >
