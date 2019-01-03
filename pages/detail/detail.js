@@ -39,7 +39,7 @@ Page({
       endTime: endTime
     })
     var inter = options.inter
-    var id = options.id ? options.id : "5c1c5dc2696ed90e70a8766a"
+    var id = options.id 
     if (inter != 'add' && !id) {
       this.setData({
         confirmNo: true
