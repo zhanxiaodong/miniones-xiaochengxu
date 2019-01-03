@@ -2,6 +2,24 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
   data: {
+    subscribeTime: [
+      { value: '每月一次' },
+      { value: '两月一次' },
+      { value: '季度一次' }
+    ], 
+    subscribeWarn: [
+      { value: '提前3天'},
+      { value: '提前一周'}
+    ],
+    sendConfirm : [
+      { value: '无需确认' },
+      { value: '需要确认' }
+    ],
+    time: true,
+    warn: true,
+    confirm: true,
+    show: true,
+    confirmNo: true,
     about: '',
     activeIndex: 0,
     tabs: ["0-1岁", "1-2岁", "2-3岁", "3-4岁", "4-5岁", "5-6岁"],
@@ -468,5 +486,63 @@ Page({
     wx.reLaunch({
       url: '../index/index',
     })
-  }, 
+  },
+  /*取消弹窗*/
+  hideComfirm: function (e) {
+    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    this.setData({
+      confirmNo: false
+    })
+  },
+
+  close: function (e) {
+    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    this.setData({
+      confirmNo: false
+    })
+  },
+
+  openDoor: function (e) {
+    // util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+    this.setData({
+      confirmNo: true
+    })
+  },
+  /*switch开关*/ 
+  // intelSwitch: function () {
+  //   var intel = this.data.intel
+  //   this.setData({
+  //     intel: !intel
+  //   })
+  //   if (!intel) {
+  //     this.setData({
+  //       hand: false
+  //     })
+  //   }
+  // },
+  timeSwitch: function () {
+    let time = this.data.time
+    this.setData({
+      time: !time
+    })
+  },
+  warnSwitch: function () {
+    let warn = this.data.warn
+    this.setData({
+      warn: !warn
+    })
+  },
+  confirmSwitch: function () {
+    let confirm = this.data.confirm
+    this.setData({
+      confirm: !confirm
+    })
+  },
+  warnAllChange: function (e) {
+
+  },
+  /*保存修改*/ 
+  confirmRepair:function () {
+
+  }
 })

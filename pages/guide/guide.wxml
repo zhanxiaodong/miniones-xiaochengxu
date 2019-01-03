@@ -260,7 +260,7 @@
          <icon type="success" size="23" color="#04B8A0" style="position:absolute;right:40rpx;top:40rpx;"/>
        </view>
       </block>
-      <view class="wrap-plan-asset">不满意？<text style="text-decoration: underline;">调整计划</text></view>
+      <view class="wrap-plan-asset">不满意？<text bindtap="openDoor" style="text-decoration: underline;">调整计划</text></view>
    </view>
    <view class="wrap-choose">
      <view class="wrap-choose-title">会员精选</view>
@@ -278,6 +278,73 @@
    </view>
    <view class="wrap-footer">-关爱，从不迟到-</view>
   </view> 
+</view>
+<!-- 弹窗屏幕变绿-->
+<view class="commodity_screen" bindtap="hideComfirm" wx:if="{{confirmNo}}"></view>
+<!--弹窗-->
+<view class="commodity_attr_box"  wx:if="{{confirmNo}}">
+  <view class="head">订阅计划设置</view> 
+  <view class="head-close" bindtap="close">x</view>
+  <view class="content-one">
+    <view class="content-public">
+     <view class="content-public-left">订阅周期</view>
+     <view class="content-public-right">
+        <switch checked="{{time}}" color="#04B8A0"        bindchange="timeSwitch"></switch>
+     </view>
+    </view>
+    <view hidden="{{!time}}">
+    <radio-group bindchange="timeAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{subscribeTime}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}">
+              <view class="attitude">{{item.value}}</view>
+               <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />
+               <icon wx:if="{{item.checked}}" type="success" size="20" color="#04B8A0" />    
+            </view>
+          </label>
+        </radio-group>
+    </view>
+  </view>  
+  <view class="content-one">
+    <view class="content-public">
+     <view class="content-public-left">订阅提醒</view>
+     <view class="content-public-right">
+        <switch checked="{{warn}}" color="#04B8A0"        bindchange="warnSwitch"></switch>
+     </view>
+    </view>
+    <view hidden='{{!warn}}'>
+    <radio-group bindchange="warnAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{subscribeWarn}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}">
+              <view class="attitude">{{item.value}}</view>
+               <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />
+               <icon wx:if="{{item.checked}}" type="success" size="20" color="#04B8A0" />    
+            </view>
+          </label>
+        </radio-group>
+      </view>
+  </view>  
+  <view class="content-one">
+    <view class="content-public">
+     <view class="content-public-left">配送确认</view>
+     <view class="content-public-right">
+        <switch checked="{{confirm}}" color="#04B8A0"        bindchange="confirmSwitch"></switch>
+     </view>
+    </view>
+    <view hidden='{{!confirm}}'>
+    <radio-group bindchange="confirmAllChange" data-index="{{index}}">
+          <label  class="everythree" wx:for="{{sendConfirm}}" wx:key="value" wx:for-item="item">
+            <view class="{{item.checked?'active':'unactive'}}">
+              <view class="attitude">{{item.value}}</view>
+               <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />
+               <icon wx:if="{{item.checked}}" type="success" size="20" color="#04B8A0" />    
+            </view>
+          </label>
+        </radio-group>
+    </view>
+  </view> 
+  <view style="height: 30px; background: #fff; width: 100%;"></view> 
+  <view style="height: 10px; background: #f6f8f7; width: 100%;"></view> 
+  <view class="footer-content" bindtap="confirmRepair">确认修改</view> 
 </view>
 <import src="../../tabbar.wxml" />
 <template is="tabBar" data="{{tabBar}}" />

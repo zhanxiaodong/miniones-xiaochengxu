@@ -20,10 +20,6 @@
      <!--<view style="height: 180rpx; width: 180rpx; background-color: #04B8A0;border-radius: 50%; top: 20rpx; left: 20rpx;position: relative;"></view>-->
      <image style="z-index: 1000;height: 220rpx;width: 220rpx;"src="{{image}}" ></image>
   </view>
-  <!-- <view class="award-circle" bindtap="clickTab" hidden="{{show}}">
-    <view style="color: #fff; font-weight: bold;position: relative;top:130rpx;left:52rpx;">活动详情</view>
-     <image style="z-index: 1000;height: 220rpx;width: 220rpx;"src="{{image}}" ></image>
-  </view> -->
   <view class="award-count">
    <view class="award-count-math">共{{result.joinNum}}人参与,</view>
    <view class="award-count-look" bindtap="clickWechat">查看全部></view>

@@ -96,7 +96,7 @@
   padding:20rpx 20rpx;
   font-size:28rpx;
   background: #fff;
-  border-left: solid 10rpx #D6BC8A;
+  /* border-left: solid 10rpx #D6BC8A; */
 }
 .textLeft{
   width:65%;

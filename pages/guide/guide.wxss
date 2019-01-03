@@ -927,3 +927,127 @@
   color: #666666;
   font-size: 24rpx;
 }
+
+/*使屏幕变暗  */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: 1100;
+  color: #fff;
+}
+
+/*对话框 */
+
+.commodity_attr_box {
+  height: 900rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  background: #fff;
+  
+}
+
+.something-pay {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.button-choice {
+color:#333333;
+background-color:#f6f8f7;
+border-radius:20px;
+width: 400rpx;
+line-height:66rpx;
+font-size: 28rpx;
+}
+
+.button-choice:hover {
+  color:#ffffff;
+background-color:#04B8A0;
+border: none;
+}
+.butBoxs{
+  width:100%;
+  height:700rpx;
+  position: fixed;bottom:0;
+  z-index:9999;
+  background: #fff;
+}
+.butBoxs button{
+  height:100rpx;
+
+}
+
+.head {
+  color: #333333;
+  font-size: 32rpx;
+  line-height: 120rpx;
+  text-align :center;
+  border-bottom:1px solid #f6f8f7;
+}
+.content-one {
+  padding: 40rpx;
+  height: 190rpx;
+}
+
+.everythree {
+    float:left;
+    width:33.3%;
+    color:#666666;
+    margin-bottom: 40rpx;
+    text-align:center;
+  }
+
+  .content-public {
+    display:flex;
+    justify-content:space-between;
+    margin-bottom: 30rpx;
+  }
+
+  .content-public-left {
+    color: #333333;
+    font-size: 32rpx;
+    line-height:64rpx;
+  }
+
+  .unactive {
+    font-size: 28rpx;
+    color: #333333;
+  }
+
+  .active {
+    font-size: 28rpx;
+    color: #54cdaf;
+  }
+
+  .footer-content {
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 130rpx;
+    color:#ff6666;
+  }
+
+  .head-close {
+    position:fixed;
+    right:30rpx;
+    bottom:800rpx;
+    font-size:60rpx;
+    width:60px;
+    text-align:center;
+    color:#666666;
+  }
