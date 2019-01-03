@@ -31,7 +31,7 @@
     <view class="weui-tab__panel" id="repair-two">
       <view class='infoView'>
             <view class="infoView-one">订阅美好童年</view>
-            <view class="infoView-two">开启第{{boxCount}}个穿搭惊喜</view>
+            <view class="infoView-two" wx:if='{{nextMessage}}'>{{nextMessage}}</view>
       </view>
       <view class="picture">
         <image src='{{gift}}' class='allow'></image>

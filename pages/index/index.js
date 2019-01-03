@@ -25,6 +25,7 @@ Page({
     gift: '/images/showa.png',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],
     message: '当前没有进行中的搭配',
+    nextMessage:'',
     btnMsg: '开启服务',
     tryOnDays: 0,
     activeIndex: 0,
@@ -250,9 +251,11 @@ Page({
         var babyCount = result.babyCount ? result.babyCount : 0
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
+        var nextMessage = '';
         if (nextBoxTime) {
           if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
             message = message + nextBoxTime
+            nextMessage = '开启第' + boxCount + '个穿搭惊喜'
           } 
         }
         if (!level || level == viplev.LOOK) {
@@ -270,6 +273,7 @@ Page({
           boxStatus: boxStatus,
           btnMsg: btnMsg,
           message: message,
+          nextMessage: nextMessage,
           gift: gift,
           tryOnDays: tryOnDays
         })
