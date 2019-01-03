@@ -1,82 +1,61 @@
  <view style="position: fixed;width: 20%; height: 4px; background: #04B8A0;"></view>
  <view class='common-pad' id="repair-one" wx:if="{{!second && !imgshow}}">
-    <view class='pb20 font30 fontWeight' id='repair-two'>
-      <text style='font-size:25px;color:#323232;'>关于您的孩子</text>
-      <view id='child-call'>请告诉我们一些孩子的基本信息，初步建立风格</view>
+    <view class='pb20 font30 fontWeight'>
     </view>
     <form bindsubmit='submitForm'>
-      <view class='rowcs'>
-        <view class="font20 gray1-color" id='name-repair'>孩子称呼</view>
-        <view class="rowui">
-          <view>
-            <input class="w150" id="name-repair" placeholder="name" placeholder-style="color: #cccccc; font-size: 30rpx;" name="call" value="{{form.call}}" type="call"></input>
-          </view>
-          <view class="rowcontentcs">
+      <view class="rowcontentcs" style="padding: 0 20%; height: 200rpx;">
             <radio-group bindchange="radioChange" name="gender" value="{{form.gender}}">
-              <view class="radiocs">
-                <label wx:for="{{sexItems}}" wx:key="value" class="{{item.checked?'active':''}}">
-                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' /><text>{{item.value}}</text>
+                <label  wx:for="{{sexItems}}" wx:key="value">
+                  <radio value="{{item.value}}" checked="{{item.checked}}" hidden='true' /> 
+                  <view  style="float: left; width: 50%; display: flex;flex-direction:column;align-items: center;">
+                   <view  style="position: relative; width: 140rpx; height: 140rpx;">
+                     <image hidden="{{item.checked}}"   style="width: 140rpx;height: 140rpx;" src="{{item.img1}}"/>
+                     <image wx:if="{{item.checked}}"  style="width: 140rpx;height: 140rpx;" src="{{item.img2}}"/>
+                      <icon wx:if="{{item.checked}}" style="position: absolute; right: 0; bottom: 0;" type="success" size="20" color="#04B8A0" />
+                   </view>
+                   <view class="name">{{item.value}}</view>
+                  </view>
                 </label>
-              </view>
             </radio-group>
           </view>
+      <view class='rowcs'>
+        <view class="content-title" style="width: 200rpx;font-size:18px;color:#999999;">孩子称呼</view>
+        <view class="rowui">
+          <view>
+            <input class="w150" id="name-repair" placeholder="name" placeholder-style="color: #cccccc; font-size: 30rpx; text-align: right;" name="call" value="{{form.call}}" type="call"></input>
+          </view>
         </view>
-        
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>出生日期</view>
+          <view class='name-repair'>出生日期</view>
         </view>
-
-        <view class="rowcontentcs pt10">
+        <view class="rowcontentcs">
           <picker mode="date" start="1890-01-01" end="{{endTime}}" bindchange="bindDateChange" name="date" value="{{ date }}" data-filed="birth">
-            <!--<text> {{date}}</text>-->
-            <input id='name-repair' placeholder="dd-mm-yyyy" placeholder-style="color: #cccccc; font-size: 30rpx;" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="dd-mm-yyyy" placeholder-style="color: #cccccc; font-size: 30rpx; text-align: right;" name="birth" value="{{ form.birth }}" type="text" disabled='true' />
           </picker>
         </view>
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>当前身高</view>
+          <view class='name-repair'>当前身高</view>
         </view>
-        <view class='pt10'>
+        <view class=''>
           <picker bindchange="bindDateChange" range='{{heights}}' value="{{ heightNum }}" data-filed="height">
-            <input  id='name-repair' placeholder="cm" placeholder-style="color: #cccccc; font-size: 30rpx;" name="height" value="{{ form.height }}" type="text" disabled='true' />
+            <input  id='name-repair' placeholder="cm" placeholder-style="color: #cccccc; font-size: 30rpx;text-align: right;" name="height" value="{{ form.height }}" type="text" disabled='true' />
           </picker>
-
         </view>
       </view>
       <view class='rowcs'>
         <view class="font20 gray1-color">
-          <view id='name-repair'>当前体重</view>
+          <view class='name-repair'>当前体重</view>
         </view>
-        <view class='pt10'>
+        <view class=''>
           <picker bindchange="bindDateChange" range='{{weights}}' value="{{ form.weight }}" data-filed="weight">
-            <input id='name-repair' placeholder="kg" placeholder-style="color: #cccccc; font-size: 30rpx;" name="weight" value="{{ form.weight }}" type="text" disabled='true' />
-          </picker>
-
-        </view>
-      </view>
-      <!-- <view class='rowcs'>
-        <view class='font20 gray1-color'>
-          <view id='name-repair'>鞋码</view>
-        </view>
-        <view class='pt10'>
-          <picker bindchange="bindDateChange" range='{{sizes}}' value="{{ form.size }}" data-filed="size">
-            <input id='name-repair' placeholder="size" placeholder-style="color: #cccccc; font-size: 30rpx;" name="size" value="{{ form.size }}" type="text" disabled='true' />
+            <input id='name-repair' placeholder="kg" placeholder-style="color: #cccccc; font-size: 30rpx;text-align: right;" name="weight" value="{{ form.weight }}" type="text" disabled='true' />
           </picker>
         </view>
       </view>
-      <view class='rowcs'>
-        <view class='font20 gray1-color'>
-          <view id='name-repair'>肤色</view>
-        </view>
-        <view class='pt10'>
-          <picker bindchange="bindDateChange" range='{{skinColors}}' value="{{ form.skinColor }}" data-filed="skinColor">
-            <input id='name-repair' placeholder="color" placeholder-style="color: #cccccc; font-size: 30rpx;" name="skinColor" value="{{ form.skinColor }}" type="text" disabled='true' />
-          </picker>
-        </view>
-      </view> -->
       <view style="height: 140rpx;"></view>
        <view class="bottom-box-next">
           <button class='repair-button' formType="submit" >下一步</button>

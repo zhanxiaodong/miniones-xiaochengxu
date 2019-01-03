@@ -1,14 +1,12 @@
 <view style="position: fixed;width: 100%; height: 4px; background: #04B8A0;"></view>
 <view class="all">
 <view class='top'>
-    <view>
         <view>
-            <text style="font-size: 25px;font-weight: bold;">上传孩子的资料图片</text>
+            <text style="font-size: 48rpx;font-weight: bold;">上传孩子的资料图片</text>
         </view>
         <view style="margin-top: 16rpx;">
             <text class="font12" id="repair-five">上传孩子的全身照提高搭配精准度</text>
         </view>
-    </view>
 </view>
 
     <view class='photo-wrap'>

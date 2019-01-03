@@ -4,15 +4,15 @@
    <text class="title-first">选择消费标签</text>
    <view class="title-intro">根据偏好进行匹配筛选，可随时更改</view>
  </view>
- <view class="content" style="height: 530rpx;">
+ <view class="content" style="height: 400rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>颜色偏好</view>
           </view>
         <radio-group bindchange="colorAllChange" data-index="{{index}}">
-          <label  class="everyone" wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
+          <label  class="everytwo" wx:for="{{colorAllItems}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
-              <view class="name">{{item.value}}</view>
+              <view class="attitude">{{item.value}}</view>
                <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />    
             </view>
           </label>

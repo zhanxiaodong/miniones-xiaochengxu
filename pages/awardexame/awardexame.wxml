@@ -26,7 +26,7 @@
   </view> -->
   <view class="award-count">
    <view class="award-count-math">共{{result.joinNum}}人参与,</view>
-   <view class="award-count-look" >查看全部></view>
+   <view class="award-count-look" bindtap="clickWechat">查看全部></view>
   </view>
 </view>
 <view style="height:30rpx;background: #f6f8f7;"> </view>

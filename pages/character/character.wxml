@@ -4,7 +4,7 @@
         <text class="title-first">孩子的成长特性</text>
         <view class="title-intro">根据孩子的个性标签进行合理推荐</view>
     </view>
-    <view class="content" style="height: 200px;">
+    <view class="content" style="height: 400rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>孩子肤色</view>
@@ -18,7 +18,7 @@
           </label>
         </radio-group>
  </view>
- <view class="content" style="height: 200px;">
+ <view class="content" style="height: 400rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>孩子身型</view>
@@ -32,7 +32,7 @@
           </label>
         </radio-group>
  </view>
-    <view class="content" style="height: 400px;">
+    <view class="content" style="height: 750rpx;">
           <view class='section-left'>
             <view class='status-icon'></view>
             <view class='status-txt'>孩子性格</view>
