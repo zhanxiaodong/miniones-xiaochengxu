@@ -2,18 +2,14 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
   data: {
-    subscribeTime: [
+    times: [
       { value: '每月一次' },
       { value: '两月一次' },
       { value: '季度一次' }
     ], 
-    subscribeWarn: [
+    warns: [
       { value: '提前3天'},
       { value: '提前一周'}
-    ],
-    sendConfirm : [
-      { value: '无需确认' },
-      { value: '需要确认' }
     ],
     time: true,
     warn: true,
@@ -520,26 +516,93 @@ Page({
   //     })
   //   }
   // },
-  timeSwitch: function () {
-    let time = this.data.time
-    this.setData({
-      time: !time
-    })
-  },
-  warnSwitch: function () {
-    let warn = this.data.warn
-    this.setData({
-      warn: !warn
-    })
-  },
-  confirmSwitch: function () {
-    let confirm = this.data.confirm
-    this.setData({
-      confirm: !confirm
-    })
-  },
-  warnAllChange: function (e) {
+  // timeSwitch: function () {
+  //   let time = this.data.time
+  //   this.setData({
+  //     time: !time
+  //   })
+  // },
+  // warnSwitch: function () {
+  //   let warn = this.data.warn
+  //   this.setData({
+  //     warn: !warn
+  //   })
+  // },
+  // confirmSwitch: function () {
+  //   let confirm = this.data.confirm
+  //   this.setData({
+  //     confirm: !confirm
+  //   })
+  // },
+  // skinColorsAllChange: function (e) {
+  //   var value = e.detail.value
+  //   this.updateSkinColorAll(value)
+  //   var index
+  //   var skinColors = this.data.skinColors
+  //   for (var i = 0; i < skinColors.length; ++i) {
+  //     if (value == skinColors[i].value) {
+  //       index = i
+  //       break;
+  //     }
+  //   }
+  //   this.setData({
+  //     skinColors: skinColors
+  //   })
+  // },
 
+  // updateSkinColorAll: function (value) {
+  //   var skinColors = util.radioGroupChange(this.data.skinColors, value)
+  //   this.setData({
+  //     skinColors: skinColors,
+  //     skinColor: value
+  //   })
+  // },
+  warnChange: function (e) {
+    var value = e.detail.value
+    this.updateWarn(value)
+    var index
+    var warns = this.data.warns
+    for (var i = 0; i < warns.length; ++i) {
+      if (value == warns[i].value) {
+        index = i
+        break;
+      }
+    }
+    this.setData({
+      warns: warns
+    })
+  },
+
+  updateWarn: function (value) {
+    var warns = util.radioGroupChange(this.data.warns, value)
+    this.setData({
+      warns: warns,
+      warn: value
+    })
+  },
+
+  timeChange: function (e) {
+    var value = e.detail.value
+    this.updateTime(value)
+    var index
+    var times = this.data.times
+    for (var i = 0; i < times.length; ++i) {
+      if (value == times[i].value) {
+        index = i
+        break;
+      }
+    }
+    this.setData({
+      times: times
+    })
+  },
+
+  updateTime: function (value) {
+    var times = util.radioGroupChange(this.data.times, value)
+    this.setData({
+      times: times,
+      time: value
+    })
   },
   /*保存修改*/ 
   confirmRepair:function () {

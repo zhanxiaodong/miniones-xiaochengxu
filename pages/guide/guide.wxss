@@ -945,7 +945,7 @@
 /*对话框 */
 
 .commodity_attr_box {
-  height: 900rpx;
+  height: 700rpx;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -1033,6 +1033,7 @@ border: none;
   .active {
     font-size: 28rpx;
     color: #54cdaf;
+    position:relative;
   }
 
   .footer-content {
@@ -1045,7 +1046,7 @@ border: none;
   .head-close {
     position:fixed;
     right:30rpx;
-    bottom:800rpx;
+    bottom:600rpx;
     font-size:60rpx;
     width:60px;
     text-align:center;
