@@ -3,13 +3,13 @@ const app = getApp();
 Page({
   data: {
     times: [
-      { value: '每月一次' },
-      { value: '两月一次' },
-      { value: '季度一次' }
+      { value: 1, lable: '每月一次' },
+      { value: 3, lable: '两月一次' },
+      { value: 4, lable: '季度一次' }
     ], 
     warns: [
-      { value: '提前3天'},
-      { value: '提前一周'}
+      { value: '3', lable: '提前3天'},
+      { value: '7', lable: '提前一周'}
     ],
     time: true,
     warn: true,
@@ -379,6 +379,14 @@ Page({
         url: util.requestUrl + 'baby/findBabyByOpenId?openId=' + openId,
         success: function (res) {
           var result = res.data.data
+          var planAuto = res.data.data.planAuto
+          if (planAuto){
+            that.updateTime(planAuto)
+          }
+          var preReminderDays = res.data.data.preReminderDays
+          if (preReminderDays) {
+            that.updateWarn(preReminderDays)
+          }
           console.log(result)
           if (result){
             that.setData({
@@ -577,7 +585,7 @@ Page({
     var warns = util.radioGroupChange(this.data.warns, value)
     this.setData({
       warns: warns,
-      warn: value
+      preReminderDays: value
     })
   },
 
@@ -601,11 +609,25 @@ Page({
     var times = util.radioGroupChange(this.data.times, value)
     this.setData({
       times: times,
-      time: value
+      planAuto: value
     })
   },
   /*保存修改*/ 
   confirmRepair:function () {
-
+    var item = new Object()
+    item.wechatOpenId = wx.getStorageSync('openId')
+    item.planAuto = this.data.planAuto
+    item.preReminderDays = this.data.preReminderDays
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'user/updateUser',
+      method: 'POST',
+      data: item,
+      success: function () {
+        that.setData({
+          confirmNo: false
+        })
+      }
+    })
   }
 })

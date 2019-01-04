@@ -296,7 +296,7 @@
     <radio-group bindchange="timeChange" data-index="{{index}}">
           <label  class="everythree" wx:for="{{times}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
-              <view class="attitude">{{item.value}}</view>
+              <view class="attitude">{{item.lable}}</view>
                <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />
                <icon style="position:absolute;top:0;right:0;" wx:if="{{item.checked}}" type="success" size="16" color="#04B8A0" />    
             </view>
@@ -315,7 +315,7 @@
     <radio-group bindchange="warnChange" data-index="{{index}}">
           <label  class="everythree" wx:for="{{warns}}" wx:key="value" wx:for-item="item">
             <view class="{{item.checked?'active':'unactive'}}">
-              <view class="attitude">{{item.value}}</view>
+              <view class="attitude">{{item.lable}}</view>
                <radio hidden="true" value="{{item.value}}" checked="{{item.checked}}" />
                <icon style="position:absolute;top:0;right:0;" wx:if="{{item.checked}}" type="success" size="16" color="#04B8A0" />    
             </view>
