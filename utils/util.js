@@ -289,6 +289,9 @@ function changeMsg(status, type) {
   var result
   if (type == 'btn') {
     switch (status) {
+      case 'PRE_CREATE':
+        result = '搭配准备'
+        break;
       case 'CREATE':
         result = '搭配准备'
         break;
@@ -328,6 +331,9 @@ function changeMsg(status, type) {
     }
   } else if (type == 'img') {
     switch (status) {
+      case 'PRE_CREATE':
+        result = '/images/showa.png'
+        break;
       case 'CREATE':
         result = '/images/showa.png'
         break;
@@ -364,6 +370,9 @@ function changeMsg(status, type) {
     }
   } else {
     switch (status) {
+      case 'PRE_CREATE':
+        result = '当前有一个在订阅周期内的盒子'
+        break;
       case 'CREATE':
         result = '请您耐心等待衣盒配送'
         break;
