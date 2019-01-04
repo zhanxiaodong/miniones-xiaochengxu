@@ -19,7 +19,7 @@ Page({
     warn: true,
     confirm: true,
     show: true,
-    confirmNo: true,
+    confirmNo: false,
     about: '',
     activeIndex: 0,
     tabs: ["0-1岁", "1-2岁", "2-3岁", "3-4岁", "4-5岁", "5-6岁"],
