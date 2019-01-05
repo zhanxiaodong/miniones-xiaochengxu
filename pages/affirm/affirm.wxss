@@ -107,7 +107,22 @@ color: #666666;
   font-size:28rpx;
   background: #fff;
 }
-
+.cancelBox {
+ position: fixed;
+ bottom: 160rpx;
+ margin-left: 10rpx;
+}
+.cancelbut {
+  width:670rpx;
+  background: #fff;
+  box-shadow: 0px 5px 25px -7px rgba(0,0,0,0.1);
+  border-radius: 50rpx;
+  line-height: 100rpx;
+  color:#04B8A0;
+  font-weight: bold;
+  font-size: 36rpx;
+  border: 1px solid #04B8A0;
+}
 .butBox{
   position: fixed;
   bottom: 50rpx;
@@ -220,7 +235,7 @@ color: #666666;
 
 .style {
   margin-left: 45rpx;
-  height: 220rpx;
+  height: 130rpx;
 }
 
 /*修改*/
