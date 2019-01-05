@@ -95,7 +95,14 @@ Page({
         url: "../affirm/affirm?babyId=" + this.data.baby.id + '&stylistId=' + this.data.stylist.id
       })
     }
-    
+  },
+  /**
+   * 确认系统盒子
+   */
+  boxConfirm: function () {
+    wx.navigateTo({
+      url: '../affirm/affirm?boxId=' + this.data.boxId
+    })
   },
   /**
    * 查看盒子
@@ -135,6 +142,9 @@ Page({
     } else {
       var boxStatus = this.data.boxStatus
       switch (boxStatus) {
+        case 'PRE_CREATE':
+          this.boxConfirm()
+          break;
         case 'NONE':
           this.boxNone()
           break;

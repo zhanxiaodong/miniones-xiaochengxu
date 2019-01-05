@@ -50,26 +50,43 @@ Page({
   },
 
   onLoad: function(options) {
-    var babyId = options.babyId
-    var stylistId = options.stylistId
+    var that = this
+    var boxId = options.boxId
+    var babyId
+    var stylistId
+    if(boxId){
+      wx.request({
+        url: util.requestUrl + 'box/findById?boxId=' + boxId,
+        success: function (res) {
+          if (res.data.data) {
+            babyId = res.data.data.babyId
+            stylistId = res.data.data.stylistId
+            that.setData({
+              stylistId: stylistId,
+              babyId: babyId
+            })
+          }
+        }
+      })
+    } else {
+      that.setData({
+        stylistId: options.stylistId,
+        babyId: options.babyId
+      })
+    }
     var chooseDate = dateUtils.formatDate(dateUtils.plusDay(new Date(), 3))
     var today = dateUtils.formatDate2(dateUtils.plusDay(new Date(), 3))
-    // (
-    //    dateUtils.plusDay(new Date(), 0)
-    //  )
-    this.setData({
+    that.setData({
+      boxId: boxId,
       date: today,
-      babyId: babyId,
-      stylistId: stylistId,
       chooseDate: chooseDate
     })
     var level = wx.getStorageSync('level')
     if (level < 40) {
-      this.updatePayAmount()
+      that.updatePayAmount()
     }
-    this.findExpCoupon()
-    this.findLastBox()
-    console.log()
+    that.findExpCoupon()
+    that.findLastBox()
   },
   updatePayAmount: function() {
     var that = this
@@ -240,8 +257,12 @@ Page({
   updateItem: function() {
     var that = this
     var box = that.data.more
+    var boxId = that.data.boxId
     if (!box) {
       box = new Object()
+    }
+    if (boxId) {
+      box.id = that.data.boxId
     }
     box.serviceAmount = this.data.payAmount
     box.payType = 'SERVICE'
@@ -259,11 +280,16 @@ Page({
   saveBox: function(e) {
     var that = this
     var box = that.data.more
+    var boxId = that.data.boxId
     console.log(box)
     if (!box) {
       box = new Object()
     }
     box.type = 'GEN'
+    if (boxId){
+      box.type ='SYSTEMSEND' 
+      box.id = boxId
+    }
     box.status = 'CREATE'
     box.orderTime = that.data.date
     box.openId = wx.getStorageSync('openId')
