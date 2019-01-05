@@ -311,7 +311,7 @@ Page({
            })
          } else {
            wx.navigateTo({
-             url: '../list/list',
+             url: '../index/index',
            })
          }
        }
@@ -323,6 +323,23 @@ Page({
       payStatus: false,
       markIndex: false,
       hidIndex: false
+    })
+  },
+  cancelBox: function() {
+    var item = new Object()
+    item.closeReason = "客户自行要求取消"
+    item.id = "5c2f27ac6c88376b51f14d97"
+    item.orderNo = "minianys"
+    item.status = "CLOSE"
+    wx.request({
+      url: util.requestUrl + 'box/closeBox',
+      method: 'POST',
+      data: item,
+      success: function (res) {
+        wx.redirectTo({
+          url: '../index/index',
+        })
+      }
     })
   }
 })

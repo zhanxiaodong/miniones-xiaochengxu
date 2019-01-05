@@ -69,7 +69,7 @@
     <view class="textBox">
       <textarea hidden="{{payStatus}}" style='position: absolute!important;' class="style" rows="5" bindinput='bindRemarks' placeholder-style='color: #cccccc; font-size: 24rpx;' placeholder='添加备注（限40字之内）'></textarea>
     </view>
-    <view class="cancelBox">
+    <view class="cancelBox" wx:if="{{boxId}}">
       <button class="cancelbut" bindtap="cancelBox">取消预约</button>
     </view>
     <view class="butBox">
