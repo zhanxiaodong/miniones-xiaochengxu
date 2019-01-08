@@ -290,7 +290,7 @@ function changeMsg(status, type) {
   if (type == 'btn') {
     switch (status) {
       case 'PRE_CREATE':
-        result = '搭配准备'
+        result = '订阅确认'
         break;
       case 'CREATE':
         result = '搭配准备'
