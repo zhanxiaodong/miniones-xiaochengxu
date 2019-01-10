@@ -9,7 +9,7 @@ Page({
     edit: false
   },
   onLoad: function(options) {
-    console.log(options)
+    console.log(111,options)
     var that = this;
     var stylistId = options.stylistId
 
@@ -107,6 +107,7 @@ Page({
   edit: function(event) {
     util.saveFormId(wx.getStorageSync('openId'), event.detail.formId)
     var edit = this.data.edit
+    console.log(edit)
     if (edit) {
       var babyId = event.currentTarget.dataset.id
       wx.navigateTo({

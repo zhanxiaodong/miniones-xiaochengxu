@@ -260,9 +260,9 @@ textRight radio,.textRight text{
 }
 
 .button-choice {
-color:#999999;
 background-color:#ffffff;
-border:1rpx solid #999999;
+color: #666666;
+border:1px solid #e5eae8;
 border-radius:20px;
 width:240rpx;
 line-height:56rpx;
@@ -323,19 +323,20 @@ border: none;
 }
 .unactive {
   font-size: 28rpx;
-  color: #999999;
+  background-color:#ffffff;
+  color: #666666;
+  border:1px solid #e5eae8;
   line-height: 56rpx;
   width: 240rpx;
   border-radius: 20px;
-  border: 1px solid #999999;
   margin-bottom: 30rpx;
 }
 
 .active {
   font-size: 28rpx;
-  color:#ffffff;
-  background-color:#04B8A0;
-  border: 1px solid #04B8A0;
+  background-color:#e5eae8;
+  color:#04B8A0;
+  border:1px solid #e5eae8;
   width: 240rpx;
   border-radius: 20px;
   line-height: 56rpx;

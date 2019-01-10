@@ -5,6 +5,7 @@ import {
 } from '../../components/wux'
 Page({
   data: {
+    clothNo: false,
     height: '',
     show: true,
     otherdesc: '3件及以上8折，整盒7折',
@@ -19,8 +20,8 @@ Page({
     subPrice: 0.00,
     badgeAmount: 0.00,
     mgic: '/images/mg.png',
-    defaultImg:'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100',
-    imgSize:'?x-oss-process=image/resize,h_100,w_100',
+    defaultImg: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shoplist.jpg?x-oss-process=image/resize,h_100,w_100',
+    imgSize: '?x-oss-process=image/resize,h_100,w_100',
     totalScoreToPay: 0.00,
     allSelect: false,
     badgenum: 0.0,
@@ -32,17 +33,28 @@ Page({
     avgPrice: 0.00,
     backCount: 0,
     vipoprice: 99,
-    checkboxItems: [
-      { value: '太小了', },
-      { value: '太大了', },
-      { value: '贵了' },
-      { value: '款式不喜欢' },
-      { value: '面料问题' },
-      { value: '颜色问题' },
+    checkboxItems: [{
+        value: '太小了',
+      },
+      {
+        value: '太大了',
+      },
+      {
+        value: '贵了'
+      },
+      {
+        value: '款式不喜欢'
+      },
+      {
+        value: '面料问题'
+      },
+      {
+        value: '颜色问题'
+      },
     ]
   },
-  
-  
+
+
   onLoad: function(options) {
     var that = this
     var initAmount = Math.floor(initAmount * 100) / 100
@@ -94,31 +106,26 @@ Page({
       actEndTime: actEndTime
     })
   },
-  // query.select('.wrap').boundingClientRect(function (rect) {
-  //   console.log(rect.height)
-  //   that.setData({
-  //     pageHeight: rect.height + 'px'
-  //   })
-  // }).exec();
-  
-  onPageScroll: function (res) {
+
+  //滚动消失效果
+  onPageScroll: function(res) {
     var windowHeight = wx.getSystemInfoSync().windowHeight
     var query = wx.createSelectorQuery();
-    var diff = 0 ;
+    var diff = 0;
     var scrollTop = res.scrollTop;
     query.select('.wrap').boundingClientRect()
     query.exec((res) => {
-      var pageHeight = res[0].height; 
+      var pageHeight = res[0].height;
       diff = pageHeight - windowHeight
-      console.log(diff)
-      console.log(scrollTop)
+      // console.log(diff)
+      // console.log(scrollTop)
       if (scrollTop == diff) {
         this.setData({
           show: false
         })
       }
     })
-    
+
   },
 
   updateInfo: function(goods) {
@@ -208,8 +215,8 @@ Page({
   onShow: function() {
     var voucher = this.data.voucher
     // if (voucher) {
-      var goodsTotal = this.data.goodsTotal
-      this.updateAmount(goodsTotal ? goodsTotal : 0.00)
+    var goodsTotal = this.data.goodsTotal
+    this.updateAmount(goodsTotal ? goodsTotal : 0.00)
     // }
     var update = this.data.update
     if (update) {
@@ -260,7 +267,6 @@ Page({
     } else {
       this.showComfirm()
     }
-
   },
   /**
    * 全选按钮
@@ -384,14 +390,14 @@ Page({
         vipoprice = vipoprice - vipoprice * 0.1
       }
       //满减折扣(不可跟满减优惠券同事使用)
-      if (this.data.other && totalPrice > 0 ) {
+      if (this.data.other && totalPrice > 0) {
         var voucher = this.data.voucher
         if (!voucher || (voucher && !voucher.condition)) {
           otherAmount = totalPrice * this.data.otherDic
           totalPrice = totalPrice - otherAmount
           subPrice = subPrice + otherAmount
-          vipoprice = vipoprice - vipoprice * this.data.otherDic 
-        } 
+          vipoprice = vipoprice - vipoprice * this.data.otherDic
+        }
       }
       //平均价
       var chooseCount = this.data.chooseCount
@@ -417,6 +423,7 @@ Page({
     })
   },
   goodsChange: function(e) {
+    debugger
     var goodsList = this.data.goodsList,
       values = e.detail.value;
     var goodsLen = goodsList.length
@@ -429,20 +436,24 @@ Page({
       currentAllSelect = false
     }
     for (var i = 0; i < goodsLen; ++i) {
-      goodsList[i].checked = false;
-
+      goodsList[i].checked = false
       for (var j = 0; j < valusLen; ++j) {
+        var clothNo
         if (goodsList[i].id == values[j]) {
           goodsList[i].checked = true;
           goodsTotal = goodsTotal + goodsList[i].realAmount
+          this.setData({
+            goodsList: goodsList,
+            clothNo: goodsList[i].checked ? true : false
+          })
+          console.log(goodsList[i].checked)
           break;
         } else {
           // 取消选中
           var id = goodsList[i].id
-          // 碳层
-
         }
       }
+
     }
     if (goodsList.length == valusLen) {
       this.setData({
@@ -487,6 +498,13 @@ Page({
 
     })
   },
+
+  hideCloth: function() {
+    this.setData({
+      clothNo: false
+    })
+  },
+
   showMsg: function(msg) {
     wx.showToast({
       title: msg,
@@ -648,9 +666,10 @@ Page({
       }
     })
   },
-  
-  checkboxChange: function (e) {
-    var checkboxItems = this.data.checkboxItems, values = e.detail.value;
+
+  checkboxChange: function(e) {
+    var checkboxItems = this.data.checkboxItems,
+      values = e.detail.value;
     for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
       checkboxItems[i].checked = false;
 
@@ -666,7 +685,7 @@ Page({
     });
     console.log(e.detail.value)
   },
-  
+
   goCulb: function() {
     wx.navigateTo({
       url: "/pages/club/club?up=true"

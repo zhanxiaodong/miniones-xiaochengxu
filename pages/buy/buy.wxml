@@ -1,6 +1,5 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
-
 <wxs module="filters" src="buy.wxs" />
 <view class="wrap">
    <view class="header">
@@ -192,10 +191,10 @@
 <!--取消衣服弹窗-->
 <view class="commodity_screen" bindtap="hideCloth" wx:if="{{clothNo}}"></view>
 <!--弹出框  -->
-<view class="commodity_attr_box" style="height: 726rpx;bottom:180rpx;" wx:if="{{clothNo}}">
+<view class="commodity_attr_box" style="height: 726rpx;bottom:200rpx;" wx:if="{{clothNo}}">
   <view style="text-align: center;">
-    <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 60rpx 0 20rpx;'>抛弃原因</view>
-    <view style="color: #999999; font-size: 24rpx">小衣服表示很委屈</view>
+    <view class='fontweight' style='font-size: 32rpx; font-weight: bold; color: #333333; margin: 40rpx 0 20rpx;'>抛弃原因</view>
+    <view style="color: #999999; font-size: 24rpx; margin-bottom: 30rpx;">小衣服表示很委屈</view>
     <checkbox-group class="content" bindchange="checkboxChange">
       <label  wx:for="{{checkboxItems}}" wx:key="value">
         <view class="{{item.checked ? 'active' : 'unactive'}}">
@@ -206,5 +205,11 @@
     </checkbox-group>
   </view>
 </view>
+   <view style="display: flex; flex-direction: column; align-items: center;z-index: 2000;" wx:if="{{clothNo}}">
+    <view style="width: 48rpx; height: 88rpx;z-index: 2000; position: fixed;bottom: 112rpx; ">
+      <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
+      <image bindtap="hideCloth" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
+    </view>
+   </view>
 </view>
 <!-- </scroll-view>  -->
