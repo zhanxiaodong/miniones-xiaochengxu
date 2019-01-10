@@ -40,6 +40,7 @@ Page({
 
   },
   next: function() {
+    this.updateStep()
     var bodyPic = this.data.uploadImg
     if (bodyPic) {
       var item = new Object()
@@ -61,6 +62,20 @@ Page({
     } else {
       wx.navigateTo({
         url: '/pages/create/create'
+      })
+    }
+  },
+  updateStep: function () {
+    var item = new Object()
+    item.wechatOpenId = wx.getStorageSync('openId')
+    item.step = 10
+    var lev = wx.getStorageSync('level')
+    if (lev < 20) {
+      wx.setStorageSync('level', '20')
+      wx.request({
+        url: util.requestUrl + 'user/updateStep',
+        method: 'POST',
+        data: item
       })
     }
   },
