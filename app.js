@@ -39,7 +39,7 @@ App({
   },
 
   
-/*自定义*/
+/*底部自定义*/
   editTabBar: function () {
 
     var _curPageArr = getCurrentPages();

@@ -188,7 +188,7 @@ Page({
     }
   },
   onLoad: function(options) {
-    app.editTabBar();
+     app.editTabBar();
     var that = this
     that.checkAuth()
     amap.getWeather().then(res => {
