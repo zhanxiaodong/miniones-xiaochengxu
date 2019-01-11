@@ -293,16 +293,16 @@ function changeMsg(status, type) {
         result = '订阅确认'
         break;
       case 'CREATE':
-        result = '搭配准备'
+        result = '查看详情'
         break;
       case 'LINK_UP':
-        result = '搭配准备'
+        result = '查看详情'
         break;
       case 'NOTIFY_EXPRESS':
-        result = '正在配送'
+        result = '查看详情'
         break;
       case 'DISPATCHING':
-        result = '正在配送'
+        result = '查看详情'
         break;
       case 'DELIVERY_COMPLETE':
         result = '评价与付款'
@@ -311,61 +311,64 @@ function changeMsg(status, type) {
         result = '购买与退件'
         break;
       case 'PAY_COMPLETE':
-        result = '要个盒子'
+        result = '提前配送'
         break;
       case 'PAY_PART':
-        result = '免费召回'
+        result = '查看详情'
         break;
       case 'RETURN_EXPRESS':
-        result = '等待取件'
+        result = '查看详情'
         break;
       case 'RETURN_EXCEPTION':
-        result = '召回异常'
+        result = '查看详情'
         break;
       case 'END':
-        result = '要个盒子'
+        result = '提前配送'
         break;
       default:
         result = '要个盒子'
         break;
     }
-  } else if (type == 'img') {
+  } else if (type == 'describe') {
     switch (status) {
       case 'PRE_CREATE':
-        result = '/images/showa.png'
+        result = '穿搭衣盒'
         break;
       case 'CREATE':
-        result = '/images/showa.png'
+        result = '正在配送'
         break;
       case 'LINK_UP':
-        result = '/images/boxs/ready.png'
+        result = '正在配送'
         break;
       case 'NOTIFY_EXPRESS':
-        result = '/images/boxs/Transport.png'
+        result = '正在配送'
         break;
       case 'DISPATCHING':
-        result = '/images/boxs/Transport.png'
+        result = '正在配送'
         break;
       case 'DELIVERY_COMPLETE':
-        result = '/images/boxs/open.png'
+        result = '衣盒抵达'
         break;
       case 'EVALUATED':
-        result = '/images/boxs/open.png'
+        result = '衣盒抵达'
         break;
       case 'PAY_COMPLETE':
-        result = '/images/showa.png'
+        result = '穿搭衣盒'
         break;
       case 'PAY_PART':
-        result = '/images/boxs/open.png'
+        result = '免费召回'
+        break;
+      case 'RETURN_EXCEPTION':
+        result = '召回异常'
         break;
       case 'RETURN_EXPRESS':
-        result = '/images/showa.png'
+        result = '免费召回'
         break;
       case 'END':
-        result = '/images/showa.png'
+        result = '穿搭衣盒'
         break;
       default:
-        result = '/images/showa.png'
+        result = '首次订阅'
         break;
     }
   } else {
@@ -389,13 +392,13 @@ function changeMsg(status, type) {
         result = '感觉如何？来评价下吧'
         break;
       case 'EVALUATED':
-        result = '配送成功，为喜欢的买单！'
+        result = '限时试穿:3天'
         break;
       case 'PAY_COMPLETE':
-        result = '下一次盒子: '
+        result = '本期配送日: '
         break;
       case 'PAY_PART':
-        result = '送没有留下的小衣服回家吧'
+        result = '7天内可免费召回'
         break;
       case 'RETURN_EXPRESS':
         result = '请耐心等待快递员上门取件'
@@ -404,10 +407,10 @@ function changeMsg(status, type) {
         result = '当前订单存在召回异常'
         break;
       case 'END':
-        result = '下一次盒子: '
+        result = '本期配送日: '
         break;
       default:
-        result = '当前没有进行中的搭配'
+        result = '免费配送，先试后买'
         break;
     }
   }

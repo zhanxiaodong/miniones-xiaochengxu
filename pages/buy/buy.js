@@ -423,7 +423,6 @@ Page({
     })
   },
   goodsChange: function(e) {
-    debugger
     var goodsList = this.data.goodsList,
       values = e.detail.value;
     var goodsLen = goodsList.length
@@ -442,11 +441,6 @@ Page({
         if (goodsList[i].id == values[j]) {
           goodsList[i].checked = true;
           goodsTotal = goodsTotal + goodsList[i].realAmount
-          this.setData({
-            goodsList: goodsList,
-            clothNo: goodsList[i].checked ? true : false
-          })
-          console.log(goodsList[i].checked)
           break;
         } else {
           // 取消选中

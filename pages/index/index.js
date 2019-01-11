@@ -22,7 +22,7 @@ Page({
     ],
     showModalStatus: false,
     needAuth: false,
-    gift: '/images/showa.png',
+    gift: '首次订阅',
     tabs: ["穿搭", "玩具", "营养", "学习", "亲子"],
     message: '当前没有进行中的搭配',
     nextMessage:'',
@@ -63,6 +63,7 @@ Page({
       this.fillInfo()
     }
   },
+
   getBoxBefore: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
     var level = wx.getStorageSync('level')
@@ -261,17 +262,17 @@ Page({
         var babyCount = result.babyCount ? result.babyCount : 0
         var btnMsg = util.changeMsg(boxStatus, 'btn')
         var message = util.changeMsg(boxStatus, 'msg')
+        var gift = util.changeMsg(boxStatus, 'describe')
         var nextMessage = '';
         if (nextBoxTime) {
           if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
             message = message + nextBoxTime
-            nextMessage = '开启第' + boxCount + '个穿搭惊喜'
+            gift = 'NO' + boxCount + gift
           } 
         }
         if (!level || level == viplev.LOOK) {
           btnMsg = '开启服务'
         }
-        var gift = util.changeMsg(boxStatus, 'img')
         that.showModal(boxStatus, user)
         that.setData({
           boxCount: boxCount,

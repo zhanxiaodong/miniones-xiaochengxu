@@ -89,7 +89,7 @@
   }
   
   .button-bottom {
-    padding-bottom: 90rpx;
+    padding-bottom: 60rpx;
     text-align: center;
   }
 
@@ -98,8 +98,8 @@
   } 
 
   .allow {
-    height: 240rpx;
-    width: 240rpx;
+    height: 400rpx;
+    width: 400rpx;
   }
 
   .infoView {
@@ -117,12 +117,10 @@
   .infoView-two {
     font-size: 44rpx;
     font-weight: 600;
-    color: #666666;
+    color: #333333;
   }
 
   .message {
-    padding-top: 70rpx;
-    padding-bottom: 40rpx;
     color: #666666; 
     font-weight:Regular;
     font-size: 24rpx;
