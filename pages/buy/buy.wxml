@@ -25,7 +25,7 @@
       <view class='goods-list-info' style="background-color: #ffffff;">
       <checkbox-group bindchange="goodsChange">
         <label style="font-size:14px;" wx:for="{{goodsList}}" wx:key="value" wx:for-index="index">
-          <view class='checklabel'>
+          <view class='checklabel' >
             <view class="left-one">
                <image src="{{item.imgUrl && item.imgUrl.length>0 ? item.imgUrl[0]+imgSize : defaultImg}}" class="left-one-img"/>
                <view class="left-one-index">#{{index + 1}}</view>
@@ -39,7 +39,7 @@
               </view>
               <view class="discount">{{item.discount * 10}}折</view>
             </view>
-            <view class="checkd">
+            <view class="checkd" data-id='{{item.id}}' data-checked='{{item.checked}}' bindtap='radioChange'>
              <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
               <icon type="circle" size="25" wx:if="{{!item.checked}}"></icon>
               <icon type="success" size="25" color="#04B8A0" wx:if="{{item.checked}}"></icon>
