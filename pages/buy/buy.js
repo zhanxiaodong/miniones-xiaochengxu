@@ -33,17 +33,16 @@ Page({
     avgPrice: 0.00,
     backCount: 0,
     vipoprice: 99,
-    checkboxItems: [{
-        value: '太小了',
+    goodsEval: [],
+    checkboxItems: [
+      {
+        value: '尺码问题',
       },
       {
-        value: '太大了',
+        value: '价格问题'
       },
       {
-        value: '贵了'
-      },
-      {
-        value: '款式不喜欢'
+        value: '款式问题'
       },
       {
         value: '面料问题'
@@ -194,6 +193,7 @@ Page({
           })
         } else {
           var goodsLength = goodsList.length
+          var goodsEval = that.data.goodsEval
           for (var i = 0; i < goodsLength; i++) {
             var postfix = ''
             if (i < 10) {
@@ -202,6 +202,10 @@ Page({
               postfix = '' + i
             }
             goodsList[i].id = goodsList[i].id + postfix
+            var goodsEvalObject = new Object()
+            goodsEvalObject.id = goodsList[i].id
+            goodsEvalObject.eval = []
+            goodsEval.push(goodsEvalObject)
           }
           that.setData({
             goodsList: goodsList
@@ -422,6 +426,109 @@ Page({
       orderPay: orderPay ? orderPay : 0.00
     })
   },
+  radioChange: function(e) {
+    var id = e.currentTarget.dataset.id
+    var checked = e.currentTarget.dataset.checked
+    var goodsEval = this.data.goodsEval
+    console.dir(goodsEval)
+    console.log(id)
+    for (var i = 0; i < goodsEval.length; i++) {
+      if (goodsEval[i].id == id){
+        var geval = goodsEval[i].eval
+        if (!checked) {
+          goodsEval[i].checked = false
+          this.setData({
+            goodsEval: goodsEval
+          })
+        } else {
+          console.log(geval)
+          this.updateboxAll(geval)
+          this.setData({
+            clothNo: checked ? true : false,
+            currentGoodsId: id
+          })
+        }
+        break;
+      }
+    }
+    console.log(goodsEval)
+  },
+
+  checkboxChange: function(e) {
+    var currentGoodsId = this.data.currentGoodsId
+    var goodsEval = this.data.goodsEval
+    var checkboxItems = this.data.checkboxItems,
+      values = e.detail.value;
+    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
+      checkboxItems[i].checked = false;
+      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
+        if (checkboxItems[i].value == values[j]) {
+          checkboxItems[i].checked = true;
+          break;
+        }
+      }
+    }
+    for (var i = 0; i < goodsEval.length; i++) {
+      if (goodsEval[i].id == currentGoodsId) {
+        goodsEval[i].eval = values
+        break;
+      }
+    }
+    this.setData({
+      checkboxItems: checkboxItems,
+      goodsEval: goodsEval
+    });
+    var goodsEvalList = []
+    for (var i = 0; i < goodsEval.length; i++) {
+      var evalObject = new Object()
+      evalObject.id = goodsEval[i].id
+      var geval = goodsEval[i].eval
+      for (var j = 0; j < geval.length; j++) {
+        if (geval[j] == "尺码问题"){
+          evalObject['size'] = geval[j]
+        } else if (geval[j] == "价格问题") {
+          evalObject['con'] = geval[j]
+        } else if (geval[j] == "款式问题") {
+          evalObject['style'] = geval[j]
+        } else if (geval[j] == "面料问题") {
+          evalObject['ma'] = geval[j]
+        } else if (geval[j] == "颜色问题") {
+          evalObject['color'] = geval[j]
+        }
+      }
+      goodsEvalList.push(evalObject)
+    }
+    console.log(goodsEvalList)
+  },
+  updateboxAll: function(evals) {
+    var checkboxItems = this.data.checkboxItems
+    if (evals.length == 0){
+      for (var j = 0; j < checkboxItems.length; ++j) {
+        checkboxItems[j].checked = false
+      }
+    }
+    console.log(checkboxItems)
+    for (var i = 0; i < evals.length; ++i) {
+      var value = evals[i]
+      for (var j = 0; j < checkboxItems.length; ++j) {
+        if (checkboxItems[j].value == value) {
+          checkboxItems[j].show = true
+          checkboxItems[j].checked = true;
+          break;
+        }
+      }
+    }
+    this.setData({
+      checkboxItems: checkboxItems,
+    })
+    // console.log(value)
+    // var checkboxItems = util.radioGroupChange(this.data.checkboxItems, value)
+    // console.log(checkboxItems)
+    // this.setData({
+    //   checkboxItems: checkboxItems
+    // })
+  },
+
   goodsChange: function(e) {
     var goodsList = this.data.goodsList,
       values = e.detail.value;
@@ -659,25 +766,6 @@ Page({
         })
       }
     })
-  },
-
-  checkboxChange: function(e) {
-    var checkboxItems = this.data.checkboxItems,
-      values = e.detail.value;
-    for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
-      checkboxItems[i].checked = false;
-
-      for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
-        if (checkboxItems[i].value == values[j]) {
-          checkboxItems[i].checked = true;
-          break;
-        }
-      }
-    }
-    this.setData({
-      checkboxItems: checkboxItems,
-    });
-    console.log(e.detail.value)
   },
 
   goCulb: function() {
