@@ -70,7 +70,7 @@ Page({
       })
       this.updateInfo(null)
     }
-    this.findBalance()
+    this.findBalance()    
   },
   timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
@@ -500,6 +500,7 @@ Page({
     }
     console.log(goodsEvalList)
   },
+
   updateboxAll: function(evals) {
     var checkboxItems = this.data.checkboxItems
     if (evals.length == 0){
@@ -767,7 +768,7 @@ Page({
       }
     })
   },
-
+  
   goCulb: function() {
     wx.navigateTo({
       url: "/pages/club/club?up=true"

@@ -230,7 +230,7 @@
           <view class="wrap-design-footer-info-name">
             <view>{{result.stylist.name}}</view>
             <view style="font-weight: 400; padding-left:40rpx;">小姑姑</view>
-            <view class="addwechat">添加微信</view>
+            <view class="addwechat" bindtap='copyText' data-text="{{result.stylist.wechat}}">添加微信</view>
           </view>  
           <view class="wrap-design-footer-info-work">{{result.stylist.special}} </view>
        </view>
@@ -271,6 +271,8 @@
      <image src="{{}}" class="wrap-choose-img"/>
      <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png?x-oss-process=image/resize,h_115,w_295" style="height: 256rpx; width: 670rpx;background-color: #f2f2f2;margin-left: 20rpx; border-radius: 20rpx;"/>
    </view> -->
+   <!--复制微信号-->
+  <view style="position:fixed;left:-2222px;">{{result.stylist.wechat}}</view>
    <view class="wrap-claim">
       <view class="wrap-claim-title">会员特权</view>
       <view class="vip-privileges">

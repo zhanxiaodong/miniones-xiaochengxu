@@ -641,6 +641,23 @@ Page({
       planAuto: value
     })
   },
+
+  copyText: function (e) {
+    console.log(e)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
+  },
+
   /*保存修改*/ 
   confirmRepair:function () {
     var item = new Object()
