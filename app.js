@@ -83,29 +83,34 @@ App({
     tabBar: {
       borderStyle: "white",
       list: [
-        {
-          "selectedIconPath": "/images/select-one.jpeg",
-          "iconPath": "/images/one.jpeg",
+        { 
+          "selectedText": "VIP",
+          "text": "VIP",
+          "selectedIconPath": "/images/bangdan-4.png",
+          "iconPath": "/images/bangdan-3.png",
           "pagePath": "/pages/guide/guide",
           "clas": "menu-item",
           "selected": false
         },
 
-        {
-          "selectedIconPath": "/images/select-two.jpeg",
-          "iconPath": "/images/two.jpeg",
+        { 
+          "selectedText": "衣盒",
+          "text": "衣盒",
+          "selectedIconPath": "/images/yuedu-2.png",
+          "iconPath": "/images/yuedu.png",
           "pagePath": "/pages/index/index",
           "clas": "menu-item",
           "selected": false
         },
-        {
-          "selectedIconPath": "/images/select-three.jpeg",
-          "iconPath": "/images/three.jpeg",
+        { 
+          "selectedText": "我的",
+          "text": "我的",
+          "selectedIconPath": "/images/iconlineuser--3.png",
+          "iconPath": "/images/iconlineuser--2.png",
           "pagePath": "/pages/my/my",
           "clas": "menu-item menu-item2",
           "selected": false
         }
-
       ],
 
       position: "bottom"

@@ -267,7 +267,7 @@ Page({
         if (nextBoxTime) {
           if (boxStatus == 'PAY_COMPLETE' || boxStatus == 'END') {
             message = message + nextBoxTime
-            gift = 'NO' + boxCount + gift
+            gift = 'NO.' + boxCount + gift
           } 
         }
         if (!level || level == viplev.LOOK) {

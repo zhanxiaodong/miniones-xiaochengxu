@@ -4,9 +4,9 @@
       <navigator url="{{item.pagePath}}" hover-class="none" open-type="redirect" class="{{item.clas}}">
  
         <image src="{{item.selectedIconPath}}" wx:if="{{item.active}}" class="img"></image>
- 
         <image src="{{item.iconPath}}"  wx:if="{{!item.active}}" class="img"></image>
-      
+        <view class="img-text-select"  wx:if="{{item.active}}">{{item.selectedText}}</view>
+        <view class="img-text" wx:if="{{!item.active}}">{{item.text}}</view>
       </navigator>
  
     </block>
