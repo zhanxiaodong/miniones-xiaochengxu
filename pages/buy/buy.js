@@ -34,8 +34,7 @@ Page({
     backCount: 0,
     vipoprice: 99,
     goodsEval: [],
-    checkboxItems: [
-      {
+    checkboxItems: [{
         value: '尺码问题',
       },
       {
@@ -71,6 +70,7 @@ Page({
       this.updateInfo(null)
     }
     this.findBalance()
+    this.findBoxEvaByBoxId()
   },
   timeFormat(param) { //小于10的格式化函数
     return param < 10 ? '0' + param : param;
@@ -430,28 +430,25 @@ Page({
     var id = e.currentTarget.dataset.id
     var checked = e.currentTarget.dataset.checked
     var goodsEval = this.data.goodsEval
-    console.dir(goodsEval)
-    console.log(id)
     for (var i = 0; i < goodsEval.length; i++) {
-      if (goodsEval[i].id == id){
+      if (goodsEval[i].id == id) {
         var geval = goodsEval[i].eval
         if (!checked) {
           goodsEval[i].checked = false
-          this.setData({
-            goodsEval: goodsEval
-          })
         } else {
-          console.log(geval)
+          goodsEval[i].checked = true
           this.updateboxAll(geval)
           this.setData({
             clothNo: checked ? true : false,
             currentGoodsId: id
           })
         }
+        this.setData({
+          goodsEval: goodsEval
+        })
         break;
       }
     }
-    console.log(goodsEval)
   },
 
   checkboxChange: function(e) {
@@ -474,17 +471,17 @@ Page({
         break;
       }
     }
-    this.setData({
-      checkboxItems: checkboxItems,
-      goodsEval: goodsEval
-    });
-    var goodsEvalList = []
+    console.log(goodsEval)
+    var goodsEvaList = []
     for (var i = 0; i < goodsEval.length; i++) {
+      if (!goodsEval[i].checked || goodsEval[i].eval.length == 0){
+        continue
+      }
       var evalObject = new Object()
       evalObject.id = goodsEval[i].id
       var geval = goodsEval[i].eval
       for (var j = 0; j < geval.length; j++) {
-        if (geval[j] == "尺码问题"){
+        if (geval[j] == "尺码问题") {
           evalObject['size'] = geval[j]
         } else if (geval[j] == "价格问题") {
           evalObject['con'] = geval[j]
@@ -496,23 +493,54 @@ Page({
           evalObject['color'] = geval[j]
         }
       }
-      goodsEvalList.push(evalObject)
+      goodsEvaList.push(evalObject)
     }
-    console.log(goodsEvalList)
+    this.setData({
+      checkboxItems: checkboxItems,
+      goodsEval: goodsEval,
+      goodsEvaList: goodsEvaList
+    });
+    console.log(1111, this.data.goodsEvaList)
+  },
+  findBoxEvaByBoxId() {
+    var boxId = this.data.boxId
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'box/findBoxEvaByBoxId?boxId=' + boxId,
+      success: function (res) {
+        var reault = res.data.data
+        if (reault.goodsEvaList){
+          debugger
+          var goodsEvaList = reault.goodsEvaList
+          var goodsEval = []
+          for (var i = 0; i < goodsEvaList.length; i++) {
+            var goodsObject = new Object()
+            var evals = []
+            var goodsE = JSON.parse(goodsEvaList[i])
+            for (var key in goodsE) {
+              if (key != "id"){
+                evals.push(goodsE[key])
+              }
+            }
+            goodsObject.id = goodsE.id
+            goodsObject.eval = evals
+            goodsEval.push(goodsObject)
+          }
+          that.setData({
+            goodsEval: goodsEval,
+            goodsEvalId: reault.id
+          })
+        }
+      }
+    })
   },
   updateboxAll: function(evals) {
     var checkboxItems = this.data.checkboxItems
-    if (evals.length == 0){
-      for (var j = 0; j < checkboxItems.length; ++j) {
-        checkboxItems[j].checked = false
-      }
-    }
-    console.log(checkboxItems)
-    for (var i = 0; i < evals.length; ++i) {
-      var value = evals[i]
-      for (var j = 0; j < checkboxItems.length; ++j) {
+    for (var j = 0; j < checkboxItems.length; ++j) {
+      checkboxItems[j].checked = false
+      for (var i = 0; i < evals.length; ++i) {
+        var value = evals[i]
         if (checkboxItems[j].value == value) {
-          checkboxItems[j].show = true
           checkboxItems[j].checked = true;
           break;
         }
@@ -521,12 +549,6 @@ Page({
     this.setData({
       checkboxItems: checkboxItems,
     })
-    // console.log(value)
-    // var checkboxItems = util.radioGroupChange(this.data.checkboxItems, value)
-    // console.log(checkboxItems)
-    // this.setData({
-    //   checkboxItems: checkboxItems
-    // })
   },
 
   goodsChange: function(e) {
@@ -676,6 +698,7 @@ Page({
   confirm: function() {
     var that = this
     var allSelect = that.data.allSelect
+    that.saveEva()
     var reBuy = that.data.reBuy
     if (reBuy) {
       wx.showToast({
@@ -699,6 +722,27 @@ Page({
           url: '../assess/assess?back=true&boxId=' + that.data.boxId
         })
       }, 2000)
+    }
+  },
+  /**
+   * 提交取消衣服评价
+   */
+  saveEva: function () {
+    debugger
+    var evaluate = new Object()
+    var id = this.data.goodsEvalId
+    if (id) {
+      evaluate.id = id
+    }
+    evaluate.openId = wx.getStorageSync('openId')
+    evaluate.boxId = this.data.boxId
+    evaluate.goodsEvaList = this.data.goodsEvaList
+    if (evaluate.goodsEvaList){
+      wx.request({
+        url: util.requestUrl + 'box/saveBoxEva',
+        method: 'POST',
+        data: evaluate
+      })
     }
   },
   updateBox() {
@@ -748,6 +792,7 @@ Page({
   },
   confirmNoPay: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+
     var item = new Object()
     item.openId = wx.getStorageSync('openId')
     item.amount = this.data.totalPrice
@@ -766,6 +811,7 @@ Page({
         })
       }
     })
+    that.saveEva()
   },
 
   goCulb: function() {

@@ -73,6 +73,7 @@ Page({
         boxId: options.boxId
       })
     }
+    this.findBoxEvaByBoxId()
   }, 
   feedbackChange: function (e) {
     var values = e.detail.value
@@ -120,6 +121,7 @@ Page({
    */
   saveEva: function () {
     var evaluate = new Object()
+    evaluate.id = this.data.id
     evaluate.openId = wx.getStorageSync('openId')
     evaluate.boxId = this.data.boxId
     evaluate.evalLabel = this.data.selectedFavorites
@@ -141,6 +143,22 @@ Page({
             url: '../index/index',
           })
         },2000)
+      }
+    })
+  },
+  findBoxEvaByBoxId() {
+    // 5c2f27ac6c88376b51f14d97
+    var boxId = this.data.boxId
+    var that = this
+    wx.request({
+      url: util.requestUrl + 'box/findBoxEvaByBoxId?boxId=' + boxId,
+      success: function (res) {
+        var reault = res.data.data
+        if (reault) {
+          that.setData({
+            id: reault.id
+          })
+        }
       }
     })
   },
