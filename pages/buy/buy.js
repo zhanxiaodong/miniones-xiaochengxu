@@ -510,7 +510,7 @@ Page({
       success: function (res) {
         var reault = res.data.data
         if (reault.goodsEvaList){
-          debugger
+          
           var goodsEvaList = reault.goodsEvaList
           var goodsEval = []
           for (var i = 0; i < goodsEvaList.length; i++) {
@@ -534,6 +534,7 @@ Page({
       }
     })
   },
+
   updateboxAll: function(evals) {
     var checkboxItems = this.data.checkboxItems
     for (var j = 0; j < checkboxItems.length; ++j) {
@@ -728,7 +729,7 @@ Page({
    * 提交取消衣服评价
    */
   saveEva: function () {
-    debugger
+    
     var evaluate = new Object()
     var id = this.data.goodsEvalId
     if (id) {
@@ -813,7 +814,7 @@ Page({
     })
     that.saveEva()
   },
-
+  
   goCulb: function() {
     wx.navigateTo({
       url: "/pages/club/club?up=true"

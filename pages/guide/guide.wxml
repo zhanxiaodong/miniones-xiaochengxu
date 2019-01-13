@@ -198,7 +198,7 @@
           </view>
           <view class="wrap-info-detail-header-right">
              <image src="{{vipicon}}" class="wrap-info-detail-header-right-icon"/>
-             <view class="wrap-info-detail-header-right-show">SVIP</view>
+             <view class="wrap-info-detail-header-right-show">迷你会员</view>
           </view>
        </view>
        <view class="wrap-info-detail-footer">
@@ -227,12 +227,16 @@
      <view class="wrap-design-footer">
        <image src="{{result.stylist.avatar}}" class="wrap-design-footer-img"/>
        <view class="wrap-design-footer-info">
-          <view class="wrap-design-footer-info-name">{{result.stylist.name}}<text style="font-weight: 400; padding-left:20rpx;">小姑姑</text></view>
+          <view class="wrap-design-footer-info-name">
+            <view>{{result.stylist.name}}</view>
+            <view style="font-weight: 400; padding-left:40rpx;">小姑姑</view>
+            <view class="addwechat" bindtap='copyText' data-text="{{result.stylist.wechat}}">添加微信</view>
+          </view>  
           <view class="wrap-design-footer-info-work">{{result.stylist.special}} </view>
        </view>
      </view>
    </view>
-   <view class="wrap-plan">
+   <!-- <view class="wrap-plan">
       <view class="wrap-plan-header">
          <view class="wrap-plan-header-title">订阅计划</view>
          <view class="wrap-header-omit">...</view>
@@ -264,19 +268,23 @@
    </view>
    <view class="wrap-choose">
      <view class="wrap-choose-title">会员精选</view>
-     <!--<image src="{{}}" class="wrap-choose-img"/>-->
+     <image src="{{}}" class="wrap-choose-img"/>
      <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/topbackground.png?x-oss-process=image/resize,h_115,w_295" style="height: 256rpx; width: 670rpx;background-color: #f2f2f2;margin-left: 20rpx; border-radius: 20rpx;"/>
-   </view>
+   </view> -->
+   <!--复制微信号-->
+  <view style="position:fixed;left:-2222px;">{{result.stylist.wechat}}</view>
    <view class="wrap-claim">
       <view class="wrap-claim-title">会员特权</view>
-      <view class="vip-privilege">
-        <view class="vip-privilege-detail" wx:for="{{vipPrivilege}}" wx:key="*this">
-          <image class="vip-privilege-img" src="{{item.img}}"/>
+      <view class="vip-privileges">
+        <view class="vip-privilege-details" wx:for="{{vipPrivileges}}" wx:key="*this">
+           <view style="height: 80rpx;width: 80rpx;background:#d1f3ee;border-radius: 50%;margin-bottom:15px;">
+            <image class="vip-privilege-imgs" src="{{item.img}}"/>
+           </view>
           <view class="vip-privilege-title">{{item.title}}</view>
         </view>
       </view>
    </view>
-   <view class="wrap-footer">-关爱，从不迟到-</view>
+   <view class="wrap-footer">-每一个,都喜欢-</view>
   </view> 
 </view>
 <!-- 弹窗屏幕变绿-->

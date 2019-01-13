@@ -108,19 +108,48 @@ Page({
     ],
     vipPrivilege: [{
       img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou2.png',
+      title: '专属搭配'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou.png',
+      title: '专享折扣'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou3.png',
+      title: '先试后买'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou4.png',
+      title: '往返包邮'
+    }
+    ],
+    vipPrivileges: [{
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou.png?x-oss-process=image/resize,h_80,w_80',
         title: '专属搭配'
       },
       {
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou2.png',
         title: '专享折扣'
       },
       {
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou3.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou3.png',
         title: '先试后买'
       },
       {
-        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/zhekou4.png',
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou4.png',
         title: '往返包邮'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou5.png',
+        title: '生日礼盒'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou6.png',
+        title: '周年礼券'
+      },
+      {
+        img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou7.png',
+        title: '免费订阅'
       }
     ],
      
@@ -612,6 +641,23 @@ Page({
       planAuto: value
     })
   },
+
+  copyText: function (e) {
+    console.log(e)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
+  },
+
   /*保存修改*/ 
   confirmRepair:function () {
     var item = new Object()

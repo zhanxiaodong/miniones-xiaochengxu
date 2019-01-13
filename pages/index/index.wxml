@@ -11,7 +11,8 @@
             <view class="header-wea">{{weather.weather.data}}</view>
             <view class="header-tem">{{weather.temperature.data}}°C</view>
          </view>
-         <view class="header-warn">即将冷空气</view>
+        <view class="infoView-two">{{gift}}</view>
+        <!-- <view style="height: 60rpx" wx:if='{{!nextMessage}}'>{{nextMessage}}</view> -->
       </view>
        <!--<image class="header-right" src="{{userInfo.avatarUrl}}"/>-->
     </view>
@@ -30,20 +31,20 @@
     
     <view class="weui-tab__panel" id="repair-two">
       <view class='infoView'>
-            <view class="infoView-one">订阅美好童年</view>
-            <view class="infoView-two" wx:if='{{nextMessage}}'>{{nextMessage}}</view>
+            <!-- <view class="infoView-one">订阅美好童年</view> -->
+            
       </view>
       <view class="picture">
-        <image src='{{gift}}' class='allow'></image>
+        <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shouye-replace.png?x-oss-process=image/resize,h_200,w_200" class='allow'></image>
       </view>
       <view class="button-bottom">
-        <view class="day" hidden='{{!tryOnDays}}'>剩余试穿天数:{{tryOnDays}}</view>
-        <view class='message'>{{message}}</view>
-        <view style='width:400rpx;'>
+        <view style="height: 34rpx;"></view>
+        <view style='width:400rpx;margin-top:50rpx;margin-bottom:30rpx;'>
           <form report-submit='true' bindsubmit='getBoxBefore'>
             <button class="repair-one" form-type='submit'>{{btnMsg}}</button>
           </form>
         </view>
+        <view class='message'>{{message}}</view>
       </view>
     </view>
   </view>

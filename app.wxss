@@ -76,12 +76,19 @@ visibility: hidden ;
   width: 33%;
   float: left;
   text-align: center;
-  padding: 26rpx 0;
+  padding: 14rpx 0;
 }
-  
+.img-text {
+  font-size: 22rpx;
+  color: #999999;
+}
+.img-text-select {
+  font-size: 22rpx;
+  color: #04B8A0;
+}
 .img {
-  width: 46rpx;
-  height: 46rpx;
+  width: 40rpx;
+  height: 40rpx;
   display: block;
   margin: auto;
 }
