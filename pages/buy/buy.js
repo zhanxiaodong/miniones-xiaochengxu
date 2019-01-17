@@ -478,7 +478,8 @@ Page({
         continue
       }
       var evalObject = new Object()
-      evalObject.id = goodsEval[i].id
+      var id = goodsEval[i].id
+      evalObject.id = id.substring(0, id.length - 2)
       var geval = goodsEval[i].eval
       for (var j = 0; j < geval.length; j++) {
         if (geval[j] == "尺码问题") {
