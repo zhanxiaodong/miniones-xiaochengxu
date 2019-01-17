@@ -1,3 +1,5 @@
+const language = require('language.js')
+
 function formatTime(date, spe) {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -282,51 +284,64 @@ function getMonths() {
   ]
   return months
 }
+
+function transport(word){
+
+  console.log(language)
+   var languageType = "chinese"
+  if(languageType == "chinese"){
+    return language.language.chinese[word]
+  } else {
+    return language.language.english[word]
+  }
+}
+
 /**
  * 首页文字变化
  */
+/*chinese*/
 function changeMsg(status, type) {
   var result
   if (type == 'btn') {
     switch (status) {
       case 'PRE_CREATE':
-        result = '订阅确认'
+        result = transport('six')
         break;
       case 'CREATE':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'LINK_UP':
-        result = '查看详情'
+        result = transport('first')
         break;
       case 'NOTIFY_EXPRESS':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'DISPATCHING':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'DELIVERY_COMPLETE':
-        result = '评价与付款'
+        result = transport('five')
         break;
       case 'EVALUATED':
-        result = '购买与退件'
+        result = transport('forth')
         break;
       case 'PAY_COMPLETE':
-        result = '提前配送'
+        result = transport('third')
         break;
       case 'PAY_PART':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'RETURN_EXPRESS':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'RETURN_EXCEPTION':
-        result = '查看详情'
+        result = transport('second')
         break;
       case 'END':
-        result = '提前配送'
+        result = transport('third')
         break;
       default:
-        result = '要个盒子'
+        result = transport('first')
         break;
     }
   } else if (type == 'describe') {
@@ -411,6 +426,139 @@ function changeMsg(status, type) {
         break;
       default:
         result = '免费配送，先试后买'
+        break;
+    }
+  }
+  return result
+}
+
+/*english*/
+function changeMsgs(status, type) {
+  var result
+  if (type == 'btn') {
+    switch (status) {
+      case 'PRE_CREATE':
+        result = 'subscription confirmation'
+        break;
+      case 'CREATE':
+        result = 'see details'
+        break;
+      case 'LINK_UP':
+        result = 'see details'
+        break;
+      case 'NOTIFY_EXPRESS':
+        result = 'see details'
+        break;
+      case 'DISPATCHING':
+        result = 'see details'
+        break;
+      case 'DELIVERY_COMPLETE':
+        result = 'see details'
+        break;
+      case 'EVALUATED':
+        result = 'buy and return'
+        break;
+      case 'PAY_COMPLETE':
+        result = 'early delivery'
+        break;
+      case 'PAY_PART':
+        result = 'see details'
+        break;
+      case 'RETURN_EXPRESS':
+        result = 'see details'
+        break;
+      case 'RETURN_EXCEPTION':
+        result = 'see details'
+        break;
+      case 'END':
+        result = 'early delivery'
+        break;
+      default:
+        result = 'want a box'
+        break;
+    }
+  } else if (type == 'describe') {
+    switch (status) {
+      case 'PRE_CREATE':
+        result = 'wearing a clothes box'
+        break;
+      case 'CREATE':
+        result = 'delivering'
+        break;
+      case 'LINK_UP':
+        result = 'delivering'
+        break;
+      case 'NOTIFY_EXPRESS':
+        result = 'delivering'
+        break;
+      case 'DISPATCHING':
+        result = 'delivering'
+        break;
+      case 'DELIVERY_COMPLETE':
+        result = 'clothes box arrived'
+        break;
+      case 'EVALUATED':
+        result = 'clothes box arrived'
+        break;
+      case 'PAY_COMPLETE':
+        result = 'wearing a clothes box'
+        break;
+      case 'PAY_PART':
+        result = 'free recall'
+        break;
+      case 'RETURN_EXCEPTION':
+        result = 'recall exception'
+        break;
+      case 'RETURN_EXPRESS':
+        result = 'free recall'
+        break;
+      case 'END':
+        result = 'wearing a clothes box'
+        break;
+      default:
+        result = 'first subscription'
+        break;
+    }
+  } else {
+    switch (status) {
+      case 'PRE_CREATE':
+        result = 'There is currently a box in the subscription cycle'
+        break;
+      case 'CREATE':
+        result = 'Please wait patiently for the delivery of the case'
+        break;
+      case 'LINK_UP':
+        result = 'Please wait patiently for the delivery of the case'
+        break;
+      case 'NOTIFY_EXPRESS':
+        result = 'Please wait patiently for the delivery of the case'
+        break;
+      case 'DISPATCHING':
+        result = 'Please wait patiently for the delivery of the case'
+        break;
+      case 'DELIVERY_COMPLETE':
+        result = 'how are you feeling? Let’s evaluate it.'
+        break;
+      case 'EVALUATED':
+        result = 'Limited time trial: 3 days'
+        break;
+      case 'PAY_COMPLETE':
+        result = '本期配送日: '
+        break;
+      case 'PAY_PART':
+        result = 'Free recall within 7 days'
+        break;
+      case 'RETURN_EXPRESS':
+        result = 'Please be patient and wait for the courier to pick up the item'
+        break;
+      case 'RETURN_EXCEPTION':
+        result = 'There is a recall exception in the current order'
+        break;
+      case 'END':
+        result = '本期配送日: '
+        break;
+      default:
+        result = 'Free delivery, try before you buy'
         break;
     }
   }
@@ -696,6 +844,7 @@ module.exports = {
   occasions: occasions,
   radioGroupChange: radioGroupChange,
   changeMsg: changeMsg,
+  changeMsgs: changeMsgs,
   getMonth: getMonth,
   alltype: alltype,
   requestUrl: requestUrl,

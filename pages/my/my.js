@@ -87,7 +87,7 @@ Page({
         var level = res.data.data.user.level
         if (level >= 40) {
           wx.navigateTo({
-            url: '../vip/vip',
+            url: '../guide/guide',
           })
         } else {
           wx.navigateTo({

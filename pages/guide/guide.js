@@ -2,6 +2,7 @@ var util = require("../../utils/util.js");
 const app = getApp();
 Page({
   data: {
+    showModalStatus: false,
     times: [
       { value: 1, lable: '每月一次' },
       { value: 3, lable: '两月一次' },
@@ -305,12 +306,21 @@ Page({
     app.editTabBar();
     this.checkAuth()
     var about = options.about;
+    var userInfo = wx.getStorageSync('userInfo')
     var that = this;
     if (about) {
       that.setData({
         about: about
       })
     }
+
+    if (userInfo) {
+      that.setData({
+        userInfo: userInfo
+      })
+      console.log(userInfo.nickName)
+    }
+    that.showModal()
   },
 
   /* 右上角转发*/
@@ -521,26 +531,43 @@ Page({
     })
   },
   /*取消弹窗*/
-  hideComfirm: function (e) {
-    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+  // hideComfirm: function (e) {
+  //   util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+  //   this.setData({
+  //     confirmNo: false
+  //   })
+  // },
+  hideModal: function (e) {
     this.setData({
-      confirmNo: false
+      showModalStatus: false
     })
+    wx.setStorageSync('vipTimes', 1)
   },
 
-  close: function (e) {
-    util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
-    this.setData({
-      confirmNo: false
-    })
+  showModal: function () {
+    var vipTimes = wx.getStorageSync('vipTimes')
+    var level = wx.getStorageSync('level')
+    console.log(level, vipTimes)
+    if (level >= 40 && !vipTimes) {
+      this.setData({
+        showModalStatus: true
+      })
+    }
   },
+  
+  // close: function (e) {
+  //   util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+  //   this.setData({
+  //     confirmNo: false
+  //   })
+  // },
 
-  openDoor: function (e) {
-    // util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
-    this.setData({
-      confirmNo: true
-    })
-  },
+  // openDoor: function (e) {
+  //   // util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)
+  //   this.setData({
+  //     confirmNo: true
+  //   })
+  // },
   /*switch开关*/ 
   // intelSwitch: function () {
   //   var intel = this.data.intel

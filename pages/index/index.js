@@ -328,6 +328,7 @@ Page({
       }.bind(this), 1000)
     }
   },
+  
   getOpenId: function() {
     var that = this
     wx.login({

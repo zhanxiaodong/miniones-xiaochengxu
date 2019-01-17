@@ -37,7 +37,7 @@
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{filters.toFix(item.realAmount)}} </view>
                    <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
               </view>
-              <view class="discount">{{item.discount * 10}}折</view>
+              <view class="discount">{{filters.toFix(item.discount * 10)}}折</view>
             </view>
             <view class="checkd" >
              <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />

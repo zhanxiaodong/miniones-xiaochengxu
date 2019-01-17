@@ -1,10 +1,9 @@
 <import src="../../components/dialog/dialog.wxml" />
 <template is="dialog" data="{{ ...$wux.dialog }}" />
 <view class="wrap">
-   <view class="header">
+   <!-- <view class="header">
       <view class="vip">
          <text style="color: #333333; font-weight: bold; font-size: 32rpx;">会员等级</text>
-         <!--<text class="action">我的幸运徽章</text>-->
       </view>
       <view class="explainBox">
          <view class="expla">快来加入迷你俱乐部</view>
@@ -12,12 +11,9 @@
          <view class="explain expla" style='font-size: 28rpx; color: #ffffff;'>
             每季度送￥600抵扣券
          </view>
-        <!--<scroll-view class="explainBut" scroll-y='true' scroll-into-view="{{toView}}">
-            <button class="butOne" bindtap="click">开启惊喜之旅</button>
-         </scroll-view>-->
-      </view>
-   </view>
-   <view class="content">
+      </view> 
+   </view>-->
+   <!-- <view class="content">
       <view class="title">
         <view class="titleLeft" style='color: #333333; font-size: 28rpx;'>送礼会员5大特权:
         
@@ -34,7 +30,7 @@
             <view class="listText">{{item.text}}</view>
          </view>
       </view>
-   </view>
+   </view> -->
    <view class="cardBox" id="red">
       <view class="cardTitle">开通服务</view>
       <view class="card">
@@ -73,6 +69,18 @@
                <radio bindtap="chooseYear"  color="#04b8a0" checked = "{{choose=='YEAR'}}"></radio>
             </view>
          </view>
+      </view>
+   </view>
+   <view style="width: 100%; height: 20px; background: #f6f8f7;"></view>
+    <view class="wrap-claim">
+      <view class="wrap-claim-title">会员特权</view>
+      <view class="vip-privileges">
+        <view class="vip-privilege-details" wx:for="{{vipPrivileges}}" wx:key="*this">
+           <view style="height: 80rpx;width: 80rpx;background:#d1f3ee;border-radius: 50%;margin-bottom:15px;">
+            <image class="vip-privilege-imgs" src="{{item.img}}"/>
+           </view>
+          <view class="vip-privilege-title">{{item.title}}</view>
+        </view>
       </view>
    </view>
    <view class="footer" bindtap="redeem"> <!--wx:if="{{level < 40}}"-->

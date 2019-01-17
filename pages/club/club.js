@@ -3,6 +3,35 @@ var viplev = require("../../utils/viplev.js")
 import { $wuxDialog } from '../../components/wux'
 Page({
   data: {
+    vipPrivileges: [{
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou.png?x-oss-process=image/resize,h_80,w_80',
+      title: '专属搭配'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou2.png',
+      title: '专享折扣'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou3.png',
+      title: '先试后买'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou4.png',
+      title: '往返包邮'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou5.png',
+      title: '生日礼盒'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou6.png',
+      title: '周年礼券'
+    },
+    {
+      img: 'https://miniany.oss-cn-beijing.aliyuncs.com/minianys/Zhekou7.png',
+      title: '免费订阅'
+    }
+    ],
     conList:[
       { img: "/images/vip-one.png", text: "免服务费"},
       { img: "/images/vip-two.png", text: "会员折上折" },

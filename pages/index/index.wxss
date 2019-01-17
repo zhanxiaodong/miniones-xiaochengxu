@@ -91,6 +91,9 @@
   .button-bottom {
     padding-bottom: 60rpx;
     text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
   }
 
   .picture {
