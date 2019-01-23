@@ -83,8 +83,10 @@ Page({
   choose: function(event) {
     var babyId = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
+      //url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
+       url: "../index/index?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
     })
+    console.log(babyId)
   },
   add: function(e) {
     util.saveFormId(wx.getStorageSync('openId'), e.detail.formId)

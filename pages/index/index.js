@@ -89,13 +89,20 @@ Page({
     var babyCount = this.data.babyCount
     if (babyCount != 1){
       wx.navigateTo({
-        url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
+        // url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
+         url: "../affirm/affirm?babyId=" + this.data.baby.id
+        // url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
       })
     }else{
       wx.navigateTo({
         url: "../affirm/affirm?babyId=" + this.data.baby.id + '&stylistId=' + this.data.stylist.id
       })
     }
+  },
+  gotobaby: function() {
+    wx.navigateTo({
+      url: '../babyInfo/babyInfo?stylistId' + this.data.stylist.id
+    })
   },
   /**
    * 确认系统盒子
@@ -189,6 +196,7 @@ Page({
     }
   },
   onLoad: function(options) {
+    
      app.editTabBar();
     var that = this
     that.checkAuth()
@@ -225,6 +233,31 @@ Page({
         });
       }
     })
+
+    // var that = this
+    // var boxId = options.boxId
+    // var babyId
+    // var stylistId
+    // if (boxId) {
+    //   wx.request({
+    //     url: util.requestUrl + 'box/findById?boxId=' + boxId,
+    //     success: function (res) {
+    //       if (res.data.data) {
+    //         babyId = res.data.data.babyId
+    //         stylistId = res.data.data.stylistId
+    //         that.setData({
+    //           stylistId: stylistId,
+    //           babyId: babyId
+    //         })
+    //       }
+    //     }
+    //   })
+    // } else {
+    //   that.setData({
+    //     stylistId: options.stylistId,
+    //     babyId: options.babyId
+    //   })
+    // }
   },
   onShow: function() {
     var needAuth = this.data.needAuth

@@ -11,7 +11,15 @@ Page({
       })
     }
     this.findBoxTrack()
+    
   },
+
+  gobuy: function () {
+    wx.navigateTo({
+      url: '../buy/buy?boxId=' + this.data.boxId
+    })
+  },
+
   findBoxTrack: function() {
     var that = this
     var boxId = that.data.boxId
@@ -24,6 +32,7 @@ Page({
             that.setData({
               progressData: result.boxTrack
             })
+            console.log(result.boxTrack)
           }
         }
       })

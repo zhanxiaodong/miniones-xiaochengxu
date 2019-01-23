@@ -1,0 +1,9 @@
+
+var filters = {
+  toFix: function (value) {
+    return value.substring(0,1)//截取第一个字符
+  }
+}
+module.exports = {
+  toFix: filters.toFix
+}

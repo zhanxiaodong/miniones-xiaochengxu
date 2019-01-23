@@ -84,21 +84,21 @@ App({
       borderStyle: "white",
       list: [
         { 
-          "selectedText": "VIP",
-          "text": "VIP",
-          "selectedIconPath": "/images/bangdan-4.png",
-          "iconPath": "/images/bangdan-3.png",
-          "pagePath": "/pages/guide/guide",
-          "clas": "menu-item",
-          "selected": false
-        },
-
-        { 
           "selectedText": "衣盒",
           "text": "衣盒",
           "selectedIconPath": "/images/yuedu-2.png",
           "iconPath": "/images/yuedu.png",
           "pagePath": "/pages/index/index",
+          "clas": "menu-item",
+          "selected": false
+        },
+
+        { 
+          "selectedText": "VIP",
+          "text": "VIP",
+          "selectedIconPath": "/images/bangdan-4.png",
+          "iconPath": "/images/bangdan-3.png",
+          "pagePath": "/pages/guide/guide",
           "clas": "menu-item",
           "selected": false
         },

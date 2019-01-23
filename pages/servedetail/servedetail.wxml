@@ -32,9 +32,10 @@
      
      </view>
   </view>
-  <button class="server" open-type='contact'>
+    <button class="server" open-type='contact'>
       <image style="height: 36rpx; width: 36rpx;padding-right: 22rpx;" src="{{src}}"></image>
       <view class="server-detail">迷你王国客服中心</view>
     </button>
+     <button style="position:fixed;bottom:40rpx;left:225rpx;" class="repair-one" bindtap="gobuy" wx:if="{{progressData.length == 4}}">去购买</button>
 </view>
  

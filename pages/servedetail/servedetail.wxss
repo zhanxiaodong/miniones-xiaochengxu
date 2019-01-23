@@ -3,6 +3,16 @@ page {
   background-color: #f6f8f7;
 }
 
+.repair-one {
+    line-height: 90rpx;
+    font-size: 28rpx;
+    font-weight: 600;
+    width: 300rpx;
+    border-radius: 60rpx;
+    color: #FFFFFF;
+    background: linear-gradient( -90deg, rgb(4,184,160) 0%, rgb(5,212,184) 100%);
+  }
+
 .header{
   width:100%;
   padding:40rpx 0 40rpx 40rpx;
