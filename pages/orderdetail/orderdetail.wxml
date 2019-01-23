@@ -137,12 +137,12 @@
       <view class="vipPro">
         <view class="twoPro">商品价格差异</view>
         <view class="proActive" wx:if="{{returnException.difPrice>0}}">-￥{{returnException.difPrice}}</view>
-        <view class="proActive" wx:if="{{returnException.difPrice<0}}">￥{{0-returnException.difPrice}}</view>
+        <view class="proActive" wx:if="{{returnException.difPrice<=0}}">￥{{0-returnException.difPrice}}</view>
       </view>
       <view class="vipPro">
         <view class="twoPro">优惠结算差异</view>
         <view class="proActive" wx:if="{{returnException.needBackPayAmount>0}}">-￥{{returnException.needBackPayAmount}}</view>
-        <view class="proActive" wx:if="{{returnException.needBackPayAmount<0}}">￥{{0-returnException.needBackPayAmount}}</view>
+        <view class="proActive" wx:if="{{returnException.needBackPayAmount<=0}}">￥{{0-returnException.needBackPayAmount}}</view>
       </view>
       <!--<view class="vipPro" hidden='{{!payBoxInfo.otherAmount}}'>
         <view class="twoPro">递增优惠</view>

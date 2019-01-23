@@ -13,7 +13,7 @@
       <view class="con clearfix">
           <view class="conRight rightTop" style="width: 100%!important; margin-left: 40rpx;">
              <view class="explain">
-                <view class="conText">全选（整盒留下7折叠加折扣）</view>
+                <view class="conText">全选（整盒留下3折）</view>
     <view style="color: #999999; font-size: 24rpx; padding-top: 8rpx;">优惠支付限时： {{actEndTime.hou}}：{{actEndTime.min}}：{{actEndTime.sec}}</view>
               </view>
               <view class="weui-cell__hd weui-check__hd_in-checkbox flex" style="float: right; padding-right: 80rpx;" bindtap="bindAllSelect">
@@ -37,7 +37,7 @@
                    <view class='fontWeight' style="font-size: 32rpx;">￥ {{filters.toFix(item.realAmount)}} </view>
                    <view style="margin-left: 20rpx;color: #999999;font-size: 24rpx;text-decoration:line-through;">￥ {{filters.toFix(item.initAmount)}}</view>
               </view>
-              <view class="discount">{{item.discount * 10}}折</view>
+              <view class="discount">{{item.discount}}折</view>
             </view>
             <view class="checkd" >
              <checkbox class="weui-check" value="{{item.id}}" checked="{{item.checked}}" />
@@ -51,7 +51,7 @@
    </view>
    <view style="height: 20rpx; background-color: #f6f8f7;"></view>
    <view class="content-price">
-      <view class="content-price-left">合计:</view>
+      <view class="content-price-left">合计({{otherdesc}}):</view>
       <view class="content-price-right">
           <view class="content-price-icon">￥</view>
           <view class="content-price-show">{{goodsTotal}}</view>
@@ -74,13 +74,13 @@
              <view class="twoPro">会员折扣</view>
              <view  class="proActive" style="font-size: 24rpx;">-￥{{discountPrice}}</view>
           </view>
-          <view class="vipPro ">
+          <!-- <view class="vipPro ">
              <view class="twoPro">
               <view style="font-size:24rpx;color:#999999;">递增优惠({{otherdesc}})</view>
               <view class="vipicon">vip</view>
              </view>
              <view  class="proActive" style="font-size: 24rpx;">-￥{{otherAmount}}</view>
-          </view>
+          </view> -->
        </view>
        <view class="vipBot">
            <view class="botTop">
