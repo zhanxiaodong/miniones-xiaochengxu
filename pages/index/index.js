@@ -88,12 +88,12 @@ Page({
   boxNone: function() {
     var babyCount = this.data.babyCount
     if (babyCount != 1){
-      wx.navigateTo({
-        // url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
-         url: "../affirm/affirm?babyId=" + this.data.baby.id
-        // url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
-      })
-    }else{
+    //   wx.navigateTo({
+    //     // url: '../babyInfo/babyInfo?stylistId=' + this.data.stylist.id
+    //      url: "../affirm/affirm?babyId=" + this.data.baby.id
+    //     // url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
+    //   })
+    // }else{
       wx.navigateTo({
         url: "../affirm/affirm?babyId=" + this.data.baby.id + '&stylistId=' + this.data.stylist.id
       })
@@ -101,7 +101,7 @@ Page({
   },
   gotobaby: function() {
     wx.navigateTo({
-      url: '../babyInfo/babyInfo?stylistId' + this.data.stylist.id
+      url: '../babyInfo/babyInfo?setDefault=setDefault'
     })
   },
   /**

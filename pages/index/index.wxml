@@ -5,19 +5,21 @@
   <button style='height: 100%;opacity: 0.1;' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo"></button>
 </view>
 <view class="header">
-      <view clsaa="header-left">
-         <view class="header-info">
-            <view class="header-place">{{weather.city.data}}</view><!--<input class='m-bbt' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled></input>-->
-            <view class="header-wea">{{weather.weather.data}}</view>
-            <view class="header-tem">{{weather.temperature.data}}°C</view>
-         </view>
-        <view class="infoView-two">{{gift}}</view>
-        <!-- <view style="height: 60rpx" wx:if='{{!nextMessage}}'>{{nextMessage}}</view> -->
-      </view>
-       <!--<image class="header-right" src="{{userInfo.avatarUrl}}"/>-->
-      <view class="addbaby" wx:if="{{boxCount > 0}}" bindtap="gotobaby">{{filters.toFix(baby.call)}}</view> 
-
+  <view clsaa="header-left">
+    <view class="header-info">
+      <view class="header-place">{{weather.city.data}}</view>
+      <!--<input class='m-bbt' placeholder-class='plhStyle' type='number' maxlength='50' placeholder='' bindinput="bindKeyInput" value='{{province}} {{city}}' disabled></input>-->
+      <view class="header-wea">{{weather.weather.data}}</view>
+      <view class="header-tem">{{weather.temperature.data}}°C</view>
     </view>
+    <view class="infoView-two">{{gift}}</view>
+    <!-- <view style="height: 60rpx" wx:if='{{!nextMessage}}'>{{nextMessage}}</view> -->
+  </view>
+  <view bindtap="gotobaby">
+    <image class="header-right" wx:if="{{baby.bodyPic != '/images/photo.png'}}" src="{{baby.bodyPic}}" />
+    <view class="addbaby" wx:if="{{baby.bodyPic == '/images/photo.png'}}">{{filters.toFix(baby.call)}}</view>
+  </view>
+</view>
 <view class="page" id="repair-page" style="z-index: 2;">
   <view class="page__bd" id="repair_bd">
     <!--<view class="weui-navbar">
@@ -30,11 +32,11 @@
     <!--<view bindtap="goAward" class="award" style="position:absolute;top:10rpx;background-color:#f2f2f2;width:672rpx;line-height:54rpx;text-align:center;border-radius:60rpx;font-size:28rpx;color:#999999;">
      点击参与，有奖调研征集正在进行中...
     </view>-->
-    
+
     <view class="weui-tab__panel" id="repair-two">
       <view class='infoView'>
-            <!-- <view class="infoView-one">订阅美好童年</view> -->
-            
+        <!-- <view class="infoView-one">订阅美好童年</view> -->
+
       </view>
       <view class="picture">
         <image src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shouye-replace.png?x-oss-process=image/resize,h_200,w_200" class='allow'></image>
@@ -52,72 +54,72 @@
   </view>
 </view>
 <view class="theme">
-   <view class="theme-container">
-     <view class="theme-title">本次推荐主题</view>
-     <view class="theme-detail">根据孩子的年龄段、季节以及地域综合推荐，确保每一个盒子都不同！</view>
-     <view class="theme-intro">
-       <block wx:for="{{themList}}" wx:key="item.title">
+  <view class="theme-container">
+    <view class="theme-title">本次推荐主题</view>
+    <view class="theme-detail">根据孩子的年龄段、季节以及地域综合推荐，确保每一个盒子都不同！</view>
+    <view class="theme-intro">
+      <block wx:for="{{themList}}" wx:key="item.title">
         <view class="theme-intro-item">
-          <image class="theme-intro-item-icon" src="{{item.img}}"/>
+          <image class="theme-intro-item-icon" src="{{item.img}}" />
           <view class="theme-intro-item-title">{{item.title}}</view>
         </view>
       </block>
-     </view>
-   </view>
+    </view>
+  </view>
 </view>
 <view class="theme">
-   <view class="theme-container">
-     <view class="theme-title">自动更新档案</view>
-     <view class="theme-detail">从第一个盒子到现在，孩子已进一步成长，迷你王国会自动为孩子更新档案，您也可以重新测量一下孩子的成长概况，进一步修正孩子的个性档案。</view>
-     <view class="theme-intro">
-        <view class="theme-intro-item">
-          <image class="theme-intro-item-icon"  src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengao.png"/>
-          <!--<view class="theme-intro-item-container">-->
-          <view class="theme-intro-item-title">{{baby.height}}cm</view>
-          <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
-          <!--</view>--> 
-       </view>
-       <view class="theme-intro-item">
-          <image class="theme-intro-item-icon"  src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong.png"/>
-          <!--<view class="theme-intro-item-container">-->
-          <view class="theme-intro-item-title">{{baby.weight}}kg</view>
-          <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
-          <!--</view>--> 
-       </view>
-       <view class="theme-intro-item">
-          <image class="theme-intro-item-icon"  src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong0.png"/>
-          <!--<view class="theme-intro-item-container">-->
-          <view class="theme-intro-item-title">{{baby.size}}sz</view>
-          <image src="/images/chiping.png" class="theme-intro-item-title-img"/>
-          <!--</view>--> 
-       </view>
+  <view class="theme-container">
+    <view class="theme-title">自动更新档案</view>
+    <view class="theme-detail">从第一个盒子到现在，孩子已进一步成长，迷你王国会自动为孩子更新档案，您也可以重新测量一下孩子的成长概况，进一步修正孩子的个性档案。</view>
+    <view class="theme-intro">
+      <view class="theme-intro-item">
+        <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/shengao.png" />
+        <!--<view class="theme-intro-item-container">-->
+        <view class="theme-intro-item-title">{{baby.height}}cm</view>
+        <image src="/images/chiping.png" class="theme-intro-item-title-img" />
+        <!--</view>-->
       </view>
-     <view class="content-repair" bindtap="babyNext">我要修正</view>
-   </view>
+      <view class="theme-intro-item">
+        <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong.png" />
+        <!--<view class="theme-intro-item-container">-->
+        <view class="theme-intro-item-title">{{baby.weight}}kg</view>
+        <image src="/images/chiping.png" class="theme-intro-item-title-img" />
+        <!--</view>-->
+      </view>
+      <view class="theme-intro-item">
+        <image class="theme-intro-item-icon" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/tizhong0.png" />
+        <!--<view class="theme-intro-item-container">-->
+        <view class="theme-intro-item-title">{{baby.size}}sz</view>
+        <image src="/images/chiping.png" class="theme-intro-item-title-img" />
+        <!--</view>-->
+      </view>
+    </view>
+    <view class="content-repair" bindtap="babyNext">我要修正</view>
+  </view>
 </view>
 <view class="footer">-让优秀的孩子更优秀-</view>
 <template is="tabBar" data="{{tabBar}}" />
 <!--屏幕背景变暗的背景  -->
-<view class="commodity_screen" id="sb"  bindtap="hideModal" wx:if="{{showModalStatus}}" style="z-index: 5;">
-<view style="padding: 300rpx 27rpx 0 27rpx; position: relative; z-index: 10;" wx:if="{{showModalStatus}}">
-  <view style="display: flex; flex-direction: column; align-items: center;z-index: 10;">
-    <image style="position: absolute; width: 640rpx; height: 480rpx;z-index: 10;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/console.png"></image>
-    <view style="width: 48rpx; height: 88rpx;z-index: 10; position: absolute; margin-top: 440rpx;">
-      <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
-      <image bindtap="hideModal" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
+<view class="commodity_screen" id="sb" bindtap="hideModal" wx:if="{{showModalStatus}}" style="z-index: 5;">
+  <view style="padding: 300rpx 27rpx 0 27rpx; position: relative; z-index: 10;" wx:if="{{showModalStatus}}">
+    <view style="display: flex; flex-direction: column; align-items: center;z-index: 10;">
+      <image style="position: absolute; width: 640rpx; height: 480rpx;z-index: 10;" src="https://miniany.oss-cn-beijing.aliyuncs.com/minianys/console.png"></image>
+      <view style="width: 48rpx; height: 88rpx;z-index: 10; position: absolute; margin-top: 440rpx;">
+        <view style="width: 1px; height: 40rpx; background-color: #999; margin-left: 24rpx;"></view>
+        <image bindtap="hideModal" src="/images/popup-close.png" style="height: 48rpx; width: 48rpx;"></image>
+      </view>
+    </view>
+    <view style="display: flex; flex-direction: column; align-items: center;position: relative; z-index: 22; width: 698rpx; height: 480rpx;padding-top: 60rpx;" wx:if="{{showModalStatus}}">
+      <view style="flex-grow: 1; text-align: center;">
+        <view style="font-size: 24rpx; color: #fff; ">{{nickName}}</view>
+        <view style="font-size: 32rpx; color: #fff;">{{userLev}}</view>
+      </view>
+      <view style="text-align: center; flex-grow: 0.5">
+        <view style="font-size: 28rpx; color: #000000; line-height: 50rpx;">开启档案成功！ </view>
+        <view style="font-size: 28rpx; color: #000000;">赠送您免押金先试后买权益 </view>
+      </view>
+      <view style="font-size: 28rpx; color: #fff; flex-grow: 1.3;" bindtap="boxNone"> 约个衣盒试试
+      </view>
     </view>
   </view>
-  <view style="display: flex; flex-direction: column; align-items: center;position: relative; z-index: 22; width: 698rpx; height: 480rpx;padding-top: 60rpx;" wx:if="{{showModalStatus}}">
-    <view style="flex-grow: 1; text-align: center;">
-      <view style="font-size: 24rpx; color: #fff; ">{{nickName}}</view>
-      <view style="font-size: 32rpx; color: #fff;">{{userLev}}</view>
-    </view>
-    <view style="text-align: center; flex-grow: 0.5">
-      <view style="font-size: 28rpx; color: #000000; line-height: 50rpx;">开启档案成功！ </view>
-      <view style="font-size: 28rpx; color: #000000;">赠送您免押金先试后买权益 </view>
-    </view>
-    <view style="font-size: 28rpx; color: #fff; flex-grow: 1.3;" bindtap="boxNone"> 约个衣盒试试
-    </view>
-  </view>
-</view>
 </view>

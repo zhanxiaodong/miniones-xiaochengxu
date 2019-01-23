@@ -68,6 +68,9 @@ Page({
           }
         }
       })
+      that.setData({
+        boxId: boxId
+      })
     } else {
       that.setData({
         stylistId: options.stylistId,
@@ -77,7 +80,6 @@ Page({
     var chooseDate = dateUtils.formatDate(dateUtils.plusDay(new Date(), 3))
     var today = dateUtils.formatDate2(dateUtils.plusDay(new Date(), 3))
     that.setData({
-      boxId: boxId,
       date: today,
       chooseDate: chooseDate
     })

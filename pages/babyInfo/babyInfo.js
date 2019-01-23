@@ -11,11 +11,11 @@ Page({
   onLoad: function(options) {
     console.log(111,options)
     var that = this;
-    var stylistId = options.stylistId
+    var setDefault = options.setDefault
 
-    if (stylistId) {
+    if (setDefault) {
       that.setData({
-        stylistId: stylistId
+        setDefault: setDefault
       })
     }
     var edit = options.edit
@@ -82,9 +82,14 @@ Page({
   },
   choose: function(event) {
     var babyId = event.currentTarget.dataset.id
-    wx.navigateTo({
-      //url: "../affirm/affirm?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
-       url: "../index/index?babyId=" + babyId + '&stylistId=' + this.data.stylistId,
+    var openId = wx.getStorageSync('openId')
+    wx.request({
+      url: util.requestUrl + 'baby/updateBabyDefault?openId=' + openId + '&babyId=' + babyId,
+      success: function (res) {
+        wx.navigateTo({
+          url: "../index/index",
+        })
+      }
     })
     console.log(babyId)
   },

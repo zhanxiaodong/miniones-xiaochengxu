@@ -802,7 +802,6 @@ Page({
     payBoxInfo.otherDic = this.data.otherDic
     payBoxInfo.avgPrice = this.data.avgPrice
     item.payBoxInfo = payBoxInfo
-    debugger
     return item
   },
   hideComfirm: function(e) {
