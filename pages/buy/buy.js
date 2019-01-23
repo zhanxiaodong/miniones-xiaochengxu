@@ -8,8 +8,9 @@ Page({
     clothNo: false,
     height: '',
     show: true,
-    otherdesc: '3件及以上8折，整盒7折',
+    otherdesc: '2件及以上3.3折，整盒3折',
     other: false,
+    otherDic: 0.35,
     otherAmount: 0,
     showModalStatus: false,
     confirmNo: false,
@@ -281,6 +282,40 @@ Page({
     var goodsTotal = 0.00
     var valusLen = 0
     var checkList
+
+    if (!currentAllSelect) {
+      this.setData({
+        other: true,
+        otherdesc: '整盒3折',
+        otherDic: 0.3
+      })
+    } else if (valusLen >= 3) {
+      this.setData({
+        other: true,
+        otherdesc: '3件及以上3.2折',
+        otherDic: 0.32
+      })
+    } else if (valusLen >= 1) {
+      this.setData({
+        other: true,
+        otherdesc: '2件内3.5折',
+        otherDic: 0.35
+      })
+    } else {
+      this.setData({
+        other: false,
+        otherdesc: '整盒3折',
+        otherDic: 0.3
+      })
+    }
+    if (currentAllSelect) {
+      this.setData({
+        other: true,
+        otherdesc: '整盒3折',
+        otherDic: 0.3
+      })
+    }
+    var otherDic = this.data.otherDic
     if (currentAllSelect) {
       for (var i = 0; i < list.length; i++) {
         var curItem = list[i];
@@ -292,37 +327,14 @@ Page({
       for (var i = 0; i < list.length; i++) {
         var curItem = list[i];
         curItem.checked = true;
+        list[i].discount = (otherDic * 10).toFixed(1)
+        list[i].realAmount = list[i].initAmount * otherDic
         goodsTotal = goodsTotal + list[i].realAmount
         checkList.push(curItem.id)
       }
       valusLen = this.data.goodsList.length
     }
-    if (!currentAllSelect) {
-      this.setData({
-        other: true,
-        otherdesc: '整盒7折',
-        otherDic: 0.3
-      })
-    } else if (valusLen >= 3) {
-      this.setData({
-        other: true,
-        otherdesc: '3件及以上8折',
-        otherDic: 0.2
-      })
-    } else {
-      this.setData({
-        other: false,
-        otherdesc: '整盒7折',
-        otherDic: 0.3
-      })
-    }
-    if (currentAllSelect) {
-      this.setData({
-        other: true,
-        otherdesc: '整盒7折',
-        otherDic: 0.3
-      })
-    }
+    
     this.setData({
       goodsList: list,
       checkList: checkList,
@@ -394,15 +406,15 @@ Page({
         vipoprice = vipoprice - vipoprice * 0.1
       }
       //满减折扣(不可跟满减优惠券同事使用)
-      if (this.data.other && totalPrice > 0) {
-        var voucher = this.data.voucher
-        if (!voucher || (voucher && !voucher.condition)) {
-          otherAmount = totalPrice * this.data.otherDic
-          totalPrice = totalPrice - otherAmount
-          subPrice = subPrice + otherAmount
-          vipoprice = vipoprice - vipoprice * this.data.otherDic
-        }
-      }
+      // if (this.data.other && totalPrice > 0) {
+      //   var voucher = this.data.voucher
+      //   if (!voucher || (voucher && !voucher.condition)) {
+      //     otherAmount = totalPrice * this.data.otherDic
+      //     totalPrice = totalPrice - otherAmount
+      //     subPrice = subPrice + otherAmount
+      //     vipoprice = vipoprice - vipoprice * this.data.otherDic
+      //   }
+      // }
       //平均价
       var chooseCount = this.data.chooseCount
       if (chooseCount && totalPrice > 0) {
@@ -564,10 +576,39 @@ Page({
     } else {
       currentAllSelect = false
     }
+
+    if (goodsList.length == valusLen) {
+      this.setData({
+        other: true,
+        otherdesc: '整盒3折',
+        otherDic: 0.3
+      })
+    } else if (valusLen >= 3) {
+      this.setData({
+        other: true,
+        otherdesc: '3件及以上3.2折',
+        otherDic: 0.32
+      })
+    } else if (valusLen >= 1) {
+      this.setData({
+        other: true,
+        otherdesc: '2件内3.5折',
+        otherDic: 0.35
+      })
+    } else {
+      this.setData({
+        other: false,
+        otherdesc: '整盒3折',
+        otherDic: 0.3
+      })
+    }
+    var otherDic = this.data.otherDic
     for (var i = 0; i < goodsLen; ++i) {
       goodsList[i].checked = false
       for (var j = 0; j < valusLen; ++j) {
         var clothNo
+        goodsList[i].discount = (otherDic * 10).toFixed(1)
+        goodsList[i].realAmount = goodsList[i].initAmount * otherDic
         if (goodsList[i].id == values[j]) {
           goodsList[i].checked = true;
           goodsTotal = goodsTotal + goodsList[i].realAmount
@@ -579,25 +620,7 @@ Page({
       }
 
     }
-    if (goodsList.length == valusLen) {
-      this.setData({
-        other: true,
-        otherdesc: '整盒7折',
-        otherDic: 0.3
-      })
-    } else if (valusLen >= 3) {
-      this.setData({
-        other: true,
-        otherdesc: '3件及以上8折',
-        otherDic: 0.2
-      })
-    } else {
-      this.setData({
-        other: false,
-        otherdesc: '整盒7折',
-        otherDic: 0.3
-      })
-    }
+    
     this.setData({
       goodsList: goodsList,
       checkList: values,
@@ -776,8 +799,10 @@ Page({
     payBoxInfo.orderPay = this.data.orderPay
     payBoxInfo.discountPrice = this.data.discountPrice
     payBoxInfo.otherAmount = this.data.otherAmount
+    payBoxInfo.otherDic = this.data.otherDic
     payBoxInfo.avgPrice = this.data.avgPrice
     item.payBoxInfo = payBoxInfo
+    debugger
     return item
   },
   hideComfirm: function(e) {
