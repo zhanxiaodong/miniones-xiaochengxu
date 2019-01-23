@@ -16,7 +16,7 @@
             <text class='card-right-title'>{{item.type != 'EXPVOUCHER' ? '迷礼会员专享' : '新人专享'}}</text>
             <text class='card-right-title' style="padding-left: 10rpx;">{{item.typeDesc}}</text>
           </view>  
-          <view class='card-right-intro'>通用优惠券</view>
+          <view class='card-right-intro'>{{item.type != 'EXPVOUCHER' ? '通用优惠券' : '抵扣服务费'}}</view>
           <view class='card-right-data'>有效期：{{item.effect}}</view>
       </view>
   </view>

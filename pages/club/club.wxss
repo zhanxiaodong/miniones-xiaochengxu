@@ -100,12 +100,12 @@ line-height: 80rpx;
   width:100%;
   height:60rpx;
   line-height: 60rpx;
-  font-size: 28rpx;
-  color: #333;
+  font-size: 32rpx;
+  color: #666;
+  font-weight: bold;
 }
 .cardBox{
   width:100%;
-  margin-top:20rpx;
   padding:32rpx;
    background: #fff;
 }
@@ -177,7 +177,7 @@ font-weight: bold;
 }
 /* 第二张卡片 */
 .cardTwo{
-  background: #666666;
+  background: #04b8a0;
   margin-bottom: 20rpx;
 }
 .footer{
@@ -270,4 +270,45 @@ font-weight: bold;
   font-size: 28rpx;
   margin-bottom: 40rpx;
   margin-top: 40rpx;
+}
+
+.wrap-claim {
+  height: 540rpx;
+  background:#fff;
+
+}
+
+.wrap-claim-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #666666;
+  padding:50rpx 50rpx 50rpx 20rpx; 
+}
+
+.vip-privileges {
+  /* display: flex;
+  flex-flow: row nowrap; */
+  justify-content: space-around;
+  padding-bottom: 80rpx;
+}
+
+.vip-privilege-details {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  float:left;
+  width:25%;
+  margin-bottom:40rpx;
+}
+
+.vip-privilege-imgs {
+  width: 60rpx;
+  height: 60rpx;
+  margin:10rpx 0 0 10rpx
+}
+
+.vip-privilege-title {
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: 400;
 }

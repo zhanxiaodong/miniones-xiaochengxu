@@ -523,7 +523,6 @@ Page({
       success: function (res) {
         var reault = res.data.data
         if (reault && reault.goodsEvaList){
-          
           var goodsEvaList = reault.goodsEvaList
           var goodsEval = []
           for (var i = 0; i < goodsEvaList.length; i++) {

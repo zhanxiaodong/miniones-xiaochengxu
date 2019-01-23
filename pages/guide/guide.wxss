@@ -1088,3 +1088,9 @@ border: none;
   justify-content: space-around;
   padding-bottom: 80rpx;
 }
+
+/*弹窗*/
+#sb {
+  background:rgba(0, 0, 0, 0.5); 
+  opacity: 1;
+}
