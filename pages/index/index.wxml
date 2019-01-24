@@ -15,10 +15,16 @@
     <view class="infoView-two">{{gift}}</view>
     <!-- <view style="height: 60rpx" wx:if='{{!nextMessage}}'>{{nextMessage}}</view> -->
   </view>
-  <view bindtap="gotobaby">
-    <image class="header-right" wx:if="{{baby.bodyPic != '/images/photo.png'}}" src="{{baby.bodyPic}}" />
-    <view class="addbaby" wx:if="{{baby.bodyPic == '/images/photo.png'}}">{{filters.toFix(baby.call)}}</view>
-  </view>
+    <view style="display:flex;flex-direction:column;align-items:center;" bindtap="gotobaby" wx:if="{{boxStatus == 'NONE' || boxStatus =='PAY_COMPLETE' || boxStatus == 'END' || boxStatus == 'CLOSE'}}">
+      <image class="header-right" wx:if="{{baby.bodyPic != '/images/photo.png'}}" src="{{baby.bodyPic}}" />
+      <view class="addbaby" wx:if="{{baby.bodyPic == '/images/photo.png'}}">{{filters.toFix(baby.call)}}</view>
+      <view style="font-size:32rpx;font-weight:600;color:#333333;">请选择宝贝</view>
+    </view>
+   <view style="display:flex;flex-direction:column;align-items:center;" bindtap="nogotobaby" wx:if="{{boxStatus != 'NONE' && boxStatus != 'PAY_COMPLETE' && boxStatus != 'END' && boxStatus != 'CLOSE' }}">
+      <image class="header-right" wx:if="{{baby.bodyPic != '/images/photo.png'}}" src="{{baby.bodyPic}}" />
+      <view class="addbaby" wx:if="{{baby.bodyPic == '/images/photo.png'}}">{{filters.toFix(baby.call)}}</view>
+      <view style="font-size:32rpx;font-weight:600;color:#333333;">您的宝贝</view>
+   </view>
 </view>
 <view class="page" id="repair-page" style="z-index: 2;">
   <view class="page__bd" id="repair_bd">

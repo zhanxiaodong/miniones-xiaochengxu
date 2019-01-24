@@ -32,6 +32,21 @@ Page({
     sliderOffset: 0,
     sliderLeft: 0
   },
+  /* 右上角转发*/
+  onShareAppMessage: function (res) {
+    var that = this;
+    return {
+      title: '给你孩子免费寄去搭配衣盒，全球品牌先试后买',
+      path: '/pages/guide/guide',
+      imageUrl: "https://miniany.oss-cn-beijing.aliyuncs.com/minianys/share-guide.jpg",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
+  },
   
    /* 修改孩子信息*/
   babyNext: function () {
@@ -102,6 +117,11 @@ Page({
   gotobaby: function() {
     wx.navigateTo({
       url: '../babyInfo/babyInfo?setDefault=setDefault'
+    })
+  },
+  nogotobaby: function () {
+    wx.showToast({
+      title: '当前有盒子',
     })
   },
   /**

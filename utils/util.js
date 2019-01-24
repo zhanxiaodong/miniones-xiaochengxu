@@ -311,7 +311,7 @@ function changeMsg(status, type) {
         result = transport('second')
         break;
       case 'LINK_UP':
-        result = transport('first')
+        result = transport('second')
         break;
       case 'NOTIFY_EXPRESS':
         result = transport('second')

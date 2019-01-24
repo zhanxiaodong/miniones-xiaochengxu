@@ -312,10 +312,17 @@ Page({
              content: res.data.message
            })
          } else {
-           wx.navigateTo({
-             url: '../index/index',
+           wx.showToast({
+             title: '预约成功',
+             duration: 1000
            })
+           setTimeout(function () {
+             wx.navigateTo({
+               url: '../index/index',
+             })
+           }, 1000) 
          }
+         console.log(code)
        }
      })
     console.log(box)
@@ -338,9 +345,15 @@ Page({
       method: 'POST',
       data: item,
       success: function (res) {
-        wx.redirectTo({
-          url: '../index/index',
+        wx.showToast({
+          title: '预约成功',
+          duration: 1000
         })
+        setTimeout(function () {
+          wx.redirectTo({
+            url: '../index/index',
+          })
+        }, 1000) 
       }
     })
   }

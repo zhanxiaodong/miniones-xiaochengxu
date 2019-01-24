@@ -231,7 +231,12 @@ page {
   height:80rpx;
   width:80rpx;
   border-radius:40rpx;
-  background-color:red;
+  background-color:#999999;
+  text-align:center;
+  line-height:80rpx;
+  font-size:48rpx;
+  font-weight:600;
+  color:#fff;
 }
 
 /*主题*/

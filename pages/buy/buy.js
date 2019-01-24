@@ -5,6 +5,7 @@ import {
 } from '../../components/wux'
 Page({
   data: {
+    orderWords:'',
     clothNo: false,
     height: '',
     show: true,
@@ -287,7 +288,8 @@ Page({
       this.setData({
         other: true,
         otherdesc: '整盒3折',
-        otherDic: 0.3
+        otherDic: 0.3,
+        orderWords: '确认订单'
       })
     } else if (valusLen >= 3) {
       this.setData({
@@ -312,7 +314,8 @@ Page({
       this.setData({
         other: true,
         otherdesc: '整盒3折',
-        otherDic: 0.3
+        otherDic: 0.3,
+        orderWords: '一键退件'
       })
     }
     var otherDic = this.data.otherDic
@@ -593,13 +596,16 @@ Page({
       this.setData({
         other: true,
         otherdesc: '2件内3.5折',
-        otherDic: 0.35
+        otherDic: 0.35,
+        orderWords: '订单确认'
       })
-    } else {
+    }
+    else {
       this.setData({
         other: false,
         otherdesc: '整盒3折',
-        otherDic: 0.3
+        otherDic: 0.3,
+        orderWords: '一键退件'
       })
     }
     var otherDic = this.data.otherDic
